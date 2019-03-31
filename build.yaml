@@ -1,0 +1,17 @@
+targets:
+  $default:
+    builders:
+      built_value_generator|built_value:
+        enabled: true
+        generate_for:
+          exclude: ["**.ser.dart"]
+
+      built_value_generator|built_serializers_for:
+        enabled: true
+        generate_for:
+          include: ["**.ser.dart"]
+
+      source_gen|combining_builder:
+        enabled: true
+        generate_for:
+          exclude: ["**.ser.dart"]
