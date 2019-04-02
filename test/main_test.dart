@@ -49,17 +49,20 @@ class DartRoute {
 
 class DartRouterPlugin implements RouterPlugin<DartRoute> {
   @override
-  DartRoute createRoute(RouteFuture future) {
-    return DartRoute(future.command);
-  }
+  set mutator(RouterServiceMutator mutator) {}
 
   @override
-  Future replace(
-      RouteFuture future, DartRoute oldRoute, DartRoute newRoute) async {}
+  Future replace(ActiveRoute oldRoute, ActiveRoute newRoute) {}
 
   @override
-  Future processPop(RouteFuture future, RouteResult result) async {}
+  bool canPop() {}
 
   @override
-  Future processPush(RouteFuture future) async {}
+  bool pop(ActiveRoute active, CommandResult<RouteResult> result) {}
+
+  @override
+  Future push(ActiveRoute route) {}
+
+  @override
+  DartRoute createRoute(RouteFuture future) {}
 }

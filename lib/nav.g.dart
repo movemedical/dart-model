@@ -25,6 +25,18 @@ class _$NavStateSerializer implements StructuredSerializer<NavState> {
             specifiedType:
                 const FullType(BuiltList, const [const FullType(String)])));
     }
+    if (object.loader != null) {
+      result
+        ..add('loader')
+        ..add(serializers.serialize(object.loader,
+            specifiedType: const FullType(LoaderState)));
+    }
+    if (object.scaffold != null) {
+      result
+        ..add('scaffold')
+        ..add(serializers.serialize(object.scaffold,
+            specifiedType: const FullType(ScaffoldState)));
+    }
     if (object.auth != null) {
       result
         ..add('auth')
@@ -76,6 +88,14 @@ class _$NavStateSerializer implements StructuredSerializer<NavState> {
                       const FullType(BuiltList, const [const FullType(String)]))
               as BuiltList);
           break;
+        case 'loader':
+          result.loader.replace(serializers.deserialize(value,
+              specifiedType: const FullType(LoaderState)) as LoaderState);
+          break;
+        case 'scaffold':
+          result.scaffold.replace(serializers.deserialize(value,
+              specifiedType: const FullType(ScaffoldState)) as ScaffoldState);
+          break;
         case 'auth':
           result.auth.replace(serializers.deserialize(value,
               specifiedType: const FullType(AuthState)) as AuthState);
@@ -107,6 +127,10 @@ class _$NavState extends NavState {
   @override
   final BuiltList<String> stack;
   @override
+  final LoaderState loader;
+  @override
+  final ScaffoldState scaffold;
+  @override
   final AuthState auth;
   @override
   final HomeState home;
@@ -122,6 +146,8 @@ class _$NavState extends NavState {
 
   _$NavState._(
       {this.stack,
+      this.loader,
+      this.scaffold,
       this.auth,
       this.home,
       this.schedule,
@@ -141,6 +167,8 @@ class _$NavState extends NavState {
     if (identical(other, this)) return true;
     return other is NavState &&
         stack == other.stack &&
+        loader == other.loader &&
+        scaffold == other.scaffold &&
         auth == other.auth &&
         home == other.home &&
         schedule == other.schedule &&
@@ -152,7 +180,13 @@ class _$NavState extends NavState {
   int get hashCode {
     return $jf($jc(
         $jc(
-            $jc($jc($jc($jc(0, stack.hashCode), auth.hashCode), home.hashCode),
+            $jc(
+                $jc(
+                    $jc(
+                        $jc($jc($jc(0, stack.hashCode), loader.hashCode),
+                            scaffold.hashCode),
+                        auth.hashCode),
+                    home.hashCode),
                 schedule.hashCode),
             messages.hashCode),
         dir.hashCode));
@@ -162,6 +196,8 @@ class _$NavState extends NavState {
   String toString() {
     return (newBuiltValueToStringHelper('NavState')
           ..add('stack', stack)
+          ..add('loader', loader)
+          ..add('scaffold', scaffold)
           ..add('auth', auth)
           ..add('home', home)
           ..add('schedule', schedule)
@@ -177,6 +213,15 @@ class NavStateBuilder implements Builder<NavState, NavStateBuilder> {
   ListBuilder<String> _stack;
   ListBuilder<String> get stack => _$this._stack ??= new ListBuilder<String>();
   set stack(ListBuilder<String> stack) => _$this._stack = stack;
+
+  LoaderStateBuilder _loader;
+  LoaderStateBuilder get loader => _$this._loader ??= new LoaderStateBuilder();
+  set loader(LoaderStateBuilder loader) => _$this._loader = loader;
+
+  ScaffoldStateBuilder _scaffold;
+  ScaffoldStateBuilder get scaffold =>
+      _$this._scaffold ??= new ScaffoldStateBuilder();
+  set scaffold(ScaffoldStateBuilder scaffold) => _$this._scaffold = scaffold;
 
   AuthStateBuilder _auth;
   AuthStateBuilder get auth => _$this._auth ??= new AuthStateBuilder();
@@ -205,6 +250,8 @@ class NavStateBuilder implements Builder<NavState, NavStateBuilder> {
   NavStateBuilder get _$this {
     if (_$v != null) {
       _stack = _$v.stack?.toBuilder();
+      _loader = _$v.loader?.toBuilder();
+      _scaffold = _$v.scaffold?.toBuilder();
       _auth = _$v.auth?.toBuilder();
       _home = _$v.home?.toBuilder();
       _schedule = _$v.schedule?.toBuilder();
@@ -235,6 +282,8 @@ class NavStateBuilder implements Builder<NavState, NavStateBuilder> {
       _$result = _$v ??
           new _$NavState._(
               stack: _stack?.build(),
+              loader: _loader?.build(),
+              scaffold: _scaffold?.build(),
               auth: _auth?.build(),
               home: _home?.build(),
               schedule: _schedule?.build(),
@@ -245,6 +294,10 @@ class NavStateBuilder implements Builder<NavState, NavStateBuilder> {
       try {
         _$failedField = 'stack';
         _stack?.build();
+        _$failedField = 'loader';
+        _loader?.build();
+        _$failedField = 'scaffold';
+        _scaffold?.build();
         _$failedField = 'auth';
         _auth?.build();
         _$failedField = 'home';
@@ -283,6 +336,8 @@ class _$NavActions extends NavActions {
 
   final ActionDispatcher<NavState> $replace;
   final FieldDispatcher<BuiltList<String>> stack;
+  final LoaderActions loader;
+  final ScaffoldActions scaffold;
   final AuthActions auth;
   final HomeActions home;
   final ScheduleActions schedule;
@@ -293,6 +348,20 @@ class _$NavActions extends NavActions {
       : $replace = $options.action<NavState>('\$replace', (a) => a?.$replace),
         stack = $options.actionField<BuiltList<String>>(
             'stack', (a) => a?.stack, (s) => s?.stack, (p, b) => p?.stack = b),
+        loader = LoaderActions(() =>
+            $options.stateful<LoaderState, LoaderStateBuilder, LoaderActions>(
+                'loader',
+                (a) => a.loader,
+                (s) => s?.loader,
+                (b) => b?.loader,
+                (parent, builder) => parent?.loader = builder)),
+        scaffold = ScaffoldActions(() => $options
+            .stateful<ScaffoldState, ScaffoldStateBuilder, ScaffoldActions>(
+                'scaffold',
+                (a) => a.scaffold,
+                (s) => s?.scaffold,
+                (b) => b?.scaffold,
+                (parent, builder) => parent?.scaffold = builder)),
         auth = AuthActions(() =>
             $options.stateful<AuthState, AuthStateBuilder, AuthActions>(
                 'auth',
@@ -338,6 +407,8 @@ class _$NavActions extends NavActions {
   BuiltList<ModuxActions> _$nested;
   @override
   BuiltList<ModuxActions> get $nested => _$nested ??= BuiltList<ModuxActions>([
+        this.loader,
+        this.scaffold,
         this.auth,
         this.home,
         this.schedule,
@@ -357,6 +428,8 @@ class _$NavActions extends NavActions {
   void $reducer(AppReducerBuilder reducer) {
     super.$reducer(reducer);
     stack.$reducer(reducer);
+    loader.$reducer(reducer);
+    scaffold.$reducer(reducer);
     auth.$reducer(reducer);
     home.$reducer(reducer);
     schedule.$reducer(reducer);
@@ -367,6 +440,8 @@ class _$NavActions extends NavActions {
   @override
   void $middleware(AppMiddlewareBuilder middleware) {
     super.$middleware(middleware);
+    loader.$middleware(middleware);
+    scaffold.$middleware(middleware);
     auth.$middleware(middleware);
     home.$middleware(middleware);
     schedule.$middleware(middleware);

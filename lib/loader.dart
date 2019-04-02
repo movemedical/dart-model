@@ -27,7 +27,7 @@ abstract class LoaderActions
 ////////////////////////////////
 
 abstract class LoaderState implements Built<LoaderState, LoaderStateBuilder> {
-  CommandState<RouteCommand<String>, RouteResult<Null>> get loginRoute;
+  CommandState<RouteCommand<LoginState>, RouteResult<Null>> get loginRoute;
 
   LoaderState._();
 

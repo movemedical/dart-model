@@ -24,7 +24,7 @@ class _$ScaffoldStateSerializer implements StructuredSerializer<ScaffoldState> {
           specifiedType: const FullType(DrawerState)),
       'tabBar',
       serializers.serialize(object.tabBar,
-          specifiedType: const FullType(TabBarState)),
+          specifiedType: const FullType(BottomBarState)),
       'selectedTab',
       serializers.serialize(object.selectedTab,
           specifiedType: const FullType(MobileNavigationElement)),
@@ -56,7 +56,7 @@ class _$ScaffoldStateSerializer implements StructuredSerializer<ScaffoldState> {
           break;
         case 'tabBar':
           result.tabBar.replace(serializers.deserialize(value,
-              specifiedType: const FullType(TabBarState)) as TabBarState);
+              specifiedType: const FullType(BottomBarState)) as BottomBarState);
           break;
         case 'selectedTab':
           result.selectedTab = serializers.deserialize(value,
@@ -82,7 +82,7 @@ class _$ScaffoldState extends ScaffoldState {
   @override
   final DrawerState drawer;
   @override
-  final TabBarState tabBar;
+  final BottomBarState tabBar;
   @override
   final MobileNavigationElement selectedTab;
   @override
@@ -152,9 +152,10 @@ class ScaffoldStateBuilder
   DrawerStateBuilder get drawer => _$this._drawer ??= new DrawerStateBuilder();
   set drawer(DrawerStateBuilder drawer) => _$this._drawer = drawer;
 
-  TabBarStateBuilder _tabBar;
-  TabBarStateBuilder get tabBar => _$this._tabBar ??= new TabBarStateBuilder();
-  set tabBar(TabBarStateBuilder tabBar) => _$this._tabBar = tabBar;
+  BottomBarStateBuilder _tabBar;
+  BottomBarStateBuilder get tabBar =>
+      _$this._tabBar ??= new BottomBarStateBuilder();
+  set tabBar(BottomBarStateBuilder tabBar) => _$this._tabBar = tabBar;
 
   MobileNavigationElement _selectedTab;
   MobileNavigationElement get selectedTab => _$this._selectedTab;
@@ -247,7 +248,7 @@ class _$ScaffoldActions extends ScaffoldActions {
   final ActionDispatcher<ScaffoldState> $replace;
   final FieldDispatcher<MobileNavigationElement> selectedTab;
   final DrawerActions drawer;
-  final TabBarActions tabBar;
+  final BottomBarActions tabBar;
   final LoginRoute loginRoute;
 
   _$ScaffoldActions._(this.$options)
@@ -265,8 +266,8 @@ class _$ScaffoldActions extends ScaffoldActions {
                 (s) => s?.drawer,
                 (b) => b?.drawer,
                 (parent, builder) => parent?.drawer = builder)),
-        tabBar = TabBarActions(() =>
-            $options.stateful<TabBarState, TabBarStateBuilder, TabBarActions>(
+        tabBar = BottomBarActions(() => $options
+            .stateful<BottomBarState, BottomBarStateBuilder, BottomBarActions>(
                 'tabBar',
                 (a) => a.tabBar,
                 (s) => s?.tabBar,

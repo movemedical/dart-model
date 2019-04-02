@@ -1,21 +1,23 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'tab_bar.dart';
+part of 'bottom_bar.dart';
 
 // **************************************************************************
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<TabBarState> _$tabBarStateSerializer = new _$TabBarStateSerializer();
+Serializer<BottomBarState> _$bottomBarStateSerializer =
+    new _$BottomBarStateSerializer();
 
-class _$TabBarStateSerializer implements StructuredSerializer<TabBarState> {
+class _$BottomBarStateSerializer
+    implements StructuredSerializer<BottomBarState> {
   @override
-  final Iterable<Type> types = const [TabBarState, _$TabBarState];
+  final Iterable<Type> types = const [BottomBarState, _$BottomBarState];
   @override
-  final String wireName = 'movemedical_model/scaffold/TabBarState';
+  final String wireName = 'movemedical_model/scaffold/BottomBarState';
 
   @override
-  Iterable serialize(Serializers serializers, TabBarState object,
+  Iterable serialize(Serializers serializers, BottomBarState object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[
       'selectedTab',
@@ -27,9 +29,9 @@ class _$TabBarStateSerializer implements StructuredSerializer<TabBarState> {
   }
 
   @override
-  TabBarState deserialize(Serializers serializers, Iterable serialized,
+  BottomBarState deserialize(Serializers serializers, Iterable serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new TabBarStateBuilder();
+    final result = new BottomBarStateBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -49,30 +51,31 @@ class _$TabBarStateSerializer implements StructuredSerializer<TabBarState> {
   }
 }
 
-class _$TabBarState extends TabBarState {
+class _$BottomBarState extends BottomBarState {
   @override
   final MobileNavigationElement selectedTab;
 
-  factory _$TabBarState([void updates(TabBarStateBuilder b)]) =>
-      (new TabBarStateBuilder()..update(updates)).build();
+  factory _$BottomBarState([void updates(BottomBarStateBuilder b)]) =>
+      (new BottomBarStateBuilder()..update(updates)).build();
 
-  _$TabBarState._({this.selectedTab}) : super._() {
+  _$BottomBarState._({this.selectedTab}) : super._() {
     if (selectedTab == null) {
-      throw new BuiltValueNullFieldError('TabBarState', 'selectedTab');
+      throw new BuiltValueNullFieldError('BottomBarState', 'selectedTab');
     }
   }
 
   @override
-  TabBarState rebuild(void updates(TabBarStateBuilder b)) =>
+  BottomBarState rebuild(void updates(BottomBarStateBuilder b)) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  TabBarStateBuilder toBuilder() => new TabBarStateBuilder()..replace(this);
+  BottomBarStateBuilder toBuilder() =>
+      new BottomBarStateBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is TabBarState && selectedTab == other.selectedTab;
+    return other is BottomBarState && selectedTab == other.selectedTab;
   }
 
   @override
@@ -82,23 +85,24 @@ class _$TabBarState extends TabBarState {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('TabBarState')
+    return (newBuiltValueToStringHelper('BottomBarState')
           ..add('selectedTab', selectedTab))
         .toString();
   }
 }
 
-class TabBarStateBuilder implements Builder<TabBarState, TabBarStateBuilder> {
-  _$TabBarState _$v;
+class BottomBarStateBuilder
+    implements Builder<BottomBarState, BottomBarStateBuilder> {
+  _$BottomBarState _$v;
 
   MobileNavigationElement _selectedTab;
   MobileNavigationElement get selectedTab => _$this._selectedTab;
   set selectedTab(MobileNavigationElement selectedTab) =>
       _$this._selectedTab = selectedTab;
 
-  TabBarStateBuilder();
+  BottomBarStateBuilder();
 
-  TabBarStateBuilder get _$this {
+  BottomBarStateBuilder get _$this {
     if (_$v != null) {
       _selectedTab = _$v.selectedTab;
       _$v = null;
@@ -107,21 +111,21 @@ class TabBarStateBuilder implements Builder<TabBarState, TabBarStateBuilder> {
   }
 
   @override
-  void replace(TabBarState other) {
+  void replace(BottomBarState other) {
     if (other == null) {
       throw new ArgumentError.notNull('other');
     }
-    _$v = other as _$TabBarState;
+    _$v = other as _$BottomBarState;
   }
 
   @override
-  void update(void updates(TabBarStateBuilder b)) {
+  void update(void updates(BottomBarStateBuilder b)) {
     if (updates != null) updates(this);
   }
 
   @override
-  _$TabBarState build() {
-    final _$result = _$v ?? new _$TabBarState._(selectedTab: selectedTab);
+  _$BottomBarState build() {
+    final _$result = _$v ?? new _$BottomBarState._(selectedTab: selectedTab);
     replace(_$result);
     return _$result;
   }
@@ -136,19 +140,19 @@ class TabBarStateBuilder implements Builder<TabBarState, TabBarStateBuilder> {
 // ignore_for_file: avoid_classes_with_only_static_members
 // ignore_for_file: annotate_overrides
 
-typedef StatefulActionsOptions<TabBarState, TabBarStateBuilder,
-    TabBarActions> TabBarActionsOptions();
+typedef StatefulActionsOptions<BottomBarState, BottomBarStateBuilder,
+    BottomBarActions> BottomBarActionsOptions();
 
-class _$TabBarActions extends TabBarActions {
-  final StatefulActionsOptions<TabBarState, TabBarStateBuilder, TabBarActions>
-      $options;
+class _$BottomBarActions extends BottomBarActions {
+  final StatefulActionsOptions<BottomBarState, BottomBarStateBuilder,
+      BottomBarActions> $options;
 
-  final ActionDispatcher<TabBarState> $replace;
+  final ActionDispatcher<BottomBarState> $replace;
   final FieldDispatcher<MobileNavigationElement> selectedTab;
 
-  _$TabBarActions._(this.$options)
+  _$BottomBarActions._(this.$options)
       : $replace =
-            $options.action<TabBarState>('\$replace', (a) => a?.$replace),
+            $options.action<BottomBarState>('\$replace', (a) => a?.$replace),
         selectedTab = $options.actionField<MobileNavigationElement>(
             'selectedTab',
             (a) => a?.selectedTab,
@@ -156,11 +160,11 @@ class _$TabBarActions extends TabBarActions {
             (p, b) => p?.selectedTab = b),
         super._();
 
-  factory _$TabBarActions(TabBarActionsOptions options) =>
-      _$TabBarActions._(options());
+  factory _$BottomBarActions(BottomBarActionsOptions options) =>
+      _$BottomBarActions._(options());
 
   @override
-  TabBarStateBuilder $newBuilder() => TabBarStateBuilder();
+  BottomBarStateBuilder $newBuilder() => BottomBarStateBuilder();
 
   BuiltList<ActionDispatcher> _$actions;
   @override
@@ -182,9 +186,9 @@ class _$TabBarActions extends TabBarActions {
   }
 
 // @override
-// Serializer<TabBarStateTabBarActions> get $serializer => TabBarStateTabBarActions.serializer;
+// Serializer<BottomBarStateBottomBarActions> get $serializer => BottomBarStateBottomBarActions.serializer;
 
   FullType _$fullType;
   @override
-  FullType get $fullType => _$fullType ??= FullType(TabBarState);
+  FullType get $fullType => _$fullType ??= FullType(BottomBarState);
 }

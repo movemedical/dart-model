@@ -15,9 +15,11 @@ dependencies:
   built_value: ^6.3.1
 
   modux:
+#    path: ../modux-dart
     git: git://github.com/movemedical/modux-dart
 
   movemedical_api:
+#    path: ../dart-api
     git: git://github.com/movemedical/dart-api
 
 dev_dependencies:

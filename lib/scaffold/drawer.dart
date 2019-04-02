@@ -8,11 +8,22 @@ import 'package:movemedical_api/model/sql/enums/mobile_navigation_element.dart';
 part 'drawer.g.dart';
 
 ////////////////////////////////
+/// Route
+////////////////////////////////
+
+abstract class DrawerRoute extends RouteDispatcher<DrawerState,
+    DrawerStateBuilder, Null, DrawerActions, DrawerRoute> {
+  DrawerRoute._();
+
+  factory DrawerRoute(DrawerRouteOptions options) = _$DrawerRoute;
+}
+
+////////////////////////////////
 /// Actions
 ////////////////////////////////
 
-abstract class DrawerActions
-    extends AppStatefulActions<DrawerState, DrawerStateBuilder, DrawerActions> {
+abstract class DrawerActions extends AppRouteActions<DrawerState,
+    DrawerStateBuilder, Null, DrawerActions, DrawerRoute> {
   FieldDispatcher<MobileNavigationElement> selectedTab;
 
   LoginRoute get loginRoute;

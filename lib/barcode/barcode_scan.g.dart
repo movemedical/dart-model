@@ -131,6 +131,7 @@ class _$BarcodeScanRoute extends BarcodeScanRoute {
   final ActionDispatcher<
       CommandPayload<RouteCommand<BarcodeScanState>, RouteResult<String>,
           BarcodeScanRoute, CommandProgress>> $progress;
+  final ActionDispatcher<String> value;
 
   _$BarcodeScanRoute._(this.$options)
       : $replace = $options.action<
@@ -168,6 +169,7 @@ class _$BarcodeScanRoute extends BarcodeScanRoute {
                 RouteResult<String>,
                 BarcodeScanRoute,
                 CommandProgress>>('\$progress', (a) => a?.$progress),
+        value = $options.action<String>('value', (a) => a?.value),
         super._();
 
   factory _$BarcodeScanRoute(BarcodeScanRouteOptions options) =>
@@ -195,6 +197,7 @@ class _$BarcodeScanRoute extends BarcodeScanRoute {
         this.$detach,
         this.$attach,
         this.$progress,
+        this.value,
       ]);
 
 // @override
@@ -220,6 +223,7 @@ class _$BarcodeScanActions extends BarcodeScanActions {
   final ActionDispatcher $deactivatedAction;
   final ActionDispatcher $pushAction;
   final ActionDispatcher $popAction;
+  final FieldDispatcher<String> value;
 
   _$BarcodeScanActions._(this.$options)
       : $replace =
@@ -230,6 +234,8 @@ class _$BarcodeScanActions extends BarcodeScanActions {
             '\$deactivatedAction', (a) => a?.$deactivatedAction),
         $pushAction = $options.action('\$pushAction', (a) => a?.$pushAction),
         $popAction = $options.action('\$popAction', (a) => a?.$popAction),
+        value = $options.actionField<String>(
+            'value', (a) => a?.value, (s) => s?.value, (p, b) => p?.value = b),
         super._();
 
   factory _$BarcodeScanActions(BarcodeScanActionsOptions options) =>
@@ -247,7 +253,19 @@ class _$BarcodeScanActions extends BarcodeScanActions {
         this.$deactivatedAction,
         this.$pushAction,
         this.$popAction,
+        this.value,
       ]);
+
+  @override
+  void $reducer(ReducerBuilder reducer) {
+    super.$reducer(reducer);
+    value.$reducer(reducer);
+  }
+
+  @override
+  void $middleware(MiddlewareBuilder middleware) {
+    super.$middleware(middleware);
+  }
 
 // @override
 // Serializer<BarcodeScanStateBarcodeScanActions> get $serializer => BarcodeScanStateBarcodeScanActions.serializer;

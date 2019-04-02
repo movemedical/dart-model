@@ -10,6 +10,8 @@ part 'barcode_scan.g.dart';
 
 abstract class BarcodeScanRoute extends RouteDispatcher<BarcodeScanState,
     BarcodeScanStateBuilder, String, BarcodeScanActions, BarcodeScanRoute> {
+  ActionDispatcher<String> get value;
+
   BarcodeScanRoute._();
 
   factory BarcodeScanRoute(BarcodeScanRouteOptions options) =
@@ -25,6 +27,7 @@ abstract class BarcodeScanActions extends RouteActions<BarcodeScanState,
   ////////////////////////////////////
   /// Actions
   ////////////////////////////////////
+  FieldDispatcher<String> get value;
 
   ////////////////////////////////////
   /// Initial State

@@ -21,7 +21,7 @@ class _$LoaderStateSerializer implements StructuredSerializer<LoaderState> {
       'loginRoute',
       serializers.serialize(object.loginRoute,
           specifiedType: const FullType(CommandState, const [
-            const FullType(RouteCommand, const [const FullType(String)]),
+            const FullType(RouteCommand, const [const FullType(LoginState)]),
             const FullType(RouteResult, const [const FullType(Null)])
           ])),
     ];
@@ -43,9 +43,10 @@ class _$LoaderStateSerializer implements StructuredSerializer<LoaderState> {
         case 'loginRoute':
           result.loginRoute.replace(serializers.deserialize(value,
               specifiedType: const FullType(CommandState, const [
-                const FullType(RouteCommand, const [const FullType(String)]),
+                const FullType(
+                    RouteCommand, const [const FullType(LoginState)]),
                 const FullType(RouteResult, const [const FullType(Null)])
-              ])) as CommandState<RouteCommand<String>, RouteResult<Null>>);
+              ])) as CommandState<RouteCommand<LoginState>, RouteResult<Null>>);
           break;
       }
     }
@@ -56,7 +57,7 @@ class _$LoaderStateSerializer implements StructuredSerializer<LoaderState> {
 
 class _$LoaderState extends LoaderState {
   @override
-  final CommandState<RouteCommand<String>, RouteResult<Null>> loginRoute;
+  final CommandState<RouteCommand<LoginState>, RouteResult<Null>> loginRoute;
 
   factory _$LoaderState([void updates(LoaderStateBuilder b)]) =>
       (new LoaderStateBuilder()..update(updates)).build();
@@ -96,12 +97,13 @@ class _$LoaderState extends LoaderState {
 class LoaderStateBuilder implements Builder<LoaderState, LoaderStateBuilder> {
   _$LoaderState _$v;
 
-  CommandStateBuilder<RouteCommand<String>, RouteResult<Null>> _loginRoute;
-  CommandStateBuilder<RouteCommand<String>, RouteResult<Null>> get loginRoute =>
-      _$this._loginRoute ??=
-          new CommandStateBuilder<RouteCommand<String>, RouteResult<Null>>();
+  CommandStateBuilder<RouteCommand<LoginState>, RouteResult<Null>> _loginRoute;
+  CommandStateBuilder<RouteCommand<LoginState>,
+      RouteResult<Null>> get loginRoute => _$this
+          ._loginRoute ??=
+      new CommandStateBuilder<RouteCommand<LoginState>, RouteResult<Null>>();
   set loginRoute(
-          CommandStateBuilder<RouteCommand<String>, RouteResult<Null>>
+          CommandStateBuilder<RouteCommand<LoginState>, RouteResult<Null>>
               loginRoute) =>
       _$this._loginRoute = loginRoute;
 

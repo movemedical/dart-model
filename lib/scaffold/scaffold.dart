@@ -6,7 +6,7 @@ import '../auth/login.dart';
 import 'package:movemedical_api/model/sql/enums/mobile_navigation_element.dart';
 
 import 'drawer.dart';
-import 'tab_bar.dart';
+import 'bottom_bar.dart';
 
 part 'scaffold.g.dart';
 
@@ -18,7 +18,7 @@ abstract class ScaffoldActions extends AppStatefulActions<ScaffoldState,
     ScaffoldStateBuilder, ScaffoldActions> {
   DrawerActions get drawer;
 
-  TabBarActions get tabBar;
+  BottomBarActions get tabBar;
 
   FieldDispatcher<MobileNavigationElement> selectedTab;
 
@@ -39,7 +39,7 @@ abstract class ScaffoldState
     implements Built<ScaffoldState, ScaffoldStateBuilder> {
   DrawerState get drawer;
 
-  TabBarState get tabBar;
+  BottomBarState get tabBar;
 
   MobileNavigationElement get selectedTab;
 

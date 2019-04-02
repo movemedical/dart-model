@@ -4,11 +4,13 @@ import 'dart:collection';
 
 import 'foundation.dart';
 
+import 'scaffold/scaffold.dart';
 import 'auth/mod.dart';
 import 'home/home.dart';
 import 'schedule/mod.dart';
 import 'messages/mod.dart';
 import 'directory/mod.dart';
+import 'loader.dart';
 
 part 'nav.g.dart';
 
@@ -24,6 +26,10 @@ abstract class NavActions
   ////////////////////
   /// Modules
   ////////////////////
+
+  LoaderActions get loader;
+
+  ScaffoldActions get scaffold;
 
   AuthActions get auth;
 
@@ -51,6 +57,12 @@ abstract class NavState
   ////////////////////
   /// Modules
   ////////////////////
+
+  @nullable
+  LoaderState get loader;
+
+  @nullable
+  ScaffoldState get scaffold;
 
   @nullable
   AuthState get auth;
