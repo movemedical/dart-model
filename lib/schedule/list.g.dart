@@ -340,22 +340,22 @@ class _$CaseEventListActions extends CaseEventListActions {
       CaseEventListActions> $options;
 
   final ActionDispatcher<CaseEventListState> $replace;
-  final ActionDispatcher $activatedAction;
-  final ActionDispatcher $deactivatedAction;
-  final ActionDispatcher $pushAction;
-  final ActionDispatcher $popAction;
+  final ActionDispatcher<Null> $activated;
+  final ActionDispatcher<Null> $deactivated;
+  final ActionDispatcher<CaseEventListState> $pushing;
+  final ActionDispatcher<Null> $popping;
   final list_case_events_api.ListCaseEventsApi listCommand;
   final list_case_events_api.ListCaseEventsApiRequestActions request;
 
   _$CaseEventListActions._(this.$options)
       : $replace = $options.action<CaseEventListState>(
             '\$replace', (a) => a?.$replace),
-        $activatedAction =
-            $options.action('\$activatedAction', (a) => a?.$activatedAction),
-        $deactivatedAction = $options.action(
-            '\$deactivatedAction', (a) => a?.$deactivatedAction),
-        $pushAction = $options.action('\$pushAction', (a) => a?.$pushAction),
-        $popAction = $options.action('\$popAction', (a) => a?.$popAction),
+        $activated = $options.action<Null>('\$activated', (a) => a?.$activated),
+        $deactivated =
+            $options.action<Null>('\$deactivated', (a) => a?.$deactivated),
+        $pushing = $options.action<CaseEventListState>(
+            '\$pushing', (a) => a?.$pushing),
+        $popping = $options.action<Null>('\$popping', (a) => a?.$popping),
         listCommand =
             list_case_events_api.ListCaseEventsApi(
                 () =>
@@ -412,21 +412,21 @@ class _$CaseEventListActions extends CaseEventListActions {
   BuiltList<ActionDispatcher> get $actions =>
       _$actions ??= BuiltList<ActionDispatcher>([
         this.$replace,
-        this.$activatedAction,
-        this.$deactivatedAction,
-        this.$pushAction,
-        this.$popAction,
+        this.$activated,
+        this.$deactivated,
+        this.$pushing,
+        this.$popping,
       ]);
 
   @override
-  void $reducer(ReducerBuilder reducer) {
+  void $reducer(AppReducerBuilder reducer) {
     super.$reducer(reducer);
     listCommand.$reducer(reducer);
     request.$reducer(reducer);
   }
 
   @override
-  void $middleware(MiddlewareBuilder middleware) {
+  void $middleware(AppMiddlewareBuilder middleware) {
     super.$middleware(middleware);
     listCommand.$middleware(middleware);
     request.$middleware(middleware);

@@ -22,12 +22,9 @@ class _$ScaffoldStateSerializer implements StructuredSerializer<ScaffoldState> {
       'drawer',
       serializers.serialize(object.drawer,
           specifiedType: const FullType(DrawerState)),
-      'tabBar',
-      serializers.serialize(object.tabBar,
+      'bottomBar',
+      serializers.serialize(object.bottomBar,
           specifiedType: const FullType(BottomBarState)),
-      'selectedTab',
-      serializers.serialize(object.selectedTab,
-          specifiedType: const FullType(MobileNavigationElement)),
       'loginRoute',
       serializers.serialize(object.loginRoute,
           specifiedType: const FullType(CommandState, const [
@@ -54,14 +51,9 @@ class _$ScaffoldStateSerializer implements StructuredSerializer<ScaffoldState> {
           result.drawer.replace(serializers.deserialize(value,
               specifiedType: const FullType(DrawerState)) as DrawerState);
           break;
-        case 'tabBar':
-          result.tabBar.replace(serializers.deserialize(value,
+        case 'bottomBar':
+          result.bottomBar.replace(serializers.deserialize(value,
               specifiedType: const FullType(BottomBarState)) as BottomBarState);
-          break;
-        case 'selectedTab':
-          result.selectedTab = serializers.deserialize(value,
-                  specifiedType: const FullType(MobileNavigationElement))
-              as MobileNavigationElement;
           break;
         case 'loginRoute':
           result.loginRoute.replace(serializers.deserialize(value,
@@ -82,26 +74,20 @@ class _$ScaffoldState extends ScaffoldState {
   @override
   final DrawerState drawer;
   @override
-  final BottomBarState tabBar;
-  @override
-  final MobileNavigationElement selectedTab;
+  final BottomBarState bottomBar;
   @override
   final CommandState<RouteCommand<LoginState>, RouteResult<Null>> loginRoute;
 
   factory _$ScaffoldState([void updates(ScaffoldStateBuilder b)]) =>
       (new ScaffoldStateBuilder()..update(updates)).build();
 
-  _$ScaffoldState._(
-      {this.drawer, this.tabBar, this.selectedTab, this.loginRoute})
+  _$ScaffoldState._({this.drawer, this.bottomBar, this.loginRoute})
       : super._() {
     if (drawer == null) {
       throw new BuiltValueNullFieldError('ScaffoldState', 'drawer');
     }
-    if (tabBar == null) {
-      throw new BuiltValueNullFieldError('ScaffoldState', 'tabBar');
-    }
-    if (selectedTab == null) {
-      throw new BuiltValueNullFieldError('ScaffoldState', 'selectedTab');
+    if (bottomBar == null) {
+      throw new BuiltValueNullFieldError('ScaffoldState', 'bottomBar');
     }
     if (loginRoute == null) {
       throw new BuiltValueNullFieldError('ScaffoldState', 'loginRoute');
@@ -120,25 +106,21 @@ class _$ScaffoldState extends ScaffoldState {
     if (identical(other, this)) return true;
     return other is ScaffoldState &&
         drawer == other.drawer &&
-        tabBar == other.tabBar &&
-        selectedTab == other.selectedTab &&
+        bottomBar == other.bottomBar &&
         loginRoute == other.loginRoute;
   }
 
   @override
   int get hashCode {
     return $jf($jc(
-        $jc($jc($jc(0, drawer.hashCode), tabBar.hashCode),
-            selectedTab.hashCode),
-        loginRoute.hashCode));
+        $jc($jc(0, drawer.hashCode), bottomBar.hashCode), loginRoute.hashCode));
   }
 
   @override
   String toString() {
     return (newBuiltValueToStringHelper('ScaffoldState')
           ..add('drawer', drawer)
-          ..add('tabBar', tabBar)
-          ..add('selectedTab', selectedTab)
+          ..add('bottomBar', bottomBar)
           ..add('loginRoute', loginRoute))
         .toString();
   }
@@ -152,15 +134,11 @@ class ScaffoldStateBuilder
   DrawerStateBuilder get drawer => _$this._drawer ??= new DrawerStateBuilder();
   set drawer(DrawerStateBuilder drawer) => _$this._drawer = drawer;
 
-  BottomBarStateBuilder _tabBar;
-  BottomBarStateBuilder get tabBar =>
-      _$this._tabBar ??= new BottomBarStateBuilder();
-  set tabBar(BottomBarStateBuilder tabBar) => _$this._tabBar = tabBar;
-
-  MobileNavigationElement _selectedTab;
-  MobileNavigationElement get selectedTab => _$this._selectedTab;
-  set selectedTab(MobileNavigationElement selectedTab) =>
-      _$this._selectedTab = selectedTab;
+  BottomBarStateBuilder _bottomBar;
+  BottomBarStateBuilder get bottomBar =>
+      _$this._bottomBar ??= new BottomBarStateBuilder();
+  set bottomBar(BottomBarStateBuilder bottomBar) =>
+      _$this._bottomBar = bottomBar;
 
   CommandStateBuilder<RouteCommand<LoginState>, RouteResult<Null>> _loginRoute;
   CommandStateBuilder<RouteCommand<LoginState>,
@@ -177,8 +155,7 @@ class ScaffoldStateBuilder
   ScaffoldStateBuilder get _$this {
     if (_$v != null) {
       _drawer = _$v.drawer?.toBuilder();
-      _tabBar = _$v.tabBar?.toBuilder();
-      _selectedTab = _$v.selectedTab;
+      _bottomBar = _$v.bottomBar?.toBuilder();
       _loginRoute = _$v.loginRoute?.toBuilder();
       _$v = null;
     }
@@ -205,17 +182,15 @@ class ScaffoldStateBuilder
       _$result = _$v ??
           new _$ScaffoldState._(
               drawer: drawer.build(),
-              tabBar: tabBar.build(),
-              selectedTab: selectedTab,
+              bottomBar: bottomBar.build(),
               loginRoute: loginRoute.build());
     } catch (_) {
       String _$failedField;
       try {
         _$failedField = 'drawer';
         drawer.build();
-        _$failedField = 'tabBar';
-        tabBar.build();
-
+        _$failedField = 'bottomBar';
+        bottomBar.build();
         _$failedField = 'loginRoute';
         loginRoute.build();
       } catch (e) {
@@ -246,7 +221,6 @@ class _$ScaffoldActions extends ScaffoldActions {
       ScaffoldActions> $options;
 
   final ActionDispatcher<ScaffoldState> $replace;
-  final FieldDispatcher<MobileNavigationElement> selectedTab;
   final DrawerActions drawer;
   final BottomBarActions tabBar;
   final LoginRoute loginRoute;
@@ -254,11 +228,6 @@ class _$ScaffoldActions extends ScaffoldActions {
   _$ScaffoldActions._(this.$options)
       : $replace =
             $options.action<ScaffoldState>('\$replace', (a) => a?.$replace),
-        selectedTab = $options.actionField<MobileNavigationElement>(
-            'selectedTab',
-            (a) => a?.selectedTab,
-            (s) => s?.selectedTab,
-            (p, b) => p?.selectedTab = b),
         drawer = DrawerActions(() =>
             $options.stateful<DrawerState, DrawerStateBuilder, DrawerActions>(
                 'drawer',
@@ -305,13 +274,11 @@ class _$ScaffoldActions extends ScaffoldActions {
   BuiltList<ActionDispatcher> get $actions =>
       _$actions ??= BuiltList<ActionDispatcher>([
         this.$replace,
-        this.selectedTab,
       ]);
 
   @override
   void $reducer(AppReducerBuilder reducer) {
     super.$reducer(reducer);
-    selectedTab.$reducer(reducer);
     drawer.$reducer(reducer);
     tabBar.$reducer(reducer);
     loginRoute.$reducer(reducer);

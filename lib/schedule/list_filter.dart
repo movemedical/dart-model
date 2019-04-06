@@ -9,10 +9,9 @@ part 'list_filter.g.dart';
 /// Route
 ////////////////////////////////
 
-abstract class CaseEventListFilterRoute extends RouteDispatcher<
+abstract class CaseEventListFilterRoute extends ScreenRoute<
     CaseEventListFilterState,
     CaseEventListFilterStateBuilder,
-    Null,
     CaseEventListFilterActions,
     CaseEventListFilterRoute> {
   CaseEventListFilterRoute._();
@@ -25,10 +24,9 @@ abstract class CaseEventListFilterRoute extends RouteDispatcher<
 /// Actions
 ////////////////////////////////////
 
-abstract class CaseEventListFilterActions extends RouteActions<
+abstract class CaseEventListFilterActions extends ScreenActions<
     CaseEventListFilterState,
     CaseEventListFilterStateBuilder,
-    Null,
     CaseEventListFilterActions,
     CaseEventListFilterRoute> {
   ////////////////////////////////////
@@ -45,12 +43,19 @@ abstract class CaseEventListFilterActions extends RouteActions<
   CaseEventListFilterState get $initial => CaseEventListFilterState();
 
   ////////////////////////////////////
-  /// Reducers
+  /// Config
   ////////////////////////////////////
+
+  @override
+  MobileNavigationElement get $navElement => MobileNavigationElement.SCHEDULE;
 
   ////////////////////////////////////
   /// Middleware
   ////////////////////////////////////
+
+  @override
+  void $onPush(Store<AppState, AppStateBuilder, AppActions> store,
+      CaseEventListFilterState state) {}
 
   ////////////////////////////////////
   /// Construction

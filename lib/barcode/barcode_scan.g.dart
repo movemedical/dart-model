@@ -219,21 +219,21 @@ class _$BarcodeScanActions extends BarcodeScanActions {
       BarcodeScanActions> $options;
 
   final ActionDispatcher<BarcodeScanState> $replace;
-  final ActionDispatcher $activatedAction;
-  final ActionDispatcher $deactivatedAction;
-  final ActionDispatcher $pushAction;
-  final ActionDispatcher $popAction;
+  final ActionDispatcher<Null> $activated;
+  final ActionDispatcher<Null> $deactivated;
+  final ActionDispatcher<BarcodeScanState> $pushing;
+  final ActionDispatcher<String> $popping;
   final FieldDispatcher<String> value;
 
   _$BarcodeScanActions._(this.$options)
       : $replace =
             $options.action<BarcodeScanState>('\$replace', (a) => a?.$replace),
-        $activatedAction =
-            $options.action('\$activatedAction', (a) => a?.$activatedAction),
-        $deactivatedAction = $options.action(
-            '\$deactivatedAction', (a) => a?.$deactivatedAction),
-        $pushAction = $options.action('\$pushAction', (a) => a?.$pushAction),
-        $popAction = $options.action('\$popAction', (a) => a?.$popAction),
+        $activated = $options.action<Null>('\$activated', (a) => a?.$activated),
+        $deactivated =
+            $options.action<Null>('\$deactivated', (a) => a?.$deactivated),
+        $pushing =
+            $options.action<BarcodeScanState>('\$pushing', (a) => a?.$pushing),
+        $popping = $options.action<String>('\$popping', (a) => a?.$popping),
         value = $options.actionField<String>(
             'value', (a) => a?.value, (s) => s?.value, (p, b) => p?.value = b),
         super._();
@@ -249,10 +249,10 @@ class _$BarcodeScanActions extends BarcodeScanActions {
   BuiltList<ActionDispatcher> get $actions =>
       _$actions ??= BuiltList<ActionDispatcher>([
         this.$replace,
-        this.$activatedAction,
-        this.$deactivatedAction,
-        this.$pushAction,
-        this.$popAction,
+        this.$activated,
+        this.$deactivated,
+        this.$pushing,
+        this.$popping,
         this.value,
       ]);
 

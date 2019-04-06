@@ -23,6 +23,18 @@ class _$CaseEventDetailStateSerializer
   Iterable serialize(Serializers serializers, CaseEventDetailState object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[];
+    if (object.request != null) {
+      result
+        ..add('request')
+        ..add(serializers.serialize(object.request,
+            specifiedType: const FullType(GetCaseEventDetailApiRequest)));
+    }
+    if (object.model != null) {
+      result
+        ..add('model')
+        ..add(serializers.serialize(object.model,
+            specifiedType: const FullType(GetCaseEventDetailApiResponse)));
+    }
     if (object.getCommand != null) {
       result
         ..add('getCommand')
@@ -49,6 +61,16 @@ class _$CaseEventDetailStateSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
+        case 'request':
+          result.request.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(GetCaseEventDetailApiRequest))
+              as GetCaseEventDetailApiRequest);
+          break;
+        case 'model':
+          result.model.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(GetCaseEventDetailApiResponse))
+              as GetCaseEventDetailApiResponse);
+          break;
         case 'getCommand':
           result.getCommand.replace(serializers.deserialize(value,
                   specifiedType: const FullType(CommandState, const [
@@ -69,18 +91,19 @@ class _$CaseEventDetailStateSerializer
 
 class _$CaseEventDetailState extends CaseEventDetailState {
   @override
+  final GetCaseEventDetailApiRequest request;
+  @override
+  final GetCaseEventDetailApiResponse model;
+  @override
   final CommandState<ApiCommand<GetCaseEventDetailApiRequest>,
       ApiResult<GetCaseEventDetailApiResponse>> getCommand;
-  bool __isLoading;
 
   factory _$CaseEventDetailState(
           [void updates(CaseEventDetailStateBuilder b)]) =>
       (new CaseEventDetailStateBuilder()..update(updates)).build();
 
-  _$CaseEventDetailState._({this.getCommand}) : super._();
-
-  @override
-  bool get isLoading => __isLoading ??= super.isLoading;
+  _$CaseEventDetailState._({this.request, this.model, this.getCommand})
+      : super._();
 
   @override
   CaseEventDetailState rebuild(void updates(CaseEventDetailStateBuilder b)) =>
@@ -93,17 +116,23 @@ class _$CaseEventDetailState extends CaseEventDetailState {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CaseEventDetailState && getCommand == other.getCommand;
+    return other is CaseEventDetailState &&
+        request == other.request &&
+        model == other.model &&
+        getCommand == other.getCommand;
   }
 
   @override
   int get hashCode {
-    return $jf($jc(0, getCommand.hashCode));
+    return $jf($jc(
+        $jc($jc(0, request.hashCode), model.hashCode), getCommand.hashCode));
   }
 
   @override
   String toString() {
     return (newBuiltValueToStringHelper('CaseEventDetailState')
+          ..add('request', request)
+          ..add('model', model)
           ..add('getCommand', getCommand))
         .toString();
   }
@@ -112,6 +141,18 @@ class _$CaseEventDetailState extends CaseEventDetailState {
 class CaseEventDetailStateBuilder
     implements Builder<CaseEventDetailState, CaseEventDetailStateBuilder> {
   _$CaseEventDetailState _$v;
+
+  GetCaseEventDetailApiRequestBuilder _request;
+  GetCaseEventDetailApiRequestBuilder get request =>
+      _$this._request ??= new GetCaseEventDetailApiRequestBuilder();
+  set request(GetCaseEventDetailApiRequestBuilder request) =>
+      _$this._request = request;
+
+  GetCaseEventDetailApiResponseBuilder _model;
+  GetCaseEventDetailApiResponseBuilder get model =>
+      _$this._model ??= new GetCaseEventDetailApiResponseBuilder();
+  set model(GetCaseEventDetailApiResponseBuilder model) =>
+      _$this._model = model;
 
   CommandStateBuilder<ApiCommand<GetCaseEventDetailApiRequest>,
       ApiResult<GetCaseEventDetailApiResponse>> _getCommand;
@@ -130,6 +171,8 @@ class CaseEventDetailStateBuilder
 
   CaseEventDetailStateBuilder get _$this {
     if (_$v != null) {
+      _request = _$v.request?.toBuilder();
+      _model = _$v.model?.toBuilder();
       _getCommand = _$v.getCommand?.toBuilder();
       _$v = null;
     }
@@ -153,11 +196,18 @@ class CaseEventDetailStateBuilder
   _$CaseEventDetailState build() {
     _$CaseEventDetailState _$result;
     try {
-      _$result =
-          _$v ?? new _$CaseEventDetailState._(getCommand: _getCommand?.build());
+      _$result = _$v ??
+          new _$CaseEventDetailState._(
+              request: _request?.build(),
+              model: _model?.build(),
+              getCommand: _getCommand?.build());
     } catch (_) {
       String _$failedField;
       try {
+        _$failedField = 'request';
+        _request?.build();
+        _$failedField = 'model';
+        _model?.build();
         _$failedField = 'getCommand';
         _getCommand?.build();
       } catch (e) {
@@ -318,21 +368,41 @@ class _$CaseEventDetailActions extends CaseEventDetailActions {
       CaseEventDetailStateBuilder, CaseEventDetailActions> $options;
 
   final ActionDispatcher<CaseEventDetailState> $replace;
-  final ActionDispatcher $activatedAction;
-  final ActionDispatcher $deactivatedAction;
-  final ActionDispatcher $pushAction;
-  final ActionDispatcher $popAction;
+  final ActionDispatcher<Null> $activated;
+  final ActionDispatcher<Null> $deactivated;
+  final ActionDispatcher<CaseEventDetailState> $pushing;
+  final ActionDispatcher<Null> $popping;
+  final GetCaseEventDetailApiRequestActions request;
+  final GetCaseEventDetailApiResponseActions model;
   final GetCaseEventDetailApi getCommand;
 
   _$CaseEventDetailActions._(this.$options)
       : $replace = $options.action<CaseEventDetailState>(
             '\$replace', (a) => a?.$replace),
-        $activatedAction =
-            $options.action('\$activatedAction', (a) => a?.$activatedAction),
-        $deactivatedAction = $options.action(
-            '\$deactivatedAction', (a) => a?.$deactivatedAction),
-        $pushAction = $options.action('\$pushAction', (a) => a?.$pushAction),
-        $popAction = $options.action('\$popAction', (a) => a?.$popAction),
+        $activated = $options.action<Null>('\$activated', (a) => a?.$activated),
+        $deactivated =
+            $options.action<Null>('\$deactivated', (a) => a?.$deactivated),
+        $pushing = $options.action<CaseEventDetailState>(
+            '\$pushing', (a) => a?.$pushing),
+        $popping = $options.action<Null>('\$popping', (a) => a?.$popping),
+        request = GetCaseEventDetailApiRequestActions(() => $options.stateful<
+                GetCaseEventDetailApiRequest,
+                GetCaseEventDetailApiRequestBuilder,
+                GetCaseEventDetailApiRequestActions>(
+            'request',
+            (a) => a.request,
+            (s) => s?.request,
+            (b) => b?.request,
+            (parent, builder) => parent?.request = builder)),
+        model = GetCaseEventDetailApiResponseActions(() => $options.stateful<
+                GetCaseEventDetailApiResponse,
+                GetCaseEventDetailApiResponseBuilder,
+                GetCaseEventDetailApiResponseActions>(
+            'model',
+            (a) => a.model,
+            (s) => s?.model,
+            (b) => b?.model,
+            (parent, builder) => parent?.model = builder)),
         getCommand = GetCaseEventDetailApi(() => $options.stateful<
                 CommandState<ApiCommand<GetCaseEventDetailApiRequest>,
                     ApiResult<GetCaseEventDetailApiResponse>>,
@@ -355,6 +425,8 @@ class _$CaseEventDetailActions extends CaseEventDetailActions {
   BuiltList<ModuxActions> _$nested;
   @override
   BuiltList<ModuxActions> get $nested => _$nested ??= BuiltList<ModuxActions>([
+        this.request,
+        this.model,
         this.getCommand,
       ]);
 
@@ -363,21 +435,25 @@ class _$CaseEventDetailActions extends CaseEventDetailActions {
   BuiltList<ActionDispatcher> get $actions =>
       _$actions ??= BuiltList<ActionDispatcher>([
         this.$replace,
-        this.$activatedAction,
-        this.$deactivatedAction,
-        this.$pushAction,
-        this.$popAction,
+        this.$activated,
+        this.$deactivated,
+        this.$pushing,
+        this.$popping,
       ]);
 
   @override
-  void $reducer(ReducerBuilder reducer) {
+  void $reducer(AppReducerBuilder reducer) {
     super.$reducer(reducer);
+    request.$reducer(reducer);
+    model.$reducer(reducer);
     getCommand.$reducer(reducer);
   }
 
   @override
-  void $middleware(MiddlewareBuilder middleware) {
+  void $middleware(AppMiddlewareBuilder middleware) {
     super.$middleware(middleware);
+    request.$middleware(middleware);
+    model.$middleware(middleware);
     getCommand.$middleware(middleware);
   }
 

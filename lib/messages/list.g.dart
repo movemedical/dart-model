@@ -370,22 +370,22 @@ class _$ConversationListActions extends ConversationListActions {
       ConversationListStateBuilder, ConversationListActions> $options;
 
   final ActionDispatcher<ConversationListState> $replace;
-  final ActionDispatcher $activatedAction;
-  final ActionDispatcher $deactivatedAction;
-  final ActionDispatcher $pushAction;
-  final ActionDispatcher $popAction;
+  final ActionDispatcher<Null> $activated;
+  final ActionDispatcher<Null> $deactivated;
+  final ActionDispatcher<ConversationListState> $pushing;
+  final ActionDispatcher<Null> $popping;
   final ListConversationsApi command;
   final ConversationListFilterRoute filter;
 
   _$ConversationListActions._(this.$options)
       : $replace = $options.action<ConversationListState>(
             '\$replace', (a) => a?.$replace),
-        $activatedAction =
-            $options.action('\$activatedAction', (a) => a?.$activatedAction),
-        $deactivatedAction = $options.action(
-            '\$deactivatedAction', (a) => a?.$deactivatedAction),
-        $pushAction = $options.action('\$pushAction', (a) => a?.$pushAction),
-        $popAction = $options.action('\$popAction', (a) => a?.$popAction),
+        $activated = $options.action<Null>('\$activated', (a) => a?.$activated),
+        $deactivated =
+            $options.action<Null>('\$deactivated', (a) => a?.$deactivated),
+        $pushing = $options.action<ConversationListState>(
+            '\$pushing', (a) => a?.$pushing),
+        $popping = $options.action<Null>('\$popping', (a) => a?.$popping),
         command = ListConversationsApi(() => $options.stateful<
                 CommandState<ApiCommand<ListConversationsApiRequest>,
                     ApiResult<ListConversationsApiResponse>>,
@@ -428,10 +428,10 @@ class _$ConversationListActions extends ConversationListActions {
   BuiltList<ActionDispatcher> get $actions =>
       _$actions ??= BuiltList<ActionDispatcher>([
         this.$replace,
-        this.$activatedAction,
-        this.$deactivatedAction,
-        this.$pushAction,
-        this.$popAction,
+        this.$activated,
+        this.$deactivated,
+        this.$pushing,
+        this.$popping,
       ]);
 
   @override

@@ -20,8 +20,6 @@ abstract class ScaffoldActions extends AppStatefulActions<ScaffoldState,
 
   BottomBarActions get tabBar;
 
-  FieldDispatcher<MobileNavigationElement> selectedTab;
-
   LoginRoute get loginRoute;
 
   @override
@@ -39,9 +37,7 @@ abstract class ScaffoldState
     implements Built<ScaffoldState, ScaffoldStateBuilder> {
   DrawerState get drawer;
 
-  BottomBarState get tabBar;
-
-  MobileNavigationElement get selectedTab;
+  BottomBarState get bottomBar;
 
   CommandState<RouteCommand<LoginState>, RouteResult<Null>> get loginRoute;
 
@@ -49,9 +45,9 @@ abstract class ScaffoldState
 
   factory ScaffoldState([updates(ScaffoldStateBuilder b)]) =>
       _$ScaffoldState((b) {
-        if (updates != null) updates(b);
-        if (b.selectedTab == null)
-          b.selectedTab = MobileNavigationElement.DASHBOARD;
+        b.drawer = DrawerState().toBuilder();
+        b.bottomBar = BottomBarState().toBuilder();
+        updates?.call(b);
       });
 
   static Serializer<ScaffoldState> get serializer => _$scaffoldStateSerializer;

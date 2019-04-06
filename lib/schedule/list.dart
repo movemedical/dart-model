@@ -12,8 +12,8 @@ part 'list.g.dart';
 /// Route
 ////////////////////////////////
 
-abstract class CaseEventListRoute extends RouteDispatcher<CaseEventListState,
-    CaseEventListStateBuilder, Null, CaseEventListActions, CaseEventListRoute> {
+abstract class CaseEventListRoute extends ScreenRoute<CaseEventListState,
+    CaseEventListStateBuilder, CaseEventListActions, CaseEventListRoute> {
   CaseEventListRoute._();
 
   factory CaseEventListRoute(CaseEventListRouteOptions options) =
@@ -24,8 +24,8 @@ abstract class CaseEventListRoute extends RouteDispatcher<CaseEventListState,
 /// Actions
 ////////////////////////////////////
 
-abstract class CaseEventListActions extends RouteActions<CaseEventListState,
-    CaseEventListStateBuilder, Null, CaseEventListActions, CaseEventListRoute> {
+abstract class CaseEventListActions extends ScreenActions<CaseEventListState,
+    CaseEventListStateBuilder, CaseEventListActions, CaseEventListRoute> {
   ////////////////////////////////////
   /// Actions
   ////////////////////////////////////
@@ -41,6 +41,13 @@ abstract class CaseEventListActions extends RouteActions<CaseEventListState,
   @override
   CaseEventListState get $initial =>
       CaseEventListState((b) => b..listCommand = listCommand.$newBuilder());
+
+  ////////////////////////////////////
+  /// Config
+  ////////////////////////////////////
+
+  @override
+  MobileNavigationElement get $navElement => MobileNavigationElement.DASHBOARD;
 
   ////////////////////////////////////
   /// Construction

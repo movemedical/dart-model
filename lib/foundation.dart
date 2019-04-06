@@ -3,6 +3,9 @@ import 'package:meta/meta.dart';
 import 'package:modux/modux.dart';
 import 'app.dart';
 
+import 'package:movemedical_api/model/sql/enums/mobile_navigation_element.dart';
+
+export 'package:movemedical_api/model/sql/enums/mobile_navigation_element.dart';
 export 'package:built_collection/built_collection.dart';
 export 'package:built_value/built_value.dart';
 export 'package:built_value/serializer.dart';
@@ -167,3 +170,63 @@ abstract class AppRouteActions<
     super.$middleware(builder);
   }
 }
+
+///
+abstract class ScreenActions<
+    LocalState extends Built<LocalState, LocalStateBuilder>,
+    LocalStateBuilder extends Builder<LocalState, LocalStateBuilder>,
+    LocalActions extends ScreenActions<LocalState, LocalStateBuilder,
+        LocalActions, Route>,
+    Route extends RouteDispatcher<LocalState, LocalStateBuilder, Null,
+        LocalActions, Route>> extends AppRouteActions<LocalState,
+    LocalStateBuilder, Null, LocalActions, Route> {
+  MobileNavigationElement get $navElement;
+
+  void $onPush(covariant Store<AppState, AppStateBuilder, AppActions> store,
+      LocalState state) {}
+
+  void $onPop(covariant Store<AppState, AppStateBuilder, AppActions> store,
+      LocalState state, Null result) {}
+
+  void $didActivate(
+      covariant Store<AppState, AppStateBuilder, AppActions> store,
+      LocalState state) {}
+
+  void $didDeactivate(
+      covariant Store<AppState, AppStateBuilder, AppActions> store,
+      LocalState state) {
+    super.$didDeactivate(store, state);
+    $cancelAllCommands(store);
+  }
+
+  void $cancelAllCommands(
+      covariant Store<AppState, AppStateBuilder, AppActions> store) {
+    $forEachCommand(store, (owner, dispatcher) {
+      dispatcher.cancel(dispatcher.$mapState(store.state)?.command?.id);
+    });
+  }
+}
+
+abstract class ScreenRoute<
+        State extends Built<State, StateBuilder>,
+        StateBuilder extends Builder<State, StateBuilder>,
+        Actions extends ScreenActions<State, StateBuilder, Actions, D>,
+        D extends ScreenRoute<State, StateBuilder, Actions, D>>
+    extends RouteDispatcher<State, StateBuilder, Null, Actions, D> {}
+
+///
+abstract class DialogActions<
+    LocalState extends Built<LocalState, LocalStateBuilder>,
+    LocalStateBuilder extends Builder<LocalState, LocalStateBuilder>,
+    LocalActions extends DialogActions<LocalState, LocalStateBuilder,
+        LocalActions, Route>,
+    Route extends RouteDispatcher<LocalState, LocalStateBuilder, Null,
+        LocalActions, Route>> extends AppRouteActions<LocalState,
+    LocalStateBuilder, Null, LocalActions, Route> {}
+
+abstract class DialogDispatcher<
+        State extends Built<State, StateBuilder>,
+        StateBuilder extends Builder<State, StateBuilder>,
+        Actions extends DialogActions<State, StateBuilder, Actions, D>,
+        D extends DialogDispatcher<State, StateBuilder, Actions, D>>
+    extends RouteDispatcher<State, StateBuilder, Null, Actions, D> {}

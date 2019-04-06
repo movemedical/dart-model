@@ -8,8 +8,8 @@ part 'login.g.dart';
 /// Route
 ////////////////////////////////
 
-abstract class LoginRoute extends RouteDispatcher<LoginState, LoginStateBuilder,
-    Null, LoginActions, LoginRoute> {
+abstract class LoginRoute extends ScreenRoute<LoginState, LoginStateBuilder,
+    LoginActions, LoginRoute> {
   LoginRoute._();
 
   factory LoginRoute(LoginRouteOptions options) = _$LoginRoute;
@@ -19,9 +19,12 @@ abstract class LoginRoute extends RouteDispatcher<LoginState, LoginStateBuilder,
 /// Actions
 ////////////////////////////////
 
-abstract class LoginActions extends AppRouteActions<LoginState,
-    LoginStateBuilder, Null, LoginActions, LoginRoute> {
+abstract class LoginActions extends ScreenActions<LoginState, LoginStateBuilder,
+    LoginActions, LoginRoute> {
   LoginRequestActions get request;
+
+  @override
+  MobileNavigationElement get $navElement => null;
 
   @override
   LoginState get $initial =>

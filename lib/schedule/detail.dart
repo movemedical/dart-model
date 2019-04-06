@@ -17,12 +17,8 @@ part 'detail.g.dart';
 /// Route
 ////////////////////////////////
 
-abstract class CaseEventDetailRoute extends RouteDispatcher<
-    CaseEventDetailState,
-    CaseEventDetailStateBuilder,
-    Null,
-    CaseEventDetailActions,
-    CaseEventDetailRoute> {
+abstract class CaseEventDetailRoute extends ScreenRoute<CaseEventDetailState,
+    CaseEventDetailStateBuilder, CaseEventDetailActions, CaseEventDetailRoute> {
   CaseEventDetailRoute._();
 
   factory CaseEventDetailRoute(CaseEventDetailRouteOptions options) =
@@ -33,12 +29,15 @@ abstract class CaseEventDetailRoute extends RouteDispatcher<
 /// Actions
 ////////////////////////////////////
 
-abstract class CaseEventDetailActions extends RouteActions<
+abstract class CaseEventDetailActions extends ScreenActions<
     CaseEventDetailState,
     CaseEventDetailStateBuilder,
-    Null,
     CaseEventDetailActions,
     CaseEventDetailRoute> {
+  GetCaseEventDetailApiRequestActions get request;
+
+  GetCaseEventDetailApiResponseActions get model;
+
   ////////////////////////////////////
   /// Actions
   ////////////////////////////////////
@@ -53,6 +52,25 @@ abstract class CaseEventDetailActions extends RouteActions<
   CaseEventDetailState get $initial => CaseEventDetailState((b) => b);
 
   ////////////////////////////////////
+  /// Config
+  ////////////////////////////////////
+
+  @override
+  MobileNavigationElement get $navElement => MobileNavigationElement.DASHBOARD;
+
+  ////////////////////////////////////
+  /// Middleware
+  ////////////////////////////////////
+
+  @override
+  void $onPush(Store<AppState, AppStateBuilder, AppActions> store,
+      CaseEventDetailState state) {
+    if (state.request != null) {
+      getCommand(state.request);
+    }
+  }
+
+  ////////////////////////////////////
   /// Construction
   ////////////////////////////////////
 
@@ -62,8 +80,6 @@ abstract class CaseEventDetailActions extends RouteActions<
       _$CaseEventDetailActions;
 }
 
-class CaseEventDetailController {}
-
 ////////////////////////////////////
 /// State
 ////////////////////////////////////
@@ -71,10 +87,17 @@ class CaseEventDetailController {}
 abstract class CaseEventDetailState
     implements Built<CaseEventDetailState, CaseEventDetailStateBuilder> {
   @nullable
+  GetCaseEventDetailApiRequest get request;
+
+  @nullable
+  GetCaseEventDetailApiResponse get model;
+
+  @nullable
   CommandState<ApiCommand<GetCaseEventDetailApiRequest>,
       ApiResult<GetCaseEventDetailApiResponse>> get getCommand;
 
-  @memoized
+  bool get specifyArgs => request == null && model == null;
+
   bool get isLoading => getCommand?.isInProgress ?? false;
 
   ////////////////////////////////////
@@ -82,6 +105,14 @@ abstract class CaseEventDetailState
   ////////////////////////////////////
 
   CaseEventDetailState._();
+
+  factory CaseEventDetailState.load(
+          {String id, int caseNumber, bool skipPresence = false}) =>
+      CaseEventDetailState((b) => b
+        ..request = (GetCaseEventDetailApiRequestBuilder()
+          ..id = id
+          ..caseNumber = caseNumber
+          ..skipPresence = skipPresence));
 
   factory CaseEventDetailState([updates(CaseEventDetailStateBuilder b)]) =
       _$CaseEventDetailState;
