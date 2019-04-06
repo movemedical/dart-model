@@ -9,9 +9,10 @@ part 'list_filter.g.dart';
 /// Route
 ////////////////////////////////
 
-abstract class CaseEventListFilterRoute extends ScreenRoute<
+abstract class CaseEventListFilterRoute extends DialogRoute<
     CaseEventListFilterState,
     CaseEventListFilterStateBuilder,
+    ListCaseEventsApiRequest,
     CaseEventListFilterActions,
     CaseEventListFilterRoute> {
   CaseEventListFilterRoute._();
@@ -24,9 +25,10 @@ abstract class CaseEventListFilterRoute extends ScreenRoute<
 /// Actions
 ////////////////////////////////////
 
-abstract class CaseEventListFilterActions extends ScreenActions<
+abstract class CaseEventListFilterActions extends DialogActions<
     CaseEventListFilterState,
     CaseEventListFilterStateBuilder,
+    ListCaseEventsApiRequest,
     CaseEventListFilterActions,
     CaseEventListFilterRoute> {
   ////////////////////////////////////
@@ -46,16 +48,16 @@ abstract class CaseEventListFilterActions extends ScreenActions<
   /// Config
   ////////////////////////////////////
 
-  @override
-  MobileNavigationElement get $navElement => MobileNavigationElement.SCHEDULE;
+//  @override
+//  MobileNavigationElement get $navElement => MobileNavigationElement.SCHEDULE;
 
   ////////////////////////////////////
   /// Middleware
   ////////////////////////////////////
 
-  @override
-  void $onPush(Store<AppState, AppStateBuilder, AppActions> store,
-      CaseEventListFilterState state) {}
+//  @override
+//  void $onPush(Store<AppState, AppStateBuilder, AppActions> store,
+//      CaseEventListFilterState state) {}
 
   ////////////////////////////////////
   /// Construction

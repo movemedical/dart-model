@@ -21,6 +21,13 @@ class _$LoginStateSerializer implements StructuredSerializer<LoginState> {
       'request',
       serializers.serialize(object.request,
           specifiedType: const FullType(LoginRequest)),
+      'dashboardRoute',
+      serializers.serialize(object.dashboardRoute,
+          specifiedType: const FullType(CommandState, const [
+            const FullType(
+                RouteCommand, const [const FullType(DashboardState)]),
+            const FullType(RouteResult, const [const FullType(Null)])
+          ])),
     ];
 
     return result;
@@ -41,6 +48,15 @@ class _$LoginStateSerializer implements StructuredSerializer<LoginState> {
           result.request.replace(serializers.deserialize(value,
               specifiedType: const FullType(LoginRequest)) as LoginRequest);
           break;
+        case 'dashboardRoute':
+          result.dashboardRoute.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(CommandState, const [
+                    const FullType(
+                        RouteCommand, const [const FullType(DashboardState)]),
+                    const FullType(RouteResult, const [const FullType(Null)])
+                  ]))
+              as CommandState<RouteCommand<DashboardState>, RouteResult<Null>>);
+          break;
       }
     }
 
@@ -51,13 +67,19 @@ class _$LoginStateSerializer implements StructuredSerializer<LoginState> {
 class _$LoginState extends LoginState {
   @override
   final LoginRequest request;
+  @override
+  final CommandState<RouteCommand<DashboardState>, RouteResult<Null>>
+      dashboardRoute;
 
   factory _$LoginState([void updates(LoginStateBuilder b)]) =>
       (new LoginStateBuilder()..update(updates)).build();
 
-  _$LoginState._({this.request}) : super._() {
+  _$LoginState._({this.request, this.dashboardRoute}) : super._() {
     if (request == null) {
       throw new BuiltValueNullFieldError('LoginState', 'request');
+    }
+    if (dashboardRoute == null) {
+      throw new BuiltValueNullFieldError('LoginState', 'dashboardRoute');
     }
   }
 
@@ -71,17 +93,21 @@ class _$LoginState extends LoginState {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is LoginState && request == other.request;
+    return other is LoginState &&
+        request == other.request &&
+        dashboardRoute == other.dashboardRoute;
   }
 
   @override
   int get hashCode {
-    return $jf($jc(0, request.hashCode));
+    return $jf($jc($jc(0, request.hashCode), dashboardRoute.hashCode));
   }
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('LoginState')..add('request', request))
+    return (newBuiltValueToStringHelper('LoginState')
+          ..add('request', request)
+          ..add('dashboardRoute', dashboardRoute))
         .toString();
   }
 }
@@ -94,11 +120,22 @@ class LoginStateBuilder implements Builder<LoginState, LoginStateBuilder> {
       _$this._request ??= new LoginRequestBuilder();
   set request(LoginRequestBuilder request) => _$this._request = request;
 
+  CommandStateBuilder<RouteCommand<DashboardState>, RouteResult<Null>>
+      _dashboardRoute;
+  CommandStateBuilder<RouteCommand<DashboardState>, RouteResult<Null>>
+      get dashboardRoute => _$this._dashboardRoute ??= new CommandStateBuilder<
+          RouteCommand<DashboardState>, RouteResult<Null>>();
+  set dashboardRoute(
+          CommandStateBuilder<RouteCommand<DashboardState>, RouteResult<Null>>
+              dashboardRoute) =>
+      _$this._dashboardRoute = dashboardRoute;
+
   LoginStateBuilder();
 
   LoginStateBuilder get _$this {
     if (_$v != null) {
       _request = _$v.request?.toBuilder();
+      _dashboardRoute = _$v.dashboardRoute?.toBuilder();
       _$v = null;
     }
     return this;
@@ -121,12 +158,16 @@ class LoginStateBuilder implements Builder<LoginState, LoginStateBuilder> {
   _$LoginState build() {
     _$LoginState _$result;
     try {
-      _$result = _$v ?? new _$LoginState._(request: request.build());
+      _$result = _$v ??
+          new _$LoginState._(
+              request: request.build(), dashboardRoute: dashboardRoute.build());
     } catch (_) {
       String _$failedField;
       try {
         _$failedField = 'request';
         request.build();
+        _$failedField = 'dashboardRoute';
+        dashboardRoute.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             'LoginState', _$failedField, e.toString());
@@ -263,6 +304,7 @@ class _$LoginActions extends LoginActions {
   final ActionDispatcher<LoginState> $pushing;
   final ActionDispatcher<Null> $popping;
   final LoginRequestActions request;
+  final DashboardRoute dashboardRoute;
 
   _$LoginActions._(this.$options)
       : $replace = $options.action<LoginState>('\$replace', (a) => a?.$replace),
@@ -278,6 +320,16 @@ class _$LoginActions extends LoginActions {
                 (s) => s?.request,
                 (b) => b?.request,
                 (parent, builder) => parent?.request = builder)),
+        dashboardRoute = DashboardRoute(() => $options.stateful<
+                CommandState<RouteCommand<DashboardState>, RouteResult<Null>>,
+                CommandStateBuilder<RouteCommand<DashboardState>,
+                    RouteResult<Null>>,
+                DashboardRoute>(
+            'dashboardRoute',
+            (a) => a.dashboardRoute,
+            (s) => s?.dashboardRoute,
+            (b) => b?.dashboardRoute,
+            (parent, builder) => parent?.dashboardRoute = builder)),
         super._();
 
   factory _$LoginActions(LoginActionsOptions options) =>
@@ -290,6 +342,7 @@ class _$LoginActions extends LoginActions {
   @override
   BuiltList<ModuxActions> get $nested => _$nested ??= BuiltList<ModuxActions>([
         this.request,
+        this.dashboardRoute,
       ]);
 
   BuiltList<ActionDispatcher> _$actions;
@@ -307,12 +360,14 @@ class _$LoginActions extends LoginActions {
   void $reducer(AppReducerBuilder reducer) {
     super.$reducer(reducer);
     request.$reducer(reducer);
+    dashboardRoute.$reducer(reducer);
   }
 
   @override
   void $middleware(AppMiddlewareBuilder middleware) {
     super.$middleware(middleware);
     request.$middleware(middleware);
+    dashboardRoute.$middleware(middleware);
   }
 
 // @override

@@ -218,15 +218,17 @@ abstract class ScreenRoute<
 abstract class DialogActions<
     LocalState extends Built<LocalState, LocalStateBuilder>,
     LocalStateBuilder extends Builder<LocalState, LocalStateBuilder>,
-    LocalActions extends DialogActions<LocalState, LocalStateBuilder,
+    Result,
+    LocalActions extends DialogActions<LocalState, LocalStateBuilder, Result,
         LocalActions, Route>,
-    Route extends RouteDispatcher<LocalState, LocalStateBuilder, Null,
+    Route extends RouteDispatcher<LocalState, LocalStateBuilder, Result,
         LocalActions, Route>> extends AppRouteActions<LocalState,
-    LocalStateBuilder, Null, LocalActions, Route> {}
+    LocalStateBuilder, Result, LocalActions, Route> {}
 
-abstract class DialogDispatcher<
+abstract class DialogRoute<
         State extends Built<State, StateBuilder>,
         StateBuilder extends Builder<State, StateBuilder>,
-        Actions extends DialogActions<State, StateBuilder, Actions, D>,
-        D extends DialogDispatcher<State, StateBuilder, Actions, D>>
-    extends RouteDispatcher<State, StateBuilder, Null, Actions, D> {}
+        Result,
+        Actions extends DialogActions<State, StateBuilder, Result, Actions, D>,
+        D extends DialogRoute<State, StateBuilder, Result, Actions, D>>
+    extends RouteDispatcher<State, StateBuilder, Result, Actions, D> {}

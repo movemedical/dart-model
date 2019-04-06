@@ -37,6 +37,12 @@ class _$NavStateSerializer implements StructuredSerializer<NavState> {
         ..add(serializers.serialize(object.scaffold,
             specifiedType: const FullType(ScaffoldState)));
     }
+    if (object.dashboard != null) {
+      result
+        ..add('dashboard')
+        ..add(serializers.serialize(object.dashboard,
+            specifiedType: const FullType(DashboardState)));
+    }
     if (object.auth != null) {
       result
         ..add('auth')
@@ -96,6 +102,10 @@ class _$NavStateSerializer implements StructuredSerializer<NavState> {
           result.scaffold.replace(serializers.deserialize(value,
               specifiedType: const FullType(ScaffoldState)) as ScaffoldState);
           break;
+        case 'dashboard':
+          result.dashboard.replace(serializers.deserialize(value,
+              specifiedType: const FullType(DashboardState)) as DashboardState);
+          break;
         case 'auth':
           result.auth.replace(serializers.deserialize(value,
               specifiedType: const FullType(AuthState)) as AuthState);
@@ -131,6 +141,8 @@ class _$NavState extends NavState {
   @override
   final ScaffoldState scaffold;
   @override
+  final DashboardState dashboard;
+  @override
   final AuthState auth;
   @override
   final HomeState home;
@@ -148,6 +160,7 @@ class _$NavState extends NavState {
       {this.stack,
       this.loader,
       this.scaffold,
+      this.dashboard,
       this.auth,
       this.home,
       this.schedule,
@@ -169,6 +182,7 @@ class _$NavState extends NavState {
         stack == other.stack &&
         loader == other.loader &&
         scaffold == other.scaffold &&
+        dashboard == other.dashboard &&
         auth == other.auth &&
         home == other.home &&
         schedule == other.schedule &&
@@ -183,8 +197,10 @@ class _$NavState extends NavState {
             $jc(
                 $jc(
                     $jc(
-                        $jc($jc($jc(0, stack.hashCode), loader.hashCode),
-                            scaffold.hashCode),
+                        $jc(
+                            $jc($jc($jc(0, stack.hashCode), loader.hashCode),
+                                scaffold.hashCode),
+                            dashboard.hashCode),
                         auth.hashCode),
                     home.hashCode),
                 schedule.hashCode),
@@ -198,6 +214,7 @@ class _$NavState extends NavState {
           ..add('stack', stack)
           ..add('loader', loader)
           ..add('scaffold', scaffold)
+          ..add('dashboard', dashboard)
           ..add('auth', auth)
           ..add('home', home)
           ..add('schedule', schedule)
@@ -222,6 +239,12 @@ class NavStateBuilder implements Builder<NavState, NavStateBuilder> {
   ScaffoldStateBuilder get scaffold =>
       _$this._scaffold ??= new ScaffoldStateBuilder();
   set scaffold(ScaffoldStateBuilder scaffold) => _$this._scaffold = scaffold;
+
+  DashboardStateBuilder _dashboard;
+  DashboardStateBuilder get dashboard =>
+      _$this._dashboard ??= new DashboardStateBuilder();
+  set dashboard(DashboardStateBuilder dashboard) =>
+      _$this._dashboard = dashboard;
 
   AuthStateBuilder _auth;
   AuthStateBuilder get auth => _$this._auth ??= new AuthStateBuilder();
@@ -252,6 +275,7 @@ class NavStateBuilder implements Builder<NavState, NavStateBuilder> {
       _stack = _$v.stack?.toBuilder();
       _loader = _$v.loader?.toBuilder();
       _scaffold = _$v.scaffold?.toBuilder();
+      _dashboard = _$v.dashboard?.toBuilder();
       _auth = _$v.auth?.toBuilder();
       _home = _$v.home?.toBuilder();
       _schedule = _$v.schedule?.toBuilder();
@@ -284,6 +308,7 @@ class NavStateBuilder implements Builder<NavState, NavStateBuilder> {
               stack: _stack?.build(),
               loader: _loader?.build(),
               scaffold: _scaffold?.build(),
+              dashboard: _dashboard?.build(),
               auth: _auth?.build(),
               home: _home?.build(),
               schedule: _schedule?.build(),
@@ -298,6 +323,8 @@ class NavStateBuilder implements Builder<NavState, NavStateBuilder> {
         _loader?.build();
         _$failedField = 'scaffold';
         _scaffold?.build();
+        _$failedField = 'dashboard';
+        _dashboard?.build();
         _$failedField = 'auth';
         _auth?.build();
         _$failedField = 'home';
@@ -338,6 +365,7 @@ class _$NavActions extends NavActions {
   final FieldDispatcher<BuiltList<String>> stack;
   final LoaderActions loader;
   final ScaffoldActions scaffold;
+  final DashboardActions dashboard;
   final AuthActions auth;
   final HomeActions home;
   final ScheduleActions schedule;
@@ -362,6 +390,13 @@ class _$NavActions extends NavActions {
                 (s) => s?.scaffold,
                 (b) => b?.scaffold,
                 (parent, builder) => parent?.scaffold = builder)),
+        dashboard = DashboardActions(() => $options
+            .stateful<DashboardState, DashboardStateBuilder, DashboardActions>(
+                'dashboard',
+                (a) => a.dashboard,
+                (s) => s?.dashboard,
+                (b) => b?.dashboard,
+                (parent, builder) => parent?.dashboard = builder)),
         auth = AuthActions(() =>
             $options.stateful<AuthState, AuthStateBuilder, AuthActions>(
                 'auth',
@@ -409,6 +444,7 @@ class _$NavActions extends NavActions {
   BuiltList<ModuxActions> get $nested => _$nested ??= BuiltList<ModuxActions>([
         this.loader,
         this.scaffold,
+        this.dashboard,
         this.auth,
         this.home,
         this.schedule,
@@ -430,6 +466,7 @@ class _$NavActions extends NavActions {
     stack.$reducer(reducer);
     loader.$reducer(reducer);
     scaffold.$reducer(reducer);
+    dashboard.$reducer(reducer);
     auth.$reducer(reducer);
     home.$reducer(reducer);
     schedule.$reducer(reducer);
@@ -442,6 +479,7 @@ class _$NavActions extends NavActions {
     super.$middleware(middleware);
     loader.$middleware(middleware);
     scaffold.$middleware(middleware);
+    dashboard.$middleware(middleware);
     auth.$middleware(middleware);
     home.$middleware(middleware);
     schedule.$middleware(middleware);

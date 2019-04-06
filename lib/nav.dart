@@ -11,6 +11,7 @@ import 'schedule/mod.dart';
 import 'messages/mod.dart';
 import 'directory/mod.dart';
 import 'loader.dart';
+import 'dashboard/dashboard.dart';
 
 part 'nav.g.dart';
 
@@ -30,6 +31,8 @@ abstract class NavActions
   LoaderActions get loader;
 
   ScaffoldActions get scaffold;
+
+  DashboardActions get dashboard;
 
   AuthActions get auth;
 
@@ -63,6 +66,9 @@ abstract class NavState
 
   @nullable
   ScaffoldState get scaffold;
+
+  @nullable
+  DashboardState get dashboard;
 
   @nullable
   AuthState get auth;

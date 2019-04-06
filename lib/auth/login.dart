@@ -2,6 +2,8 @@ import '../foundation.dart';
 
 import 'package:movemedical_api/command.dart';
 
+import '../dashboard/dashboard.dart';
+
 part 'login.g.dart';
 
 ////////////////////////////////
@@ -23,6 +25,8 @@ abstract class LoginActions extends ScreenActions<LoginState, LoginStateBuilder,
     LoginActions, LoginRoute> {
   LoginRequestActions get request;
 
+  DashboardRoute get dashboardRoute;
+
   @override
   MobileNavigationElement get $navElement => null;
 
@@ -41,6 +45,9 @@ abstract class LoginActions extends ScreenActions<LoginState, LoginStateBuilder,
 
 abstract class LoginState implements Built<LoginState, LoginStateBuilder> {
   LoginRequest get request;
+
+  CommandState<RouteCommand<DashboardState>, RouteResult<Null>>
+      get dashboardRoute;
 
   factory LoginState.of({String email, String password, String session}) =>
       (LoginStateBuilder()
