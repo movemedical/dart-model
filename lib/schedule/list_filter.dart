@@ -13,6 +13,7 @@ abstract class CaseEventListFilterRoute extends DialogRoute<
     CaseEventListFilterState,
     CaseEventListFilterStateBuilder,
     ListCaseEventsApiRequest,
+    ListCaseEventsApiRequestBuilder,
     CaseEventListFilterActions,
     CaseEventListFilterRoute> {
   CaseEventListFilterRoute._();
@@ -29,6 +30,7 @@ abstract class CaseEventListFilterActions extends DialogActions<
     CaseEventListFilterState,
     CaseEventListFilterStateBuilder,
     ListCaseEventsApiRequest,
+    ListCaseEventsApiRequestBuilder,
     CaseEventListFilterActions,
     CaseEventListFilterRoute> {
   ////////////////////////////////////

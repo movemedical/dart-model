@@ -313,6 +313,33 @@ class _$CaseEventListFilterRoute extends CaseEventListFilterRoute {
         FullType(RouteCommand, [FullType(CaseEventListFilterState)]),
         FullType(RouteResult, [FullType(ListCaseEventsApiRequest)])
       ]);
+
+  @override
+  RouteCommandBuilder<CaseEventListFilterState> newCommandBuilder() =>
+      RouteCommand<CaseEventListFilterState>().toBuilder();
+
+  @override
+  RouteResultBuilder<ListCaseEventsApiRequest> newResultBuilder() =>
+      RouteResult<ListCaseEventsApiRequest>().toBuilder();
+
+  @override
+  Serializer<RouteResult> get resultSerializer => RouteResult.serializer;
+
+  @override
+  CaseEventListFilterStateBuilder newCommandPayloadBuilder() =>
+      CaseEventListFilterState().toBuilder();
+
+  @override
+  ListCaseEventsApiRequestBuilder newResultPayloadBuilder() =>
+      ListCaseEventsApiRequest().toBuilder();
+
+  @override
+  Serializer<CaseEventListFilterState> get commandPayloadSerializer =>
+      CaseEventListFilterState.serializer;
+
+  @override
+  Serializer<ListCaseEventsApiRequest> get resultPayloadSerializer =>
+      ListCaseEventsApiRequest.serializer;
 }
 
 typedef StatefulActionsOptions<
@@ -395,4 +422,8 @@ class _$CaseEventListFilterActions extends CaseEventListFilterActions {
   FullType _$fullType;
   @override
   FullType get $fullType => _$fullType ??= FullType(CaseEventListFilterState);
+
+  @override
+  ListCaseEventsApiRequestBuilder $newResultBuilder() =>
+      ListCaseEventsApiRequest().toBuilder();
 }

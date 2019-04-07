@@ -244,9 +244,9 @@ class _$ScaffoldActions extends ScaffoldActions {
                 (parent, builder) => parent?.tabBar = builder)),
         loginRoute = LoginRoute(() =>
             $options.stateful<
-                    CommandState<RouteCommand<LoginState>, RouteResult<Null>>,
+                    CommandState<RouteCommand<LoginState>, RouteResult<Empty>>,
                     CommandStateBuilder<RouteCommand<LoginState>,
-                        RouteResult<Null>>,
+                        RouteResult<Empty>>,
                     LoginRoute>(
                 'loginRoute',
                 (a) => a.loginRoute,

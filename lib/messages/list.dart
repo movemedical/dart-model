@@ -16,10 +16,9 @@ part 'list.g.dart';
 /// Route
 ////////////////////////////////
 
-abstract class ConversationListRoute extends RouteDispatcher<
+abstract class ConversationListRoute extends ScreenRoute<
     ConversationListState,
     ConversationListStateBuilder,
-    Null,
     ConversationListActions,
     ConversationListRoute> {
   ConversationListRoute._();
@@ -32,10 +31,9 @@ abstract class ConversationListRoute extends RouteDispatcher<
 /// Actions
 ////////////////////////////////////
 
-abstract class ConversationListActions extends RouteActions<
+abstract class ConversationListActions extends ScreenActions<
     ConversationListState,
     ConversationListStateBuilder,
-    Null,
     ConversationListActions,
     ConversationListRoute> {
   ////////////////////////////////////
@@ -51,6 +49,9 @@ abstract class ConversationListActions extends RouteActions<
 
   @override
   ConversationListState get $initial => ConversationListState((b) => b);
+
+  @override
+  MobileNavigationElement get $navElement => MobileNavigationElement.MESSAGES;
 
   ////////////////////////////////////
   /// Construction

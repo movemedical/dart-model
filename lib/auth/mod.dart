@@ -5,7 +5,7 @@ import 'login.dart';
 part 'mod.g.dart';
 
 abstract class AuthActions
-    extends AppStatefulActions<AuthState, AuthStateBuilder, AuthActions> {
+    extends StateActions<AuthState, AuthStateBuilder, AuthActions> {
   LoginActions get login;
 
   AuthState get $initial =>

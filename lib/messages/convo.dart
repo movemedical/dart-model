@@ -5,14 +5,14 @@ import 'package:movemedical_api/state/action/messaging/conversations/get_convers
 
 import '../foundation.dart';
 
-part 'detail.g.dart';
+part 'convo.g.dart';
 
 ////////////////////////////////
 /// Route
 ////////////////////////////////
 
-abstract class ConversationRoute extends RouteDispatcher<ConversationState,
-    ConversationStateBuilder, Null, ConversationActions, ConversationRoute> {
+abstract class ConversationRoute extends ScreenRoute<ConversationState,
+    ConversationStateBuilder, ConversationActions, ConversationRoute> {
   ConversationRoute._();
 
   factory ConversationRoute(ConversationRouteOptions options) =
@@ -23,8 +23,8 @@ abstract class ConversationRoute extends RouteDispatcher<ConversationState,
 /// Actions
 ////////////////////////////////////
 
-abstract class ConversationActions extends RouteActions<ConversationState,
-    ConversationStateBuilder, Null, ConversationActions, ConversationRoute> {
+abstract class ConversationActions extends ScreenActions<ConversationState,
+    ConversationStateBuilder, ConversationActions, ConversationRoute> {
   ////////////////////////////////////
   /// Actions
   ////////////////////////////////////
@@ -37,6 +37,9 @@ abstract class ConversationActions extends RouteActions<ConversationState,
 
   @override
   ConversationState get $initial => ConversationState((b) => b);
+
+  @override
+  MobileNavigationElement get $navElement => MobileNavigationElement.MESSAGES;
 
   ////////////////////////////////////
   /// Construction

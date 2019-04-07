@@ -2,8 +2,8 @@ import 'foundation.dart';
 
 part 'settings.g.dart';
 
-abstract class SettingsActions extends AppStatefulActions<SettingsState,
-    SettingsStateBuilder, SettingsActions> {
+abstract class SettingsActions
+    extends StateActions<SettingsState, SettingsStateBuilder, SettingsActions> {
   FieldDispatcher<ThemeName> get themeName;
 
   SettingsActions._();

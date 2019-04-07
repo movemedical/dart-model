@@ -35,10 +35,10 @@ class _$CaseEventDetailStateSerializer
         ..add(serializers.serialize(object.model,
             specifiedType: const FullType(GetCaseEventDetailApiResponse)));
     }
-    if (object.getCommand != null) {
+    if (object.cmdLoad != null) {
       result
-        ..add('getCommand')
-        ..add(serializers.serialize(object.getCommand,
+        ..add('cmdLoad')
+        ..add(serializers.serialize(object.cmdLoad,
             specifiedType: const FullType(CommandState, const [
               const FullType(ApiCommand,
                   const [const FullType(GetCaseEventDetailApiRequest)]),
@@ -71,8 +71,8 @@ class _$CaseEventDetailStateSerializer
                   specifiedType: const FullType(GetCaseEventDetailApiResponse))
               as GetCaseEventDetailApiResponse);
           break;
-        case 'getCommand':
-          result.getCommand.replace(serializers.deserialize(value,
+        case 'cmdLoad':
+          result.cmdLoad.replace(serializers.deserialize(value,
                   specifiedType: const FullType(CommandState, const [
                     const FullType(ApiCommand,
                         const [const FullType(GetCaseEventDetailApiRequest)]),
@@ -96,13 +96,13 @@ class _$CaseEventDetailState extends CaseEventDetailState {
   final GetCaseEventDetailApiResponse model;
   @override
   final CommandState<ApiCommand<GetCaseEventDetailApiRequest>,
-      ApiResult<GetCaseEventDetailApiResponse>> getCommand;
+      ApiResult<GetCaseEventDetailApiResponse>> cmdLoad;
 
   factory _$CaseEventDetailState(
           [void updates(CaseEventDetailStateBuilder b)]) =>
       (new CaseEventDetailStateBuilder()..update(updates)).build();
 
-  _$CaseEventDetailState._({this.request, this.model, this.getCommand})
+  _$CaseEventDetailState._({this.request, this.model, this.cmdLoad})
       : super._();
 
   @override
@@ -119,13 +119,13 @@ class _$CaseEventDetailState extends CaseEventDetailState {
     return other is CaseEventDetailState &&
         request == other.request &&
         model == other.model &&
-        getCommand == other.getCommand;
+        cmdLoad == other.cmdLoad;
   }
 
   @override
   int get hashCode {
-    return $jf($jc(
-        $jc($jc(0, request.hashCode), model.hashCode), getCommand.hashCode));
+    return $jf(
+        $jc($jc($jc(0, request.hashCode), model.hashCode), cmdLoad.hashCode));
   }
 
   @override
@@ -133,7 +133,7 @@ class _$CaseEventDetailState extends CaseEventDetailState {
     return (newBuiltValueToStringHelper('CaseEventDetailState')
           ..add('request', request)
           ..add('model', model)
-          ..add('getCommand', getCommand))
+          ..add('cmdLoad', cmdLoad))
         .toString();
   }
 }
@@ -155,17 +155,17 @@ class CaseEventDetailStateBuilder
       _$this._model = model;
 
   CommandStateBuilder<ApiCommand<GetCaseEventDetailApiRequest>,
-      ApiResult<GetCaseEventDetailApiResponse>> _getCommand;
+      ApiResult<GetCaseEventDetailApiResponse>> _cmdLoad;
   CommandStateBuilder<ApiCommand<GetCaseEventDetailApiRequest>,
           ApiResult<GetCaseEventDetailApiResponse>>
-      get getCommand => _$this._getCommand ??= new CommandStateBuilder<
+      get cmdLoad => _$this._cmdLoad ??= new CommandStateBuilder<
           ApiCommand<GetCaseEventDetailApiRequest>,
           ApiResult<GetCaseEventDetailApiResponse>>();
-  set getCommand(
+  set cmdLoad(
           CommandStateBuilder<ApiCommand<GetCaseEventDetailApiRequest>,
                   ApiResult<GetCaseEventDetailApiResponse>>
-              getCommand) =>
-      _$this._getCommand = getCommand;
+              cmdLoad) =>
+      _$this._cmdLoad = cmdLoad;
 
   CaseEventDetailStateBuilder();
 
@@ -173,7 +173,7 @@ class CaseEventDetailStateBuilder
     if (_$v != null) {
       _request = _$v.request?.toBuilder();
       _model = _$v.model?.toBuilder();
-      _getCommand = _$v.getCommand?.toBuilder();
+      _cmdLoad = _$v.cmdLoad?.toBuilder();
       _$v = null;
     }
     return this;
@@ -200,7 +200,7 @@ class CaseEventDetailStateBuilder
           new _$CaseEventDetailState._(
               request: _request?.build(),
               model: _model?.build(),
-              getCommand: _getCommand?.build());
+              cmdLoad: _cmdLoad?.build());
     } catch (_) {
       String _$failedField;
       try {
@@ -208,8 +208,8 @@ class CaseEventDetailStateBuilder
         _request?.build();
         _$failedField = 'model';
         _model?.build();
-        _$failedField = 'getCommand';
-        _getCommand?.build();
+        _$failedField = 'cmdLoad';
+        _cmdLoad?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             'CaseEventDetailState', _$failedField, e.toString());
@@ -231,91 +231,91 @@ class CaseEventDetailStateBuilder
 // ignore_for_file: annotate_overrides
 
 typedef StatefulActionsOptions<
-    CommandState<RouteCommand<CaseEventDetailState>, RouteResult<Null>>,
-    CommandStateBuilder<RouteCommand<CaseEventDetailState>, RouteResult<Null>>,
+    CommandState<RouteCommand<CaseEventDetailState>, RouteResult<Empty>>,
+    CommandStateBuilder<RouteCommand<CaseEventDetailState>, RouteResult<Empty>>,
     CaseEventDetailRoute> CaseEventDetailRouteOptions();
 
 class _$CaseEventDetailRoute extends CaseEventDetailRoute {
   final StatefulActionsOptions<
-      CommandState<RouteCommand<CaseEventDetailState>, RouteResult<Null>>,
+      CommandState<RouteCommand<CaseEventDetailState>, RouteResult<Empty>>,
       CommandStateBuilder<RouteCommand<CaseEventDetailState>,
-          RouteResult<Null>>,
+          RouteResult<Empty>>,
       CaseEventDetailRoute> $options;
 
   final ActionDispatcher<
-          CommandState<RouteCommand<CaseEventDetailState>, RouteResult<Null>>>
+          CommandState<RouteCommand<CaseEventDetailState>, RouteResult<Empty>>>
       $replace;
   final ActionDispatcher<
-      CommandPayload<RouteCommand<CaseEventDetailState>, RouteResult<Null>,
+      CommandPayload<RouteCommand<CaseEventDetailState>, RouteResult<Empty>,
           CaseEventDetailRoute, String>> $clear;
   final ActionDispatcher<
-      CommandPayload<RouteCommand<CaseEventDetailState>, RouteResult<Null>,
+      CommandPayload<RouteCommand<CaseEventDetailState>, RouteResult<Empty>,
           CaseEventDetailRoute, String>> $cancel;
   final ActionDispatcher<
       CommandPayload<
           RouteCommand<CaseEventDetailState>,
-          RouteResult<Null>,
+          RouteResult<Empty>,
           CaseEventDetailRoute,
           Command<RouteCommand<CaseEventDetailState>>>> $execute;
   final ActionDispatcher<
-      CommandPayload<RouteCommand<CaseEventDetailState>, RouteResult<Null>,
-          CaseEventDetailRoute, CommandResult<RouteResult<Null>>>> $result;
+      CommandPayload<RouteCommand<CaseEventDetailState>, RouteResult<Empty>,
+          CaseEventDetailRoute, CommandResult<RouteResult<Empty>>>> $result;
   final ActionDispatcher<
-      CommandPayload<RouteCommand<CaseEventDetailState>, RouteResult<Null>,
+      CommandPayload<RouteCommand<CaseEventDetailState>, RouteResult<Empty>,
           CaseEventDetailRoute, String>> $detach;
   final ActionDispatcher<
-      CommandPayload<RouteCommand<CaseEventDetailState>, RouteResult<Null>,
+      CommandPayload<RouteCommand<CaseEventDetailState>, RouteResult<Empty>,
           CaseEventDetailRoute, String>> $attach;
   final ActionDispatcher<
-      CommandPayload<RouteCommand<CaseEventDetailState>, RouteResult<Null>,
+      CommandPayload<RouteCommand<CaseEventDetailState>, RouteResult<Empty>,
           CaseEventDetailRoute, CommandProgress>> $progress;
 
   _$CaseEventDetailRoute._(this.$options)
       : $replace = $options.action<
             CommandState<RouteCommand<CaseEventDetailState>,
-                RouteResult<Null>>>('\$replace', (a) => a?.$replace),
+                RouteResult<Empty>>>('\$replace', (a) => a?.$replace),
         $clear = $options.action<
             CommandPayload<
                 RouteCommand<CaseEventDetailState>,
-                RouteResult<Null>,
+                RouteResult<Empty>,
                 CaseEventDetailRoute,
                 String>>('\$clear', (a) => a?.$clear),
         $cancel = $options.action<
             CommandPayload<
                 RouteCommand<CaseEventDetailState>,
-                RouteResult<Null>,
+                RouteResult<Empty>,
                 CaseEventDetailRoute,
                 String>>('\$cancel', (a) => a?.$cancel),
         $execute = $options.action<
                 CommandPayload<
                     RouteCommand<CaseEventDetailState>,
-                    RouteResult<Null>,
+                    RouteResult<Empty>,
                     CaseEventDetailRoute,
                     Command<RouteCommand<CaseEventDetailState>>>>(
             '\$execute', (a) => a?.$execute),
         $result = $options.action<
                 CommandPayload<
                     RouteCommand<CaseEventDetailState>,
-                    RouteResult<Null>,
+                    RouteResult<Empty>,
                     CaseEventDetailRoute,
-                    CommandResult<RouteResult<Null>>>>(
+                    CommandResult<RouteResult<Empty>>>>(
             '\$result', (a) => a?.$result),
         $detach = $options.action<
             CommandPayload<
                 RouteCommand<CaseEventDetailState>,
-                RouteResult<Null>,
+                RouteResult<Empty>,
                 CaseEventDetailRoute,
                 String>>('\$detach', (a) => a?.$detach),
         $attach = $options.action<
             CommandPayload<
                 RouteCommand<CaseEventDetailState>,
-                RouteResult<Null>,
+                RouteResult<Empty>,
                 CaseEventDetailRoute,
                 String>>('\$attach', (a) => a?.$attach),
         $progress = $options.action<
             CommandPayload<
                 RouteCommand<CaseEventDetailState>,
-                RouteResult<Null>,
+                RouteResult<Empty>,
                 CaseEventDetailRoute,
                 CommandProgress>>('\$progress', (a) => a?.$progress),
         super._();
@@ -324,14 +324,14 @@ class _$CaseEventDetailRoute extends CaseEventDetailRoute {
       _$CaseEventDetailRoute._(options());
 
   @override
-  CommandState<RouteCommand<CaseEventDetailState>, RouteResult<Null>>
-      get $initial =>
-          CommandState<RouteCommand<CaseEventDetailState>, RouteResult<Null>>();
+  CommandState<RouteCommand<CaseEventDetailState>, RouteResult<Empty>>
+      get $initial => CommandState<RouteCommand<CaseEventDetailState>,
+          RouteResult<Empty>>();
 
   @override
-  CommandStateBuilder<RouteCommand<CaseEventDetailState>, RouteResult<Null>>
+  CommandStateBuilder<RouteCommand<CaseEventDetailState>, RouteResult<Empty>>
       $newBuilder() => CommandStateBuilder<RouteCommand<CaseEventDetailState>,
-          RouteResult<Null>>();
+          RouteResult<Empty>>();
 
   BuiltList<ActionDispatcher> _$actions;
   @override
@@ -354,8 +354,33 @@ class _$CaseEventDetailRoute extends CaseEventDetailRoute {
   @override
   FullType get $fullType => _$fullType ??= FullType(CommandState, [
         FullType(RouteCommand, [FullType(CaseEventDetailState)]),
-        FullType(RouteResult, [FullType(Null)])
+        FullType(RouteResult, [FullType(Empty)])
       ]);
+
+  @override
+  RouteCommandBuilder<CaseEventDetailState> newCommandBuilder() =>
+      RouteCommand<CaseEventDetailState>().toBuilder();
+
+  @override
+  RouteResultBuilder<Empty> newResultBuilder() =>
+      RouteResult<Empty>().toBuilder();
+
+  @override
+  Serializer<RouteResult> get resultSerializer => RouteResult.serializer;
+
+  @override
+  CaseEventDetailStateBuilder newCommandPayloadBuilder() =>
+      CaseEventDetailState().toBuilder();
+
+  @override
+  EmptyBuilder newResultPayloadBuilder() => Empty().toBuilder();
+
+  @override
+  Serializer<CaseEventDetailState> get commandPayloadSerializer =>
+      CaseEventDetailState.serializer;
+
+  @override
+  Serializer<Empty> get resultPayloadSerializer => Empty.serializer;
 }
 
 typedef StatefulActionsOptions<
@@ -371,10 +396,10 @@ class _$CaseEventDetailActions extends CaseEventDetailActions {
   final ActionDispatcher<Null> $activated;
   final ActionDispatcher<Null> $deactivated;
   final ActionDispatcher<CaseEventDetailState> $pushing;
-  final ActionDispatcher<Null> $popping;
+  final ActionDispatcher<Empty> $popping;
   final GetCaseEventDetailApiRequestActions request;
   final GetCaseEventDetailApiResponseActions model;
-  final GetCaseEventDetailApi getCommand;
+  final GetCaseEventDetailApi cmdLoad;
 
   _$CaseEventDetailActions._(this.$options)
       : $replace = $options.action<CaseEventDetailState>(
@@ -384,7 +409,7 @@ class _$CaseEventDetailActions extends CaseEventDetailActions {
             $options.action<Null>('\$deactivated', (a) => a?.$deactivated),
         $pushing = $options.action<CaseEventDetailState>(
             '\$pushing', (a) => a?.$pushing),
-        $popping = $options.action<Null>('\$popping', (a) => a?.$popping),
+        $popping = $options.action<Empty>('\$popping', (a) => a?.$popping),
         request = GetCaseEventDetailApiRequestActions(() => $options.stateful<
                 GetCaseEventDetailApiRequest,
                 GetCaseEventDetailApiRequestBuilder,
@@ -403,17 +428,17 @@ class _$CaseEventDetailActions extends CaseEventDetailActions {
             (s) => s?.model,
             (b) => b?.model,
             (parent, builder) => parent?.model = builder)),
-        getCommand = GetCaseEventDetailApi(() => $options.stateful<
+        cmdLoad = GetCaseEventDetailApi(() => $options.stateful<
                 CommandState<ApiCommand<GetCaseEventDetailApiRequest>,
                     ApiResult<GetCaseEventDetailApiResponse>>,
                 CommandStateBuilder<ApiCommand<GetCaseEventDetailApiRequest>,
                     ApiResult<GetCaseEventDetailApiResponse>>,
                 GetCaseEventDetailApi>(
-            'getCommand',
-            (a) => a.getCommand,
-            (s) => s?.getCommand,
-            (b) => b?.getCommand,
-            (parent, builder) => parent?.getCommand = builder)),
+            'cmdLoad',
+            (a) => a.cmdLoad,
+            (s) => s?.cmdLoad,
+            (b) => b?.cmdLoad,
+            (parent, builder) => parent?.cmdLoad = builder)),
         super._();
 
   factory _$CaseEventDetailActions(CaseEventDetailActionsOptions options) =>
@@ -427,7 +452,7 @@ class _$CaseEventDetailActions extends CaseEventDetailActions {
   BuiltList<ModuxActions> get $nested => _$nested ??= BuiltList<ModuxActions>([
         this.request,
         this.model,
-        this.getCommand,
+        this.cmdLoad,
       ]);
 
   BuiltList<ActionDispatcher> _$actions;
@@ -446,7 +471,7 @@ class _$CaseEventDetailActions extends CaseEventDetailActions {
     super.$reducer(reducer);
     request.$reducer(reducer);
     model.$reducer(reducer);
-    getCommand.$reducer(reducer);
+    cmdLoad.$reducer(reducer);
   }
 
   @override
@@ -454,7 +479,7 @@ class _$CaseEventDetailActions extends CaseEventDetailActions {
     super.$middleware(middleware);
     request.$middleware(middleware);
     model.$middleware(middleware);
-    getCommand.$middleware(middleware);
+    cmdLoad.$middleware(middleware);
   }
 
 // @override
@@ -463,4 +488,7 @@ class _$CaseEventDetailActions extends CaseEventDetailActions {
   FullType _$fullType;
   @override
   FullType get $fullType => _$fullType ??= FullType(CaseEventDetailState);
+
+  @override
+  EmptyBuilder $newResultBuilder() => Empty().toBuilder();
 }

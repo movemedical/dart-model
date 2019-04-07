@@ -319,6 +319,33 @@ class _$ConversationListFilterRoute extends ConversationListFilterRoute {
         FullType(RouteCommand, [FullType(ConversationListFilterState)]),
         FullType(RouteResult, [FullType(ListConversationsApiRequest)])
       ]);
+
+  @override
+  RouteCommandBuilder<ConversationListFilterState> newCommandBuilder() =>
+      RouteCommand<ConversationListFilterState>().toBuilder();
+
+  @override
+  RouteResultBuilder<ListConversationsApiRequest> newResultBuilder() =>
+      RouteResult<ListConversationsApiRequest>().toBuilder();
+
+  @override
+  Serializer<RouteResult> get resultSerializer => RouteResult.serializer;
+
+  @override
+  ConversationListFilterStateBuilder newCommandPayloadBuilder() =>
+      ConversationListFilterState().toBuilder();
+
+  @override
+  ListConversationsApiRequestBuilder newResultPayloadBuilder() =>
+      ListConversationsApiRequest().toBuilder();
+
+  @override
+  Serializer<ConversationListFilterState> get commandPayloadSerializer =>
+      ConversationListFilterState.serializer;
+
+  @override
+  Serializer<ListConversationsApiRequest> get resultPayloadSerializer =>
+      ListConversationsApiRequest.serializer;
 }
 
 typedef StatefulActionsOptions<
@@ -386,13 +413,13 @@ class _$ConversationListFilterActions extends ConversationListFilterActions {
       ]);
 
   @override
-  void $reducer(ReducerBuilder reducer) {
+  void $reducer(AppReducerBuilder reducer) {
     super.$reducer(reducer);
     request.$reducer(reducer);
   }
 
   @override
-  void $middleware(MiddlewareBuilder middleware) {
+  void $middleware(AppMiddlewareBuilder middleware) {
     super.$middleware(middleware);
     request.$middleware(middleware);
   }
@@ -404,4 +431,8 @@ class _$ConversationListFilterActions extends ConversationListFilterActions {
   @override
   FullType get $fullType =>
       _$fullType ??= FullType(ConversationListFilterState);
+
+  @override
+  ListConversationsApiRequestBuilder $newResultBuilder() =>
+      ListConversationsApiRequest().toBuilder();
 }

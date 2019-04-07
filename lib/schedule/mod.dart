@@ -6,8 +6,8 @@ import 'calendar.dart';
 
 part 'mod.g.dart';
 
-abstract class ScheduleActions extends AppStatefulActions<ScheduleState,
-    ScheduleStateBuilder, ScheduleActions> {
+abstract class ScheduleActions
+    extends StateActions<ScheduleState, ScheduleStateBuilder, ScheduleActions> {
   CaseEventListActions get list;
 
   CaseEventListFilterActions get listFilter;

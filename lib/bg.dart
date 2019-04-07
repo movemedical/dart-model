@@ -3,7 +3,7 @@ import 'package:movemedical_model/foundation.dart';
 part 'bg.g.dart';
 
 abstract class BgActions
-    extends AppStatefulActions<BgState, BgStateBuilder, BgActions> {
+    extends StateActions<BgState, BgStateBuilder, BgActions> {
   BgActions._();
 
   factory BgActions(BgActionsOptions options) = _$BgActions;

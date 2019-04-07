@@ -1,6 +1,6 @@
-import 'auth/login.dart';
-import 'home/home.dart';
 import 'foundation.dart';
+import 'auth/login.dart';
+import 'dashboard/dashboard.dart';
 
 part 'loader.g.dart';
 
@@ -9,8 +9,10 @@ part 'loader.g.dart';
 ////////////////////////////////
 
 abstract class LoaderActions
-    extends AppStatefulActions<LoaderState, LoaderStateBuilder, LoaderActions> {
-  LoginRoute get loginRoute;
+    extends StateActions<LoaderState, LoaderStateBuilder, LoaderActions> {
+  LoginRoute get gotoLogin;
+
+  DashboardRoute get gotoDashboard;
 
   @override
   void $middleware(AppMiddlewareBuilder builder) {
@@ -27,7 +29,10 @@ abstract class LoaderActions
 ////////////////////////////////
 
 abstract class LoaderState implements Built<LoaderState, LoaderStateBuilder> {
-  CommandState<RouteCommand<LoginState>, RouteResult<Null>> get loginRoute;
+  CommandState<RouteCommand<LoginState>, RouteResult<Null>> get gotoLogin;
+
+  CommandState<RouteCommand<DashboardState>, RouteResult<Null>>
+      get gotoDashboard;
 
   LoaderState._();
 

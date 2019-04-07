@@ -6,7 +6,6 @@ import 'foundation.dart';
 
 import 'scaffold/scaffold.dart';
 import 'auth/mod.dart';
-import 'home/home.dart';
 import 'schedule/mod.dart';
 import 'messages/mod.dart';
 import 'directory/mod.dart';
@@ -17,7 +16,7 @@ part 'nav.g.dart';
 
 ///
 abstract class NavActions
-    extends AppStatefulActions<NavState, NavStateBuilder, NavActions>
+    extends StateActions<NavState, NavStateBuilder, NavActions>
     implements HasRouterActions {
   FieldDispatcher<BuiltList<String>> get stack;
 
@@ -35,8 +34,6 @@ abstract class NavActions
   DashboardActions get dashboard;
 
   AuthActions get auth;
-
-  HomeActions get home;
 
   ScheduleActions get schedule;
 
@@ -72,9 +69,6 @@ abstract class NavState
 
   @nullable
   AuthState get auth;
-
-  @nullable
-  HomeState get home;
 
   @nullable
   ScheduleState get schedule;

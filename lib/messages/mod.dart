@@ -2,12 +2,12 @@ import '../foundation.dart';
 
 import 'list.dart';
 import 'list_filter.dart';
-import 'detail.dart';
+import 'convo.dart';
 
 part 'mod.g.dart';
 
-abstract class MessagesActions extends AppStatefulActions<MessagesState,
-    MessagesStateBuilder, MessagesActions> {
+abstract class MessagesActions
+    extends StateActions<MessagesState, MessagesStateBuilder, MessagesActions> {
   ConversationListActions get list;
 
   ConversationListFilterActions get listFilter;

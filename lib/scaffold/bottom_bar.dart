@@ -11,7 +11,7 @@ part 'bottom_bar.g.dart';
 /// Actions
 ////////////////////////////////
 
-abstract class BottomBarActions extends AppStatefulActions<BottomBarState,
+abstract class BottomBarActions extends StateActions<BottomBarState,
     BottomBarStateBuilder, BottomBarActions> {
   FieldDispatcher<MobileNavigationElement> selectedTab;
 

@@ -11,7 +11,7 @@ export 'nav.dart';
 part 'app.g.dart';
 
 abstract class AppActions
-    extends AppStatefulActions<AppState, AppStateBuilder, AppActions> {
+    extends StateActions<AppState, AppStateBuilder, AppActions> {
   ApiActions get api;
 
   NavActions get nav;

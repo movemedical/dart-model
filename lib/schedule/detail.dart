@@ -42,7 +42,7 @@ abstract class CaseEventDetailActions extends ScreenActions<
   /// Actions
   ////////////////////////////////////
 
-  GetCaseEventDetailApi get getCommand;
+  GetCaseEventDetailApi get cmdLoad;
 
   ////////////////////////////////////
   /// Initial State
@@ -63,12 +63,24 @@ abstract class CaseEventDetailActions extends ScreenActions<
   ////////////////////////////////////
 
   @override
-  void $onPush(Store<AppState, AppStateBuilder, AppActions> store,
-      CaseEventDetailState state) {
-    if (state.request != null) {
-      getCommand(state.request);
-    }
+  void $middleware(AppMiddlewareBuilder middleware) {
+    super.$middleware(middleware);
+
+    middleware.nest(this)
+      ..add(cmdLoad.$result, (api, next, action) {
+        if (action?.payload?.payload is GetCaseEventDetailApiResponse) {
+          model.$reset(action.payload.payload as GetCaseEventDetailApiResponse);
+        }
+      });
   }
+
+//  @override
+//  void $onPush(Store<AppState, AppStateBuilder, AppActions> store,
+//      CaseEventDetailState state) {
+//    if (state.request != null) {
+//      cmdLoad(state.request);
+//    }
+//  }
 
   ////////////////////////////////////
   /// Construction
@@ -94,11 +106,11 @@ abstract class CaseEventDetailState
 
   @nullable
   CommandState<ApiCommand<GetCaseEventDetailApiRequest>,
-      ApiResult<GetCaseEventDetailApiResponse>> get getCommand;
+      ApiResult<GetCaseEventDetailApiResponse>> get cmdLoad;
 
   bool get specifyArgs => request == null && model == null;
 
-  bool get isLoading => getCommand?.isInProgress ?? false;
+  bool get isLoading => cmdLoad?.isInProgress ?? false;
 
   ////////////////////////////////////
   /// Boilerplate

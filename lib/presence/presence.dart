@@ -2,8 +2,8 @@ import 'package:movemedical_model/foundation.dart';
 
 part 'presence.g.dart';
 
-abstract class PresenceActions extends AppStatefulActions<PresenceState,
-    PresenceStateBuilder, PresenceActions> {
+abstract class PresenceActions
+    extends StateActions<PresenceState, PresenceStateBuilder, PresenceActions> {
   PresenceActions._();
 
   factory PresenceActions(PresenceActionsOptions options) = _$PresenceActions;

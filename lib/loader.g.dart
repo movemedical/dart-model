@@ -18,10 +18,17 @@ class _$LoaderStateSerializer implements StructuredSerializer<LoaderState> {
   Iterable serialize(Serializers serializers, LoaderState object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[
-      'loginRoute',
-      serializers.serialize(object.loginRoute,
+      'gotoLogin',
+      serializers.serialize(object.gotoLogin,
           specifiedType: const FullType(CommandState, const [
             const FullType(RouteCommand, const [const FullType(LoginState)]),
+            const FullType(RouteResult, const [const FullType(Null)])
+          ])),
+      'gotoDashboard',
+      serializers.serialize(object.gotoDashboard,
+          specifiedType: const FullType(CommandState, const [
+            const FullType(
+                RouteCommand, const [const FullType(DashboardState)]),
             const FullType(RouteResult, const [const FullType(Null)])
           ])),
     ];
@@ -40,13 +47,22 @@ class _$LoaderStateSerializer implements StructuredSerializer<LoaderState> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'loginRoute':
-          result.loginRoute.replace(serializers.deserialize(value,
+        case 'gotoLogin':
+          result.gotoLogin.replace(serializers.deserialize(value,
               specifiedType: const FullType(CommandState, const [
                 const FullType(
                     RouteCommand, const [const FullType(LoginState)]),
                 const FullType(RouteResult, const [const FullType(Null)])
               ])) as CommandState<RouteCommand<LoginState>, RouteResult<Null>>);
+          break;
+        case 'gotoDashboard':
+          result.gotoDashboard.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(CommandState, const [
+                    const FullType(
+                        RouteCommand, const [const FullType(DashboardState)]),
+                    const FullType(RouteResult, const [const FullType(Null)])
+                  ]))
+              as CommandState<RouteCommand<DashboardState>, RouteResult<Null>>);
           break;
       }
     }
@@ -57,14 +73,20 @@ class _$LoaderStateSerializer implements StructuredSerializer<LoaderState> {
 
 class _$LoaderState extends LoaderState {
   @override
-  final CommandState<RouteCommand<LoginState>, RouteResult<Null>> loginRoute;
+  final CommandState<RouteCommand<LoginState>, RouteResult<Null>> gotoLogin;
+  @override
+  final CommandState<RouteCommand<DashboardState>, RouteResult<Null>>
+      gotoDashboard;
 
   factory _$LoaderState([void updates(LoaderStateBuilder b)]) =>
       (new LoaderStateBuilder()..update(updates)).build();
 
-  _$LoaderState._({this.loginRoute}) : super._() {
-    if (loginRoute == null) {
-      throw new BuiltValueNullFieldError('LoaderState', 'loginRoute');
+  _$LoaderState._({this.gotoLogin, this.gotoDashboard}) : super._() {
+    if (gotoLogin == null) {
+      throw new BuiltValueNullFieldError('LoaderState', 'gotoLogin');
+    }
+    if (gotoDashboard == null) {
+      throw new BuiltValueNullFieldError('LoaderState', 'gotoDashboard');
     }
   }
 
@@ -78,18 +100,21 @@ class _$LoaderState extends LoaderState {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is LoaderState && loginRoute == other.loginRoute;
+    return other is LoaderState &&
+        gotoLogin == other.gotoLogin &&
+        gotoDashboard == other.gotoDashboard;
   }
 
   @override
   int get hashCode {
-    return $jf($jc(0, loginRoute.hashCode));
+    return $jf($jc($jc(0, gotoLogin.hashCode), gotoDashboard.hashCode));
   }
 
   @override
   String toString() {
     return (newBuiltValueToStringHelper('LoaderState')
-          ..add('loginRoute', loginRoute))
+          ..add('gotoLogin', gotoLogin)
+          ..add('gotoDashboard', gotoDashboard))
         .toString();
   }
 }
@@ -97,21 +122,32 @@ class _$LoaderState extends LoaderState {
 class LoaderStateBuilder implements Builder<LoaderState, LoaderStateBuilder> {
   _$LoaderState _$v;
 
-  CommandStateBuilder<RouteCommand<LoginState>, RouteResult<Null>> _loginRoute;
+  CommandStateBuilder<RouteCommand<LoginState>, RouteResult<Null>> _gotoLogin;
   CommandStateBuilder<RouteCommand<LoginState>,
-      RouteResult<Null>> get loginRoute => _$this
-          ._loginRoute ??=
+      RouteResult<Null>> get gotoLogin => _$this
+          ._gotoLogin ??=
       new CommandStateBuilder<RouteCommand<LoginState>, RouteResult<Null>>();
-  set loginRoute(
+  set gotoLogin(
           CommandStateBuilder<RouteCommand<LoginState>, RouteResult<Null>>
-              loginRoute) =>
-      _$this._loginRoute = loginRoute;
+              gotoLogin) =>
+      _$this._gotoLogin = gotoLogin;
+
+  CommandStateBuilder<RouteCommand<DashboardState>, RouteResult<Null>>
+      _gotoDashboard;
+  CommandStateBuilder<RouteCommand<DashboardState>, RouteResult<Null>>
+      get gotoDashboard => _$this._gotoDashboard ??= new CommandStateBuilder<
+          RouteCommand<DashboardState>, RouteResult<Null>>();
+  set gotoDashboard(
+          CommandStateBuilder<RouteCommand<DashboardState>, RouteResult<Null>>
+              gotoDashboard) =>
+      _$this._gotoDashboard = gotoDashboard;
 
   LoaderStateBuilder();
 
   LoaderStateBuilder get _$this {
     if (_$v != null) {
-      _loginRoute = _$v.loginRoute?.toBuilder();
+      _gotoLogin = _$v.gotoLogin?.toBuilder();
+      _gotoDashboard = _$v.gotoDashboard?.toBuilder();
       _$v = null;
     }
     return this;
@@ -134,12 +170,17 @@ class LoaderStateBuilder implements Builder<LoaderState, LoaderStateBuilder> {
   _$LoaderState build() {
     _$LoaderState _$result;
     try {
-      _$result = _$v ?? new _$LoaderState._(loginRoute: loginRoute.build());
+      _$result = _$v ??
+          new _$LoaderState._(
+              gotoLogin: gotoLogin.build(),
+              gotoDashboard: gotoDashboard.build());
     } catch (_) {
       String _$failedField;
       try {
-        _$failedField = 'loginRoute';
-        loginRoute.build();
+        _$failedField = 'gotoLogin';
+        gotoLogin.build();
+        _$failedField = 'gotoDashboard';
+        gotoDashboard.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             'LoaderState', _$failedField, e.toString());
@@ -168,22 +209,33 @@ class _$LoaderActions extends LoaderActions {
       $options;
 
   final ActionDispatcher<LoaderState> $replace;
-  final LoginRoute loginRoute;
+  final LoginRoute gotoLogin;
+  final DashboardRoute gotoDashboard;
 
   _$LoaderActions._(this.$options)
       : $replace =
             $options.action<LoaderState>('\$replace', (a) => a?.$replace),
-        loginRoute = LoginRoute(() =>
+        gotoLogin = LoginRoute(() =>
             $options.stateful<
-                    CommandState<RouteCommand<LoginState>, RouteResult<Null>>,
+                    CommandState<RouteCommand<LoginState>, RouteResult<Empty>>,
                     CommandStateBuilder<RouteCommand<LoginState>,
-                        RouteResult<Null>>,
+                        RouteResult<Empty>>,
                     LoginRoute>(
-                'loginRoute',
-                (a) => a.loginRoute,
-                (s) => s?.loginRoute,
-                (b) => b?.loginRoute,
-                (parent, builder) => parent?.loginRoute = builder)),
+                'gotoLogin',
+                (a) => a.gotoLogin,
+                (s) => s?.gotoLogin,
+                (b) => b?.gotoLogin,
+                (parent, builder) => parent?.gotoLogin = builder)),
+        gotoDashboard = DashboardRoute(() => $options.stateful<
+                CommandState<RouteCommand<DashboardState>, RouteResult<Empty>>,
+                CommandStateBuilder<RouteCommand<DashboardState>,
+                    RouteResult<Empty>>,
+                DashboardRoute>(
+            'gotoDashboard',
+            (a) => a.gotoDashboard,
+            (s) => s?.gotoDashboard,
+            (b) => b?.gotoDashboard,
+            (parent, builder) => parent?.gotoDashboard = builder)),
         super._();
 
   factory _$LoaderActions(LoaderActionsOptions options) =>
@@ -198,7 +250,8 @@ class _$LoaderActions extends LoaderActions {
   BuiltList<ModuxActions> _$nested;
   @override
   BuiltList<ModuxActions> get $nested => _$nested ??= BuiltList<ModuxActions>([
-        this.loginRoute,
+        this.gotoLogin,
+        this.gotoDashboard,
       ]);
 
   BuiltList<ActionDispatcher> _$actions;
@@ -211,13 +264,15 @@ class _$LoaderActions extends LoaderActions {
   @override
   void $reducer(AppReducerBuilder reducer) {
     super.$reducer(reducer);
-    loginRoute.$reducer(reducer);
+    gotoLogin.$reducer(reducer);
+    gotoDashboard.$reducer(reducer);
   }
 
   @override
   void $middleware(AppMiddlewareBuilder middleware) {
     super.$middleware(middleware);
-    loginRoute.$middleware(middleware);
+    gotoLogin.$middleware(middleware);
+    gotoDashboard.$middleware(middleware);
   }
 
 // @override

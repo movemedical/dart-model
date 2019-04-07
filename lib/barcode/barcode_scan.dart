@@ -8,8 +8,13 @@ part 'barcode_scan.g.dart';
 /// Route
 ////////////////////////////////
 
-abstract class BarcodeScanRoute extends RouteDispatcher<BarcodeScanState,
-    BarcodeScanStateBuilder, String, BarcodeScanActions, BarcodeScanRoute> {
+abstract class BarcodeScanRoute extends DialogRoute<
+    BarcodeScanState,
+    BarcodeScanStateBuilder,
+    Value<String>,
+    ValueBuilder<String>,
+    BarcodeScanActions,
+    BarcodeScanRoute> {
   ActionDispatcher<String> get value;
 
   BarcodeScanRoute._();
@@ -22,8 +27,13 @@ abstract class BarcodeScanRoute extends RouteDispatcher<BarcodeScanState,
 /// Actions
 ////////////////////////////////////
 
-abstract class BarcodeScanActions extends RouteActions<BarcodeScanState,
-    BarcodeScanStateBuilder, String, BarcodeScanActions, BarcodeScanRoute> {
+abstract class BarcodeScanActions extends DialogActions<
+    BarcodeScanState,
+    BarcodeScanStateBuilder,
+    Value<String>,
+    ValueBuilder<String>,
+    BarcodeScanActions,
+    BarcodeScanRoute> {
   ////////////////////////////////////
   /// Actions
   ////////////////////////////////////
@@ -52,6 +62,8 @@ abstract class BarcodeScanActions extends RouteActions<BarcodeScanState,
 
 abstract class BarcodeScanState
     implements Built<BarcodeScanState, BarcodeScanStateBuilder> {
+  String get value;
+
   ////////////////////////////////////
   /// Boilerplate
   ////////////////////////////////////

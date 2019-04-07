@@ -1,16 +1,16 @@
 import 'package:built_value/built_value.dart';
 import 'package:meta/meta.dart';
 import 'package:modux/modux.dart';
-import 'app.dart';
-
 import 'package:movemedical_api/model/sql/enums/mobile_navigation_element.dart';
 
-export 'package:movemedical_api/model/sql/enums/mobile_navigation_element.dart';
+import 'app.dart';
+
 export 'package:built_collection/built_collection.dart';
 export 'package:built_value/built_value.dart';
 export 'package:built_value/serializer.dart';
 export 'package:meta/meta.dart';
 export 'package:modux/modux.dart';
+export 'package:movemedical_api/model/sql/enums/mobile_navigation_element.dart';
 
 export 'app.dart';
 export 'nav.dart';
@@ -63,7 +63,7 @@ class AppNestedReducerBuilder<
 class AppNestedMiddlewareBuilder<
     NestedState extends Built<NestedState, NestedStateBuilder>,
     NestedStateBuilder extends Builder<NestedState, NestedStateBuilder>,
-    NestedActions extends AppStatefulActions<NestedState, NestedStateBuilder,
+    NestedActions extends StateActions<NestedState, NestedStateBuilder,
         NestedActions>> extends NestedMiddlewareBuilder<
     AppState,
     AppStateBuilder,
@@ -82,11 +82,9 @@ class AppNestedMiddlewareBuilder<
 abstract class AppModelActions<
         LocalState extends Built<LocalState, LocalStateBuilder>,
         LocalStateBuilder extends Builder<LocalState, LocalStateBuilder>,
-        LocalActions extends AppStatefulActions<LocalState, LocalStateBuilder,
+        LocalActions extends AppModelActions<LocalState, LocalStateBuilder,
             LocalActions>>
     extends ModelActions<LocalState, LocalStateBuilder, LocalActions> {
-  AppStatefulActions();
-
   @override
   @mustCallSuper
   @protected
@@ -103,14 +101,12 @@ abstract class AppModelActions<
 }
 
 ///
-abstract class AppStatefulActions<
+abstract class StateActions<
         LocalState extends Built<LocalState, LocalStateBuilder>,
         LocalStateBuilder extends Builder<LocalState, LocalStateBuilder>,
-        LocalActions extends AppStatefulActions<LocalState, LocalStateBuilder,
+        LocalActions extends StateActions<LocalState, LocalStateBuilder,
             LocalActions>>
     extends StatefulActions<LocalState, LocalStateBuilder, LocalActions> {
-  AppStatefulActions();
-
   @override
   @mustCallSuper
   @protected
@@ -127,7 +123,7 @@ abstract class AppStatefulActions<
 }
 
 ///
-abstract class AppStatelessActions<Actions extends AppStatelessActions<Actions>>
+abstract class BusActions<Actions extends BusActions<Actions>>
     extends StatelessActions<Actions> {
   @override
   @mustCallSuper
@@ -148,14 +144,13 @@ abstract class AppStatelessActions<Actions extends AppStatelessActions<Actions>>
 abstract class AppRouteActions<
     LocalState extends Built<LocalState, LocalStateBuilder>,
     LocalStateBuilder extends Builder<LocalState, LocalStateBuilder>,
-    Returns,
-    LocalActions extends AppRouteActions<LocalState, LocalStateBuilder, Returns,
-        LocalActions, Route>,
-    Route extends RouteDispatcher<LocalState, LocalStateBuilder, Returns,
-        LocalActions, Route>> extends RouteActions<LocalState,
-    LocalStateBuilder, Returns, LocalActions, Route> {
-  AppRouteActions();
-
+    Result extends Built<Result, ResultBuilder>,
+    ResultBuilder extends Builder<Result, ResultBuilder>,
+    LocalActions extends AppRouteActions<LocalState, LocalStateBuilder, Result,
+        ResultBuilder, LocalActions, Route>,
+    Route extends RouteDispatcher<LocalState, LocalStateBuilder, Result,
+        ResultBuilder, LocalActions, Route>> extends RouteActions<LocalState,
+    LocalStateBuilder, Result, ResultBuilder, LocalActions, Route> {
   @override
   @mustCallSuper
   @protected
@@ -172,26 +167,39 @@ abstract class AppRouteActions<
 }
 
 ///
+abstract class ScreenRoute<
+        State extends Built<State, StateBuilder>,
+        StateBuilder extends Builder<State, StateBuilder>,
+        Actions extends ScreenActions<State, StateBuilder, Actions, D>,
+        D extends ScreenRoute<State, StateBuilder, Actions, D>>
+    extends RouteDispatcher<State, StateBuilder, Empty, EmptyBuilder, Actions,
+        D> {}
+
+///
 abstract class ScreenActions<
     LocalState extends Built<LocalState, LocalStateBuilder>,
     LocalStateBuilder extends Builder<LocalState, LocalStateBuilder>,
     LocalActions extends ScreenActions<LocalState, LocalStateBuilder,
         LocalActions, Route>,
-    Route extends RouteDispatcher<LocalState, LocalStateBuilder, Null,
-        LocalActions, Route>> extends AppRouteActions<LocalState,
-    LocalStateBuilder, Null, LocalActions, Route> {
+    Route extends ScreenRoute<LocalState, LocalStateBuilder, LocalActions,
+        Route>> extends AppRouteActions<LocalState, LocalStateBuilder, Empty,
+    EmptyBuilder, LocalActions, Route> {
   MobileNavigationElement get $navElement;
 
+  @override
   void $onPush(covariant Store<AppState, AppStateBuilder, AppActions> store,
       LocalState state) {}
 
+  @override
   void $onPop(covariant Store<AppState, AppStateBuilder, AppActions> store,
-      LocalState state, Null result) {}
+      LocalState state, Empty result) {}
 
+  @override
   void $didActivate(
       covariant Store<AppState, AppStateBuilder, AppActions> store,
       LocalState state) {}
 
+  @override
   void $didDeactivate(
       covariant Store<AppState, AppStateBuilder, AppActions> store,
       LocalState state) {
@@ -207,28 +215,26 @@ abstract class ScreenActions<
   }
 }
 
-abstract class ScreenRoute<
-        State extends Built<State, StateBuilder>,
-        StateBuilder extends Builder<State, StateBuilder>,
-        Actions extends ScreenActions<State, StateBuilder, Actions, D>,
-        D extends ScreenRoute<State, StateBuilder, Actions, D>>
-    extends RouteDispatcher<State, StateBuilder, Null, Actions, D> {}
+///
+abstract class DialogRoute<
+    State extends Built<State, StateBuilder>,
+    StateBuilder extends Builder<State, StateBuilder>,
+    Result extends Built<Result, ResultBuilder>,
+    ResultBuilder extends Builder<Result, ResultBuilder>,
+    Actions extends DialogActions<State, StateBuilder, Result, ResultBuilder,
+        Actions, D>,
+    D extends DialogRoute<State, StateBuilder, Result, ResultBuilder, Actions,
+        D>> extends RouteDispatcher<State, StateBuilder, Result, ResultBuilder,
+    Actions, D> {}
 
 ///
 abstract class DialogActions<
     LocalState extends Built<LocalState, LocalStateBuilder>,
     LocalStateBuilder extends Builder<LocalState, LocalStateBuilder>,
-    Result,
+    Result extends Built<Result, ResultBuilder>,
+    ResultBuilder extends Builder<Result, ResultBuilder>,
     LocalActions extends DialogActions<LocalState, LocalStateBuilder, Result,
-        LocalActions, Route>,
-    Route extends RouteDispatcher<LocalState, LocalStateBuilder, Result,
-        LocalActions, Route>> extends AppRouteActions<LocalState,
-    LocalStateBuilder, Result, LocalActions, Route> {}
-
-abstract class DialogRoute<
-        State extends Built<State, StateBuilder>,
-        StateBuilder extends Builder<State, StateBuilder>,
-        Result,
-        Actions extends DialogActions<State, StateBuilder, Result, Actions, D>,
-        D extends DialogRoute<State, StateBuilder, Result, Actions, D>>
-    extends RouteDispatcher<State, StateBuilder, Result, Actions, D> {}
+        ResultBuilder, LocalActions, Route>,
+    Route extends DialogRoute<LocalState, LocalStateBuilder, Result,
+        ResultBuilder, LocalActions, Route>> extends AppRouteActions<LocalState,
+    LocalStateBuilder, Result, ResultBuilder, LocalActions, Route> {}

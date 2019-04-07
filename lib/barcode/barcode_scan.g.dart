@@ -19,21 +19,49 @@ class _$BarcodeScanStateSerializer
   @override
   Iterable serialize(Serializers serializers, BarcodeScanState object,
       {FullType specifiedType = FullType.unspecified}) {
-    return <Object>[];
+    final result = <Object>[
+      'value',
+      serializers.serialize(object.value,
+          specifiedType: const FullType(String)),
+    ];
+
+    return result;
   }
 
   @override
   BarcodeScanState deserialize(Serializers serializers, Iterable serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    return new BarcodeScanStateBuilder().build();
+    final result = new BarcodeScanStateBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current as String;
+      iterator.moveNext();
+      final dynamic value = iterator.current;
+      switch (key) {
+        case 'value':
+          result.value = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+      }
+    }
+
+    return result.build();
   }
 }
 
 class _$BarcodeScanState extends BarcodeScanState {
+  @override
+  final String value;
+
   factory _$BarcodeScanState([void updates(BarcodeScanStateBuilder b)]) =>
       (new BarcodeScanStateBuilder()..update(updates)).build();
 
-  _$BarcodeScanState._() : super._();
+  _$BarcodeScanState._({this.value}) : super._() {
+    if (value == null) {
+      throw new BuiltValueNullFieldError('BarcodeScanState', 'value');
+    }
+  }
 
   @override
   BarcodeScanState rebuild(void updates(BarcodeScanStateBuilder b)) =>
@@ -46,17 +74,19 @@ class _$BarcodeScanState extends BarcodeScanState {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is BarcodeScanState;
+    return other is BarcodeScanState && value == other.value;
   }
 
   @override
   int get hashCode {
-    return 961649029;
+    return $jf($jc(0, value.hashCode));
   }
 
   @override
   String toString() {
-    return newBuiltValueToStringHelper('BarcodeScanState').toString();
+    return (newBuiltValueToStringHelper('BarcodeScanState')
+          ..add('value', value))
+        .toString();
   }
 }
 
@@ -64,7 +94,19 @@ class BarcodeScanStateBuilder
     implements Builder<BarcodeScanState, BarcodeScanStateBuilder> {
   _$BarcodeScanState _$v;
 
+  String _value;
+  String get value => _$this._value;
+  set value(String value) => _$this._value = value;
+
   BarcodeScanStateBuilder();
+
+  BarcodeScanStateBuilder get _$this {
+    if (_$v != null) {
+      _value = _$v.value;
+      _$v = null;
+    }
+    return this;
+  }
 
   @override
   void replace(BarcodeScanState other) {
@@ -81,7 +123,7 @@ class BarcodeScanStateBuilder
 
   @override
   _$BarcodeScanState build() {
-    final _$result = _$v ?? new _$BarcodeScanState._();
+    final _$result = _$v ?? new _$BarcodeScanState._(value: value);
     replace(_$result);
     return _$result;
   }
@@ -97,76 +139,90 @@ class BarcodeScanStateBuilder
 // ignore_for_file: annotate_overrides
 
 typedef StatefulActionsOptions<
-    CommandState<RouteCommand<BarcodeScanState>, RouteResult<String>>,
-    CommandStateBuilder<RouteCommand<BarcodeScanState>, RouteResult<String>>,
+    CommandState<RouteCommand<BarcodeScanState>, RouteResult<Value<String>>>,
+    CommandStateBuilder<RouteCommand<BarcodeScanState>,
+        RouteResult<Value<String>>>,
     BarcodeScanRoute> BarcodeScanRouteOptions();
 
 class _$BarcodeScanRoute extends BarcodeScanRoute {
   final StatefulActionsOptions<
-      CommandState<RouteCommand<BarcodeScanState>, RouteResult<String>>,
-      CommandStateBuilder<RouteCommand<BarcodeScanState>, RouteResult<String>>,
+      CommandState<RouteCommand<BarcodeScanState>, RouteResult<Value<String>>>,
+      CommandStateBuilder<RouteCommand<BarcodeScanState>,
+          RouteResult<Value<String>>>,
       BarcodeScanRoute> $options;
 
   final ActionDispatcher<
-          CommandState<RouteCommand<BarcodeScanState>, RouteResult<String>>>
-      $replace;
+      CommandState<RouteCommand<BarcodeScanState>,
+          RouteResult<Value<String>>>> $replace;
   final ActionDispatcher<
-      CommandPayload<RouteCommand<BarcodeScanState>, RouteResult<String>,
+      CommandPayload<RouteCommand<BarcodeScanState>, RouteResult<Value<String>>,
           BarcodeScanRoute, String>> $clear;
   final ActionDispatcher<
-      CommandPayload<RouteCommand<BarcodeScanState>, RouteResult<String>,
+      CommandPayload<RouteCommand<BarcodeScanState>, RouteResult<Value<String>>,
           BarcodeScanRoute, String>> $cancel;
   final ActionDispatcher<
-      CommandPayload<RouteCommand<BarcodeScanState>, RouteResult<String>,
+      CommandPayload<RouteCommand<BarcodeScanState>, RouteResult<Value<String>>,
           BarcodeScanRoute, Command<RouteCommand<BarcodeScanState>>>> $execute;
   final ActionDispatcher<
-      CommandPayload<RouteCommand<BarcodeScanState>, RouteResult<String>,
-          BarcodeScanRoute, CommandResult<RouteResult<String>>>> $result;
+      CommandPayload<RouteCommand<BarcodeScanState>, RouteResult<Value<String>>,
+          BarcodeScanRoute, CommandResult<RouteResult<Value<String>>>>> $result;
   final ActionDispatcher<
-      CommandPayload<RouteCommand<BarcodeScanState>, RouteResult<String>,
+      CommandPayload<RouteCommand<BarcodeScanState>, RouteResult<Value<String>>,
           BarcodeScanRoute, String>> $detach;
   final ActionDispatcher<
-      CommandPayload<RouteCommand<BarcodeScanState>, RouteResult<String>,
+      CommandPayload<RouteCommand<BarcodeScanState>, RouteResult<Value<String>>,
           BarcodeScanRoute, String>> $attach;
   final ActionDispatcher<
-      CommandPayload<RouteCommand<BarcodeScanState>, RouteResult<String>,
+      CommandPayload<RouteCommand<BarcodeScanState>, RouteResult<Value<String>>,
           BarcodeScanRoute, CommandProgress>> $progress;
   final ActionDispatcher<String> value;
 
   _$BarcodeScanRoute._(this.$options)
       : $replace = $options.action<
             CommandState<RouteCommand<BarcodeScanState>,
-                RouteResult<String>>>('\$replace', (a) => a?.$replace),
+                RouteResult<Value<String>>>>('\$replace', (a) => a?.$replace),
         $clear = $options.action<
-            CommandPayload<RouteCommand<BarcodeScanState>, RouteResult<String>,
-                BarcodeScanRoute, String>>('\$clear', (a) => a?.$clear),
+            CommandPayload<
+                RouteCommand<BarcodeScanState>,
+                RouteResult<Value<String>>,
+                BarcodeScanRoute,
+                String>>('\$clear', (a) => a?.$clear),
         $cancel = $options.action<
-            CommandPayload<RouteCommand<BarcodeScanState>, RouteResult<String>,
-                BarcodeScanRoute, String>>('\$cancel', (a) => a?.$cancel),
+            CommandPayload<
+                RouteCommand<BarcodeScanState>,
+                RouteResult<Value<String>>,
+                BarcodeScanRoute,
+                String>>('\$cancel', (a) => a?.$cancel),
         $execute = $options.action<
                 CommandPayload<
                     RouteCommand<BarcodeScanState>,
-                    RouteResult<String>,
+                    RouteResult<Value<String>>,
                     BarcodeScanRoute,
                     Command<RouteCommand<BarcodeScanState>>>>(
             '\$execute', (a) => a?.$execute),
         $result = $options.action<
                 CommandPayload<
                     RouteCommand<BarcodeScanState>,
-                    RouteResult<String>,
+                    RouteResult<Value<String>>,
                     BarcodeScanRoute,
-                    CommandResult<RouteResult<String>>>>(
+                    CommandResult<RouteResult<Value<String>>>>>(
             '\$result', (a) => a?.$result),
         $detach = $options.action<
-            CommandPayload<RouteCommand<BarcodeScanState>, RouteResult<String>,
-                BarcodeScanRoute, String>>('\$detach', (a) => a?.$detach),
+            CommandPayload<
+                RouteCommand<BarcodeScanState>,
+                RouteResult<Value<String>>,
+                BarcodeScanRoute,
+                String>>('\$detach', (a) => a?.$detach),
         $attach = $options.action<
-            CommandPayload<RouteCommand<BarcodeScanState>, RouteResult<String>,
-                BarcodeScanRoute, String>>('\$attach', (a) => a?.$attach),
+            CommandPayload<
+                RouteCommand<BarcodeScanState>,
+                RouteResult<Value<String>>,
+                BarcodeScanRoute,
+                String>>('\$attach', (a) => a?.$attach),
         $progress = $options.action<
             CommandPayload<
                 RouteCommand<BarcodeScanState>,
-                RouteResult<String>,
+                RouteResult<Value<String>>,
                 BarcodeScanRoute,
                 CommandProgress>>('\$progress', (a) => a?.$progress),
         value = $options.action<String>('value', (a) => a?.value),
@@ -176,14 +232,15 @@ class _$BarcodeScanRoute extends BarcodeScanRoute {
       _$BarcodeScanRoute._(options());
 
   @override
-  CommandState<RouteCommand<BarcodeScanState>, RouteResult<String>>
-      get $initial =>
-          CommandState<RouteCommand<BarcodeScanState>, RouteResult<String>>();
+  CommandState<RouteCommand<BarcodeScanState>, RouteResult<Value<String>>>
+      get $initial => CommandState<RouteCommand<BarcodeScanState>,
+          RouteResult<Value<String>>>();
 
   @override
-  CommandStateBuilder<RouteCommand<BarcodeScanState>, RouteResult<String>>
+  CommandStateBuilder<RouteCommand<BarcodeScanState>,
+          RouteResult<Value<String>>>
       $newBuilder() => CommandStateBuilder<RouteCommand<BarcodeScanState>,
-          RouteResult<String>>();
+          RouteResult<Value<String>>>();
 
   BuiltList<ActionDispatcher> _$actions;
   @override
@@ -207,8 +264,35 @@ class _$BarcodeScanRoute extends BarcodeScanRoute {
   @override
   FullType get $fullType => _$fullType ??= FullType(CommandState, [
         FullType(RouteCommand, [FullType(BarcodeScanState)]),
-        FullType(RouteResult, [FullType(String)])
+        FullType(RouteResult, [
+          FullType(Value, [FullType(String)])
+        ])
       ]);
+
+  @override
+  RouteCommandBuilder<BarcodeScanState> newCommandBuilder() =>
+      RouteCommand<BarcodeScanState>().toBuilder();
+
+  @override
+  RouteResultBuilder<Value<String>> newResultBuilder() =>
+      RouteResult<Value<String>>().toBuilder();
+
+  @override
+  Serializer<RouteResult> get resultSerializer => RouteResult.serializer;
+
+  @override
+  BarcodeScanStateBuilder newCommandPayloadBuilder() =>
+      BarcodeScanState().toBuilder();
+
+  @override
+  ValueBuilder<String> newResultPayloadBuilder() => Value<String>().toBuilder();
+
+  @override
+  Serializer<BarcodeScanState> get commandPayloadSerializer =>
+      BarcodeScanState.serializer;
+
+  @override
+  Serializer<Value> get resultPayloadSerializer => Value.serializer;
 }
 
 typedef StatefulActionsOptions<BarcodeScanState, BarcodeScanStateBuilder,
@@ -222,7 +306,7 @@ class _$BarcodeScanActions extends BarcodeScanActions {
   final ActionDispatcher<Null> $activated;
   final ActionDispatcher<Null> $deactivated;
   final ActionDispatcher<BarcodeScanState> $pushing;
-  final ActionDispatcher<String> $popping;
+  final ActionDispatcher<Value<String>> $popping;
   final FieldDispatcher<String> value;
 
   _$BarcodeScanActions._(this.$options)
@@ -233,7 +317,8 @@ class _$BarcodeScanActions extends BarcodeScanActions {
             $options.action<Null>('\$deactivated', (a) => a?.$deactivated),
         $pushing =
             $options.action<BarcodeScanState>('\$pushing', (a) => a?.$pushing),
-        $popping = $options.action<String>('\$popping', (a) => a?.$popping),
+        $popping =
+            $options.action<Value<String>>('\$popping', (a) => a?.$popping),
         value = $options.actionField<String>(
             'value', (a) => a?.value, (s) => s?.value, (p, b) => p?.value = b),
         super._();
@@ -257,13 +342,13 @@ class _$BarcodeScanActions extends BarcodeScanActions {
       ]);
 
   @override
-  void $reducer(ReducerBuilder reducer) {
+  void $reducer(AppReducerBuilder reducer) {
     super.$reducer(reducer);
     value.$reducer(reducer);
   }
 
   @override
-  void $middleware(MiddlewareBuilder middleware) {
+  void $middleware(AppMiddlewareBuilder middleware) {
     super.$middleware(middleware);
   }
 
@@ -273,4 +358,7 @@ class _$BarcodeScanActions extends BarcodeScanActions {
   FullType _$fullType;
   @override
   FullType get $fullType => _$fullType ??= FullType(BarcodeScanState);
+
+  @override
+  ValueBuilder<String> $newResultBuilder() => Value<String>().toBuilder();
 }

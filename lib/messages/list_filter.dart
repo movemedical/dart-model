@@ -9,10 +9,11 @@ part 'list_filter.g.dart';
 /// Route
 ////////////////////////////////
 
-abstract class ConversationListFilterRoute extends RouteDispatcher<
+abstract class ConversationListFilterRoute extends DialogRoute<
     ConversationListFilterState,
     ConversationListFilterStateBuilder,
     ListConversationsApiRequest,
+    ListConversationsApiRequestBuilder,
     ConversationListFilterActions,
     ConversationListFilterRoute> {
   ConversationListFilterRoute._();
@@ -26,10 +27,11 @@ abstract class ConversationListFilterRoute extends RouteDispatcher<
 /// Actions
 ////////////////////////////////////
 
-abstract class ConversationListFilterActions extends RouteActions<
+abstract class ConversationListFilterActions extends DialogActions<
     ConversationListFilterState,
     ConversationListFilterStateBuilder,
     ListConversationsApiRequest,
+    ListConversationsApiRequestBuilder,
     ConversationListFilterActions,
     ConversationListFilterRoute> {
   ////////////////////////////////////

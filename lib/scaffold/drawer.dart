@@ -11,8 +11,8 @@ part 'drawer.g.dart';
 /// Route
 ////////////////////////////////
 
-abstract class DrawerRoute extends RouteDispatcher<DrawerState,
-    DrawerStateBuilder, Null, DrawerActions, DrawerRoute> {
+abstract class DrawerRoute extends ScreenRoute<DrawerState, DrawerStateBuilder,
+    DrawerActions, DrawerRoute> {
   DrawerRoute._();
 
   factory DrawerRoute(DrawerRouteOptions options) = _$DrawerRoute;
@@ -22,14 +22,17 @@ abstract class DrawerRoute extends RouteDispatcher<DrawerState,
 /// Actions
 ////////////////////////////////
 
-abstract class DrawerActions extends AppRouteActions<DrawerState,
-    DrawerStateBuilder, Null, DrawerActions, DrawerRoute> {
+abstract class DrawerActions extends ScreenActions<DrawerState,
+    DrawerStateBuilder, DrawerActions, DrawerRoute> {
   FieldDispatcher<MobileNavigationElement> selectedTab;
 
   LoginRoute get loginRoute;
 
   @override
   DrawerState get $initial => DrawerState();
+
+  @override
+  MobileNavigationElement get $navElement => null;
 
   DrawerActions._();
 

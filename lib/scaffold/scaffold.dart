@@ -14,8 +14,8 @@ part 'scaffold.g.dart';
 /// Actions
 ////////////////////////////////
 
-abstract class ScaffoldActions extends AppStatefulActions<ScaffoldState,
-    ScaffoldStateBuilder, ScaffoldActions> {
+abstract class ScaffoldActions
+    extends StateActions<ScaffoldState, ScaffoldStateBuilder, ScaffoldActions> {
   DrawerActions get drawer;
 
   BottomBarActions get tabBar;

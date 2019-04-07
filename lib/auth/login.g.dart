@@ -189,68 +189,68 @@ class LoginStateBuilder implements Builder<LoginState, LoginStateBuilder> {
 // ignore_for_file: annotate_overrides
 
 typedef StatefulActionsOptions<
-    CommandState<RouteCommand<LoginState>, RouteResult<Null>>,
-    CommandStateBuilder<RouteCommand<LoginState>, RouteResult<Null>>,
+    CommandState<RouteCommand<LoginState>, RouteResult<Empty>>,
+    CommandStateBuilder<RouteCommand<LoginState>, RouteResult<Empty>>,
     LoginRoute> LoginRouteOptions();
 
 class _$LoginRoute extends LoginRoute {
   final StatefulActionsOptions<
-      CommandState<RouteCommand<LoginState>, RouteResult<Null>>,
-      CommandStateBuilder<RouteCommand<LoginState>, RouteResult<Null>>,
+      CommandState<RouteCommand<LoginState>, RouteResult<Empty>>,
+      CommandStateBuilder<RouteCommand<LoginState>, RouteResult<Empty>>,
       LoginRoute> $options;
 
   final ActionDispatcher<
-      CommandState<RouteCommand<LoginState>, RouteResult<Null>>> $replace;
+      CommandState<RouteCommand<LoginState>, RouteResult<Empty>>> $replace;
   final ActionDispatcher<
-      CommandPayload<RouteCommand<LoginState>, RouteResult<Null>, LoginRoute,
+      CommandPayload<RouteCommand<LoginState>, RouteResult<Empty>, LoginRoute,
           String>> $clear;
   final ActionDispatcher<
-      CommandPayload<RouteCommand<LoginState>, RouteResult<Null>, LoginRoute,
+      CommandPayload<RouteCommand<LoginState>, RouteResult<Empty>, LoginRoute,
           String>> $cancel;
   final ActionDispatcher<
-      CommandPayload<RouteCommand<LoginState>, RouteResult<Null>, LoginRoute,
+      CommandPayload<RouteCommand<LoginState>, RouteResult<Empty>, LoginRoute,
           Command<RouteCommand<LoginState>>>> $execute;
   final ActionDispatcher<
-      CommandPayload<RouteCommand<LoginState>, RouteResult<Null>, LoginRoute,
-          CommandResult<RouteResult<Null>>>> $result;
+      CommandPayload<RouteCommand<LoginState>, RouteResult<Empty>, LoginRoute,
+          CommandResult<RouteResult<Empty>>>> $result;
   final ActionDispatcher<
-      CommandPayload<RouteCommand<LoginState>, RouteResult<Null>, LoginRoute,
+      CommandPayload<RouteCommand<LoginState>, RouteResult<Empty>, LoginRoute,
           String>> $detach;
   final ActionDispatcher<
-      CommandPayload<RouteCommand<LoginState>, RouteResult<Null>, LoginRoute,
+      CommandPayload<RouteCommand<LoginState>, RouteResult<Empty>, LoginRoute,
           String>> $attach;
   final ActionDispatcher<
-      CommandPayload<RouteCommand<LoginState>, RouteResult<Null>, LoginRoute,
+      CommandPayload<RouteCommand<LoginState>, RouteResult<Empty>, LoginRoute,
           CommandProgress>> $progress;
 
   _$LoginRoute._(this.$options)
       : $replace = $options
-            .action<CommandState<RouteCommand<LoginState>, RouteResult<Null>>>(
+            .action<CommandState<RouteCommand<LoginState>, RouteResult<Empty>>>(
                 '\$replace', (a) => a?.$replace),
         $clear = $options.action<
-            CommandPayload<RouteCommand<LoginState>, RouteResult<Null>,
+            CommandPayload<RouteCommand<LoginState>, RouteResult<Empty>,
                 LoginRoute, String>>('\$clear', (a) => a?.$clear),
         $cancel = $options.action<
-            CommandPayload<RouteCommand<LoginState>, RouteResult<Null>,
+            CommandPayload<RouteCommand<LoginState>, RouteResult<Empty>,
                 LoginRoute, String>>('\$cancel', (a) => a?.$cancel),
         $execute = $options.action<
-                CommandPayload<RouteCommand<LoginState>, RouteResult<Null>,
+                CommandPayload<RouteCommand<LoginState>, RouteResult<Empty>,
                     LoginRoute, Command<RouteCommand<LoginState>>>>(
             '\$execute', (a) => a?.$execute),
         $result = $options.action<
-                CommandPayload<RouteCommand<LoginState>, RouteResult<Null>,
-                    LoginRoute, CommandResult<RouteResult<Null>>>>(
+                CommandPayload<RouteCommand<LoginState>, RouteResult<Empty>,
+                    LoginRoute, CommandResult<RouteResult<Empty>>>>(
             '\$result', (a) => a?.$result),
         $detach = $options.action<
-            CommandPayload<RouteCommand<LoginState>, RouteResult<Null>,
+            CommandPayload<RouteCommand<LoginState>, RouteResult<Empty>,
                 LoginRoute, String>>('\$detach', (a) => a?.$detach),
         $attach = $options.action<
-            CommandPayload<RouteCommand<LoginState>, RouteResult<Null>,
+            CommandPayload<RouteCommand<LoginState>, RouteResult<Empty>,
                 LoginRoute, String>>('\$attach', (a) => a?.$attach),
         $progress = $options.action<
             CommandPayload<
                 RouteCommand<LoginState>,
-                RouteResult<Null>,
+                RouteResult<Empty>,
                 LoginRoute,
                 CommandProgress>>('\$progress', (a) => a?.$progress),
         super._();
@@ -258,13 +258,13 @@ class _$LoginRoute extends LoginRoute {
   factory _$LoginRoute(LoginRouteOptions options) => _$LoginRoute._(options());
 
   @override
-  CommandState<RouteCommand<LoginState>, RouteResult<Null>> get $initial =>
-      CommandState<RouteCommand<LoginState>, RouteResult<Null>>();
+  CommandState<RouteCommand<LoginState>, RouteResult<Empty>> get $initial =>
+      CommandState<RouteCommand<LoginState>, RouteResult<Empty>>();
 
   @override
-  CommandStateBuilder<RouteCommand<LoginState>, RouteResult<Null>>
+  CommandStateBuilder<RouteCommand<LoginState>, RouteResult<Empty>>
       $newBuilder() =>
-          CommandStateBuilder<RouteCommand<LoginState>, RouteResult<Null>>();
+          CommandStateBuilder<RouteCommand<LoginState>, RouteResult<Empty>>();
 
   BuiltList<ActionDispatcher> _$actions;
   @override
@@ -287,8 +287,31 @@ class _$LoginRoute extends LoginRoute {
   @override
   FullType get $fullType => _$fullType ??= FullType(CommandState, [
         FullType(RouteCommand, [FullType(LoginState)]),
-        FullType(RouteResult, [FullType(Null)])
+        FullType(RouteResult, [FullType(Empty)])
       ]);
+
+  @override
+  RouteCommandBuilder<LoginState> newCommandBuilder() =>
+      RouteCommand<LoginState>().toBuilder();
+
+  @override
+  RouteResultBuilder<Empty> newResultBuilder() =>
+      RouteResult<Empty>().toBuilder();
+
+  @override
+  Serializer<RouteResult> get resultSerializer => RouteResult.serializer;
+
+  @override
+  LoginStateBuilder newCommandPayloadBuilder() => LoginState().toBuilder();
+
+  @override
+  EmptyBuilder newResultPayloadBuilder() => Empty().toBuilder();
+
+  @override
+  Serializer<LoginState> get commandPayloadSerializer => LoginState.serializer;
+
+  @override
+  Serializer<Empty> get resultPayloadSerializer => Empty.serializer;
 }
 
 typedef StatefulActionsOptions<LoginState, LoginStateBuilder,
@@ -302,7 +325,7 @@ class _$LoginActions extends LoginActions {
   final ActionDispatcher<Null> $activated;
   final ActionDispatcher<Null> $deactivated;
   final ActionDispatcher<LoginState> $pushing;
-  final ActionDispatcher<Null> $popping;
+  final ActionDispatcher<Empty> $popping;
   final LoginRequestActions request;
   final DashboardRoute dashboardRoute;
 
@@ -312,7 +335,7 @@ class _$LoginActions extends LoginActions {
         $deactivated =
             $options.action<Null>('\$deactivated', (a) => a?.$deactivated),
         $pushing = $options.action<LoginState>('\$pushing', (a) => a?.$pushing),
-        $popping = $options.action<Null>('\$popping', (a) => a?.$popping),
+        $popping = $options.action<Empty>('\$popping', (a) => a?.$popping),
         request = LoginRequestActions(() => $options
             .stateful<LoginRequest, LoginRequestBuilder, LoginRequestActions>(
                 'request',
@@ -321,9 +344,9 @@ class _$LoginActions extends LoginActions {
                 (b) => b?.request,
                 (parent, builder) => parent?.request = builder)),
         dashboardRoute = DashboardRoute(() => $options.stateful<
-                CommandState<RouteCommand<DashboardState>, RouteResult<Null>>,
+                CommandState<RouteCommand<DashboardState>, RouteResult<Empty>>,
                 CommandStateBuilder<RouteCommand<DashboardState>,
-                    RouteResult<Null>>,
+                    RouteResult<Empty>>,
                 DashboardRoute>(
             'dashboardRoute',
             (a) => a.dashboardRoute,
@@ -376,4 +399,7 @@ class _$LoginActions extends LoginActions {
   FullType _$fullType;
   @override
   FullType get $fullType => _$fullType ??= FullType(LoginState);
+
+  @override
+  EmptyBuilder $newResultBuilder() => Empty().toBuilder();
 }

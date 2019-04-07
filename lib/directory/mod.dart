@@ -2,7 +2,7 @@ import '../foundation.dart';
 
 part 'mod.g.dart';
 
-abstract class DirectoryActions extends AppStatefulActions<DirectoryState,
+abstract class DirectoryActions extends StateActions<DirectoryState,
     DirectoryStateBuilder, DirectoryActions> {
   DirectoryActions._();
 

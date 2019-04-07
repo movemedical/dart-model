@@ -49,12 +49,6 @@ class _$NavStateSerializer implements StructuredSerializer<NavState> {
         ..add(serializers.serialize(object.auth,
             specifiedType: const FullType(AuthState)));
     }
-    if (object.home != null) {
-      result
-        ..add('home')
-        ..add(serializers.serialize(object.home,
-            specifiedType: const FullType(HomeState)));
-    }
     if (object.schedule != null) {
       result
         ..add('schedule')
@@ -110,10 +104,6 @@ class _$NavStateSerializer implements StructuredSerializer<NavState> {
           result.auth.replace(serializers.deserialize(value,
               specifiedType: const FullType(AuthState)) as AuthState);
           break;
-        case 'home':
-          result.home.replace(serializers.deserialize(value,
-              specifiedType: const FullType(HomeState)) as HomeState);
-          break;
         case 'schedule':
           result.schedule.replace(serializers.deserialize(value,
               specifiedType: const FullType(ScheduleState)) as ScheduleState);
@@ -145,8 +135,6 @@ class _$NavState extends NavState {
   @override
   final AuthState auth;
   @override
-  final HomeState home;
-  @override
   final ScheduleState schedule;
   @override
   final MessagesState messages;
@@ -162,7 +150,6 @@ class _$NavState extends NavState {
       this.scaffold,
       this.dashboard,
       this.auth,
-      this.home,
       this.schedule,
       this.messages,
       this.dir})
@@ -184,7 +171,6 @@ class _$NavState extends NavState {
         scaffold == other.scaffold &&
         dashboard == other.dashboard &&
         auth == other.auth &&
-        home == other.home &&
         schedule == other.schedule &&
         messages == other.messages &&
         dir == other.dir;
@@ -197,12 +183,10 @@ class _$NavState extends NavState {
             $jc(
                 $jc(
                     $jc(
-                        $jc(
-                            $jc($jc($jc(0, stack.hashCode), loader.hashCode),
-                                scaffold.hashCode),
-                            dashboard.hashCode),
-                        auth.hashCode),
-                    home.hashCode),
+                        $jc($jc($jc(0, stack.hashCode), loader.hashCode),
+                            scaffold.hashCode),
+                        dashboard.hashCode),
+                    auth.hashCode),
                 schedule.hashCode),
             messages.hashCode),
         dir.hashCode));
@@ -216,7 +200,6 @@ class _$NavState extends NavState {
           ..add('scaffold', scaffold)
           ..add('dashboard', dashboard)
           ..add('auth', auth)
-          ..add('home', home)
           ..add('schedule', schedule)
           ..add('messages', messages)
           ..add('dir', dir))
@@ -250,10 +233,6 @@ class NavStateBuilder implements Builder<NavState, NavStateBuilder> {
   AuthStateBuilder get auth => _$this._auth ??= new AuthStateBuilder();
   set auth(AuthStateBuilder auth) => _$this._auth = auth;
 
-  HomeStateBuilder _home;
-  HomeStateBuilder get home => _$this._home ??= new HomeStateBuilder();
-  set home(HomeStateBuilder home) => _$this._home = home;
-
   ScheduleStateBuilder _schedule;
   ScheduleStateBuilder get schedule =>
       _$this._schedule ??= new ScheduleStateBuilder();
@@ -277,7 +256,6 @@ class NavStateBuilder implements Builder<NavState, NavStateBuilder> {
       _scaffold = _$v.scaffold?.toBuilder();
       _dashboard = _$v.dashboard?.toBuilder();
       _auth = _$v.auth?.toBuilder();
-      _home = _$v.home?.toBuilder();
       _schedule = _$v.schedule?.toBuilder();
       _messages = _$v.messages?.toBuilder();
       _dir = _$v.dir?.toBuilder();
@@ -310,7 +288,6 @@ class NavStateBuilder implements Builder<NavState, NavStateBuilder> {
               scaffold: _scaffold?.build(),
               dashboard: _dashboard?.build(),
               auth: _auth?.build(),
-              home: _home?.build(),
               schedule: _schedule?.build(),
               messages: _messages?.build(),
               dir: _dir?.build());
@@ -327,8 +304,6 @@ class NavStateBuilder implements Builder<NavState, NavStateBuilder> {
         _dashboard?.build();
         _$failedField = 'auth';
         _auth?.build();
-        _$failedField = 'home';
-        _home?.build();
         _$failedField = 'schedule';
         _schedule?.build();
         _$failedField = 'messages';
@@ -367,7 +342,6 @@ class _$NavActions extends NavActions {
   final ScaffoldActions scaffold;
   final DashboardActions dashboard;
   final AuthActions auth;
-  final HomeActions home;
   final ScheduleActions schedule;
   final MessagesActions messages;
   final DirectoryActions dir;
@@ -404,13 +378,6 @@ class _$NavActions extends NavActions {
                 (s) => s?.auth,
                 (b) => b?.auth,
                 (parent, builder) => parent?.auth = builder)),
-        home = HomeActions(() =>
-            $options.stateful<HomeState, HomeStateBuilder, HomeActions>(
-                'home',
-                (a) => a.home,
-                (s) => s?.home,
-                (b) => b?.home,
-                (parent, builder) => parent?.home = builder)),
         schedule = ScheduleActions(() => $options
             .stateful<ScheduleState, ScheduleStateBuilder, ScheduleActions>(
                 'schedule',
@@ -446,7 +413,6 @@ class _$NavActions extends NavActions {
         this.scaffold,
         this.dashboard,
         this.auth,
-        this.home,
         this.schedule,
         this.messages,
         this.dir,
@@ -468,7 +434,6 @@ class _$NavActions extends NavActions {
     scaffold.$reducer(reducer);
     dashboard.$reducer(reducer);
     auth.$reducer(reducer);
-    home.$reducer(reducer);
     schedule.$reducer(reducer);
     messages.$reducer(reducer);
     dir.$reducer(reducer);
@@ -481,7 +446,6 @@ class _$NavActions extends NavActions {
     scaffold.$middleware(middleware);
     dashboard.$middleware(middleware);
     auth.$middleware(middleware);
-    home.$middleware(middleware);
     schedule.$middleware(middleware);
     messages.$middleware(middleware);
     dir.$middleware(middleware);
