@@ -9,7 +9,7 @@ import 'auth/mod.dart';
 import 'schedule/mod.dart';
 import 'messages/mod.dart';
 import 'directory/mod.dart';
-import 'loader.dart';
+import 'splash.dart';
 import 'dashboard/dashboard.dart';
 
 part 'nav.g.dart';
@@ -27,7 +27,9 @@ abstract class NavActions
   /// Modules
   ////////////////////
 
-  LoaderActions get loader;
+  SplashRoute get gotoSplash;
+
+  SplashActions get splash;
 
   ScaffoldActions get scaffold;
 
@@ -54,12 +56,15 @@ abstract class NavState
   @nullable
   BuiltList<String> get stack;
 
+  @nullable
+  CommandState<RouteCommand<SplashState>, RouteResult<Empty>> get gotoSplash;
+
   ////////////////////
   /// Modules
   ////////////////////
 
   @nullable
-  LoaderState get loader;
+  SplashState get splash;
 
   @nullable
   ScaffoldState get scaffold;

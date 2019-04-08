@@ -60,25 +60,25 @@ import 'package:movemedical_api/model/sql/enums/mobile_report.dart' as _43;
 import 'package:movemedical_api/model/action/user/get_ui_setup_mobile_api_request.dart'
     as _44;
 import 'package:movemedical_model/nav.dart' as _45;
-import 'package:movemedical_model/loader.dart' as _46;
-import 'package:modux/src/router.dart' as _47;
+import 'package:modux/src/router.dart' as _46;
+import 'package:movemedical_model/splash.dart' as _47;
 import 'package:movemedical_model/auth/login.dart' as _48;
 import 'package:movemedical_model/dashboard/dashboard.dart' as _49;
-import 'package:movemedical_model/scaffold/scaffold.dart' as _50;
-import 'package:movemedical_model/scaffold/drawer.dart' as _51;
-import 'package:movemedical_model/scaffold/bottom_bar.dart' as _52;
-import 'package:movemedical_model/messages/list.dart' as _53;
+import 'package:modux/src/action.dart' as _50;
+import 'package:movemedical_model/scaffold/scaffold.dart' as _51;
+import 'package:movemedical_model/scaffold/drawer.dart' as _52;
+import 'package:movemedical_model/scaffold/bottom_bar.dart' as _53;
+import 'package:movemedical_model/messages/list.dart' as _54;
 import 'package:movemedical_api/model/action/messaging/conversations/list_conversations_api_request.dart'
-    as _54;
-import 'package:movemedical_api/model/sql/enums/attributable_type.dart' as _55;
-import 'package:movemedical_api/model/pagination_params.dart' as _56;
+    as _55;
+import 'package:movemedical_api/model/sql/enums/attributable_type.dart' as _56;
+import 'package:movemedical_api/model/pagination_params.dart' as _57;
 import 'package:movemedical_api/model/action/messaging/conversations/list_conversations_api_response.dart'
-    as _57;
-import 'package:movemedical_api/model/action/messaging/conversations/list_conversations_api_conversation.dart'
     as _58;
-import 'package:movemedical_api/model/attributable_object.dart' as _59;
-import 'package:movemedical_model/messages/list_filter.dart' as _60;
-import 'package:modux/src/action.dart' as _61;
+import 'package:movemedical_api/model/action/messaging/conversations/list_conversations_api_conversation.dart'
+    as _59;
+import 'package:movemedical_api/model/attributable_object.dart' as _60;
+import 'package:movemedical_model/messages/list_filter.dart' as _61;
 import 'package:movemedical_model/auth/mod.dart' as _62;
 import 'package:movemedical_model/schedule/mod.dart' as _63;
 import 'package:movemedical_model/schedule/list.dart' as _64;
@@ -247,11 +247,11 @@ SerializersBuilder $serializers() => (Serializers().toBuilder()
   ..addBuilderFactory(FullType(BuiltList, [FullType(_43.MobileReport)]),
       () => ListBuilder<_43.MobileReport>())
   ..addBuilderFactory(FullType(BuiltList, []), () => ListBuilder<String>())
-  ..addBuilderFactory(FullType(BuiltList, [FullType(_59.AttributableObject)]),
-      () => ListBuilder<_59.AttributableObject>())
+  ..addBuilderFactory(FullType(BuiltList, [FullType(_60.AttributableObject)]),
+      () => ListBuilder<_60.AttributableObject>())
   ..addBuilderFactory(
-      FullType(BuiltList, [FullType(_58.ListConversationsApiConversation)]),
-      () => ListBuilder<_58.ListConversationsApiConversation>())
+      FullType(BuiltList, [FullType(_59.ListConversationsApiConversation)]),
+      () => ListBuilder<_59.ListConversationsApiConversation>())
   ..addBuilderFactory(FullType(BuiltList, [FullType(_66.BodySide)]),
       () => ListBuilder<_66.BodySide>())
   ..addBuilderFactory(FullType(BuiltList, [FullType(_67.CaseEventStatus)]),
@@ -285,8 +285,8 @@ SerializersBuilder $serializers() => (Serializers().toBuilder()
       FullType(_1.ApiCommand, [FullType(_44.GetUiSetupMobileApiRequest)]),
       () => _1.ApiCommandBuilder<_44.GetUiSetupMobileApiRequest>())
   ..addBuilderFactory(
-      FullType(_1.ApiCommand, [FullType(_54.ListConversationsApiRequest)]),
-      () => _1.ApiCommandBuilder<_54.ListConversationsApiRequest>())
+      FullType(_1.ApiCommand, [FullType(_55.ListConversationsApiRequest)]),
+      () => _1.ApiCommandBuilder<_55.ListConversationsApiRequest>())
   ..addBuilderFactory(
       FullType(_1.ApiCommand, [FullType(_65.ListCaseEventsApiRequest)]),
       () => _1.ApiCommandBuilder<_65.ListCaseEventsApiRequest>())
@@ -302,8 +302,8 @@ SerializersBuilder $serializers() => (Serializers().toBuilder()
       FullType(_1.ApiResult, [FullType(_3.GetUiSetupMobileApiResponse)]),
       () => _1.ApiResultBuilder<_3.GetUiSetupMobileApiResponse>())
   ..addBuilderFactory(
-      FullType(_1.ApiResult, [FullType(_57.ListConversationsApiResponse)]),
-      () => _1.ApiResultBuilder<_57.ListConversationsApiResponse>())
+      FullType(_1.ApiResult, [FullType(_58.ListConversationsApiResponse)]),
+      () => _1.ApiResultBuilder<_58.ListConversationsApiResponse>())
   ..addBuilderFactory(
       FullType(_1.ApiResult, [FullType(_72.ListCaseEventsApiResponse)]),
       () => _1.ApiResultBuilder<_72.ListCaseEventsApiResponse>())
@@ -330,30 +330,35 @@ SerializersBuilder $serializers() => (Serializers().toBuilder()
       () => _2.CommandBuilder<_1.ApiCommand<_44.GetUiSetupMobileApiRequest>>())
   ..addBuilderFactory(
       FullType(_2.Command, [
-        FullType(_47.RouteCommand, [FullType(_49.DashboardState)])
+        FullType(_46.RouteCommand, [FullType(_49.DashboardState)])
       ]),
-      () => _2.CommandBuilder<_47.RouteCommand<_49.DashboardState>>())
+      () => _2.CommandBuilder<_46.RouteCommand<_49.DashboardState>>())
   ..addBuilderFactory(
       FullType(_2.Command, [
-        FullType(_47.RouteCommand, [FullType(_48.LoginState)])
+        FullType(_46.RouteCommand, [FullType(_48.LoginState)])
       ]),
-      () => _2.CommandBuilder<_47.RouteCommand<_48.LoginState>>())
+      () => _2.CommandBuilder<_46.RouteCommand<_48.LoginState>>())
   ..addBuilderFactory(
       FullType(_2.Command, [
-        FullType(_1.ApiCommand, [FullType(_54.ListConversationsApiRequest)])
+        FullType(_46.RouteCommand, [FullType(_47.SplashState)])
       ]),
-      () => _2.CommandBuilder<_1.ApiCommand<_54.ListConversationsApiRequest>>())
+      () => _2.CommandBuilder<_46.RouteCommand<_47.SplashState>>())
   ..addBuilderFactory(
       FullType(_2.Command, [
-        FullType(_47.RouteCommand, [FullType(_60.ConversationListFilterState)])
+        FullType(_1.ApiCommand, [FullType(_55.ListConversationsApiRequest)])
+      ]),
+      () => _2.CommandBuilder<_1.ApiCommand<_55.ListConversationsApiRequest>>())
+  ..addBuilderFactory(
+      FullType(_2.Command, [
+        FullType(_46.RouteCommand, [FullType(_61.ConversationListFilterState)])
       ]),
       () => _2.CommandBuilder<
-          _47.RouteCommand<_60.ConversationListFilterState>>())
+          _46.RouteCommand<_61.ConversationListFilterState>>())
   ..addBuilderFactory(
       FullType(_2.Command, [
-        FullType(_47.RouteCommand, [FullType(_53.ConversationListState)])
+        FullType(_46.RouteCommand, [FullType(_54.ConversationListState)])
       ]),
-      () => _2.CommandBuilder<_47.RouteCommand<_53.ConversationListState>>())
+      () => _2.CommandBuilder<_46.RouteCommand<_54.ConversationListState>>())
   ..addBuilderFactory(
       FullType(_2.Command, [
         FullType(_1.ApiCommand, [FullType(_65.ListCaseEventsApiRequest)])
@@ -381,25 +386,25 @@ SerializersBuilder $serializers() => (Serializers().toBuilder()
       ]),
       () => _2.CommandResultBuilder<
           _1.ApiResult<_3.GetUiSetupMobileApiResponse>>())
-  ..addBuilderFactory(FullType(_2.CommandResult, [FullType(_47.RouteResult)]),
-      () => _2.CommandResultBuilder<_47.RouteResult>())
+  ..addBuilderFactory(FullType(_2.CommandResult, [FullType(_46.RouteResult)]),
+      () => _2.CommandResultBuilder<_46.RouteResult>())
   ..addBuilderFactory(
       FullType(_2.CommandResult, [
-        FullType(_1.ApiResult, [FullType(_57.ListConversationsApiResponse)])
+        FullType(_46.RouteResult, [FullType(_50.Empty)])
+      ]),
+      () => _2.CommandResultBuilder<_46.RouteResult<_50.Empty>>())
+  ..addBuilderFactory(
+      FullType(_2.CommandResult, [
+        FullType(_1.ApiResult, [FullType(_58.ListConversationsApiResponse)])
       ]),
       () => _2.CommandResultBuilder<
-          _1.ApiResult<_57.ListConversationsApiResponse>>())
+          _1.ApiResult<_58.ListConversationsApiResponse>>())
   ..addBuilderFactory(
       FullType(_2.CommandResult, [
-        FullType(_47.RouteResult, [FullType(_54.ListConversationsApiRequest)])
+        FullType(_46.RouteResult, [FullType(_55.ListConversationsApiRequest)])
       ]),
       () => _2.CommandResultBuilder<
-          _47.RouteResult<_54.ListConversationsApiRequest>>())
-  ..addBuilderFactory(
-      FullType(_2.CommandResult, [
-        FullType(_47.RouteResult, [FullType(_61.Empty)])
-      ]),
-      () => _2.CommandResultBuilder<_47.RouteResult<_61.Empty>>())
+          _46.RouteResult<_55.ListConversationsApiRequest>>())
   ..addBuilderFactory(
       FullType(_2.CommandResult, [
         FullType(_1.ApiResult, [FullType(_72.ListCaseEventsApiResponse)])
@@ -435,41 +440,48 @@ SerializersBuilder $serializers() => (Serializers().toBuilder()
           _1.ApiResult<_3.GetUiSetupMobileApiResponse>>())
   ..addBuilderFactory(
       FullType(_2.CommandState, [
-        FullType(_47.RouteCommand, [FullType(_49.DashboardState)]),
-        FullType(_47.RouteResult)
+        FullType(_46.RouteCommand, [FullType(_49.DashboardState)]),
+        FullType(_46.RouteResult)
       ]),
-      () => _2.CommandStateBuilder<_47.RouteCommand<_49.DashboardState>,
-          _47.RouteResult>())
+      () => _2.CommandStateBuilder<_46.RouteCommand<_49.DashboardState>,
+          _46.RouteResult>())
   ..addBuilderFactory(
       FullType(_2.CommandState, [
-        FullType(_47.RouteCommand, [FullType(_48.LoginState)]),
-        FullType(_47.RouteResult)
+        FullType(_46.RouteCommand, [FullType(_48.LoginState)]),
+        FullType(_46.RouteResult)
       ]),
-      () => _2.CommandStateBuilder<_47.RouteCommand<_48.LoginState>,
-          _47.RouteResult>())
+      () => _2.CommandStateBuilder<_46.RouteCommand<_48.LoginState>,
+          _46.RouteResult>())
   ..addBuilderFactory(
       FullType(_2.CommandState, [
-        FullType(_1.ApiCommand, [FullType(_54.ListConversationsApiRequest)]),
-        FullType(_1.ApiResult, [FullType(_57.ListConversationsApiResponse)])
+        FullType(_46.RouteCommand, [FullType(_47.SplashState)]),
+        FullType(_46.RouteResult, [FullType(_50.Empty)])
+      ]),
+      () => _2.CommandStateBuilder<_46.RouteCommand<_47.SplashState>,
+          _46.RouteResult<_50.Empty>>())
+  ..addBuilderFactory(
+      FullType(_2.CommandState, [
+        FullType(_1.ApiCommand, [FullType(_55.ListConversationsApiRequest)]),
+        FullType(_1.ApiResult, [FullType(_58.ListConversationsApiResponse)])
       ]),
       () => _2.CommandStateBuilder<
-          _1.ApiCommand<_54.ListConversationsApiRequest>,
-          _1.ApiResult<_57.ListConversationsApiResponse>>())
+          _1.ApiCommand<_55.ListConversationsApiRequest>,
+          _1.ApiResult<_58.ListConversationsApiResponse>>())
   ..addBuilderFactory(
       FullType(_2.CommandState, [
-        FullType(_47.RouteCommand, [FullType(_60.ConversationListFilterState)]),
-        FullType(_47.RouteResult, [FullType(_54.ListConversationsApiRequest)])
+        FullType(_46.RouteCommand, [FullType(_61.ConversationListFilterState)]),
+        FullType(_46.RouteResult, [FullType(_55.ListConversationsApiRequest)])
       ]),
       () => _2.CommandStateBuilder<
-          _47.RouteCommand<_60.ConversationListFilterState>,
-          _47.RouteResult<_54.ListConversationsApiRequest>>())
+          _46.RouteCommand<_61.ConversationListFilterState>,
+          _46.RouteResult<_55.ListConversationsApiRequest>>())
   ..addBuilderFactory(
       FullType(_2.CommandState, [
-        FullType(_47.RouteCommand, [FullType(_53.ConversationListState)]),
-        FullType(_47.RouteResult, [FullType(_61.Empty)])
+        FullType(_46.RouteCommand, [FullType(_54.ConversationListState)]),
+        FullType(_46.RouteResult, [FullType(_50.Empty)])
       ]),
-      () => _2.CommandStateBuilder<_47.RouteCommand<_53.ConversationListState>,
-          _47.RouteResult<_61.Empty>>())
+      () => _2.CommandStateBuilder<_46.RouteCommand<_54.ConversationListState>,
+          _46.RouteResult<_50.Empty>>())
   ..addBuilderFactory(
       FullType(_2.CommandState, [
         FullType(_1.ApiCommand, [FullType(_65.ListCaseEventsApiRequest)]),
@@ -490,9 +502,8 @@ SerializersBuilder $serializers() => (Serializers().toBuilder()
         FullType(_1.ApiCommand, [FullType(_106.GetConversationApiRequest)]),
         FullType(_1.ApiResult, [FullType(_107.GetConversationApiResponse)])
       ]),
-      () => _2.CommandStateBuilder<
-          _1.ApiCommand<_106.GetConversationApiRequest>,
-          _1.ApiResult<_107.GetConversationApiResponse>>())
+      () =>
+          _2.CommandStateBuilder<_1.ApiCommand<_106.GetConversationApiRequest>, _1.ApiResult<_107.GetConversationApiResponse>>())
   ..add(_3.GetUiSetupMobileApiResponse.serializer)
   ..add(_4.GetUiSetupAllApiResponse.serializer)
   ..add(_5.GetUiSetupAllApiInvTransferType.serializer)
@@ -536,33 +547,32 @@ SerializersBuilder $serializers() => (Serializers().toBuilder()
   ..add(_43.MobileReport.serializer)
   ..add(_44.GetUiSetupMobileApiRequest.serializer)
   ..add(_45.NavState.serializer)
-  ..add(_46.LoaderState.serializer)
-  ..add(_47.RouteCommandAction.serializer)
-  ..add(_47.RouteType.serializer)
-  ..add(_47.RouteCommand.serializer)
-  ..add(_47.RouteResult.serializer)
-  ..addBuilderFactory(
-      FullType(_47.RouteCommand, [FullType(_49.DashboardState)]),
-      () => _47.RouteCommandBuilder<_49.DashboardState>())
-  ..addBuilderFactory(FullType(_47.RouteCommand, [FullType(_48.LoginState)]), () => _47.RouteCommandBuilder<_48.LoginState>())
-  ..addBuilderFactory(FullType(_47.RouteCommand, [FullType(_60.ConversationListFilterState)]), () => _47.RouteCommandBuilder<_60.ConversationListFilterState>())
-  ..addBuilderFactory(FullType(_47.RouteCommand, [FullType(_53.ConversationListState)]), () => _47.RouteCommandBuilder<_53.ConversationListState>())
-  ..addBuilderFactory(FullType(_47.RouteResult, [FullType(_54.ListConversationsApiRequest)]), () => _47.RouteResultBuilder<_54.ListConversationsApiRequest>())
-  ..addBuilderFactory(FullType(_47.RouteResult, [FullType(_61.Empty)]), () => _47.RouteResultBuilder<_61.Empty>())
+  ..add(_46.RouteCommandAction.serializer)
+  ..add(_46.RouteType.serializer)
+  ..add(_46.RouteCommand.serializer)
+  ..add(_46.RouteResult.serializer)
+  ..addBuilderFactory(FullType(_46.RouteCommand, [FullType(_49.DashboardState)]), () => _46.RouteCommandBuilder<_49.DashboardState>())
+  ..addBuilderFactory(FullType(_46.RouteCommand, [FullType(_48.LoginState)]), () => _46.RouteCommandBuilder<_48.LoginState>())
+  ..addBuilderFactory(FullType(_46.RouteCommand, [FullType(_47.SplashState)]), () => _46.RouteCommandBuilder<_47.SplashState>())
+  ..addBuilderFactory(FullType(_46.RouteCommand, [FullType(_61.ConversationListFilterState)]), () => _46.RouteCommandBuilder<_61.ConversationListFilterState>())
+  ..addBuilderFactory(FullType(_46.RouteCommand, [FullType(_54.ConversationListState)]), () => _46.RouteCommandBuilder<_54.ConversationListState>())
+  ..addBuilderFactory(FullType(_46.RouteResult, [FullType(_50.Empty)]), () => _46.RouteResultBuilder<_50.Empty>())
+  ..addBuilderFactory(FullType(_46.RouteResult, [FullType(_55.ListConversationsApiRequest)]), () => _46.RouteResultBuilder<_55.ListConversationsApiRequest>())
+  ..add(_47.SplashState.serializer)
   ..add(_48.LoginState.serializer)
   ..add(_49.DashboardState.serializer)
-  ..add(_50.ScaffoldState.serializer)
-  ..add(_51.DrawerState.serializer)
-  ..add(_52.BottomBarState.serializer)
-  ..add(_53.ConversationListState.serializer)
-  ..add(_54.ListConversationsApiRequest.serializer)
-  ..add(_55.AttributableType.serializer)
-  ..add(_56.PaginationParams.serializer)
-  ..add(_57.ListConversationsApiResponse.serializer)
-  ..add(_58.ListConversationsApiConversation.serializer)
-  ..add(_59.AttributableObject.serializer)
-  ..add(_60.ConversationListFilterState.serializer)
-  ..add(_61.Empty.serializer)
+  ..add(_50.Empty.serializer)
+  ..add(_51.ScaffoldState.serializer)
+  ..add(_52.DrawerState.serializer)
+  ..add(_53.BottomBarState.serializer)
+  ..add(_54.ConversationListState.serializer)
+  ..add(_55.ListConversationsApiRequest.serializer)
+  ..add(_56.AttributableType.serializer)
+  ..add(_57.PaginationParams.serializer)
+  ..add(_58.ListConversationsApiResponse.serializer)
+  ..add(_59.ListConversationsApiConversation.serializer)
+  ..add(_60.AttributableObject.serializer)
+  ..add(_61.ConversationListFilterState.serializer)
   ..add(_62.AuthState.serializer)
   ..add(_63.ScheduleState.serializer)
   ..add(_64.CaseEventListState.serializer)

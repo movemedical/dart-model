@@ -55,6 +55,9 @@ class DartRouterPlugin implements RouterPlugin<DartRoute> {
   Future replace(ActiveRoute oldRoute, ActiveRoute newRoute) {}
 
   @override
+  Future pushReplacement(ActiveRoute route) {}
+
+  @override
   bool canPop() {}
 
   @override

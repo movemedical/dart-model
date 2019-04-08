@@ -25,11 +25,20 @@ class _$NavStateSerializer implements StructuredSerializer<NavState> {
             specifiedType:
                 const FullType(BuiltList, const [const FullType(String)])));
     }
-    if (object.loader != null) {
+    if (object.gotoSplash != null) {
       result
-        ..add('loader')
-        ..add(serializers.serialize(object.loader,
-            specifiedType: const FullType(LoaderState)));
+        ..add('gotoSplash')
+        ..add(serializers.serialize(object.gotoSplash,
+            specifiedType: const FullType(CommandState, const [
+              const FullType(RouteCommand, const [const FullType(SplashState)]),
+              const FullType(RouteResult, const [const FullType(Empty)])
+            ])));
+    }
+    if (object.splash != null) {
+      result
+        ..add('splash')
+        ..add(serializers.serialize(object.splash,
+            specifiedType: const FullType(SplashState)));
     }
     if (object.scaffold != null) {
       result
@@ -88,9 +97,18 @@ class _$NavStateSerializer implements StructuredSerializer<NavState> {
                       const FullType(BuiltList, const [const FullType(String)]))
               as BuiltList);
           break;
-        case 'loader':
-          result.loader.replace(serializers.deserialize(value,
-              specifiedType: const FullType(LoaderState)) as LoaderState);
+        case 'gotoSplash':
+          result.gotoSplash.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(CommandState, const [
+                    const FullType(
+                        RouteCommand, const [const FullType(SplashState)]),
+                    const FullType(RouteResult, const [const FullType(Empty)])
+                  ]))
+              as CommandState<RouteCommand<SplashState>, RouteResult<Empty>>);
+          break;
+        case 'splash':
+          result.splash.replace(serializers.deserialize(value,
+              specifiedType: const FullType(SplashState)) as SplashState);
           break;
         case 'scaffold':
           result.scaffold.replace(serializers.deserialize(value,
@@ -127,7 +145,9 @@ class _$NavState extends NavState {
   @override
   final BuiltList<String> stack;
   @override
-  final LoaderState loader;
+  final CommandState<RouteCommand<SplashState>, RouteResult<Empty>> gotoSplash;
+  @override
+  final SplashState splash;
   @override
   final ScaffoldState scaffold;
   @override
@@ -146,7 +166,8 @@ class _$NavState extends NavState {
 
   _$NavState._(
       {this.stack,
-      this.loader,
+      this.gotoSplash,
+      this.splash,
       this.scaffold,
       this.dashboard,
       this.auth,
@@ -167,7 +188,8 @@ class _$NavState extends NavState {
     if (identical(other, this)) return true;
     return other is NavState &&
         stack == other.stack &&
-        loader == other.loader &&
+        gotoSplash == other.gotoSplash &&
+        splash == other.splash &&
         scaffold == other.scaffold &&
         dashboard == other.dashboard &&
         auth == other.auth &&
@@ -183,7 +205,11 @@ class _$NavState extends NavState {
             $jc(
                 $jc(
                     $jc(
-                        $jc($jc($jc(0, stack.hashCode), loader.hashCode),
+                        $jc(
+                            $jc(
+                                $jc($jc(0, stack.hashCode),
+                                    gotoSplash.hashCode),
+                                splash.hashCode),
                             scaffold.hashCode),
                         dashboard.hashCode),
                     auth.hashCode),
@@ -196,7 +222,8 @@ class _$NavState extends NavState {
   String toString() {
     return (newBuiltValueToStringHelper('NavState')
           ..add('stack', stack)
-          ..add('loader', loader)
+          ..add('gotoSplash', gotoSplash)
+          ..add('splash', splash)
           ..add('scaffold', scaffold)
           ..add('dashboard', dashboard)
           ..add('auth', auth)
@@ -214,9 +241,20 @@ class NavStateBuilder implements Builder<NavState, NavStateBuilder> {
   ListBuilder<String> get stack => _$this._stack ??= new ListBuilder<String>();
   set stack(ListBuilder<String> stack) => _$this._stack = stack;
 
-  LoaderStateBuilder _loader;
-  LoaderStateBuilder get loader => _$this._loader ??= new LoaderStateBuilder();
-  set loader(LoaderStateBuilder loader) => _$this._loader = loader;
+  CommandStateBuilder<RouteCommand<SplashState>, RouteResult<Empty>>
+      _gotoSplash;
+  CommandStateBuilder<RouteCommand<SplashState>,
+      RouteResult<Empty>> get gotoSplash => _$this
+          ._gotoSplash ??=
+      new CommandStateBuilder<RouteCommand<SplashState>, RouteResult<Empty>>();
+  set gotoSplash(
+          CommandStateBuilder<RouteCommand<SplashState>, RouteResult<Empty>>
+              gotoSplash) =>
+      _$this._gotoSplash = gotoSplash;
+
+  SplashStateBuilder _splash;
+  SplashStateBuilder get splash => _$this._splash ??= new SplashStateBuilder();
+  set splash(SplashStateBuilder splash) => _$this._splash = splash;
 
   ScaffoldStateBuilder _scaffold;
   ScaffoldStateBuilder get scaffold =>
@@ -252,7 +290,8 @@ class NavStateBuilder implements Builder<NavState, NavStateBuilder> {
   NavStateBuilder get _$this {
     if (_$v != null) {
       _stack = _$v.stack?.toBuilder();
-      _loader = _$v.loader?.toBuilder();
+      _gotoSplash = _$v.gotoSplash?.toBuilder();
+      _splash = _$v.splash?.toBuilder();
       _scaffold = _$v.scaffold?.toBuilder();
       _dashboard = _$v.dashboard?.toBuilder();
       _auth = _$v.auth?.toBuilder();
@@ -284,7 +323,8 @@ class NavStateBuilder implements Builder<NavState, NavStateBuilder> {
       _$result = _$v ??
           new _$NavState._(
               stack: _stack?.build(),
-              loader: _loader?.build(),
+              gotoSplash: _gotoSplash?.build(),
+              splash: _splash?.build(),
               scaffold: _scaffold?.build(),
               dashboard: _dashboard?.build(),
               auth: _auth?.build(),
@@ -296,8 +336,10 @@ class NavStateBuilder implements Builder<NavState, NavStateBuilder> {
       try {
         _$failedField = 'stack';
         _stack?.build();
-        _$failedField = 'loader';
-        _loader?.build();
+        _$failedField = 'gotoSplash';
+        _gotoSplash?.build();
+        _$failedField = 'splash';
+        _splash?.build();
         _$failedField = 'scaffold';
         _scaffold?.build();
         _$failedField = 'dashboard';
@@ -338,7 +380,8 @@ class _$NavActions extends NavActions {
 
   final ActionDispatcher<NavState> $replace;
   final FieldDispatcher<BuiltList<String>> stack;
-  final LoaderActions loader;
+  final SplashRoute gotoSplash;
+  final SplashActions splash;
   final ScaffoldActions scaffold;
   final DashboardActions dashboard;
   final AuthActions auth;
@@ -350,13 +393,24 @@ class _$NavActions extends NavActions {
       : $replace = $options.action<NavState>('\$replace', (a) => a?.$replace),
         stack = $options.actionField<BuiltList<String>>(
             'stack', (a) => a?.stack, (s) => s?.stack, (p, b) => p?.stack = b),
-        loader = LoaderActions(() =>
-            $options.stateful<LoaderState, LoaderStateBuilder, LoaderActions>(
-                'loader',
-                (a) => a.loader,
-                (s) => s?.loader,
-                (b) => b?.loader,
-                (parent, builder) => parent?.loader = builder)),
+        gotoSplash = SplashRoute(() =>
+            $options.stateful<
+                    CommandState<RouteCommand<SplashState>, RouteResult<Empty>>,
+                    CommandStateBuilder<RouteCommand<SplashState>,
+                        RouteResult<Empty>>,
+                    SplashRoute>(
+                'gotoSplash',
+                (a) => a.gotoSplash,
+                (s) => s?.gotoSplash,
+                (b) => b?.gotoSplash,
+                (parent, builder) => parent?.gotoSplash = builder)),
+        splash = SplashActions(() =>
+            $options.stateful<SplashState, SplashStateBuilder, SplashActions>(
+                'splash',
+                (a) => a.splash,
+                (s) => s?.splash,
+                (b) => b?.splash,
+                (parent, builder) => parent?.splash = builder)),
         scaffold = ScaffoldActions(() => $options
             .stateful<ScaffoldState, ScaffoldStateBuilder, ScaffoldActions>(
                 'scaffold',
@@ -409,7 +463,8 @@ class _$NavActions extends NavActions {
   BuiltList<ModuxActions> _$nested;
   @override
   BuiltList<ModuxActions> get $nested => _$nested ??= BuiltList<ModuxActions>([
-        this.loader,
+        this.gotoSplash,
+        this.splash,
         this.scaffold,
         this.dashboard,
         this.auth,
@@ -430,7 +485,8 @@ class _$NavActions extends NavActions {
   void $reducer(AppReducerBuilder reducer) {
     super.$reducer(reducer);
     stack.$reducer(reducer);
-    loader.$reducer(reducer);
+    gotoSplash.$reducer(reducer);
+    splash.$reducer(reducer);
     scaffold.$reducer(reducer);
     dashboard.$reducer(reducer);
     auth.$reducer(reducer);
@@ -442,7 +498,8 @@ class _$NavActions extends NavActions {
   @override
   void $middleware(AppMiddlewareBuilder middleware) {
     super.$middleware(middleware);
-    loader.$middleware(middleware);
+    gotoSplash.$middleware(middleware);
+    splash.$middleware(middleware);
     scaffold.$middleware(middleware);
     dashboard.$middleware(middleware);
     auth.$middleware(middleware);
