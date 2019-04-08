@@ -23,6 +23,13 @@ class _$BottomBarStateSerializer
       'selectedTab',
       serializers.serialize(object.selectedTab,
           specifiedType: const FullType(MobileNavigationElement)),
+      'gotoConversationList',
+      serializers.serialize(object.gotoConversationList,
+          specifiedType: const FullType(CommandState, const [
+            const FullType(
+                RouteCommand, const [const FullType(ConversationListState)]),
+            const FullType(RouteResult, const [const FullType(Empty)])
+          ])),
     ];
 
     return result;
@@ -44,6 +51,16 @@ class _$BottomBarStateSerializer
                   specifiedType: const FullType(MobileNavigationElement))
               as MobileNavigationElement;
           break;
+        case 'gotoConversationList':
+          result.gotoConversationList.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(CommandState, const [
+                    const FullType(RouteCommand,
+                        const [const FullType(ConversationListState)]),
+                    const FullType(RouteResult, const [const FullType(Empty)])
+                  ]))
+              as CommandState<RouteCommand<ConversationListState>,
+                  RouteResult<Empty>>);
+          break;
       }
     }
 
@@ -54,13 +71,21 @@ class _$BottomBarStateSerializer
 class _$BottomBarState extends BottomBarState {
   @override
   final MobileNavigationElement selectedTab;
+  @override
+  final CommandState<RouteCommand<ConversationListState>, RouteResult<Empty>>
+      gotoConversationList;
 
   factory _$BottomBarState([void updates(BottomBarStateBuilder b)]) =>
       (new BottomBarStateBuilder()..update(updates)).build();
 
-  _$BottomBarState._({this.selectedTab}) : super._() {
+  _$BottomBarState._({this.selectedTab, this.gotoConversationList})
+      : super._() {
     if (selectedTab == null) {
       throw new BuiltValueNullFieldError('BottomBarState', 'selectedTab');
+    }
+    if (gotoConversationList == null) {
+      throw new BuiltValueNullFieldError(
+          'BottomBarState', 'gotoConversationList');
     }
   }
 
@@ -75,18 +100,22 @@ class _$BottomBarState extends BottomBarState {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is BottomBarState && selectedTab == other.selectedTab;
+    return other is BottomBarState &&
+        selectedTab == other.selectedTab &&
+        gotoConversationList == other.gotoConversationList;
   }
 
   @override
   int get hashCode {
-    return $jf($jc(0, selectedTab.hashCode));
+    return $jf(
+        $jc($jc(0, selectedTab.hashCode), gotoConversationList.hashCode));
   }
 
   @override
   String toString() {
     return (newBuiltValueToStringHelper('BottomBarState')
-          ..add('selectedTab', selectedTab))
+          ..add('selectedTab', selectedTab)
+          ..add('gotoConversationList', gotoConversationList))
         .toString();
   }
 }
@@ -100,11 +129,24 @@ class BottomBarStateBuilder
   set selectedTab(MobileNavigationElement selectedTab) =>
       _$this._selectedTab = selectedTab;
 
+  CommandStateBuilder<RouteCommand<ConversationListState>, RouteResult<Empty>>
+      _gotoConversationList;
+  CommandStateBuilder<RouteCommand<ConversationListState>, RouteResult<Empty>>
+      get gotoConversationList =>
+          _$this._gotoConversationList ??= new CommandStateBuilder<
+              RouteCommand<ConversationListState>, RouteResult<Empty>>();
+  set gotoConversationList(
+          CommandStateBuilder<RouteCommand<ConversationListState>,
+                  RouteResult<Empty>>
+              gotoConversationList) =>
+      _$this._gotoConversationList = gotoConversationList;
+
   BottomBarStateBuilder();
 
   BottomBarStateBuilder get _$this {
     if (_$v != null) {
       _selectedTab = _$v.selectedTab;
+      _gotoConversationList = _$v.gotoConversationList?.toBuilder();
       _$v = null;
     }
     return this;
@@ -125,7 +167,23 @@ class BottomBarStateBuilder
 
   @override
   _$BottomBarState build() {
-    final _$result = _$v ?? new _$BottomBarState._(selectedTab: selectedTab);
+    _$BottomBarState _$result;
+    try {
+      _$result = _$v ??
+          new _$BottomBarState._(
+              selectedTab: selectedTab,
+              gotoConversationList: gotoConversationList.build());
+    } catch (_) {
+      String _$failedField;
+      try {
+        _$failedField = 'gotoConversationList';
+        gotoConversationList.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'BottomBarState', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }
@@ -149,6 +207,7 @@ class _$BottomBarActions extends BottomBarActions {
 
   final ActionDispatcher<BottomBarState> $replace;
   final FieldDispatcher<MobileNavigationElement> selectedTab;
+  final ConversationListRoute gotoConversationList;
 
   _$BottomBarActions._(this.$options)
       : $replace =
@@ -158,6 +217,17 @@ class _$BottomBarActions extends BottomBarActions {
             (a) => a?.selectedTab,
             (s) => s?.selectedTab,
             (p, b) => p?.selectedTab = b),
+        gotoConversationList = ConversationListRoute(() => $options.stateful<
+                CommandState<RouteCommand<ConversationListState>,
+                    RouteResult<Empty>>,
+                CommandStateBuilder<RouteCommand<ConversationListState>,
+                    RouteResult<Empty>>,
+                ConversationListRoute>(
+            'gotoConversationList',
+            (a) => a.gotoConversationList,
+            (s) => s?.gotoConversationList,
+            (b) => b?.gotoConversationList,
+            (parent, builder) => parent?.gotoConversationList = builder)),
         super._();
 
   factory _$BottomBarActions(BottomBarActionsOptions options) =>
@@ -165,6 +235,12 @@ class _$BottomBarActions extends BottomBarActions {
 
   @override
   BottomBarStateBuilder $newBuilder() => BottomBarStateBuilder();
+
+  BuiltList<ModuxActions> _$nested;
+  @override
+  BuiltList<ModuxActions> get $nested => _$nested ??= BuiltList<ModuxActions>([
+        this.gotoConversationList,
+      ]);
 
   BuiltList<ActionDispatcher> _$actions;
   @override
@@ -178,11 +254,13 @@ class _$BottomBarActions extends BottomBarActions {
   void $reducer(AppReducerBuilder reducer) {
     super.$reducer(reducer);
     selectedTab.$reducer(reducer);
+    gotoConversationList.$reducer(reducer);
   }
 
   @override
   void $middleware(AppMiddlewareBuilder middleware) {
     super.$middleware(middleware);
+    gotoConversationList.$middleware(middleware);
   }
 
 // @override

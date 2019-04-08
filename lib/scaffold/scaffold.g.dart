@@ -222,7 +222,7 @@ class _$ScaffoldActions extends ScaffoldActions {
 
   final ActionDispatcher<ScaffoldState> $replace;
   final DrawerActions drawer;
-  final BottomBarActions tabBar;
+  final BottomBarActions bottomBar;
   final LoginRoute loginRoute;
 
   _$ScaffoldActions._(this.$options)
@@ -235,13 +235,13 @@ class _$ScaffoldActions extends ScaffoldActions {
                 (s) => s?.drawer,
                 (b) => b?.drawer,
                 (parent, builder) => parent?.drawer = builder)),
-        tabBar = BottomBarActions(() => $options
+        bottomBar = BottomBarActions(() => $options
             .stateful<BottomBarState, BottomBarStateBuilder, BottomBarActions>(
-                'tabBar',
-                (a) => a.tabBar,
-                (s) => s?.tabBar,
-                (b) => b?.tabBar,
-                (parent, builder) => parent?.tabBar = builder)),
+                'bottomBar',
+                (a) => a.bottomBar,
+                (s) => s?.bottomBar,
+                (b) => b?.bottomBar,
+                (parent, builder) => parent?.bottomBar = builder)),
         loginRoute = LoginRoute(() =>
             $options.stateful<
                     CommandState<RouteCommand<LoginState>, RouteResult<Empty>>,
@@ -265,7 +265,7 @@ class _$ScaffoldActions extends ScaffoldActions {
   @override
   BuiltList<ModuxActions> get $nested => _$nested ??= BuiltList<ModuxActions>([
         this.drawer,
-        this.tabBar,
+        this.bottomBar,
         this.loginRoute,
       ]);
 
@@ -280,7 +280,7 @@ class _$ScaffoldActions extends ScaffoldActions {
   void $reducer(AppReducerBuilder reducer) {
     super.$reducer(reducer);
     drawer.$reducer(reducer);
-    tabBar.$reducer(reducer);
+    bottomBar.$reducer(reducer);
     loginRoute.$reducer(reducer);
   }
 
@@ -288,7 +288,7 @@ class _$ScaffoldActions extends ScaffoldActions {
   void $middleware(AppMiddlewareBuilder middleware) {
     super.$middleware(middleware);
     drawer.$middleware(middleware);
-    tabBar.$middleware(middleware);
+    bottomBar.$middleware(middleware);
     loginRoute.$middleware(middleware);
   }
 

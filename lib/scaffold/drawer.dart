@@ -43,6 +43,7 @@ abstract class DrawerActions extends ScreenActions<DrawerState,
 ///
 ///
 abstract class DrawerState implements Built<DrawerState, DrawerStateBuilder> {
+  @nullable
   MobileNavigationElement get selectedTab;
 
   CommandState<RouteCommand<LoginState>, RouteResult<Null>> get loginRoute;

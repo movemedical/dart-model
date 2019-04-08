@@ -18,9 +18,6 @@ class _$DrawerStateSerializer implements StructuredSerializer<DrawerState> {
   Iterable serialize(Serializers serializers, DrawerState object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[
-      'selectedTab',
-      serializers.serialize(object.selectedTab,
-          specifiedType: const FullType(MobileNavigationElement)),
       'loginRoute',
       serializers.serialize(object.loginRoute,
           specifiedType: const FullType(CommandState, const [
@@ -28,6 +25,12 @@ class _$DrawerStateSerializer implements StructuredSerializer<DrawerState> {
             const FullType(RouteResult, const [const FullType(Null)])
           ])),
     ];
+    if (object.selectedTab != null) {
+      result
+        ..add('selectedTab')
+        ..add(serializers.serialize(object.selectedTab,
+            specifiedType: const FullType(MobileNavigationElement)));
+    }
 
     return result;
   }
@@ -73,9 +76,6 @@ class _$DrawerState extends DrawerState {
       (new DrawerStateBuilder()..update(updates)).build();
 
   _$DrawerState._({this.selectedTab, this.loginRoute}) : super._() {
-    if (selectedTab == null) {
-      throw new BuiltValueNullFieldError('DrawerState', 'selectedTab');
-    }
     if (loginRoute == null) {
       throw new BuiltValueNullFieldError('DrawerState', 'loginRoute');
     }
