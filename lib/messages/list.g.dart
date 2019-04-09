@@ -45,6 +45,26 @@ class _$ConversationListStateSerializer
                   const [const FullType(ListConversationsApiRequest)])
             ])));
     }
+    if (object.gotoUpdate != null) {
+      result
+        ..add('gotoUpdate')
+        ..add(serializers.serialize(object.gotoUpdate,
+            specifiedType: const FullType(CommandState, const [
+              const FullType(RouteCommand,
+                  const [const FullType(UpdateConversationState)]),
+              const FullType(RouteResult, const [const FullType(Empty)])
+            ])));
+    }
+    if (object.gotoConversation != null) {
+      result
+        ..add('gotoConversation')
+        ..add(serializers.serialize(object.gotoConversation,
+            specifiedType: const FullType(CommandState, const [
+              const FullType(
+                  RouteCommand, const [const FullType(ConversationState)]),
+              const FullType(RouteResult, const [const FullType(Empty)])
+            ])));
+    }
 
     return result;
   }
@@ -83,6 +103,26 @@ class _$ConversationListStateSerializer
               as CommandState<RouteCommand<ConversationListFilterState>,
                   RouteResult<ListConversationsApiRequest>>);
           break;
+        case 'gotoUpdate':
+          result.gotoUpdate.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(CommandState, const [
+                    const FullType(RouteCommand,
+                        const [const FullType(UpdateConversationState)]),
+                    const FullType(RouteResult, const [const FullType(Empty)])
+                  ]))
+              as CommandState<RouteCommand<UpdateConversationState>,
+                  RouteResult<Empty>>);
+          break;
+        case 'gotoConversation':
+          result.gotoConversation.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(CommandState, const [
+                    const FullType(RouteCommand,
+                        const [const FullType(ConversationState)]),
+                    const FullType(RouteResult, const [const FullType(Empty)])
+                  ]))
+              as CommandState<RouteCommand<ConversationState>,
+                  RouteResult<Empty>>);
+          break;
       }
     }
 
@@ -97,6 +137,12 @@ class _$ConversationListState extends ConversationListState {
   @override
   final CommandState<RouteCommand<ConversationListFilterState>,
       RouteResult<ListConversationsApiRequest>> filter;
+  @override
+  final CommandState<RouteCommand<UpdateConversationState>, RouteResult<Empty>>
+      gotoUpdate;
+  @override
+  final CommandState<RouteCommand<ConversationState>, RouteResult<Empty>>
+      gotoConversation;
   ListConversationsApiRequest __filterRequest;
   BuiltList<ListConversationsApiConversation> __events;
 
@@ -104,7 +150,9 @@ class _$ConversationListState extends ConversationListState {
           [void updates(ConversationListStateBuilder b)]) =>
       (new ConversationListStateBuilder()..update(updates)).build();
 
-  _$ConversationListState._({this.command, this.filter}) : super._();
+  _$ConversationListState._(
+      {this.command, this.filter, this.gotoUpdate, this.gotoConversation})
+      : super._();
 
   @override
   ListConversationsApiRequest get filterRequest =>
@@ -127,19 +175,26 @@ class _$ConversationListState extends ConversationListState {
     if (identical(other, this)) return true;
     return other is ConversationListState &&
         command == other.command &&
-        filter == other.filter;
+        filter == other.filter &&
+        gotoUpdate == other.gotoUpdate &&
+        gotoConversation == other.gotoConversation;
   }
 
   @override
   int get hashCode {
-    return $jf($jc($jc(0, command.hashCode), filter.hashCode));
+    return $jf($jc(
+        $jc($jc($jc(0, command.hashCode), filter.hashCode),
+            gotoUpdate.hashCode),
+        gotoConversation.hashCode));
   }
 
   @override
   String toString() {
     return (newBuiltValueToStringHelper('ConversationListState')
           ..add('command', command)
-          ..add('filter', filter))
+          ..add('filter', filter)
+          ..add('gotoUpdate', gotoUpdate)
+          ..add('gotoConversation', gotoConversation))
         .toString();
   }
 }
@@ -174,12 +229,37 @@ class ConversationListStateBuilder
               filter) =>
       _$this._filter = filter;
 
+  CommandStateBuilder<RouteCommand<UpdateConversationState>, RouteResult<Empty>>
+      _gotoUpdate;
+  CommandStateBuilder<RouteCommand<UpdateConversationState>, RouteResult<Empty>>
+      get gotoUpdate => _$this._gotoUpdate ??= new CommandStateBuilder<
+          RouteCommand<UpdateConversationState>, RouteResult<Empty>>();
+  set gotoUpdate(
+          CommandStateBuilder<RouteCommand<UpdateConversationState>,
+                  RouteResult<Empty>>
+              gotoUpdate) =>
+      _$this._gotoUpdate = gotoUpdate;
+
+  CommandStateBuilder<RouteCommand<ConversationState>, RouteResult<Empty>>
+      _gotoConversation;
+  CommandStateBuilder<RouteCommand<ConversationState>, RouteResult<Empty>>
+      get gotoConversation =>
+          _$this._gotoConversation ??= new CommandStateBuilder<
+              RouteCommand<ConversationState>, RouteResult<Empty>>();
+  set gotoConversation(
+          CommandStateBuilder<RouteCommand<ConversationState>,
+                  RouteResult<Empty>>
+              gotoConversation) =>
+      _$this._gotoConversation = gotoConversation;
+
   ConversationListStateBuilder();
 
   ConversationListStateBuilder get _$this {
     if (_$v != null) {
       _command = _$v.command?.toBuilder();
       _filter = _$v.filter?.toBuilder();
+      _gotoUpdate = _$v.gotoUpdate?.toBuilder();
+      _gotoConversation = _$v.gotoConversation?.toBuilder();
       _$v = null;
     }
     return this;
@@ -204,7 +284,10 @@ class ConversationListStateBuilder
     try {
       _$result = _$v ??
           new _$ConversationListState._(
-              command: _command?.build(), filter: _filter?.build());
+              command: _command?.build(),
+              filter: _filter?.build(),
+              gotoUpdate: _gotoUpdate?.build(),
+              gotoConversation: _gotoConversation?.build());
     } catch (_) {
       String _$failedField;
       try {
@@ -212,6 +295,10 @@ class ConversationListStateBuilder
         _command?.build();
         _$failedField = 'filter';
         _filter?.build();
+        _$failedField = 'gotoUpdate';
+        _gotoUpdate?.build();
+        _$failedField = 'gotoConversation';
+        _gotoConversation?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             'ConversationListState', _$failedField, e.toString());
@@ -402,6 +489,8 @@ class _$ConversationListActions extends ConversationListActions {
   final ActionDispatcher<Empty> $popping;
   final ListConversationsApi command;
   final ConversationListFilterRoute filter;
+  final UpdateConversationRoute gotoUpdate;
+  final ConversationRoute gotoConversation;
 
   _$ConversationListActions._(this.$options)
       : $replace = $options.action<ConversationListState>(
@@ -434,6 +523,29 @@ class _$ConversationListActions extends ConversationListActions {
             (s) => s?.filter,
             (b) => b?.filter,
             (parent, builder) => parent?.filter = builder)),
+        gotoUpdate = UpdateConversationRoute(() => $options.stateful<
+                CommandState<RouteCommand<UpdateConversationState>,
+                    RouteResult<Empty>>,
+                CommandStateBuilder<RouteCommand<UpdateConversationState>,
+                    RouteResult<Empty>>,
+                UpdateConversationRoute>(
+            'gotoUpdate',
+            (a) => a.gotoUpdate,
+            (s) => s?.gotoUpdate,
+            (b) => b?.gotoUpdate,
+            (parent, builder) => parent?.gotoUpdate = builder)),
+        gotoConversation = ConversationRoute(() =>
+            $options.stateful<
+                    CommandState<RouteCommand<ConversationState>,
+                        RouteResult<Empty>>,
+                    CommandStateBuilder<RouteCommand<ConversationState>,
+                        RouteResult<Empty>>,
+                    ConversationRoute>(
+                'gotoConversation',
+                (a) => a.gotoConversation,
+                (s) => s?.gotoConversation,
+                (b) => b?.gotoConversation,
+                (parent, builder) => parent?.gotoConversation = builder)),
         super._();
 
   factory _$ConversationListActions(ConversationListActionsOptions options) =>
@@ -447,6 +559,8 @@ class _$ConversationListActions extends ConversationListActions {
   BuiltList<ModuxActions> get $nested => _$nested ??= BuiltList<ModuxActions>([
         this.command,
         this.filter,
+        this.gotoUpdate,
+        this.gotoConversation,
       ]);
 
   BuiltList<ActionDispatcher> _$actions;
@@ -465,6 +579,8 @@ class _$ConversationListActions extends ConversationListActions {
     super.$reducer(reducer);
     command.$reducer(reducer);
     filter.$reducer(reducer);
+    gotoUpdate.$reducer(reducer);
+    gotoConversation.$reducer(reducer);
   }
 
   @override
@@ -472,6 +588,8 @@ class _$ConversationListActions extends ConversationListActions {
     super.$middleware(middleware);
     command.$middleware(middleware);
     filter.$middleware(middleware);
+    gotoUpdate.$middleware(middleware);
+    gotoConversation.$middleware(middleware);
   }
 
 // @override

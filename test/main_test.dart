@@ -61,10 +61,15 @@ class DartRouterPlugin implements RouterPlugin<DartRoute> {
   bool canPop() {}
 
   @override
-  bool pop(ActiveRoute active, CommandResult<RouteResult> result) {}
+  Future<bool> pop(ActiveRoute active, dynamic result) async {
+    return true;
+  }
 
   @override
   Future push(ActiveRoute route) {}
+
+  @override
+  Future pushAndRemoveUntil(ActiveRoute route, bool test(R)) {}
 
   @override
   DartRoute createRoute(RouteFuture future) {}

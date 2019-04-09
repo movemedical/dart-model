@@ -37,6 +37,12 @@ class _$MessagesStateSerializer implements StructuredSerializer<MessagesState> {
         ..add(serializers.serialize(object.conversation,
             specifiedType: const FullType(ConversationState)));
     }
+    if (object.conversationUpdate != null) {
+      result
+        ..add('conversationUpdate')
+        ..add(serializers.serialize(object.conversationUpdate,
+            specifiedType: const FullType(UpdateConversationState)));
+    }
 
     return result;
   }
@@ -67,6 +73,11 @@ class _$MessagesStateSerializer implements StructuredSerializer<MessagesState> {
                   specifiedType: const FullType(ConversationState))
               as ConversationState);
           break;
+        case 'conversationUpdate':
+          result.conversationUpdate.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(UpdateConversationState))
+              as UpdateConversationState);
+          break;
       }
     }
 
@@ -81,11 +92,14 @@ class _$MessagesState extends MessagesState {
   final ConversationListFilterState listFilter;
   @override
   final ConversationState conversation;
+  @override
+  final UpdateConversationState conversationUpdate;
 
   factory _$MessagesState([void updates(MessagesStateBuilder b)]) =>
       (new MessagesStateBuilder()..update(updates)).build();
 
-  _$MessagesState._({this.list, this.listFilter, this.conversation})
+  _$MessagesState._(
+      {this.list, this.listFilter, this.conversation, this.conversationUpdate})
       : super._();
 
   @override
@@ -101,13 +115,16 @@ class _$MessagesState extends MessagesState {
     return other is MessagesState &&
         list == other.list &&
         listFilter == other.listFilter &&
-        conversation == other.conversation;
+        conversation == other.conversation &&
+        conversationUpdate == other.conversationUpdate;
   }
 
   @override
   int get hashCode {
-    return $jf($jc($jc($jc(0, list.hashCode), listFilter.hashCode),
-        conversation.hashCode));
+    return $jf($jc(
+        $jc($jc($jc(0, list.hashCode), listFilter.hashCode),
+            conversation.hashCode),
+        conversationUpdate.hashCode));
   }
 
   @override
@@ -115,7 +132,8 @@ class _$MessagesState extends MessagesState {
     return (newBuiltValueToStringHelper('MessagesState')
           ..add('list', list)
           ..add('listFilter', listFilter)
-          ..add('conversation', conversation))
+          ..add('conversation', conversation)
+          ..add('conversationUpdate', conversationUpdate))
         .toString();
   }
 }
@@ -141,6 +159,12 @@ class MessagesStateBuilder
   set conversation(ConversationStateBuilder conversation) =>
       _$this._conversation = conversation;
 
+  UpdateConversationStateBuilder _conversationUpdate;
+  UpdateConversationStateBuilder get conversationUpdate =>
+      _$this._conversationUpdate ??= new UpdateConversationStateBuilder();
+  set conversationUpdate(UpdateConversationStateBuilder conversationUpdate) =>
+      _$this._conversationUpdate = conversationUpdate;
+
   MessagesStateBuilder();
 
   MessagesStateBuilder get _$this {
@@ -148,6 +172,7 @@ class MessagesStateBuilder
       _list = _$v.list?.toBuilder();
       _listFilter = _$v.listFilter?.toBuilder();
       _conversation = _$v.conversation?.toBuilder();
+      _conversationUpdate = _$v.conversationUpdate?.toBuilder();
       _$v = null;
     }
     return this;
@@ -174,7 +199,8 @@ class MessagesStateBuilder
           new _$MessagesState._(
               list: _list?.build(),
               listFilter: _listFilter?.build(),
-              conversation: _conversation?.build());
+              conversation: _conversation?.build(),
+              conversationUpdate: _conversationUpdate?.build());
     } catch (_) {
       String _$failedField;
       try {
@@ -184,6 +210,8 @@ class MessagesStateBuilder
         _listFilter?.build();
         _$failedField = 'conversation';
         _conversation?.build();
+        _$failedField = 'conversationUpdate';
+        _conversationUpdate?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             'MessagesState', _$failedField, e.toString());
@@ -215,6 +243,7 @@ class _$MessagesActions extends MessagesActions {
   final ConversationListActions list;
   final ConversationListFilterActions listFilter;
   final ConversationActions conversation;
+  final UpdateConversationActions conversationUpdate;
 
   _$MessagesActions._(this.$options)
       : $replace =
@@ -242,6 +271,15 @@ class _$MessagesActions extends MessagesActions {
             (s) => s?.conversation,
             (b) => b?.conversation,
             (parent, builder) => parent?.conversation = builder)),
+        conversationUpdate = UpdateConversationActions(() => $options.stateful<
+                UpdateConversationState,
+                UpdateConversationStateBuilder,
+                UpdateConversationActions>(
+            'conversationUpdate',
+            (a) => a.conversationUpdate,
+            (s) => s?.conversationUpdate,
+            (b) => b?.conversationUpdate,
+            (parent, builder) => parent?.conversationUpdate = builder)),
         super._();
 
   factory _$MessagesActions(MessagesActionsOptions options) =>
@@ -259,6 +297,7 @@ class _$MessagesActions extends MessagesActions {
         this.list,
         this.listFilter,
         this.conversation,
+        this.conversationUpdate,
       ]);
 
   BuiltList<ActionDispatcher> _$actions;
@@ -274,6 +313,7 @@ class _$MessagesActions extends MessagesActions {
     list.$reducer(reducer);
     listFilter.$reducer(reducer);
     conversation.$reducer(reducer);
+    conversationUpdate.$reducer(reducer);
   }
 
   @override
@@ -282,6 +322,7 @@ class _$MessagesActions extends MessagesActions {
     list.$middleware(middleware);
     listFilter.$middleware(middleware);
     conversation.$middleware(middleware);
+    conversationUpdate.$middleware(middleware);
   }
 
 // @override

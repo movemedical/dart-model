@@ -3,6 +3,7 @@ import '../foundation.dart';
 import 'list.dart';
 import 'list_filter.dart';
 import 'convo.dart';
+import 'convo_update.dart';
 
 part 'mod.g.dart';
 
@@ -13,6 +14,8 @@ abstract class MessagesActions
   ConversationListFilterActions get listFilter;
 
   ConversationActions get conversation;
+
+  UpdateConversationActions get conversationUpdate;
 
   MessagesActions._();
 
@@ -29,6 +32,9 @@ abstract class MessagesState
 
   @nullable
   ConversationState get conversation;
+
+  @nullable
+  UpdateConversationState get conversationUpdate;
 
   MessagesState._();
 

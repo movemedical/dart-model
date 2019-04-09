@@ -79,139 +79,140 @@ import 'package:movemedical_api/model/action/messaging/conversations/list_conver
     as _59;
 import 'package:movemedical_api/model/attributable_object.dart' as _60;
 import 'package:movemedical_model/messages/list_filter.dart' as _61;
-import 'package:movemedical_model/auth/mod.dart' as _62;
-import 'package:movemedical_model/schedule/mod.dart' as _63;
-import 'package:movemedical_model/schedule/list.dart' as _64;
-import 'package:movemedical_api/model/action/caseEvent/list_case_events_api_request.dart'
-    as _65;
-import 'package:movemedical_api/model/sql/enums/body_side.dart' as _66;
-import 'package:movemedical_api/model/sql/enums/case_event_status.dart' as _67;
-import 'package:movemedical_api/model/sql/enums/gender.dart' as _68;
-import 'package:movemedical_api/model/order_by_params.dart' as _69;
-import 'package:movemedical_api/model/action/caseEvent/list_case_events_api_order_by.dart'
-    as _70;
-import 'package:movemedical_api/model/order_by_direction.dart' as _71;
-import 'package:movemedical_api/model/action/caseEvent/list_case_events_api_response.dart'
-    as _72;
-import 'package:movemedical_api/model/action/caseEvent/list_case_events_api_case_event.dart'
-    as _73;
-import 'package:movemedical_model/schedule/list_filter.dart' as _74;
-import 'package:movemedical_model/schedule/detail.dart' as _75;
-import 'package:movemedical_api/model/action/caseEvent/get_case_event_detail_api_request.dart'
-    as _76;
-import 'package:movemedical_api/model/action/caseEvent/get_case_event_detail_api_response.dart'
-    as _77;
-import 'package:movemedical_api/model/action/caseEvent/get_case_event_detail_api_case_event.dart'
-    as _78;
-import 'package:movemedical_api/model/case_type.dart' as _79;
-import 'package:movemedical_api/model/biz_unit.dart' as _80;
-import 'package:movemedical_api/model/org_unit.dart' as _81;
-import 'package:movemedical_api/model/removeOrRefactor/hospital.dart' as _82;
-import 'package:movemedical_api/model/physician.dart' as _83;
-import 'package:movemedical_api/model/address.dart' as _84;
-import 'package:movemedical_api/model/patient.dart' as _85;
-import 'package:movemedical_api/model/sql/enums/length_measurement_type.dart'
-    as _86;
-import 'package:movemedical_api/model/sql/enums/weight_measurement_type.dart'
-    as _87;
-import 'package:movemedical_api/model/hcr_team.dart' as _88;
-import 'package:movemedical_api/model/hcr_team_type.dart' as _89;
-import 'package:movemedical_api/model/procedure.dart' as _90;
-import 'package:movemedical_api/model/sub_procedure.dart' as _91;
-import 'package:movemedical_api/model/action/caseEvent/get_case_event_detail_api_loan.dart'
-    as _92;
-import 'package:movemedical_api/model/sql/enums/loan_status.dart' as _93;
-import 'package:movemedical_api/model/sql/enums/order_status.dart' as _94;
-import 'package:movemedical_api/model/insurance.dart' as _95;
-import 'package:movemedical_api/model/order_header_lite.dart' as _96;
-import 'package:movemedical_api/model/customer_address.dart' as _97;
-import 'package:movemedical_api/model/action/caseEvent/get_case_event_detail_api_event.dart'
-    as _98;
-import 'package:movemedical_api/model/sql/enums/event_type.dart' as _99;
-import 'package:movemedical_api/model/sql/enums/event_status.dart' as _100;
-import 'package:movemedical_api/model/sql/enums/event_state.dart' as _101;
-import 'package:movemedical_api/model/action/caseEvent/get_case_event_detail_api_display_rules.dart'
-    as _102;
-import 'package:movemedical_api/model/action/caseEvent/get_case_event_detail_api_case_doc.dart'
-    as _103;
-import 'package:movemedical_model/messages/mod.dart' as _104;
-import 'package:movemedical_model/messages/convo.dart' as _105;
+import 'package:movemedical_model/messages/convo_update.dart' as _62;
+import 'package:movemedical_model/messages/convo.dart' as _63;
 import 'package:movemedical_api/model/action/messaging/conversations/get_conversation_api_request.dart'
-    as _106;
+    as _64;
 import 'package:movemedical_api/model/action/messaging/conversations/get_conversation_api_response.dart'
-    as _107;
+    as _65;
 import 'package:movemedical_api/model/action/messaging/conversations/get_conversation_api_participant.dart'
-    as _108;
-import 'package:movemedical_api/model/removeOrRefactor/message.dart' as _109;
+    as _66;
+import 'package:movemedical_api/model/removeOrRefactor/message.dart' as _67;
 import 'package:movemedical_api/model/removeOrRefactor/message_message_participant.dart'
-    as _110;
+    as _68;
 import 'package:movemedical_api/model/action/messaging/conversations/get_conversation_api_display_rules.dart'
+    as _69;
+import 'package:movemedical_model/auth/mod.dart' as _70;
+import 'package:movemedical_model/schedule/mod.dart' as _71;
+import 'package:movemedical_model/schedule/list.dart' as _72;
+import 'package:movemedical_api/model/action/caseEvent/list_case_events_api_request.dart'
+    as _73;
+import 'package:movemedical_api/model/sql/enums/body_side.dart' as _74;
+import 'package:movemedical_api/model/sql/enums/case_event_status.dart' as _75;
+import 'package:movemedical_api/model/sql/enums/gender.dart' as _76;
+import 'package:movemedical_api/model/order_by_params.dart' as _77;
+import 'package:movemedical_api/model/action/caseEvent/list_case_events_api_order_by.dart'
+    as _78;
+import 'package:movemedical_api/model/order_by_direction.dart' as _79;
+import 'package:movemedical_api/model/action/caseEvent/list_case_events_api_response.dart'
+    as _80;
+import 'package:movemedical_api/model/action/caseEvent/list_case_events_api_case_event.dart'
+    as _81;
+import 'package:movemedical_model/schedule/list_filter.dart' as _82;
+import 'package:movemedical_model/schedule/detail.dart' as _83;
+import 'package:movemedical_api/model/action/caseEvent/get_case_event_detail_api_request.dart'
+    as _84;
+import 'package:movemedical_api/model/action/caseEvent/get_case_event_detail_api_response.dart'
+    as _85;
+import 'package:movemedical_api/model/action/caseEvent/get_case_event_detail_api_case_event.dart'
+    as _86;
+import 'package:movemedical_api/model/case_type.dart' as _87;
+import 'package:movemedical_api/model/biz_unit.dart' as _88;
+import 'package:movemedical_api/model/org_unit.dart' as _89;
+import 'package:movemedical_api/model/removeOrRefactor/hospital.dart' as _90;
+import 'package:movemedical_api/model/physician.dart' as _91;
+import 'package:movemedical_api/model/address.dart' as _92;
+import 'package:movemedical_api/model/patient.dart' as _93;
+import 'package:movemedical_api/model/sql/enums/length_measurement_type.dart'
+    as _94;
+import 'package:movemedical_api/model/sql/enums/weight_measurement_type.dart'
+    as _95;
+import 'package:movemedical_api/model/hcr_team.dart' as _96;
+import 'package:movemedical_api/model/hcr_team_type.dart' as _97;
+import 'package:movemedical_api/model/procedure.dart' as _98;
+import 'package:movemedical_api/model/sub_procedure.dart' as _99;
+import 'package:movemedical_api/model/action/caseEvent/get_case_event_detail_api_loan.dart'
+    as _100;
+import 'package:movemedical_api/model/sql/enums/loan_status.dart' as _101;
+import 'package:movemedical_api/model/sql/enums/order_status.dart' as _102;
+import 'package:movemedical_api/model/insurance.dart' as _103;
+import 'package:movemedical_api/model/order_header_lite.dart' as _104;
+import 'package:movemedical_api/model/customer_address.dart' as _105;
+import 'package:movemedical_api/model/action/caseEvent/get_case_event_detail_api_event.dart'
+    as _106;
+import 'package:movemedical_api/model/sql/enums/event_type.dart' as _107;
+import 'package:movemedical_api/model/sql/enums/event_status.dart' as _108;
+import 'package:movemedical_api/model/sql/enums/event_state.dart' as _109;
+import 'package:movemedical_api/model/action/caseEvent/get_case_event_detail_api_display_rules.dart'
+    as _110;
+import 'package:movemedical_api/model/action/caseEvent/get_case_event_detail_api_case_doc.dart'
     as _111;
-import 'package:movemedical_model/directory/mod.dart' as _112;
-import 'package:movemedical_api/state/push.dart' as _113;
+import 'package:movemedical_model/messages/mod.dart' as _112;
+import 'package:movemedical_model/directory/mod.dart' as _113;
+import 'package:movemedical_api/state/push.dart' as _114;
 import 'package:movemedical_api/model/push/audit_file_push_message.dart'
-    as _114;
-import 'package:movemedical_api/model/push/audit_file_push_message_file_update_type.dart'
     as _115;
-import 'package:movemedical_api/model/push/audit_file_update_push_message.dart'
+import 'package:movemedical_api/model/push/audit_file_push_message_file_update_type.dart'
     as _116;
-import 'package:movemedical_api/model/push/audit_file_update_push_message_audit_file_update_type.dart'
+import 'package:movemedical_api/model/push/audit_file_update_push_message.dart'
     as _117;
-import 'package:movemedical_api/model/push/audit_updated_push_message.dart'
+import 'package:movemedical_api/model/push/audit_file_update_push_message_audit_file_update_type.dart'
     as _118;
-import 'package:movemedical_api/model/push/case_event_file_update_push_message.dart'
+import 'package:movemedical_api/model/push/audit_updated_push_message.dart'
     as _119;
-import 'package:movemedical_api/model/push/case_event_file_update_push_message_case_event_file_update_type.dart'
+import 'package:movemedical_api/model/push/case_event_file_update_push_message.dart'
     as _120;
-import 'package:movemedical_api/model/push/case_event_update_push_message.dart'
+import 'package:movemedical_api/model/push/case_event_file_update_push_message_case_event_file_update_type.dart'
     as _121;
-import 'package:movemedical_api/model/push/case_event_update_type.dart' as _122;
+import 'package:movemedical_api/model/push/case_event_update_push_message.dart'
+    as _122;
+import 'package:movemedical_api/model/push/case_event_update_type.dart' as _123;
 import 'package:movemedical_api/model/push/case_requirements_updated_push_message.dart'
-    as _123;
-import 'package:movemedical_api/model/push/case_schedule_update_push_message.dart'
     as _124;
-import 'package:movemedical_api/model/push/conversation_updated_push_message.dart'
+import 'package:movemedical_api/model/push/case_schedule_update_push_message.dart'
     as _125;
-import 'package:movemedical_api/model/push/export_log_file_push_message.dart'
+import 'package:movemedical_api/model/push/conversation_updated_push_message.dart'
     as _126;
-import 'package:movemedical_api/model/push/export_log_file_push_message_file_update_type.dart'
+import 'package:movemedical_api/model/push/export_log_file_push_message.dart'
     as _127;
-import 'package:movemedical_api/model/push/facility_updated_push_message.dart'
+import 'package:movemedical_api/model/push/export_log_file_push_message_file_update_type.dart'
     as _128;
-import 'package:movemedical_api/model/push/import_log_file_push_message.dart'
+import 'package:movemedical_api/model/push/facility_updated_push_message.dart'
     as _129;
-import 'package:movemedical_api/model/push/import_log_file_push_message_file_update_type.dart'
+import 'package:movemedical_api/model/push/import_log_file_push_message.dart'
     as _130;
-import 'package:movemedical_api/model/push/issue_regenerated_push_message.dart'
+import 'package:movemedical_api/model/push/import_log_file_push_message_file_update_type.dart'
     as _131;
-import 'package:movemedical_api/model/push/message_added_push_message.dart'
+import 'package:movemedical_api/model/push/issue_regenerated_push_message.dart'
     as _132;
-import 'package:movemedical_api/model/push/messages_read_unread_push_message.dart'
+import 'package:movemedical_api/model/push/message_added_push_message.dart'
     as _133;
-import 'package:movemedical_api/model/push/note_added_updated_push_message.dart'
+import 'package:movemedical_api/model/push/messages_read_unread_push_message.dart'
     as _134;
-import 'package:movemedical_api/model/push/order_detail_push_message.dart'
+import 'package:movemedical_api/model/push/note_added_updated_push_message.dart'
     as _135;
-import 'package:movemedical_api/model/push/order_file_push_message.dart'
+import 'package:movemedical_api/model/push/order_detail_push_message.dart'
     as _136;
-import 'package:movemedical_api/model/push/order_file_push_message_file_update_type.dart'
+import 'package:movemedical_api/model/push/order_file_push_message.dart'
     as _137;
-import 'package:movemedical_api/model/push/refresh_conversation_list_push_message.dart'
+import 'package:movemedical_api/model/push/order_file_push_message_file_update_type.dart'
     as _138;
-import 'package:movemedical_api/model/push/shipment_file_update_push_message.dart'
+import 'package:movemedical_api/model/push/refresh_conversation_list_push_message.dart'
     as _139;
-import 'package:movemedical_api/model/push/shipment_file_update_push_message_file_update_type.dart'
+import 'package:movemedical_api/model/push/shipment_file_update_push_message.dart'
     as _140;
-import 'package:movemedical_api/model/push/stock_summary_key_updated_push_message.dart'
+import 'package:movemedical_api/model/push/shipment_file_update_push_message_file_update_type.dart'
     as _141;
-import 'package:movemedical_api/model/push/ui_setup_updated_push_message.dart'
+import 'package:movemedical_api/model/push/stock_summary_key_updated_push_message.dart'
     as _142;
-import 'package:movemedical_api/model/essentials/intraop/move_presence_event.dart'
+import 'package:movemedical_api/model/push/ui_setup_updated_push_message.dart'
     as _143;
-import 'package:movemedical_api/model/essentials/intraop/presence_event_type.dart'
+import 'package:movemedical_api/model/essentials/intraop/move_presence_event.dart'
     as _144;
-import 'package:movemedical_api/model/essentials/intraop/move_presence.dart'
+import 'package:movemedical_api/model/essentials/intraop/presence_event_type.dart'
     as _145;
+import 'package:movemedical_api/model/essentials/intraop/move_presence.dart'
+    as _146;
 
 SerializersBuilder $serializers() => (Serializers().toBuilder()
   ..addBuilderFactory(FullType(BuiltList, [FullType(_8.InventoryType)]),
@@ -252,26 +253,26 @@ SerializersBuilder $serializers() => (Serializers().toBuilder()
   ..addBuilderFactory(
       FullType(BuiltList, [FullType(_59.ListConversationsApiConversation)]),
       () => ListBuilder<_59.ListConversationsApiConversation>())
-  ..addBuilderFactory(FullType(BuiltList, [FullType(_66.BodySide)]),
-      () => ListBuilder<_66.BodySide>())
-  ..addBuilderFactory(FullType(BuiltList, [FullType(_67.CaseEventStatus)]),
-      () => ListBuilder<_67.CaseEventStatus>())
   ..addBuilderFactory(
-      FullType(BuiltList, [FullType(_73.ListCaseEventsApiCaseEvent)]),
-      () => ListBuilder<_73.ListCaseEventsApiCaseEvent>())
-  ..addBuilderFactory(FullType(BuiltList, [FullType(_96.OrderHeaderLite)]),
-      () => ListBuilder<_96.OrderHeaderLite>())
+      FullType(BuiltList, [FullType(_66.GetConversationApiParticipant)]),
+      () => ListBuilder<_66.GetConversationApiParticipant>())
   ..addBuilderFactory(
-      FullType(BuiltList, [FullType(_103.GetCaseEventDetailApiCaseDoc)]),
-      () => ListBuilder<_103.GetCaseEventDetailApiCaseDoc>())
+      FullType(BuiltList, [FullType(_68.MessageMessageParticipant)]),
+      () => ListBuilder<_68.MessageMessageParticipant>())
+  ..addBuilderFactory(FullType(BuiltList, [FullType(_67.Message)]),
+      () => ListBuilder<_67.Message>())
+  ..addBuilderFactory(FullType(BuiltList, [FullType(_74.BodySide)]),
+      () => ListBuilder<_74.BodySide>())
+  ..addBuilderFactory(FullType(BuiltList, [FullType(_75.CaseEventStatus)]),
+      () => ListBuilder<_75.CaseEventStatus>())
   ..addBuilderFactory(
-      FullType(BuiltList, [FullType(_108.GetConversationApiParticipant)]),
-      () => ListBuilder<_108.GetConversationApiParticipant>())
+      FullType(BuiltList, [FullType(_81.ListCaseEventsApiCaseEvent)]),
+      () => ListBuilder<_81.ListCaseEventsApiCaseEvent>())
+  ..addBuilderFactory(FullType(BuiltList, [FullType(_104.OrderHeaderLite)]),
+      () => ListBuilder<_104.OrderHeaderLite>())
   ..addBuilderFactory(
-      FullType(BuiltList, [FullType(_110.MessageMessageParticipant)]),
-      () => ListBuilder<_110.MessageMessageParticipant>())
-  ..addBuilderFactory(FullType(BuiltList, [FullType(_109.Message)]),
-      () => ListBuilder<_109.Message>())
+      FullType(BuiltList, [FullType(_111.GetCaseEventDetailApiCaseDoc)]),
+      () => ListBuilder<_111.GetCaseEventDetailApiCaseDoc>())
   ..add(_0.AppState.serializer)
   ..add(_1.LoginResponse.serializer)
   ..add(_1.LoginRequest.serializer)
@@ -288,14 +289,14 @@ SerializersBuilder $serializers() => (Serializers().toBuilder()
       FullType(_1.ApiCommand, [FullType(_55.ListConversationsApiRequest)]),
       () => _1.ApiCommandBuilder<_55.ListConversationsApiRequest>())
   ..addBuilderFactory(
-      FullType(_1.ApiCommand, [FullType(_65.ListCaseEventsApiRequest)]),
-      () => _1.ApiCommandBuilder<_65.ListCaseEventsApiRequest>())
+      FullType(_1.ApiCommand, [FullType(_64.GetConversationApiRequest)]),
+      () => _1.ApiCommandBuilder<_64.GetConversationApiRequest>())
   ..addBuilderFactory(
-      FullType(_1.ApiCommand, [FullType(_76.GetCaseEventDetailApiRequest)]),
-      () => _1.ApiCommandBuilder<_76.GetCaseEventDetailApiRequest>())
+      FullType(_1.ApiCommand, [FullType(_73.ListCaseEventsApiRequest)]),
+      () => _1.ApiCommandBuilder<_73.ListCaseEventsApiRequest>())
   ..addBuilderFactory(
-      FullType(_1.ApiCommand, [FullType(_106.GetConversationApiRequest)]),
-      () => _1.ApiCommandBuilder<_106.GetConversationApiRequest>())
+      FullType(_1.ApiCommand, [FullType(_84.GetCaseEventDetailApiRequest)]),
+      () => _1.ApiCommandBuilder<_84.GetCaseEventDetailApiRequest>())
   ..addBuilderFactory(FullType(_1.ApiResult, [FullType(_1.LoginResponse)]),
       () => _1.ApiResultBuilder<_1.LoginResponse>())
   ..addBuilderFactory(
@@ -305,14 +306,14 @@ SerializersBuilder $serializers() => (Serializers().toBuilder()
       FullType(_1.ApiResult, [FullType(_58.ListConversationsApiResponse)]),
       () => _1.ApiResultBuilder<_58.ListConversationsApiResponse>())
   ..addBuilderFactory(
-      FullType(_1.ApiResult, [FullType(_72.ListCaseEventsApiResponse)]),
-      () => _1.ApiResultBuilder<_72.ListCaseEventsApiResponse>())
+      FullType(_1.ApiResult, [FullType(_65.GetConversationApiResponse)]),
+      () => _1.ApiResultBuilder<_65.GetConversationApiResponse>())
   ..addBuilderFactory(
-      FullType(_1.ApiResult, [FullType(_77.GetCaseEventDetailApiResponse)]),
-      () => _1.ApiResultBuilder<_77.GetCaseEventDetailApiResponse>())
+      FullType(_1.ApiResult, [FullType(_80.ListCaseEventsApiResponse)]),
+      () => _1.ApiResultBuilder<_80.ListCaseEventsApiResponse>())
   ..addBuilderFactory(
-      FullType(_1.ApiResult, [FullType(_107.GetConversationApiResponse)]),
-      () => _1.ApiResultBuilder<_107.GetConversationApiResponse>())
+      FullType(_1.ApiResult, [FullType(_85.GetCaseEventDetailApiResponse)]),
+      () => _1.ApiResultBuilder<_85.GetCaseEventDetailApiResponse>())
   ..add(_2.CommandStatus.serializer)
   ..add(_2.Command.serializer)
   ..add(_2.CommandResultCode.serializer)
@@ -356,25 +357,35 @@ SerializersBuilder $serializers() => (Serializers().toBuilder()
           _46.RouteCommand<_61.ConversationListFilterState>>())
   ..addBuilderFactory(
       FullType(_2.Command, [
+        FullType(_46.RouteCommand, [FullType(_62.UpdateConversationState)])
+      ]),
+      () => _2.CommandBuilder<_46.RouteCommand<_62.UpdateConversationState>>())
+  ..addBuilderFactory(
+      FullType(_2.Command, [
+        FullType(_1.ApiCommand, [FullType(_64.GetConversationApiRequest)])
+      ]),
+      () => _2.CommandBuilder<_1.ApiCommand<_64.GetConversationApiRequest>>())
+  ..addBuilderFactory(
+      FullType(_2.Command, [
+        FullType(_46.RouteCommand, [FullType(_63.ConversationState)])
+      ]),
+      () => _2.CommandBuilder<_46.RouteCommand<_63.ConversationState>>())
+  ..addBuilderFactory(
+      FullType(_2.Command, [
         FullType(_46.RouteCommand, [FullType(_54.ConversationListState)])
       ]),
       () => _2.CommandBuilder<_46.RouteCommand<_54.ConversationListState>>())
   ..addBuilderFactory(
       FullType(_2.Command, [
-        FullType(_1.ApiCommand, [FullType(_65.ListCaseEventsApiRequest)])
+        FullType(_1.ApiCommand, [FullType(_73.ListCaseEventsApiRequest)])
       ]),
-      () => _2.CommandBuilder<_1.ApiCommand<_65.ListCaseEventsApiRequest>>())
+      () => _2.CommandBuilder<_1.ApiCommand<_73.ListCaseEventsApiRequest>>())
   ..addBuilderFactory(
       FullType(_2.Command, [
-        FullType(_1.ApiCommand, [FullType(_76.GetCaseEventDetailApiRequest)])
+        FullType(_1.ApiCommand, [FullType(_84.GetCaseEventDetailApiRequest)])
       ]),
       () =>
-          _2.CommandBuilder<_1.ApiCommand<_76.GetCaseEventDetailApiRequest>>())
-  ..addBuilderFactory(
-      FullType(_2.Command, [
-        FullType(_1.ApiCommand, [FullType(_106.GetConversationApiRequest)])
-      ]),
-      () => _2.CommandBuilder<_1.ApiCommand<_106.GetConversationApiRequest>>())
+          _2.CommandBuilder<_1.ApiCommand<_84.GetCaseEventDetailApiRequest>>())
   ..addBuilderFactory(
       FullType(_2.CommandResult, [
         FullType(_1.ApiResult, [FullType(_1.LoginResponse)])
@@ -407,22 +418,22 @@ SerializersBuilder $serializers() => (Serializers().toBuilder()
           _46.RouteResult<_55.ListConversationsApiRequest>>())
   ..addBuilderFactory(
       FullType(_2.CommandResult, [
-        FullType(_1.ApiResult, [FullType(_72.ListCaseEventsApiResponse)])
+        FullType(_1.ApiResult, [FullType(_65.GetConversationApiResponse)])
       ]),
       () => _2.CommandResultBuilder<
-          _1.ApiResult<_72.ListCaseEventsApiResponse>>())
+          _1.ApiResult<_65.GetConversationApiResponse>>())
   ..addBuilderFactory(
       FullType(_2.CommandResult, [
-        FullType(_1.ApiResult, [FullType(_77.GetCaseEventDetailApiResponse)])
+        FullType(_1.ApiResult, [FullType(_80.ListCaseEventsApiResponse)])
       ]),
       () => _2.CommandResultBuilder<
-          _1.ApiResult<_77.GetCaseEventDetailApiResponse>>())
+          _1.ApiResult<_80.ListCaseEventsApiResponse>>())
   ..addBuilderFactory(
       FullType(_2.CommandResult, [
-        FullType(_1.ApiResult, [FullType(_107.GetConversationApiResponse)])
+        FullType(_1.ApiResult, [FullType(_85.GetCaseEventDetailApiResponse)])
       ]),
       () => _2.CommandResultBuilder<
-          _1.ApiResult<_107.GetConversationApiResponse>>())
+          _1.ApiResult<_85.GetCaseEventDetailApiResponse>>())
   ..addBuilderFactory(
       FullType(_2.CommandState, [
         FullType(_1.ApiCommand, [FullType(_1.LoginRequest)]),
@@ -461,6 +472,13 @@ SerializersBuilder $serializers() => (Serializers().toBuilder()
           _46.RouteResult<_50.Empty>>())
   ..addBuilderFactory(
       FullType(_2.CommandState, [
+        FullType(_46.RouteCommand, [FullType(_49.DashboardState)]),
+        FullType(_46.RouteResult, [FullType(_50.Empty)])
+      ]),
+      () => _2.CommandStateBuilder<_46.RouteCommand<_49.DashboardState>,
+          _46.RouteResult<_50.Empty>>())
+  ..addBuilderFactory(
+      FullType(_2.CommandState, [
         FullType(_1.ApiCommand, [FullType(_55.ListConversationsApiRequest)]),
         FullType(_1.ApiResult, [FullType(_58.ListConversationsApiResponse)])
       ]),
@@ -477,33 +495,44 @@ SerializersBuilder $serializers() => (Serializers().toBuilder()
           _46.RouteResult<_55.ListConversationsApiRequest>>())
   ..addBuilderFactory(
       FullType(_2.CommandState, [
-        FullType(_46.RouteCommand, [FullType(_54.ConversationListState)]),
+        FullType(_46.RouteCommand, [FullType(_62.UpdateConversationState)]),
         FullType(_46.RouteResult, [FullType(_50.Empty)])
       ]),
-      () => _2.CommandStateBuilder<_46.RouteCommand<_54.ConversationListState>,
+      () => _2.CommandStateBuilder<
+          _46.RouteCommand<_62.UpdateConversationState>,
           _46.RouteResult<_50.Empty>>())
   ..addBuilderFactory(
       FullType(_2.CommandState, [
-        FullType(_1.ApiCommand, [FullType(_65.ListCaseEventsApiRequest)]),
-        FullType(_1.ApiResult, [FullType(_72.ListCaseEventsApiResponse)])
+        FullType(_1.ApiCommand, [FullType(_64.GetConversationApiRequest)]),
+        FullType(_1.ApiResult, [FullType(_65.GetConversationApiResponse)])
       ]),
-      () => _2.CommandStateBuilder<_1.ApiCommand<_65.ListCaseEventsApiRequest>,
-          _1.ApiResult<_72.ListCaseEventsApiResponse>>())
+      () => _2.CommandStateBuilder<_1.ApiCommand<_64.GetConversationApiRequest>,
+          _1.ApiResult<_65.GetConversationApiResponse>>())
   ..addBuilderFactory(
       FullType(_2.CommandState, [
-        FullType(_1.ApiCommand, [FullType(_76.GetCaseEventDetailApiRequest)]),
-        FullType(_1.ApiResult, [FullType(_77.GetCaseEventDetailApiResponse)])
-      ]),
-      () => _2.CommandStateBuilder<
-          _1.ApiCommand<_76.GetCaseEventDetailApiRequest>,
-          _1.ApiResult<_77.GetCaseEventDetailApiResponse>>())
-  ..addBuilderFactory(
-      FullType(_2.CommandState, [
-        FullType(_1.ApiCommand, [FullType(_106.GetConversationApiRequest)]),
-        FullType(_1.ApiResult, [FullType(_107.GetConversationApiResponse)])
+        FullType(_46.RouteCommand, [FullType(_63.ConversationState)]),
+        FullType(_46.RouteResult, [FullType(_50.Empty)])
       ]),
       () =>
-          _2.CommandStateBuilder<_1.ApiCommand<_106.GetConversationApiRequest>, _1.ApiResult<_107.GetConversationApiResponse>>())
+          _2.CommandStateBuilder<_46.RouteCommand<_63.ConversationState>, _46.RouteResult<_50.Empty>>())
+  ..addBuilderFactory(
+      FullType(_2.CommandState, [
+        FullType(_46.RouteCommand, [FullType(_54.ConversationListState)]),
+        FullType(_46.RouteResult, [FullType(_50.Empty)])
+      ]),
+      () => _2.CommandStateBuilder<_46.RouteCommand<_54.ConversationListState>, _46.RouteResult<_50.Empty>>())
+  ..addBuilderFactory(
+      FullType(_2.CommandState, [
+        FullType(_1.ApiCommand, [FullType(_73.ListCaseEventsApiRequest)]),
+        FullType(_1.ApiResult, [FullType(_80.ListCaseEventsApiResponse)])
+      ]),
+      () => _2.CommandStateBuilder<_1.ApiCommand<_73.ListCaseEventsApiRequest>, _1.ApiResult<_80.ListCaseEventsApiResponse>>())
+  ..addBuilderFactory(
+      FullType(_2.CommandState, [
+        FullType(_1.ApiCommand, [FullType(_84.GetCaseEventDetailApiRequest)]),
+        FullType(_1.ApiResult, [FullType(_85.GetCaseEventDetailApiResponse)])
+      ]),
+      () => _2.CommandStateBuilder<_1.ApiCommand<_84.GetCaseEventDetailApiRequest>, _1.ApiResult<_85.GetCaseEventDetailApiResponse>>())
   ..add(_3.GetUiSetupMobileApiResponse.serializer)
   ..add(_4.GetUiSetupAllApiResponse.serializer)
   ..add(_5.GetUiSetupAllApiInvTransferType.serializer)
@@ -555,6 +584,8 @@ SerializersBuilder $serializers() => (Serializers().toBuilder()
   ..addBuilderFactory(FullType(_46.RouteCommand, [FullType(_48.LoginState)]), () => _46.RouteCommandBuilder<_48.LoginState>())
   ..addBuilderFactory(FullType(_46.RouteCommand, [FullType(_47.SplashState)]), () => _46.RouteCommandBuilder<_47.SplashState>())
   ..addBuilderFactory(FullType(_46.RouteCommand, [FullType(_61.ConversationListFilterState)]), () => _46.RouteCommandBuilder<_61.ConversationListFilterState>())
+  ..addBuilderFactory(FullType(_46.RouteCommand, [FullType(_62.UpdateConversationState)]), () => _46.RouteCommandBuilder<_62.UpdateConversationState>())
+  ..addBuilderFactory(FullType(_46.RouteCommand, [FullType(_63.ConversationState)]), () => _46.RouteCommandBuilder<_63.ConversationState>())
   ..addBuilderFactory(FullType(_46.RouteCommand, [FullType(_54.ConversationListState)]), () => _46.RouteCommandBuilder<_54.ConversationListState>())
   ..addBuilderFactory(FullType(_46.RouteResult, [FullType(_50.Empty)]), () => _46.RouteResultBuilder<_50.Empty>())
   ..addBuilderFactory(FullType(_46.RouteResult, [FullType(_55.ListConversationsApiRequest)]), () => _46.RouteResultBuilder<_55.ListConversationsApiRequest>())
@@ -573,90 +604,91 @@ SerializersBuilder $serializers() => (Serializers().toBuilder()
   ..add(_59.ListConversationsApiConversation.serializer)
   ..add(_60.AttributableObject.serializer)
   ..add(_61.ConversationListFilterState.serializer)
-  ..add(_62.AuthState.serializer)
-  ..add(_63.ScheduleState.serializer)
-  ..add(_64.CaseEventListState.serializer)
-  ..add(_65.ListCaseEventsApiRequest.serializer)
-  ..add(_66.BodySide.serializer)
-  ..add(_67.CaseEventStatus.serializer)
-  ..add(_68.Gender.serializer)
-  ..add(_69.OrderByParams.serializer)
-  ..addBuilderFactory(FullType(_69.OrderByParams, [FullType(_70.ListCaseEventsApiOrderBy)]), () => _69.OrderByParamsBuilder<_70.ListCaseEventsApiOrderBy>())
-  ..add(_70.ListCaseEventsApiOrderBy.serializer)
-  ..add(_71.OrderByDirection.serializer)
-  ..add(_72.ListCaseEventsApiResponse.serializer)
-  ..add(_73.ListCaseEventsApiCaseEvent.serializer)
-  ..add(_74.CaseEventListFilterState.serializer)
-  ..add(_75.CaseEventDetailState.serializer)
-  ..add(_76.GetCaseEventDetailApiRequest.serializer)
-  ..add(_77.GetCaseEventDetailApiResponse.serializer)
-  ..add(_78.GetCaseEventDetailApiCaseEvent.serializer)
-  ..add(_79.CaseType.serializer)
-  ..add(_80.BizUnit.serializer)
-  ..add(_81.OrgUnit.serializer)
-  ..add(_82.Hospital.serializer)
-  ..add(_83.Physician.serializer)
-  ..add(_84.Address.serializer)
-  ..add(_85.Patient.serializer)
-  ..add(_86.LengthMeasurementType.serializer)
-  ..add(_87.WeightMeasurementType.serializer)
-  ..add(_88.HcrTeam.serializer)
-  ..add(_89.HcrTeamType.serializer)
-  ..add(_90.Procedure.serializer)
-  ..add(_91.SubProcedure.serializer)
-  ..add(_92.GetCaseEventDetailApiLoan.serializer)
-  ..add(_93.LoanStatus.serializer)
-  ..add(_94.OrderStatus.serializer)
-  ..add(_95.Insurance.serializer)
-  ..add(_96.OrderHeaderLite.serializer)
-  ..add(_97.CustomerAddress.serializer)
-  ..add(_98.GetCaseEventDetailApiEvent.serializer)
-  ..add(_99.EventType.serializer)
-  ..add(_100.EventStatus.serializer)
-  ..add(_101.EventState.serializer)
-  ..add(_102.GetCaseEventDetailApiDisplayRules.serializer)
-  ..add(_103.GetCaseEventDetailApiCaseDoc.serializer)
-  ..add(_104.MessagesState.serializer)
-  ..add(_105.ConversationState.serializer)
-  ..add(_106.GetConversationApiRequest.serializer)
-  ..add(_107.GetConversationApiResponse.serializer)
-  ..add(_108.GetConversationApiParticipant.serializer)
-  ..add(_109.Message.serializer)
-  ..add(_110.MessageMessageParticipant.serializer)
-  ..add(_111.GetConversationApiDisplayRules.serializer)
-  ..add(_112.DirectoryState.serializer)
-  ..add(_113.PushPayloads.serializer)
-  ..add(_114.AuditFilePushMessage.serializer)
-  ..add(_115.AuditFilePushMessageFileUpdateType.serializer)
-  ..add(_116.AuditFileUpdatePushMessage.serializer)
-  ..add(_117.AuditFileUpdatePushMessageAuditFileUpdateType.serializer)
-  ..add(_118.AuditUpdatedPushMessage.serializer)
-  ..add(_119.CaseEventFileUpdatePushMessage.serializer)
-  ..add(_120.CaseEventFileUpdatePushMessageCaseEventFileUpdateType.serializer)
-  ..add(_121.CaseEventUpdatePushMessage.serializer)
-  ..add(_122.CaseEventUpdateType.serializer)
-  ..add(_123.CaseRequirementsUpdatedPushMessage.serializer)
-  ..add(_124.CaseScheduleUpdatePushMessage.serializer)
-  ..add(_125.ConversationUpdatedPushMessage.serializer)
-  ..add(_126.ExportLogFilePushMessage.serializer)
-  ..add(_127.ExportLogFilePushMessageFileUpdateType.serializer)
-  ..add(_128.FacilityUpdatedPushMessage.serializer)
-  ..add(_129.ImportLogFilePushMessage.serializer)
-  ..add(_130.ImportLogFilePushMessageFileUpdateType.serializer)
-  ..add(_131.IssueRegeneratedPushMessage.serializer)
-  ..add(_132.MessageAddedPushMessage.serializer)
-  ..add(_133.MessagesReadUnreadPushMessage.serializer)
-  ..add(_134.NoteAddedUpdatedPushMessage.serializer)
-  ..add(_135.OrderDetailPushMessage.serializer)
-  ..add(_136.OrderFilePushMessage.serializer)
-  ..add(_137.OrderFilePushMessageFileUpdateType.serializer)
-  ..add(_138.RefreshConversationListPushMessage.serializer)
-  ..add(_139.ShipmentFileUpdatePushMessage.serializer)
-  ..add(_140.ShipmentFileUpdatePushMessageFileUpdateType.serializer)
-  ..add(_141.StockSummaryKeyUpdatedPushMessage.serializer)
-  ..add(_142.UiSetupUpdatedPushMessage.serializer)
-  ..add(_143.MovePresenceEvent.serializer)
-  ..add(_144.PresenceEventType.serializer)
-  ..add(_145.MovePresence.serializer));
+  ..add(_62.UpdateConversationState.serializer)
+  ..add(_63.ConversationState.serializer)
+  ..add(_64.GetConversationApiRequest.serializer)
+  ..add(_65.GetConversationApiResponse.serializer)
+  ..add(_66.GetConversationApiParticipant.serializer)
+  ..add(_67.Message.serializer)
+  ..add(_68.MessageMessageParticipant.serializer)
+  ..add(_69.GetConversationApiDisplayRules.serializer)
+  ..add(_70.AuthState.serializer)
+  ..add(_71.ScheduleState.serializer)
+  ..add(_72.CaseEventListState.serializer)
+  ..add(_73.ListCaseEventsApiRequest.serializer)
+  ..add(_74.BodySide.serializer)
+  ..add(_75.CaseEventStatus.serializer)
+  ..add(_76.Gender.serializer)
+  ..add(_77.OrderByParams.serializer)
+  ..addBuilderFactory(FullType(_77.OrderByParams, [FullType(_78.ListCaseEventsApiOrderBy)]), () => _77.OrderByParamsBuilder<_78.ListCaseEventsApiOrderBy>())
+  ..add(_78.ListCaseEventsApiOrderBy.serializer)
+  ..add(_79.OrderByDirection.serializer)
+  ..add(_80.ListCaseEventsApiResponse.serializer)
+  ..add(_81.ListCaseEventsApiCaseEvent.serializer)
+  ..add(_82.CaseEventListFilterState.serializer)
+  ..add(_83.CaseEventDetailState.serializer)
+  ..add(_84.GetCaseEventDetailApiRequest.serializer)
+  ..add(_85.GetCaseEventDetailApiResponse.serializer)
+  ..add(_86.GetCaseEventDetailApiCaseEvent.serializer)
+  ..add(_87.CaseType.serializer)
+  ..add(_88.BizUnit.serializer)
+  ..add(_89.OrgUnit.serializer)
+  ..add(_90.Hospital.serializer)
+  ..add(_91.Physician.serializer)
+  ..add(_92.Address.serializer)
+  ..add(_93.Patient.serializer)
+  ..add(_94.LengthMeasurementType.serializer)
+  ..add(_95.WeightMeasurementType.serializer)
+  ..add(_96.HcrTeam.serializer)
+  ..add(_97.HcrTeamType.serializer)
+  ..add(_98.Procedure.serializer)
+  ..add(_99.SubProcedure.serializer)
+  ..add(_100.GetCaseEventDetailApiLoan.serializer)
+  ..add(_101.LoanStatus.serializer)
+  ..add(_102.OrderStatus.serializer)
+  ..add(_103.Insurance.serializer)
+  ..add(_104.OrderHeaderLite.serializer)
+  ..add(_105.CustomerAddress.serializer)
+  ..add(_106.GetCaseEventDetailApiEvent.serializer)
+  ..add(_107.EventType.serializer)
+  ..add(_108.EventStatus.serializer)
+  ..add(_109.EventState.serializer)
+  ..add(_110.GetCaseEventDetailApiDisplayRules.serializer)
+  ..add(_111.GetCaseEventDetailApiCaseDoc.serializer)
+  ..add(_112.MessagesState.serializer)
+  ..add(_113.DirectoryState.serializer)
+  ..add(_114.PushPayloads.serializer)
+  ..add(_115.AuditFilePushMessage.serializer)
+  ..add(_116.AuditFilePushMessageFileUpdateType.serializer)
+  ..add(_117.AuditFileUpdatePushMessage.serializer)
+  ..add(_118.AuditFileUpdatePushMessageAuditFileUpdateType.serializer)
+  ..add(_119.AuditUpdatedPushMessage.serializer)
+  ..add(_120.CaseEventFileUpdatePushMessage.serializer)
+  ..add(_121.CaseEventFileUpdatePushMessageCaseEventFileUpdateType.serializer)
+  ..add(_122.CaseEventUpdatePushMessage.serializer)
+  ..add(_123.CaseEventUpdateType.serializer)
+  ..add(_124.CaseRequirementsUpdatedPushMessage.serializer)
+  ..add(_125.CaseScheduleUpdatePushMessage.serializer)
+  ..add(_126.ConversationUpdatedPushMessage.serializer)
+  ..add(_127.ExportLogFilePushMessage.serializer)
+  ..add(_128.ExportLogFilePushMessageFileUpdateType.serializer)
+  ..add(_129.FacilityUpdatedPushMessage.serializer)
+  ..add(_130.ImportLogFilePushMessage.serializer)
+  ..add(_131.ImportLogFilePushMessageFileUpdateType.serializer)
+  ..add(_132.IssueRegeneratedPushMessage.serializer)
+  ..add(_133.MessageAddedPushMessage.serializer)
+  ..add(_134.MessagesReadUnreadPushMessage.serializer)
+  ..add(_135.NoteAddedUpdatedPushMessage.serializer)
+  ..add(_136.OrderDetailPushMessage.serializer)
+  ..add(_137.OrderFilePushMessage.serializer)
+  ..add(_138.OrderFilePushMessageFileUpdateType.serializer)
+  ..add(_139.RefreshConversationListPushMessage.serializer)
+  ..add(_140.ShipmentFileUpdatePushMessage.serializer)
+  ..add(_141.ShipmentFileUpdatePushMessageFileUpdateType.serializer)
+  ..add(_142.StockSummaryKeyUpdatedPushMessage.serializer)
+  ..add(_143.UiSetupUpdatedPushMessage.serializer)
+  ..add(_144.MovePresenceEvent.serializer)
+  ..add(_145.PresenceEventType.serializer)
+  ..add(_146.MovePresence.serializer));
 
 // ignore_for_file: implementation_imports,always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,lines_longer_than_80_chars,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new

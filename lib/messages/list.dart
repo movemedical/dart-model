@@ -9,6 +9,8 @@ import 'package:movemedical_api/state/action/messaging/conversations/list_conver
 import '../foundation.dart';
 
 import 'list_filter.dart';
+import 'convo.dart';
+import 'convo_update.dart';
 
 part 'list.g.dart';
 
@@ -43,6 +45,10 @@ abstract class ConversationListActions extends ScreenActions<
 
   ConversationListFilterRoute get filter;
 
+  UpdateConversationRoute get gotoUpdate;
+
+  ConversationRoute get gotoConversation;
+
   ////////////////////////////////////
   /// Initial State
   ////////////////////////////////////
@@ -76,6 +82,14 @@ abstract class ConversationListState
   @nullable
   CommandState<RouteCommand<ConversationListFilterState>,
       RouteResult<ListConversationsApiRequest>> get filter;
+
+  @nullable
+  CommandState<RouteCommand<UpdateConversationState>, RouteResult<Empty>>
+      get gotoUpdate;
+
+  @nullable
+  CommandState<RouteCommand<ConversationState>, RouteResult<Empty>>
+      get gotoConversation;
 
   @memoized
   ListConversationsApiRequest get filterRequest =>

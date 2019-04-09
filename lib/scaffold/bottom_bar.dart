@@ -5,6 +5,7 @@ import '../auth/login.dart';
 //import 'package:movemedical_api/model/sql/enums/mobile_dashboard_widget_type.dart';
 import 'package:movemedical_api/model/sql/enums/mobile_navigation_element.dart';
 
+import '../dashboard/dashboard.dart';
 import '../messages/list.dart';
 
 part 'bottom_bar.g.dart';
@@ -17,6 +18,7 @@ abstract class BottomBarActions extends StateActions<BottomBarState,
     BottomBarStateBuilder, BottomBarActions> {
   FieldDispatcher<MobileNavigationElement> get selectedTab;
 
+  DashboardRoute get gotoDashboard;
   ConversationListRoute get gotoConversationList;
 
   @override
@@ -34,6 +36,9 @@ abstract class BottomBarActions extends StateActions<BottomBarState,
 abstract class BottomBarState
     implements Built<BottomBarState, BottomBarStateBuilder> {
   MobileNavigationElement get selectedTab;
+
+  CommandState<RouteCommand<DashboardState>, RouteResult<Empty>>
+      get gotoDashboard;
 
   CommandState<RouteCommand<ConversationListState>, RouteResult<Empty>>
       get gotoConversationList;
