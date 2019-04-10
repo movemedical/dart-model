@@ -190,12 +190,6 @@ class _$ConversationListFilterRoute extends ConversationListFilterRoute {
           RouteCommand<ConversationListFilterState>,
           RouteResult<ListConversationsApiRequest>,
           ConversationListFilterRoute,
-          String>> $clear;
-  final ActionDispatcher<
-      CommandPayload<
-          RouteCommand<ConversationListFilterState>,
-          RouteResult<ListConversationsApiRequest>,
-          ConversationListFilterRoute,
           String>> $cancel;
   final ActionDispatcher<
       CommandPayload<
@@ -214,18 +208,6 @@ class _$ConversationListFilterRoute extends ConversationListFilterRoute {
           RouteCommand<ConversationListFilterState>,
           RouteResult<ListConversationsApiRequest>,
           ConversationListFilterRoute,
-          String>> $detach;
-  final ActionDispatcher<
-      CommandPayload<
-          RouteCommand<ConversationListFilterState>,
-          RouteResult<ListConversationsApiRequest>,
-          ConversationListFilterRoute,
-          String>> $attach;
-  final ActionDispatcher<
-      CommandPayload<
-          RouteCommand<ConversationListFilterState>,
-          RouteResult<ListConversationsApiRequest>,
-          ConversationListFilterRoute,
           CommandProgress>> $progress;
 
   _$ConversationListFilterRoute._(this.$options)
@@ -233,12 +215,6 @@ class _$ConversationListFilterRoute extends ConversationListFilterRoute {
                 CommandState<RouteCommand<ConversationListFilterState>,
                     RouteResult<ListConversationsApiRequest>>>(
             '\$replace', (a) => a?.$replace),
-        $clear = $options.action<
-            CommandPayload<
-                RouteCommand<ConversationListFilterState>,
-                RouteResult<ListConversationsApiRequest>,
-                ConversationListFilterRoute,
-                String>>('\$clear', (a) => a?.$clear),
         $cancel = $options.action<
             CommandPayload<
                 RouteCommand<ConversationListFilterState>,
@@ -259,18 +235,6 @@ class _$ConversationListFilterRoute extends ConversationListFilterRoute {
                     ConversationListFilterRoute,
                     CommandResult<RouteResult<ListConversationsApiRequest>>>>(
             '\$result', (a) => a?.$result),
-        $detach = $options.action<
-            CommandPayload<
-                RouteCommand<ConversationListFilterState>,
-                RouteResult<ListConversationsApiRequest>,
-                ConversationListFilterRoute,
-                String>>('\$detach', (a) => a?.$detach),
-        $attach = $options.action<
-            CommandPayload<
-                RouteCommand<ConversationListFilterState>,
-                RouteResult<ListConversationsApiRequest>,
-                ConversationListFilterRoute,
-                String>>('\$attach', (a) => a?.$attach),
         $progress = $options.action<
             CommandPayload<
                 RouteCommand<ConversationListFilterState>,
@@ -301,12 +265,9 @@ class _$ConversationListFilterRoute extends ConversationListFilterRoute {
   BuiltList<ActionDispatcher> get $actions =>
       _$actions ??= BuiltList<ActionDispatcher>([
         this.$replace,
-        this.$clear,
         this.$cancel,
         this.$execute,
         this.$result,
-        this.$detach,
-        this.$attach,
         this.$progress,
       ]);
 

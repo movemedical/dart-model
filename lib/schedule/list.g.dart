@@ -233,9 +233,6 @@ class _$CaseEventListRoute extends CaseEventListRoute {
       $replace;
   final ActionDispatcher<
       CommandPayload<RouteCommand<CaseEventListState>, RouteResult<Empty>,
-          CaseEventListRoute, String>> $clear;
-  final ActionDispatcher<
-      CommandPayload<RouteCommand<CaseEventListState>, RouteResult<Empty>,
           CaseEventListRoute, String>> $cancel;
   final ActionDispatcher<
       CommandPayload<
@@ -248,21 +245,12 @@ class _$CaseEventListRoute extends CaseEventListRoute {
           CaseEventListRoute, CommandResult<RouteResult<Empty>>>> $result;
   final ActionDispatcher<
       CommandPayload<RouteCommand<CaseEventListState>, RouteResult<Empty>,
-          CaseEventListRoute, String>> $detach;
-  final ActionDispatcher<
-      CommandPayload<RouteCommand<CaseEventListState>, RouteResult<Empty>,
-          CaseEventListRoute, String>> $attach;
-  final ActionDispatcher<
-      CommandPayload<RouteCommand<CaseEventListState>, RouteResult<Empty>,
           CaseEventListRoute, CommandProgress>> $progress;
 
   _$CaseEventListRoute._(this.$options)
       : $replace = $options.action<
             CommandState<RouteCommand<CaseEventListState>,
                 RouteResult<Empty>>>('\$replace', (a) => a?.$replace),
-        $clear = $options.action<
-            CommandPayload<RouteCommand<CaseEventListState>, RouteResult<Empty>,
-                CaseEventListRoute, String>>('\$clear', (a) => a?.$clear),
         $cancel = $options.action<
             CommandPayload<RouteCommand<CaseEventListState>, RouteResult<Empty>,
                 CaseEventListRoute, String>>('\$cancel', (a) => a?.$cancel),
@@ -280,12 +268,6 @@ class _$CaseEventListRoute extends CaseEventListRoute {
                     CaseEventListRoute,
                     CommandResult<RouteResult<Empty>>>>(
             '\$result', (a) => a?.$result),
-        $detach = $options.action<
-            CommandPayload<RouteCommand<CaseEventListState>, RouteResult<Empty>,
-                CaseEventListRoute, String>>('\$detach', (a) => a?.$detach),
-        $attach = $options.action<
-            CommandPayload<RouteCommand<CaseEventListState>, RouteResult<Empty>,
-                CaseEventListRoute, String>>('\$attach', (a) => a?.$attach),
         $progress = $options.action<
             CommandPayload<
                 RouteCommand<CaseEventListState>,
@@ -312,12 +294,9 @@ class _$CaseEventListRoute extends CaseEventListRoute {
   BuiltList<ActionDispatcher> get $actions =>
       _$actions ??= BuiltList<ActionDispatcher>([
         this.$replace,
-        this.$clear,
         this.$cancel,
         this.$execute,
         this.$result,
-        this.$detach,
-        this.$attach,
         this.$progress,
       ]);
 

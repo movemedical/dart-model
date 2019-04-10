@@ -337,9 +337,6 @@ class _$ConversationListRoute extends ConversationListRoute {
       $replace;
   final ActionDispatcher<
       CommandPayload<RouteCommand<ConversationListState>, RouteResult<Empty>,
-          ConversationListRoute, String>> $clear;
-  final ActionDispatcher<
-      CommandPayload<RouteCommand<ConversationListState>, RouteResult<Empty>,
           ConversationListRoute, String>> $cancel;
   final ActionDispatcher<
       CommandPayload<
@@ -352,24 +349,12 @@ class _$ConversationListRoute extends ConversationListRoute {
           ConversationListRoute, CommandResult<RouteResult<Empty>>>> $result;
   final ActionDispatcher<
       CommandPayload<RouteCommand<ConversationListState>, RouteResult<Empty>,
-          ConversationListRoute, String>> $detach;
-  final ActionDispatcher<
-      CommandPayload<RouteCommand<ConversationListState>, RouteResult<Empty>,
-          ConversationListRoute, String>> $attach;
-  final ActionDispatcher<
-      CommandPayload<RouteCommand<ConversationListState>, RouteResult<Empty>,
           ConversationListRoute, CommandProgress>> $progress;
 
   _$ConversationListRoute._(this.$options)
       : $replace = $options.action<
             CommandState<RouteCommand<ConversationListState>,
                 RouteResult<Empty>>>('\$replace', (a) => a?.$replace),
-        $clear = $options.action<
-            CommandPayload<
-                RouteCommand<ConversationListState>,
-                RouteResult<Empty>,
-                ConversationListRoute,
-                String>>('\$clear', (a) => a?.$clear),
         $cancel = $options.action<
             CommandPayload<
                 RouteCommand<ConversationListState>,
@@ -390,18 +375,6 @@ class _$ConversationListRoute extends ConversationListRoute {
                     ConversationListRoute,
                     CommandResult<RouteResult<Empty>>>>(
             '\$result', (a) => a?.$result),
-        $detach = $options.action<
-            CommandPayload<
-                RouteCommand<ConversationListState>,
-                RouteResult<Empty>,
-                ConversationListRoute,
-                String>>('\$detach', (a) => a?.$detach),
-        $attach = $options.action<
-            CommandPayload<
-                RouteCommand<ConversationListState>,
-                RouteResult<Empty>,
-                ConversationListRoute,
-                String>>('\$attach', (a) => a?.$attach),
         $progress = $options.action<
             CommandPayload<
                 RouteCommand<ConversationListState>,
@@ -428,12 +401,9 @@ class _$ConversationListRoute extends ConversationListRoute {
   BuiltList<ActionDispatcher> get $actions =>
       _$actions ??= BuiltList<ActionDispatcher>([
         this.$replace,
-        this.$clear,
         this.$cancel,
         this.$execute,
         this.$result,
-        this.$detach,
-        this.$attach,
         this.$progress,
       ]);
 

@@ -185,12 +185,6 @@ class _$CaseEventListFilterRoute extends CaseEventListFilterRoute {
           RouteCommand<CaseEventListFilterState>,
           RouteResult<ListCaseEventsApiRequest>,
           CaseEventListFilterRoute,
-          String>> $clear;
-  final ActionDispatcher<
-      CommandPayload<
-          RouteCommand<CaseEventListFilterState>,
-          RouteResult<ListCaseEventsApiRequest>,
-          CaseEventListFilterRoute,
           String>> $cancel;
   final ActionDispatcher<
       CommandPayload<
@@ -209,18 +203,6 @@ class _$CaseEventListFilterRoute extends CaseEventListFilterRoute {
           RouteCommand<CaseEventListFilterState>,
           RouteResult<ListCaseEventsApiRequest>,
           CaseEventListFilterRoute,
-          String>> $detach;
-  final ActionDispatcher<
-      CommandPayload<
-          RouteCommand<CaseEventListFilterState>,
-          RouteResult<ListCaseEventsApiRequest>,
-          CaseEventListFilterRoute,
-          String>> $attach;
-  final ActionDispatcher<
-      CommandPayload<
-          RouteCommand<CaseEventListFilterState>,
-          RouteResult<ListCaseEventsApiRequest>,
-          CaseEventListFilterRoute,
           CommandProgress>> $progress;
 
   _$CaseEventListFilterRoute._(this.$options)
@@ -228,12 +210,6 @@ class _$CaseEventListFilterRoute extends CaseEventListFilterRoute {
                 CommandState<RouteCommand<CaseEventListFilterState>,
                     RouteResult<ListCaseEventsApiRequest>>>(
             '\$replace', (a) => a?.$replace),
-        $clear = $options.action<
-            CommandPayload<
-                RouteCommand<CaseEventListFilterState>,
-                RouteResult<ListCaseEventsApiRequest>,
-                CaseEventListFilterRoute,
-                String>>('\$clear', (a) => a?.$clear),
         $cancel = $options.action<
             CommandPayload<
                 RouteCommand<CaseEventListFilterState>,
@@ -254,18 +230,6 @@ class _$CaseEventListFilterRoute extends CaseEventListFilterRoute {
                     CaseEventListFilterRoute,
                     CommandResult<RouteResult<ListCaseEventsApiRequest>>>>(
             '\$result', (a) => a?.$result),
-        $detach = $options.action<
-            CommandPayload<
-                RouteCommand<CaseEventListFilterState>,
-                RouteResult<ListCaseEventsApiRequest>,
-                CaseEventListFilterRoute,
-                String>>('\$detach', (a) => a?.$detach),
-        $attach = $options.action<
-            CommandPayload<
-                RouteCommand<CaseEventListFilterState>,
-                RouteResult<ListCaseEventsApiRequest>,
-                CaseEventListFilterRoute,
-                String>>('\$attach', (a) => a?.$attach),
         $progress = $options.action<
             CommandPayload<
                 RouteCommand<CaseEventListFilterState>,
@@ -295,12 +259,9 @@ class _$CaseEventListFilterRoute extends CaseEventListFilterRoute {
   BuiltList<ActionDispatcher> get $actions =>
       _$actions ??= BuiltList<ActionDispatcher>([
         this.$replace,
-        this.$clear,
         this.$cancel,
         this.$execute,
         this.$result,
-        this.$detach,
-        this.$attach,
         this.$progress,
       ]);
 

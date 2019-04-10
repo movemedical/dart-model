@@ -156,9 +156,6 @@ class _$BarcodeScanRoute extends BarcodeScanRoute {
           RouteResult<Value<String>>>> $replace;
   final ActionDispatcher<
       CommandPayload<RouteCommand<BarcodeScanState>, RouteResult<Value<String>>,
-          BarcodeScanRoute, String>> $clear;
-  final ActionDispatcher<
-      CommandPayload<RouteCommand<BarcodeScanState>, RouteResult<Value<String>>,
           BarcodeScanRoute, String>> $cancel;
   final ActionDispatcher<
       CommandPayload<RouteCommand<BarcodeScanState>, RouteResult<Value<String>>,
@@ -168,12 +165,6 @@ class _$BarcodeScanRoute extends BarcodeScanRoute {
           BarcodeScanRoute, CommandResult<RouteResult<Value<String>>>>> $result;
   final ActionDispatcher<
       CommandPayload<RouteCommand<BarcodeScanState>, RouteResult<Value<String>>,
-          BarcodeScanRoute, String>> $detach;
-  final ActionDispatcher<
-      CommandPayload<RouteCommand<BarcodeScanState>, RouteResult<Value<String>>,
-          BarcodeScanRoute, String>> $attach;
-  final ActionDispatcher<
-      CommandPayload<RouteCommand<BarcodeScanState>, RouteResult<Value<String>>,
           BarcodeScanRoute, CommandProgress>> $progress;
   final ActionDispatcher<String> value;
 
@@ -181,12 +172,6 @@ class _$BarcodeScanRoute extends BarcodeScanRoute {
       : $replace = $options.action<
             CommandState<RouteCommand<BarcodeScanState>,
                 RouteResult<Value<String>>>>('\$replace', (a) => a?.$replace),
-        $clear = $options.action<
-            CommandPayload<
-                RouteCommand<BarcodeScanState>,
-                RouteResult<Value<String>>,
-                BarcodeScanRoute,
-                String>>('\$clear', (a) => a?.$clear),
         $cancel = $options.action<
             CommandPayload<
                 RouteCommand<BarcodeScanState>,
@@ -207,18 +192,6 @@ class _$BarcodeScanRoute extends BarcodeScanRoute {
                     BarcodeScanRoute,
                     CommandResult<RouteResult<Value<String>>>>>(
             '\$result', (a) => a?.$result),
-        $detach = $options.action<
-            CommandPayload<
-                RouteCommand<BarcodeScanState>,
-                RouteResult<Value<String>>,
-                BarcodeScanRoute,
-                String>>('\$detach', (a) => a?.$detach),
-        $attach = $options.action<
-            CommandPayload<
-                RouteCommand<BarcodeScanState>,
-                RouteResult<Value<String>>,
-                BarcodeScanRoute,
-                String>>('\$attach', (a) => a?.$attach),
         $progress = $options.action<
             CommandPayload<
                 RouteCommand<BarcodeScanState>,
@@ -247,12 +220,9 @@ class _$BarcodeScanRoute extends BarcodeScanRoute {
   BuiltList<ActionDispatcher> get $actions =>
       _$actions ??= BuiltList<ActionDispatcher>([
         this.$replace,
-        this.$clear,
         this.$cancel,
         this.$execute,
         this.$result,
-        this.$detach,
-        this.$attach,
         this.$progress,
         this.value,
       ]);

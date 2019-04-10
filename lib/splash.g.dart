@@ -216,9 +216,6 @@ class _$SplashRoute extends SplashRoute {
       CommandState<RouteCommand<SplashState>, RouteResult<Empty>>> $replace;
   final ActionDispatcher<
       CommandPayload<RouteCommand<SplashState>, RouteResult<Empty>, SplashRoute,
-          String>> $clear;
-  final ActionDispatcher<
-      CommandPayload<RouteCommand<SplashState>, RouteResult<Empty>, SplashRoute,
           String>> $cancel;
   final ActionDispatcher<
       CommandPayload<RouteCommand<SplashState>, RouteResult<Empty>, SplashRoute,
@@ -228,21 +225,12 @@ class _$SplashRoute extends SplashRoute {
           CommandResult<RouteResult<Empty>>>> $result;
   final ActionDispatcher<
       CommandPayload<RouteCommand<SplashState>, RouteResult<Empty>, SplashRoute,
-          String>> $detach;
-  final ActionDispatcher<
-      CommandPayload<RouteCommand<SplashState>, RouteResult<Empty>, SplashRoute,
-          String>> $attach;
-  final ActionDispatcher<
-      CommandPayload<RouteCommand<SplashState>, RouteResult<Empty>, SplashRoute,
           CommandProgress>> $progress;
 
   _$SplashRoute._(this.$options)
       : $replace = $options.action<
                 CommandState<RouteCommand<SplashState>, RouteResult<Empty>>>(
             '\$replace', (a) => a?.$replace),
-        $clear = $options.action<
-            CommandPayload<RouteCommand<SplashState>, RouteResult<Empty>,
-                SplashRoute, String>>('\$clear', (a) => a?.$clear),
         $cancel = $options.action<
             CommandPayload<RouteCommand<SplashState>, RouteResult<Empty>,
                 SplashRoute, String>>('\$cancel', (a) => a?.$cancel),
@@ -254,12 +242,6 @@ class _$SplashRoute extends SplashRoute {
                 CommandPayload<RouteCommand<SplashState>, RouteResult<Empty>,
                     SplashRoute, CommandResult<RouteResult<Empty>>>>(
             '\$result', (a) => a?.$result),
-        $detach = $options.action<
-            CommandPayload<RouteCommand<SplashState>, RouteResult<Empty>,
-                SplashRoute, String>>('\$detach', (a) => a?.$detach),
-        $attach = $options.action<
-            CommandPayload<RouteCommand<SplashState>, RouteResult<Empty>,
-                SplashRoute, String>>('\$attach', (a) => a?.$attach),
         $progress = $options.action<
             CommandPayload<
                 RouteCommand<SplashState>,
@@ -285,12 +267,9 @@ class _$SplashRoute extends SplashRoute {
   BuiltList<ActionDispatcher> get $actions =>
       _$actions ??= BuiltList<ActionDispatcher>([
         this.$replace,
-        this.$clear,
         this.$cancel,
         this.$execute,
         this.$result,
-        this.$detach,
-        this.$attach,
         this.$progress,
       ]);
 

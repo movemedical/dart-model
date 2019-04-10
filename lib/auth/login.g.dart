@@ -203,9 +203,6 @@ class _$LoginRoute extends LoginRoute {
       CommandState<RouteCommand<LoginState>, RouteResult<Empty>>> $replace;
   final ActionDispatcher<
       CommandPayload<RouteCommand<LoginState>, RouteResult<Empty>, LoginRoute,
-          String>> $clear;
-  final ActionDispatcher<
-      CommandPayload<RouteCommand<LoginState>, RouteResult<Empty>, LoginRoute,
           String>> $cancel;
   final ActionDispatcher<
       CommandPayload<RouteCommand<LoginState>, RouteResult<Empty>, LoginRoute,
@@ -215,21 +212,12 @@ class _$LoginRoute extends LoginRoute {
           CommandResult<RouteResult<Empty>>>> $result;
   final ActionDispatcher<
       CommandPayload<RouteCommand<LoginState>, RouteResult<Empty>, LoginRoute,
-          String>> $detach;
-  final ActionDispatcher<
-      CommandPayload<RouteCommand<LoginState>, RouteResult<Empty>, LoginRoute,
-          String>> $attach;
-  final ActionDispatcher<
-      CommandPayload<RouteCommand<LoginState>, RouteResult<Empty>, LoginRoute,
           CommandProgress>> $progress;
 
   _$LoginRoute._(this.$options)
       : $replace = $options
             .action<CommandState<RouteCommand<LoginState>, RouteResult<Empty>>>(
                 '\$replace', (a) => a?.$replace),
-        $clear = $options.action<
-            CommandPayload<RouteCommand<LoginState>, RouteResult<Empty>,
-                LoginRoute, String>>('\$clear', (a) => a?.$clear),
         $cancel = $options.action<
             CommandPayload<RouteCommand<LoginState>, RouteResult<Empty>,
                 LoginRoute, String>>('\$cancel', (a) => a?.$cancel),
@@ -241,12 +229,6 @@ class _$LoginRoute extends LoginRoute {
                 CommandPayload<RouteCommand<LoginState>, RouteResult<Empty>,
                     LoginRoute, CommandResult<RouteResult<Empty>>>>(
             '\$result', (a) => a?.$result),
-        $detach = $options.action<
-            CommandPayload<RouteCommand<LoginState>, RouteResult<Empty>,
-                LoginRoute, String>>('\$detach', (a) => a?.$detach),
-        $attach = $options.action<
-            CommandPayload<RouteCommand<LoginState>, RouteResult<Empty>,
-                LoginRoute, String>>('\$attach', (a) => a?.$attach),
         $progress = $options.action<
             CommandPayload<
                 RouteCommand<LoginState>,
@@ -271,12 +253,9 @@ class _$LoginRoute extends LoginRoute {
   BuiltList<ActionDispatcher> get $actions =>
       _$actions ??= BuiltList<ActionDispatcher>([
         this.$replace,
-        this.$clear,
         this.$cancel,
         this.$execute,
         this.$result,
-        this.$detach,
-        this.$attach,
         this.$progress,
       ]);
 

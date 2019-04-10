@@ -199,9 +199,6 @@ class _$DrawerRoute extends DrawerRoute {
       CommandState<RouteCommand<DrawerState>, RouteResult<Empty>>> $replace;
   final ActionDispatcher<
       CommandPayload<RouteCommand<DrawerState>, RouteResult<Empty>, DrawerRoute,
-          String>> $clear;
-  final ActionDispatcher<
-      CommandPayload<RouteCommand<DrawerState>, RouteResult<Empty>, DrawerRoute,
           String>> $cancel;
   final ActionDispatcher<
       CommandPayload<RouteCommand<DrawerState>, RouteResult<Empty>, DrawerRoute,
@@ -211,21 +208,12 @@ class _$DrawerRoute extends DrawerRoute {
           CommandResult<RouteResult<Empty>>>> $result;
   final ActionDispatcher<
       CommandPayload<RouteCommand<DrawerState>, RouteResult<Empty>, DrawerRoute,
-          String>> $detach;
-  final ActionDispatcher<
-      CommandPayload<RouteCommand<DrawerState>, RouteResult<Empty>, DrawerRoute,
-          String>> $attach;
-  final ActionDispatcher<
-      CommandPayload<RouteCommand<DrawerState>, RouteResult<Empty>, DrawerRoute,
           CommandProgress>> $progress;
 
   _$DrawerRoute._(this.$options)
       : $replace = $options.action<
                 CommandState<RouteCommand<DrawerState>, RouteResult<Empty>>>(
             '\$replace', (a) => a?.$replace),
-        $clear = $options.action<
-            CommandPayload<RouteCommand<DrawerState>, RouteResult<Empty>,
-                DrawerRoute, String>>('\$clear', (a) => a?.$clear),
         $cancel = $options.action<
             CommandPayload<RouteCommand<DrawerState>, RouteResult<Empty>,
                 DrawerRoute, String>>('\$cancel', (a) => a?.$cancel),
@@ -237,12 +225,6 @@ class _$DrawerRoute extends DrawerRoute {
                 CommandPayload<RouteCommand<DrawerState>, RouteResult<Empty>,
                     DrawerRoute, CommandResult<RouteResult<Empty>>>>(
             '\$result', (a) => a?.$result),
-        $detach = $options.action<
-            CommandPayload<RouteCommand<DrawerState>, RouteResult<Empty>,
-                DrawerRoute, String>>('\$detach', (a) => a?.$detach),
-        $attach = $options.action<
-            CommandPayload<RouteCommand<DrawerState>, RouteResult<Empty>,
-                DrawerRoute, String>>('\$attach', (a) => a?.$attach),
         $progress = $options.action<
             CommandPayload<
                 RouteCommand<DrawerState>,
@@ -268,12 +250,9 @@ class _$DrawerRoute extends DrawerRoute {
   BuiltList<ActionDispatcher> get $actions =>
       _$actions ??= BuiltList<ActionDispatcher>([
         this.$replace,
-        this.$clear,
         this.$cancel,
         this.$execute,
         this.$result,
-        this.$detach,
-        this.$attach,
         this.$progress,
       ]);
 

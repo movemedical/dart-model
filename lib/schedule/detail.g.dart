@@ -247,9 +247,6 @@ class _$CaseEventDetailRoute extends CaseEventDetailRoute {
       $replace;
   final ActionDispatcher<
       CommandPayload<RouteCommand<CaseEventDetailState>, RouteResult<Empty>,
-          CaseEventDetailRoute, String>> $clear;
-  final ActionDispatcher<
-      CommandPayload<RouteCommand<CaseEventDetailState>, RouteResult<Empty>,
           CaseEventDetailRoute, String>> $cancel;
   final ActionDispatcher<
       CommandPayload<
@@ -262,24 +259,12 @@ class _$CaseEventDetailRoute extends CaseEventDetailRoute {
           CaseEventDetailRoute, CommandResult<RouteResult<Empty>>>> $result;
   final ActionDispatcher<
       CommandPayload<RouteCommand<CaseEventDetailState>, RouteResult<Empty>,
-          CaseEventDetailRoute, String>> $detach;
-  final ActionDispatcher<
-      CommandPayload<RouteCommand<CaseEventDetailState>, RouteResult<Empty>,
-          CaseEventDetailRoute, String>> $attach;
-  final ActionDispatcher<
-      CommandPayload<RouteCommand<CaseEventDetailState>, RouteResult<Empty>,
           CaseEventDetailRoute, CommandProgress>> $progress;
 
   _$CaseEventDetailRoute._(this.$options)
       : $replace = $options.action<
             CommandState<RouteCommand<CaseEventDetailState>,
                 RouteResult<Empty>>>('\$replace', (a) => a?.$replace),
-        $clear = $options.action<
-            CommandPayload<
-                RouteCommand<CaseEventDetailState>,
-                RouteResult<Empty>,
-                CaseEventDetailRoute,
-                String>>('\$clear', (a) => a?.$clear),
         $cancel = $options.action<
             CommandPayload<
                 RouteCommand<CaseEventDetailState>,
@@ -300,18 +285,6 @@ class _$CaseEventDetailRoute extends CaseEventDetailRoute {
                     CaseEventDetailRoute,
                     CommandResult<RouteResult<Empty>>>>(
             '\$result', (a) => a?.$result),
-        $detach = $options.action<
-            CommandPayload<
-                RouteCommand<CaseEventDetailState>,
-                RouteResult<Empty>,
-                CaseEventDetailRoute,
-                String>>('\$detach', (a) => a?.$detach),
-        $attach = $options.action<
-            CommandPayload<
-                RouteCommand<CaseEventDetailState>,
-                RouteResult<Empty>,
-                CaseEventDetailRoute,
-                String>>('\$attach', (a) => a?.$attach),
         $progress = $options.action<
             CommandPayload<
                 RouteCommand<CaseEventDetailState>,
@@ -338,12 +311,9 @@ class _$CaseEventDetailRoute extends CaseEventDetailRoute {
   BuiltList<ActionDispatcher> get $actions =>
       _$actions ??= BuiltList<ActionDispatcher>([
         this.$replace,
-        this.$clear,
         this.$cancel,
         this.$execute,
         this.$result,
-        this.$detach,
-        this.$attach,
         this.$progress,
       ]);
 

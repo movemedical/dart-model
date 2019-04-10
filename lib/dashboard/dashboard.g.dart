@@ -111,9 +111,6 @@ class _$DashboardRoute extends DashboardRoute {
       CommandState<RouteCommand<DashboardState>, RouteResult<Empty>>> $replace;
   final ActionDispatcher<
       CommandPayload<RouteCommand<DashboardState>, RouteResult<Empty>,
-          DashboardRoute, String>> $clear;
-  final ActionDispatcher<
-      CommandPayload<RouteCommand<DashboardState>, RouteResult<Empty>,
           DashboardRoute, String>> $cancel;
   final ActionDispatcher<
       CommandPayload<RouteCommand<DashboardState>, RouteResult<Empty>,
@@ -123,21 +120,12 @@ class _$DashboardRoute extends DashboardRoute {
           DashboardRoute, CommandResult<RouteResult<Empty>>>> $result;
   final ActionDispatcher<
       CommandPayload<RouteCommand<DashboardState>, RouteResult<Empty>,
-          DashboardRoute, String>> $detach;
-  final ActionDispatcher<
-      CommandPayload<RouteCommand<DashboardState>, RouteResult<Empty>,
-          DashboardRoute, String>> $attach;
-  final ActionDispatcher<
-      CommandPayload<RouteCommand<DashboardState>, RouteResult<Empty>,
           DashboardRoute, CommandProgress>> $progress;
 
   _$DashboardRoute._(this.$options)
       : $replace = $options.action<
                 CommandState<RouteCommand<DashboardState>, RouteResult<Empty>>>(
             '\$replace', (a) => a?.$replace),
-        $clear = $options.action<
-            CommandPayload<RouteCommand<DashboardState>, RouteResult<Empty>,
-                DashboardRoute, String>>('\$clear', (a) => a?.$clear),
         $cancel = $options.action<
             CommandPayload<RouteCommand<DashboardState>, RouteResult<Empty>,
                 DashboardRoute, String>>('\$cancel', (a) => a?.$cancel),
@@ -149,12 +137,6 @@ class _$DashboardRoute extends DashboardRoute {
                 CommandPayload<RouteCommand<DashboardState>, RouteResult<Empty>,
                     DashboardRoute, CommandResult<RouteResult<Empty>>>>(
             '\$result', (a) => a?.$result),
-        $detach = $options.action<
-            CommandPayload<RouteCommand<DashboardState>, RouteResult<Empty>,
-                DashboardRoute, String>>('\$detach', (a) => a?.$detach),
-        $attach = $options.action<
-            CommandPayload<RouteCommand<DashboardState>, RouteResult<Empty>,
-                DashboardRoute, String>>('\$attach', (a) => a?.$attach),
         $progress = $options.action<
             CommandPayload<
                 RouteCommand<DashboardState>,
@@ -180,12 +162,9 @@ class _$DashboardRoute extends DashboardRoute {
   BuiltList<ActionDispatcher> get $actions =>
       _$actions ??= BuiltList<ActionDispatcher>([
         this.$replace,
-        this.$clear,
         this.$cancel,
         this.$execute,
         this.$result,
-        this.$detach,
-        this.$attach,
         this.$progress,
       ]);
 

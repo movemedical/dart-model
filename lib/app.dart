@@ -72,9 +72,9 @@ abstract class AppState implements Built<AppState, AppStateBuilder> {
   /// Computed
   ////////////////////
 
-  bool get isLoggedIn => api?.activeLogin != null;
+  bool get isLoggedIn => api?.activeLogin?.moveSessionId != null;
 
-  bool get isLoggingIn => api?.isLoggingIn ?? false;
+  bool get isLoggingIn => api?.loginCommand?.isInProgress ?? false;
 
   LoginResponse get session => api?.activeLogin;
 
