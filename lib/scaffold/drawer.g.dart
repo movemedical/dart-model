@@ -256,9 +256,6 @@ class _$DrawerRoute extends DrawerRoute {
         this.$progress,
       ]);
 
-// @override
-// Serializer<CommandStateDrawerRoute> get $serializer => CommandStateDrawerRoute.serializer;
-
   FullType _$fullType;
   @override
   FullType get $fullType => _$fullType ??= FullType(CommandState, [
@@ -303,8 +300,8 @@ class _$DrawerActions extends DrawerActions {
   final ActionDispatcher<Null> $deactivated;
   final ActionDispatcher<DrawerState> $pushing;
   final ActionDispatcher<Empty> $popping;
-  final FieldDispatcher<MobileNavigationElement> selectedTab;
   final LoginRoute loginRoute;
+  final FieldDispatcher<MobileNavigationElement> selectedTab;
 
   _$DrawerActions._(this.$options)
       : $replace =
@@ -315,11 +312,6 @@ class _$DrawerActions extends DrawerActions {
         $pushing =
             $options.action<DrawerState>('\$pushing', (a) => a?.$pushing),
         $popping = $options.action<Empty>('\$popping', (a) => a?.$popping),
-        selectedTab = $options.actionField<MobileNavigationElement>(
-            'selectedTab',
-            (a) => a?.selectedTab,
-            (s) => s?.selectedTab,
-            (p, b) => p?.selectedTab = b),
         loginRoute = LoginRoute(() =>
             $options.stateful<
                     CommandState<RouteCommand<LoginState>, RouteResult<Empty>>,
@@ -331,6 +323,11 @@ class _$DrawerActions extends DrawerActions {
                 (s) => s?.loginRoute,
                 (b) => b?.loginRoute,
                 (parent, builder) => parent?.loginRoute = builder)),
+        selectedTab = $options.field<MobileNavigationElement>(
+            'selectedTab',
+            (a) => a?.selectedTab,
+            (s) => s?.selectedTab,
+            (p, b) => p?.selectedTab = b),
         super._();
 
   factory _$DrawerActions(DrawerActionsOptions options) =>
@@ -360,8 +357,8 @@ class _$DrawerActions extends DrawerActions {
   @override
   void $reducer(AppReducerBuilder reducer) {
     super.$reducer(reducer);
-    selectedTab.$reducer(reducer);
     loginRoute.$reducer(reducer);
+    selectedTab.$reducer(reducer);
   }
 
   @override
@@ -369,9 +366,6 @@ class _$DrawerActions extends DrawerActions {
     super.$middleware(middleware);
     loginRoute.$middleware(middleware);
   }
-
-// @override
-// Serializer<DrawerStateDrawerActions> get $serializer => DrawerStateDrawerActions.serializer;
 
   FullType _$fullType;
   @override

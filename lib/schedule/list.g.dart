@@ -300,9 +300,6 @@ class _$CaseEventListRoute extends CaseEventListRoute {
         this.$progress,
       ]);
 
-// @override
-// Serializer<CommandStateCaseEventListRoute> get $serializer => CommandStateCaseEventListRoute.serializer;
-
   FullType _$fullType;
   @override
   FullType get $fullType => _$fullType ??= FullType(CommandState, [
@@ -435,9 +432,6 @@ class _$CaseEventListActions extends CaseEventListActions {
     listCommand.$middleware(middleware);
     request.$middleware(middleware);
   }
-
-// @override
-// Serializer<CaseEventListStateCaseEventListActions> get $serializer => CaseEventListStateCaseEventListActions.serializer;
 
   FullType _$fullType;
   @override

@@ -187,11 +187,8 @@ class _$SettingsActions extends SettingsActions {
   _$SettingsActions._(this.$options)
       : $replace =
             $options.action<SettingsState>('\$replace', (a) => a?.$replace),
-        themeName = $options.actionField<ThemeName>(
-            'themeName',
-            (a) => a?.themeName,
-            (s) => s?.themeName,
-            (p, b) => p?.themeName = b),
+        themeName = $options.field<ThemeName>('themeName', (a) => a?.themeName,
+            (s) => s?.themeName, (p, b) => p?.themeName = b),
         super._();
 
   factory _$SettingsActions(SettingsActionsOptions options) =>
@@ -221,9 +218,6 @@ class _$SettingsActions extends SettingsActions {
   void $middleware(AppMiddlewareBuilder middleware) {
     super.$middleware(middleware);
   }
-
-// @override
-// Serializer<SettingsStateSettingsActions> get $serializer => SettingsStateSettingsActions.serializer;
 
   FullType _$fullType;
   @override

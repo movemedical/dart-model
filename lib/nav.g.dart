@@ -391,7 +391,7 @@ class _$NavActions extends NavActions {
 
   _$NavActions._(this.$options)
       : $replace = $options.action<NavState>('\$replace', (a) => a?.$replace),
-        stack = $options.actionField<BuiltList<String>>(
+        stack = $options.field<BuiltList<String>>(
             'stack', (a) => a?.stack, (s) => s?.stack, (p, b) => p?.stack = b),
         gotoSplash = SplashRoute(() =>
             $options.stateful<
@@ -507,9 +507,6 @@ class _$NavActions extends NavActions {
     messages.$middleware(middleware);
     dir.$middleware(middleware);
   }
-
-// @override
-// Serializer<NavStateNavActions> get $serializer => NavStateNavActions.serializer;
 
   FullType _$fullType;
   @override

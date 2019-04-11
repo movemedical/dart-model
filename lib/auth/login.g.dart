@@ -259,9 +259,6 @@ class _$LoginRoute extends LoginRoute {
         this.$progress,
       ]);
 
-// @override
-// Serializer<CommandStateLoginRoute> get $serializer => CommandStateLoginRoute.serializer;
-
   FullType _$fullType;
   @override
   FullType get $fullType => _$fullType ??= FullType(CommandState, [
@@ -371,9 +368,6 @@ class _$LoginActions extends LoginActions {
     request.$middleware(middleware);
     dashboardRoute.$middleware(middleware);
   }
-
-// @override
-// Serializer<LoginStateLoginActions> get $serializer => LoginStateLoginActions.serializer;
 
   FullType _$fullType;
   @override

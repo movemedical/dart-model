@@ -7,8 +7,9 @@ import 'package:web_socket_channel/io.dart' as ws;
 
 Store<AppState, AppStateBuilder, AppActions> createIOStore(
         AppState Function(AppActions) state,
-        {Iterable<Middleware<AppState, AppStateBuilder, AppActions>>
-            middleware = const [],
+        {AppActions actions,
+        Iterable<Middleware<AppState, AppStateBuilder, AppActions>> middleware =
+            const [],
         ApiService apiService(Store<AppState, AppStateBuilder, AppActions> s),
         Function(Store<AppState, AppStateBuilder, AppActions> s,
                 Function(StoreService s) register)
@@ -24,6 +25,7 @@ Store<AppState, AppStateBuilder, AppActions> createIOStore(
                 protocols: protocols,
                 headers: headers,
                 pingInterval: pingInterval),
+        actions: actions,
         middleware: middleware,
         apiService: apiService,
         serviceFactory: serviceFactory);

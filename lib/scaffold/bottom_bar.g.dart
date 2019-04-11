@@ -253,7 +253,7 @@ class _$BottomBarActions extends BottomBarActions {
   _$BottomBarActions._(this.$options)
       : $replace =
             $options.action<BottomBarState>('\$replace', (a) => a?.$replace),
-        selectedTab = $options.actionField<MobileNavigationElement>(
+        selectedTab = $options.field<MobileNavigationElement>(
             'selectedTab',
             (a) => a?.selectedTab,
             (s) => s?.selectedTab,
@@ -316,9 +316,6 @@ class _$BottomBarActions extends BottomBarActions {
     gotoDashboard.$middleware(middleware);
     gotoConversationList.$middleware(middleware);
   }
-
-// @override
-// Serializer<BottomBarStateBottomBarActions> get $serializer => BottomBarStateBottomBarActions.serializer;
 
   FullType _$fullType;
   @override

@@ -126,9 +126,6 @@ class _$DirectoryActions extends DirectoryActions {
         this.$replace,
       ]);
 
-// @override
-// Serializer<DirectoryStateDirectoryActions> get $serializer => DirectoryStateDirectoryActions.serializer;
-
   FullType _$fullType;
   @override
   FullType get $fullType => _$fullType ??= FullType(DirectoryState);

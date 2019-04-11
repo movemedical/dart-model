@@ -325,9 +325,6 @@ class _$MessagesActions extends MessagesActions {
     conversationUpdate.$middleware(middleware);
   }
 
-// @override
-// Serializer<MessagesStateMessagesActions> get $serializer => MessagesStateMessagesActions.serializer;
-
   FullType _$fullType;
   @override
   FullType get $fullType => _$fullType ??= FullType(MessagesState);

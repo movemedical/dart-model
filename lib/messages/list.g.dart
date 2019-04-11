@@ -407,9 +407,6 @@ class _$ConversationListRoute extends ConversationListRoute {
         this.$progress,
       ]);
 
-// @override
-// Serializer<CommandStateConversationListRoute> get $serializer => CommandStateConversationListRoute.serializer;
-
   FullType _$fullType;
   @override
   FullType get $fullType => _$fullType ??= FullType(CommandState, [
@@ -561,9 +558,6 @@ class _$ConversationListActions extends ConversationListActions {
     gotoUpdate.$middleware(middleware);
     gotoConversation.$middleware(middleware);
   }
-
-// @override
-// Serializer<ConversationListStateConversationListActions> get $serializer => ConversationListStateConversationListActions.serializer;
 
   FullType _$fullType;
   @override

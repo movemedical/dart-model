@@ -273,9 +273,6 @@ class _$SplashRoute extends SplashRoute {
         this.$progress,
       ]);
 
-// @override
-// Serializer<CommandStateSplashRoute> get $serializer => CommandStateSplashRoute.serializer;
-
   FullType _$fullType;
   @override
   FullType get $fullType => _$fullType ??= FullType(CommandState, [
@@ -395,9 +392,6 @@ class _$SplashActions extends SplashActions {
     gotoLogin.$middleware(middleware);
     gotoDashboard.$middleware(middleware);
   }
-
-// @override
-// Serializer<SplashStateSplashActions> get $serializer => SplashStateSplashActions.serializer;
 
   FullType _$fullType;
   @override

@@ -198,9 +198,6 @@ class _$AuthActions extends AuthActions {
     login.$middleware(middleware);
   }
 
-// @override
-// Serializer<AuthStateAuthActions> get $serializer => AuthStateAuthActions.serializer;
-
   FullType _$fullType;
   @override
   FullType get $fullType => _$fullType ??= FullType(AuthState);

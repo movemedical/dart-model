@@ -119,9 +119,6 @@ class _$BgActions extends BgActions {
         this.$replace,
       ]);
 
-// @override
-// Serializer<BgStateBgActions> get $serializer => BgStateBgActions.serializer;
-
   FullType _$fullType;
   @override
   FullType get $fullType => _$fullType ??= FullType(BgState);

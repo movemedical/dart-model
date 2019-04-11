@@ -168,9 +168,6 @@ class _$DashboardRoute extends DashboardRoute {
         this.$progress,
       ]);
 
-// @override
-// Serializer<CommandStateDashboardRoute> get $serializer => CommandStateDashboardRoute.serializer;
-
   FullType _$fullType;
   @override
   FullType get $fullType => _$fullType ??= FullType(CommandState, [
@@ -244,9 +241,6 @@ class _$DashboardActions extends DashboardActions {
         this.$pushing,
         this.$popping,
       ]);
-
-// @override
-// Serializer<DashboardStateDashboardActions> get $serializer => DashboardStateDashboardActions.serializer;
 
   FullType _$fullType;
   @override

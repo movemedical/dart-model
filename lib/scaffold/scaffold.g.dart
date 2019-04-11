@@ -292,9 +292,6 @@ class _$ScaffoldActions extends ScaffoldActions {
     loginRoute.$middleware(middleware);
   }
 
-// @override
-// Serializer<ScaffoldStateScaffoldActions> get $serializer => ScaffoldStateScaffoldActions.serializer;
-
   FullType _$fullType;
   @override
   FullType get $fullType => _$fullType ??= FullType(ScaffoldState);

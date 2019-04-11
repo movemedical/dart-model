@@ -265,9 +265,6 @@ class _$CaseEventListFilterRoute extends CaseEventListFilterRoute {
         this.$progress,
       ]);
 
-// @override
-// Serializer<CommandStateCaseEventListFilterRoute> get $serializer => CommandStateCaseEventListFilterRoute.serializer;
-
   FullType _$fullType;
   @override
   FullType get $fullType => _$fullType ??= FullType(CommandState, [
@@ -376,9 +373,6 @@ class _$CaseEventListFilterActions extends CaseEventListFilterActions {
     super.$middleware(middleware);
     request.$middleware(middleware);
   }
-
-// @override
-// Serializer<CaseEventListFilterStateCaseEventListFilterActions> get $serializer => CaseEventListFilterStateCaseEventListFilterActions.serializer;
 
   FullType _$fullType;
   @override

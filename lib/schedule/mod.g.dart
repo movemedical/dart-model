@@ -284,9 +284,6 @@ class _$ScheduleActions extends ScheduleActions {
     detail.$middleware(middleware);
   }
 
-// @override
-// Serializer<ScheduleStateScheduleActions> get $serializer => ScheduleStateScheduleActions.serializer;
-
   FullType _$fullType;
   @override
   FullType get $fullType => _$fullType ??= FullType(ScheduleState);

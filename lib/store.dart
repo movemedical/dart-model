@@ -9,13 +9,14 @@ Store<AppState, AppStateBuilder, AppActions> createStore(
     AppState Function(AppActions) state,
     HttpClientFactory httpFactory,
     WebSocketFactory wsFactory,
-    {Iterable<Middleware<AppState, AppStateBuilder, AppActions>> middleware =
+    {AppActions actions,
+    Iterable<Middleware<AppState, AppStateBuilder, AppActions>> middleware =
         const [],
     ApiService apiService(Store<AppState, AppStateBuilder, AppActions> s),
     Function(Store<AppState, AppStateBuilder, AppActions> s,
             Function(StoreService s) register)
         serviceFactory}) {
-  final actions = AppActions();
+  if (actions == null) actions = AppActions();
   if (state == null) state = (AppActions a) => a.$initial;
 
   final m = List<Middleware<AppState, AppStateBuilder, AppActions>>();

@@ -191,9 +191,6 @@ class _$UpdateConversationRoute extends UpdateConversationRoute {
         this.$progress,
       ]);
 
-// @override
-// Serializer<CommandStateUpdateConversationRoute> get $serializer => CommandStateUpdateConversationRoute.serializer;
-
   FullType _$fullType;
   @override
   FullType get $fullType => _$fullType ??= FullType(CommandState, [
@@ -271,9 +268,6 @@ class _$UpdateConversationActions extends UpdateConversationActions {
         this.$pushing,
         this.$popping,
       ]);
-
-// @override
-// Serializer<UpdateConversationStateUpdateConversationActions> get $serializer => UpdateConversationStateUpdateConversationActions.serializer;
 
   FullType _$fullType;
   @override

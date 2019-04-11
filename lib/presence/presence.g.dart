@@ -124,9 +124,6 @@ class _$PresenceActions extends PresenceActions {
         this.$replace,
       ]);
 
-// @override
-// Serializer<PresenceStatePresenceActions> get $serializer => PresenceStatePresenceActions.serializer;
-
   FullType _$fullType;
   @override
   FullType get $fullType => _$fullType ??= FullType(PresenceState);

@@ -227,9 +227,6 @@ class _$BarcodeScanRoute extends BarcodeScanRoute {
         this.value,
       ]);
 
-// @override
-// Serializer<CommandStateBarcodeScanRoute> get $serializer => CommandStateBarcodeScanRoute.serializer;
-
   FullType _$fullType;
   @override
   FullType get $fullType => _$fullType ??= FullType(CommandState, [
@@ -289,7 +286,7 @@ class _$BarcodeScanActions extends BarcodeScanActions {
             $options.action<BarcodeScanState>('\$pushing', (a) => a?.$pushing),
         $popping =
             $options.action<Value<String>>('\$popping', (a) => a?.$popping),
-        value = $options.actionField<String>(
+        value = $options.field<String>(
             'value', (a) => a?.value, (s) => s?.value, (p, b) => p?.value = b),
         super._();
 
@@ -321,9 +318,6 @@ class _$BarcodeScanActions extends BarcodeScanActions {
   void $middleware(AppMiddlewareBuilder middleware) {
     super.$middleware(middleware);
   }
-
-// @override
-// Serializer<BarcodeScanStateBarcodeScanActions> get $serializer => BarcodeScanStateBarcodeScanActions.serializer;
 
   FullType _$fullType;
   @override

@@ -231,9 +231,6 @@ class _$AppActions extends AppActions {
     nav.$middleware(middleware);
   }
 
-// @override
-// Serializer<AppStateAppActions> get $serializer => AppStateAppActions.serializer;
-
   FullType _$fullType;
   @override
   FullType get $fullType => _$fullType ??= FullType(AppState);
