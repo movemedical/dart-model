@@ -209,8 +209,11 @@ abstract class ScreenActions<
 
   void $cancelAllCommands(
       covariant Store<AppState, AppStateBuilder, AppActions> store) {
-    $forEachCommand(store, (owner, dispatcher) {
-      dispatcher.cancel(dispatcher.$mapState(store.state)?.command?.id);
+    $visitCommands((owner, dispatcher) {
+      final id = dispatcher.$mapState(store.state)?.command?.id;
+      if (id != null) {
+        dispatcher.cancel();
+      }
     });
   }
 }

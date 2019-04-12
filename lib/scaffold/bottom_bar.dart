@@ -19,6 +19,7 @@ abstract class BottomBarActions extends StateActions<BottomBarState,
   FieldDispatcher<MobileNavigationElement> get selectedTab;
 
   DashboardRoute get gotoDashboard;
+
   ConversationListRoute get gotoConversationList;
 
   @override
@@ -35,11 +36,14 @@ abstract class BottomBarActions extends StateActions<BottomBarState,
 ///
 abstract class BottomBarState
     implements Built<BottomBarState, BottomBarStateBuilder> {
+  @nullable
   MobileNavigationElement get selectedTab;
 
+  @nullable
   CommandState<RouteCommand<DashboardState>, RouteResult<Empty>>
       get gotoDashboard;
 
+  @nullable
   CommandState<RouteCommand<ConversationListState>, RouteResult<Empty>>
       get gotoConversationList;
 
@@ -47,9 +51,8 @@ abstract class BottomBarState
 
   factory BottomBarState([updates(BottomBarStateBuilder b)]) =>
       _$BottomBarState((b) {
-        if (updates != null) updates(b);
-        if (b.selectedTab == null)
-          b.selectedTab = MobileNavigationElement.DASHBOARD;
+        updates?.call(b);
+        b.selectedTab ??= MobileNavigationElement.DASHBOARD;
       });
 
   static Serializer<BottomBarState> get serializer =>

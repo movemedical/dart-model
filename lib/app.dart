@@ -33,9 +33,6 @@ abstract class AppActions
     super.$reducer(reducer);
   }
 
-  ////////////////////
-  /// Reducer
-  ////////////////////
   @override
   Reducer<AppState, AppStateBuilder, dynamic> $createReducer() {
     final b = AppReducerBuilder();
@@ -43,9 +40,6 @@ abstract class AppActions
     return b.build();
   }
 
-  ////////////////////
-  /// Middleware
-  ////////////////////
   @override
   Middleware<AppState, AppStateBuilder, AppActions> $createMiddleware() {
     final b = AppMiddlewareBuilder();
@@ -82,12 +76,11 @@ abstract class AppState implements Built<AppState, AppStateBuilder> {
 
   AppState._();
 
-  factory AppState([updates(AppStateBuilder b)]) = _$AppState;
-
-  factory AppState.initial() => (AppStateBuilder()
-        ..api = ApiState().toBuilder()
-        ..nav = NavState().toBuilder())
-      .build();
+  factory AppState([updates(AppStateBuilder b)]) => _$AppState((b) {
+        updates?.call(b);
+        b.api ??= ApiState().toBuilder();
+        b.nav ??= NavState().toBuilder();
+      });
 
   static Serializer<AppState> get serializer => _$appStateSerializer;
 }

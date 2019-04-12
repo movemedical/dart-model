@@ -86,7 +86,11 @@ abstract class NavState
 
   NavState._();
 
-  factory NavState([updates(NavStateBuilder b)]) = _$NavState;
+  factory NavState([updates(NavStateBuilder b)]) => _$NavState((b) {
+        updates?.call(b);
+        b.stack ??= ListBuilder<String>();
+        b.scaffold ??= ScaffoldState().toBuilder();
+      });
 
   static Serializer<NavState> get serializer => _$navStateSerializer;
 }

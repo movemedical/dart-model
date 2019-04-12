@@ -17,19 +17,21 @@ class _$DrawerStateSerializer implements StructuredSerializer<DrawerState> {
   @override
   Iterable serialize(Serializers serializers, DrawerState object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
-      'loginRoute',
-      serializers.serialize(object.loginRoute,
-          specifiedType: const FullType(CommandState, const [
-            const FullType(RouteCommand, const [const FullType(LoginState)]),
-            const FullType(RouteResult, const [const FullType(Null)])
-          ])),
-    ];
+    final result = <Object>[];
     if (object.selectedTab != null) {
       result
         ..add('selectedTab')
         ..add(serializers.serialize(object.selectedTab,
             specifiedType: const FullType(MobileNavigationElement)));
+    }
+    if (object.loginRoute != null) {
+      result
+        ..add('loginRoute')
+        ..add(serializers.serialize(object.loginRoute,
+            specifiedType: const FullType(CommandState, const [
+              const FullType(RouteCommand, const [const FullType(LoginState)]),
+              const FullType(RouteResult, const [const FullType(Null)])
+            ])));
     }
 
     return result;
@@ -75,11 +77,7 @@ class _$DrawerState extends DrawerState {
   factory _$DrawerState([void updates(DrawerStateBuilder b)]) =>
       (new DrawerStateBuilder()..update(updates)).build();
 
-  _$DrawerState._({this.selectedTab, this.loginRoute}) : super._() {
-    if (loginRoute == null) {
-      throw new BuiltValueNullFieldError('DrawerState', 'loginRoute');
-    }
-  }
+  _$DrawerState._({this.selectedTab, this.loginRoute}) : super._();
 
   @override
   DrawerState rebuild(void updates(DrawerStateBuilder b)) =>
@@ -158,12 +156,12 @@ class DrawerStateBuilder implements Builder<DrawerState, DrawerStateBuilder> {
     try {
       _$result = _$v ??
           new _$DrawerState._(
-              selectedTab: selectedTab, loginRoute: loginRoute.build());
+              selectedTab: selectedTab, loginRoute: _loginRoute?.build());
     } catch (_) {
       String _$failedField;
       try {
         _$failedField = 'loginRoute';
-        loginRoute.build();
+        _loginRoute?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             'DrawerState', _$failedField, e.toString());

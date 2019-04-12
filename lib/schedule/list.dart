@@ -1,8 +1,8 @@
 library state.schedule.list;
 
 import 'package:movemedical_api/command.dart';
-import 'package:movemedical_api/model/action/caseEvent/list_case_events_api_case_event.dart';
-import 'package:movemedical_api/state/action/caseEvent/list_case_events_api.dart'
+import 'package:movemedical_api/model/action/case_event/list_case_events_api_case_event.dart';
+import 'package:movemedical_api/state/action/case_event/list_case_events_api.dart'
     as list_case_events_api;
 import '../foundation.dart';
 
@@ -75,7 +75,6 @@ abstract class CaseEventListState
   @nullable
   list_case_events_api.ListCaseEventsApiRequest get request;
 
-  @memoized
   bool get isLoading => listCommand?.isInProgress ?? false;
 
   @memoized

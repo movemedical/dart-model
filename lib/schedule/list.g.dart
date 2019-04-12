@@ -90,16 +90,12 @@ class _$CaseEventListState extends CaseEventListState {
       ApiResult<list_case_events_api.ListCaseEventsApiResponse>> listCommand;
   @override
   final list_case_events_api.ListCaseEventsApiRequest request;
-  bool __isLoading;
   BuiltList<ListCaseEventsApiCaseEvent> __events;
 
   factory _$CaseEventListState([void updates(CaseEventListStateBuilder b)]) =>
       (new CaseEventListStateBuilder()..update(updates)).build();
 
   _$CaseEventListState._({this.listCommand, this.request}) : super._();
-
-  @override
-  bool get isLoading => __isLoading ??= super.isLoading;
 
   @override
   BuiltList<ListCaseEventsApiCaseEvent> get events => __events ??= super.events;

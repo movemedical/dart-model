@@ -19,25 +19,33 @@ class _$BottomBarStateSerializer
   @override
   Iterable serialize(Serializers serializers, BottomBarState object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
-      'selectedTab',
-      serializers.serialize(object.selectedTab,
-          specifiedType: const FullType(MobileNavigationElement)),
-      'gotoDashboard',
-      serializers.serialize(object.gotoDashboard,
-          specifiedType: const FullType(CommandState, const [
-            const FullType(
-                RouteCommand, const [const FullType(DashboardState)]),
-            const FullType(RouteResult, const [const FullType(Empty)])
-          ])),
-      'gotoConversationList',
-      serializers.serialize(object.gotoConversationList,
-          specifiedType: const FullType(CommandState, const [
-            const FullType(
-                RouteCommand, const [const FullType(ConversationListState)]),
-            const FullType(RouteResult, const [const FullType(Empty)])
-          ])),
-    ];
+    final result = <Object>[];
+    if (object.selectedTab != null) {
+      result
+        ..add('selectedTab')
+        ..add(serializers.serialize(object.selectedTab,
+            specifiedType: const FullType(MobileNavigationElement)));
+    }
+    if (object.gotoDashboard != null) {
+      result
+        ..add('gotoDashboard')
+        ..add(serializers.serialize(object.gotoDashboard,
+            specifiedType: const FullType(CommandState, const [
+              const FullType(
+                  RouteCommand, const [const FullType(DashboardState)]),
+              const FullType(RouteResult, const [const FullType(Empty)])
+            ])));
+    }
+    if (object.gotoConversationList != null) {
+      result
+        ..add('gotoConversationList')
+        ..add(serializers.serialize(object.gotoConversationList,
+            specifiedType: const FullType(CommandState, const [
+              const FullType(
+                  RouteCommand, const [const FullType(ConversationListState)]),
+              const FullType(RouteResult, const [const FullType(Empty)])
+            ])));
+    }
 
     return result;
   }
@@ -100,18 +108,7 @@ class _$BottomBarState extends BottomBarState {
 
   _$BottomBarState._(
       {this.selectedTab, this.gotoDashboard, this.gotoConversationList})
-      : super._() {
-    if (selectedTab == null) {
-      throw new BuiltValueNullFieldError('BottomBarState', 'selectedTab');
-    }
-    if (gotoDashboard == null) {
-      throw new BuiltValueNullFieldError('BottomBarState', 'gotoDashboard');
-    }
-    if (gotoConversationList == null) {
-      throw new BuiltValueNullFieldError(
-          'BottomBarState', 'gotoConversationList');
-    }
-  }
+      : super._();
 
   @override
   BottomBarState rebuild(void updates(BottomBarStateBuilder b)) =>
@@ -209,15 +206,15 @@ class BottomBarStateBuilder
       _$result = _$v ??
           new _$BottomBarState._(
               selectedTab: selectedTab,
-              gotoDashboard: gotoDashboard.build(),
-              gotoConversationList: gotoConversationList.build());
+              gotoDashboard: _gotoDashboard?.build(),
+              gotoConversationList: _gotoConversationList?.build());
     } catch (_) {
       String _$failedField;
       try {
         _$failedField = 'gotoDashboard';
-        gotoDashboard.build();
+        _gotoDashboard?.build();
         _$failedField = 'gotoConversationList';
-        gotoConversationList.build();
+        _gotoConversationList?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             'BottomBarState', _$failedField, e.toString());

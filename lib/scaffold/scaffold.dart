@@ -45,13 +45,11 @@ abstract class ScaffoldState
 
   factory ScaffoldState([updates(ScaffoldStateBuilder b)]) =>
       _$ScaffoldState((b) {
-        if (b.drawer == null) b.drawer = DrawerState().toBuilder();
-        if (b.drawer.selectedTab == null)
-          b.drawer.selectedTab = MobileNavigationElement.DASHBOARD;
-        if (b.bottomBar == null) b.bottomBar = BottomBarState().toBuilder();
-        if (b.bottomBar.selectedTab == null)
-          b.bottomBar.selectedTab = b.drawer.selectedTab;
         updates?.call(b);
+        b.drawer ??= DrawerState().toBuilder();
+        b.drawer.selectedTab ??= MobileNavigationElement.DASHBOARD;
+        b.bottomBar ??= BottomBarState().toBuilder();
+        b.bottomBar.selectedTab ??= b.drawer.selectedTab;
       });
 
   static Serializer<ScaffoldState> get serializer => _$scaffoldStateSerializer;

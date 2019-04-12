@@ -1,8 +1,7 @@
 import '../foundation.dart';
+import 'detail.dart';
 import 'list.dart';
 import 'list_filter.dart';
-import 'detail.dart';
-import 'calendar.dart';
 
 part 'mod.g.dart';
 

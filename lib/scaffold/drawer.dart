@@ -46,14 +46,14 @@ abstract class DrawerState implements Built<DrawerState, DrawerStateBuilder> {
   @nullable
   MobileNavigationElement get selectedTab;
 
+  @nullable
   CommandState<RouteCommand<LoginState>, RouteResult<Null>> get loginRoute;
 
   DrawerState._();
 
   factory DrawerState([updates(DrawerStateBuilder b)]) => _$DrawerState((b) {
-        if (updates != null) updates(b);
-        if (b.selectedTab == null)
-          b.selectedTab = MobileNavigationElement.DASHBOARD;
+        updates?.call(b);
+        b.selectedTab ??= MobileNavigationElement.DASHBOARD;
       });
 
   static Serializer<DrawerState> get serializer => _$drawerStateSerializer;
