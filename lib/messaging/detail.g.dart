@@ -14,7 +14,7 @@ class _$ConversationStateSerializer
   @override
   final Iterable<Type> types = const [ConversationState, _$ConversationState];
   @override
-  final String wireName = 'movemedical_model/messages/ConversationState';
+  final String wireName = 'movemedical_model/messaging/ConversationState';
 
   @override
   Iterable serialize(Serializers serializers, ConversationState object,

@@ -17,7 +17,7 @@ class _$CreateConversationStateSerializer
     _$CreateConversationState
   ];
   @override
-  final String wireName = 'movemedical_model/messages/CreateConversationState';
+  final String wireName = 'movemedical_model/messaging/CreateConversationState';
 
   @override
   Iterable serialize(Serializers serializers, CreateConversationState object,

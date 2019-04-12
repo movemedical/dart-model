@@ -1,16 +1,13 @@
 library nav;
 
-import 'dart:collection';
-
-import 'foundation.dart';
-
-import 'scaffold/scaffold.dart';
 import 'auth/mod.dart';
-import 'schedule/mod.dart';
-import 'messages/mod.dart';
-import 'directory/mod.dart';
-import 'splash.dart';
 import 'dashboard/mod.dart';
+import 'directory/mod.dart';
+import 'foundation.dart';
+import 'messaging/mod.dart';
+import 'scaffold/scaffold.dart';
+import 'scheduling/mod.dart';
+import 'splash.dart';
 
 part 'nav.g.dart';
 

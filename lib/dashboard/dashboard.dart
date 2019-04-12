@@ -1,10 +1,5 @@
 import '../foundation.dart';
 
-import '../auth/login.dart';
-
-import 'package:movemedical_api/model/sql/enums/mobile_dashboard_widget_type.dart';
-import 'package:movemedical_api/model/sql/enums/mobile_navigation_element.dart';
-
 part 'dashboard.g.dart';
 
 ////////////////////////////////

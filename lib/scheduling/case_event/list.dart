@@ -1,10 +1,9 @@
-library state.schedule.list;
-
 import 'package:movemedical_api/command.dart';
 import 'package:movemedical_api/model/action/case_event/list_case_events_api_case_event.dart';
 import 'package:movemedical_api/state/action/case_event/list_case_events_api.dart'
     as list_case_events_api;
-import '../foundation.dart';
+
+import '../../foundation.dart';
 
 part 'list.g.dart';
 
@@ -41,13 +40,6 @@ abstract class CaseEventListActions extends ScreenActions<CaseEventListState,
   @override
   CaseEventListState get $initial =>
       CaseEventListState((b) => b..listCommand = listCommand.$newBuilder());
-
-  ////////////////////////////////////
-  /// Config
-  ////////////////////////////////////
-
-  @override
-  MobileNavigationElement get $navElement => MobileNavigationElement.DASHBOARD;
 
   ////////////////////////////////////
   /// Construction

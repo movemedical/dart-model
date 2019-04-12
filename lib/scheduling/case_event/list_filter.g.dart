@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of state.schedule.list_filter;
+part of 'list_filter.dart';
 
 // **************************************************************************
 // BuiltValueGenerator
@@ -17,7 +17,8 @@ class _$CaseEventListFilterStateSerializer
     _$CaseEventListFilterState
   ];
   @override
-  final String wireName = 'movemedical_model/schedule/CaseEventListFilterState';
+  final String wireName =
+      'movemedical_model/scheduling/case_event/CaseEventListFilterState';
 
   @override
   Iterable serialize(Serializers serializers, CaseEventListFilterState object,

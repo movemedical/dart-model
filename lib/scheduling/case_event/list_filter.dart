@@ -1,7 +1,8 @@
-library state.schedule.list_filter;
-
 import 'package:movemedical_api/state/action/case_event/list_case_events_api.dart';
-import '../foundation.dart';
+
+import '../../foundation.dart';
+
+export 'package:movemedical_api/state/action/case_event/list_case_events_api.dart';
 
 part 'list_filter.g.dart';
 
@@ -45,13 +46,6 @@ abstract class CaseEventListFilterActions extends DialogActions<
 
   @override
   CaseEventListFilterState get $initial => CaseEventListFilterState();
-
-  ////////////////////////////////////
-  /// Config
-  ////////////////////////////////////
-
-//  @override
-//  MobileNavigationElement get $navElement => MobileNavigationElement.SCHEDULE;
 
   ////////////////////////////////////
   /// Middleware

@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of state.schedule.list;
+part of 'list.dart';
 
 // **************************************************************************
 // BuiltValueGenerator
@@ -14,7 +14,8 @@ class _$CaseEventListStateSerializer
   @override
   final Iterable<Type> types = const [CaseEventListState, _$CaseEventListState];
   @override
-  final String wireName = 'movemedical_model/schedule/CaseEventListState';
+  final String wireName =
+      'movemedical_model/scheduling/case_event/CaseEventListState';
 
   @override
   Iterable serialize(Serializers serializers, CaseEventListState object,

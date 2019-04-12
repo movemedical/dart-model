@@ -1,8 +1,7 @@
-import '../foundation.dart';
-
 import 'package:movemedical_api/command.dart';
 
 import '../dashboard/dashboard.dart';
+import '../foundation.dart';
 
 part 'login.g.dart';
 

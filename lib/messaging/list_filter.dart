@@ -1,8 +1,10 @@
 library messages.list_filter;
 
 import 'package:movemedical_api/state/action/messaging/conversations/list_conversations_api.dart';
-export 'package:movemedical_api/state/action/messaging/conversations/list_conversations_api.dart';
+
 import '../foundation.dart';
+
+export 'package:movemedical_api/state/action/messaging/conversations/list_conversations_api.dart';
 
 part 'list_filter.g.dart';
 

@@ -185,6 +185,7 @@ abstract class ScreenActions<
         Route>> extends AppRouteActions<LocalState, LocalStateBuilder, Nothing,
     NothingBuilder, LocalActions, Route> {
   MobileNavigationElement _$navElement;
+
   MobileNavigationElement get $navElement =>
       _$navElement ??= _mobileNavigationElementFor($store, $name);
 
@@ -244,6 +245,7 @@ abstract class DialogActions<
         ResultBuilder, LocalActions, Route>> extends AppRouteActions<LocalState,
     LocalStateBuilder, Result, ResultBuilder, LocalActions, Route> {
   MobileNavigationElement _$navElement;
+
   MobileNavigationElement get $navElement =>
       _$navElement ??= _mobileNavigationElementFor($store, $name);
 }

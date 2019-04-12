@@ -1,8 +1,5 @@
 library messages.update;
 
-import 'package:movemedical_api/command.dart';
-import 'package:movemedical_api/state/action/messaging/conversations/update_conversation_api.dart';
-
 import '../foundation.dart';
 
 part 'update_conversation.g.dart';

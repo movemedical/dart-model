@@ -1,15 +1,14 @@
 library messages.list;
 
 import 'package:movemedical_api/command.dart';
+import 'package:movemedical_api/model/action/messaging/conversations/list_conversations_api_conversation.dart';
 import 'package:movemedical_api/model/action/messaging/conversations/list_conversations_api_request.dart';
 import 'package:movemedical_api/model/action/messaging/conversations/list_conversations_api_response.dart';
-import 'package:movemedical_api/model/action/messaging/conversations/list_conversations_api_conversation.dart';
 import 'package:movemedical_api/state/action/messaging/conversations/list_conversations_api.dart';
 
 import '../foundation.dart';
-
-import 'list_filter.dart';
 import 'detail.dart';
+import 'list_filter.dart';
 import 'update_conversation.dart';
 
 part 'list.g.dart';

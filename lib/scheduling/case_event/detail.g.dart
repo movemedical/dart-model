@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of schedule.detail;
+part of 'detail.dart';
 
 // **************************************************************************
 // BuiltValueGenerator
@@ -17,7 +17,8 @@ class _$CaseEventDetailStateSerializer
     _$CaseEventDetailState
   ];
   @override
-  final String wireName = 'movemedical_model/schedule/CaseEventDetailState';
+  final String wireName =
+      'movemedical_model/scheduling/case_event/CaseEventDetailState';
 
   @override
   Iterable serialize(Serializers serializers, CaseEventDetailState object,

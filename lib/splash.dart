@@ -1,6 +1,6 @@
-import 'foundation.dart';
 import 'auth/login.dart';
 import 'dashboard/dashboard.dart';
+import 'foundation.dart';
 
 part 'splash.g.dart';
 

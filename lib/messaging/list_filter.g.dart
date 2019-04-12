@@ -19,7 +19,7 @@ class _$ConversationListFilterStateSerializer
   ];
   @override
   final String wireName =
-      'movemedical_model/messages/ConversationListFilterState';
+      'movemedical_model/messaging/ConversationListFilterState';
 
   @override
   Iterable serialize(

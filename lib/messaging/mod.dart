@@ -1,11 +1,10 @@
 import '../foundation.dart';
-
+import 'create_conversation.dart';
+import 'create_message.dart';
+import 'detail.dart';
 import 'list.dart';
 import 'list_filter.dart';
-import 'detail.dart';
 import 'update_conversation.dart';
-import 'create_message.dart';
-import 'create_conversation.dart';
 
 part 'mod.g.dart';
 

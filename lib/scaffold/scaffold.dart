@@ -1,14 +1,12 @@
-import '../foundation.dart';
-
-import '../auth/login.dart';
-
-//import 'package:movemedical_api/model/sql/enums/mobile_dashboard_widget_type.dart';
 import 'package:movemedical_api/model/sql/enums/mobile_navigation_element.dart';
 
-import 'drawer.dart';
+import '../auth/login.dart';
+import '../foundation.dart';
 import 'bottom_bar.dart';
+import 'drawer.dart';
 
 part 'scaffold.g.dart';
+//import 'package:movemedical_api/model/sql/enums/mobile_dashboard_widget_type.dart';
 
 ////////////////////////////////
 /// Actions

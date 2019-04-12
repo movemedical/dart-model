@@ -17,7 +17,7 @@ class _$MessagingModuleStateSerializer
     _$MessagingModuleState
   ];
   @override
-  final String wireName = 'movemedical_model/messages/MessagingModuleState';
+  final String wireName = 'movemedical_model/messaging/MessagingModuleState';
 
   @override
   Iterable serialize(Serializers serializers, MessagingModuleState object,

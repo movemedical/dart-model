@@ -1,5 +1,4 @@
 import '../foundation.dart';
-
 import 'dashboard.dart';
 
 part 'mod.g.dart';

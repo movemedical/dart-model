@@ -1,8 +1,9 @@
 import 'package:movemedical_api/command.dart';
 import 'package:movemedical_api/state/action/messaging/messages/create_message_api.dart';
-export 'package:movemedical_api/state/action/messaging/messages/create_message_api.dart';
 
 import '../foundation.dart';
+
+export 'package:movemedical_api/state/action/messaging/messages/create_message_api.dart';
 
 part 'create_message.g.dart';
 

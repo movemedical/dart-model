@@ -1,8 +1,7 @@
-import 'foundation.dart';
-import 'app.dart';
-
 import 'package:movemedical_api/command.dart';
 
+import 'app.dart';
+import 'foundation.dart';
 import 's.ser.dart';
 
 Store<AppState, AppStateBuilder, AppActions> createStore(
