@@ -250,11 +250,11 @@ abstract class DialogActions<
 
 MobileNavigationElement _mobileNavigationElementFor(
     Store<AppState, AppStateBuilder, AppActions> store, String name) {
-  if (name.startsWith(store.actions.nav.messages.$name)) {
+  if (name.startsWith(store.actions.nav.messaging.$name)) {
     return MobileNavigationElement.MESSAGES;
   } else if (name.startsWith(store.actions.nav.dashboard.$name)) {
     return MobileNavigationElement.DASHBOARD;
-  } else if (name.startsWith(store.actions.nav.schedule.$name)) {
+  } else if (name.startsWith(store.actions.nav.scheduling.$name)) {
     return MobileNavigationElement.SCHEDULE;
   }
 

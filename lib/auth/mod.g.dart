@@ -6,16 +6,18 @@ part of 'mod.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<AuthState> _$authStateSerializer = new _$AuthStateSerializer();
+Serializer<AuthModuleState> _$authModuleStateSerializer =
+    new _$AuthModuleStateSerializer();
 
-class _$AuthStateSerializer implements StructuredSerializer<AuthState> {
+class _$AuthModuleStateSerializer
+    implements StructuredSerializer<AuthModuleState> {
   @override
-  final Iterable<Type> types = const [AuthState, _$AuthState];
+  final Iterable<Type> types = const [AuthModuleState, _$AuthModuleState];
   @override
-  final String wireName = 'movemedical_model/auth/AuthState';
+  final String wireName = 'movemedical_model/auth/AuthModuleState';
 
   @override
-  Iterable serialize(Serializers serializers, AuthState object,
+  Iterable serialize(Serializers serializers, AuthModuleState object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[
       'login',
@@ -36,9 +38,9 @@ class _$AuthStateSerializer implements StructuredSerializer<AuthState> {
   }
 
   @override
-  AuthState deserialize(Serializers serializers, Iterable serialized,
+  AuthModuleState deserialize(Serializers serializers, Iterable serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new AuthStateBuilder();
+    final result = new AuthModuleStateBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -66,32 +68,33 @@ class _$AuthStateSerializer implements StructuredSerializer<AuthState> {
   }
 }
 
-class _$AuthState extends AuthState {
+class _$AuthModuleState extends AuthModuleState {
   @override
   final LoginState login;
   @override
   final CommandState<RouteCommand<LoginState>, RouteResult<Nothing>> loginRoute;
 
-  factory _$AuthState([void updates(AuthStateBuilder b)]) =>
-      (new AuthStateBuilder()..update(updates)).build();
+  factory _$AuthModuleState([void updates(AuthModuleStateBuilder b)]) =>
+      (new AuthModuleStateBuilder()..update(updates)).build();
 
-  _$AuthState._({this.login, this.loginRoute}) : super._() {
+  _$AuthModuleState._({this.login, this.loginRoute}) : super._() {
     if (login == null) {
-      throw new BuiltValueNullFieldError('AuthState', 'login');
+      throw new BuiltValueNullFieldError('AuthModuleState', 'login');
     }
   }
 
   @override
-  AuthState rebuild(void updates(AuthStateBuilder b)) =>
+  AuthModuleState rebuild(void updates(AuthModuleStateBuilder b)) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  AuthStateBuilder toBuilder() => new AuthStateBuilder()..replace(this);
+  AuthModuleStateBuilder toBuilder() =>
+      new AuthModuleStateBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is AuthState &&
+    return other is AuthModuleState &&
         login == other.login &&
         loginRoute == other.loginRoute;
   }
@@ -103,15 +106,16 @@ class _$AuthState extends AuthState {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('AuthState')
+    return (newBuiltValueToStringHelper('AuthModuleState')
           ..add('login', login)
           ..add('loginRoute', loginRoute))
         .toString();
   }
 }
 
-class AuthStateBuilder implements Builder<AuthState, AuthStateBuilder> {
-  _$AuthState _$v;
+class AuthModuleStateBuilder
+    implements Builder<AuthModuleState, AuthModuleStateBuilder> {
+  _$AuthModuleState _$v;
 
   LoginStateBuilder _login;
   LoginStateBuilder get login => _$this._login ??= new LoginStateBuilder();
@@ -128,9 +132,9 @@ class AuthStateBuilder implements Builder<AuthState, AuthStateBuilder> {
               loginRoute) =>
       _$this._loginRoute = loginRoute;
 
-  AuthStateBuilder();
+  AuthModuleStateBuilder();
 
-  AuthStateBuilder get _$this {
+  AuthModuleStateBuilder get _$this {
     if (_$v != null) {
       _login = _$v.login?.toBuilder();
       _loginRoute = _$v.loginRoute?.toBuilder();
@@ -140,24 +144,24 @@ class AuthStateBuilder implements Builder<AuthState, AuthStateBuilder> {
   }
 
   @override
-  void replace(AuthState other) {
+  void replace(AuthModuleState other) {
     if (other == null) {
       throw new ArgumentError.notNull('other');
     }
-    _$v = other as _$AuthState;
+    _$v = other as _$AuthModuleState;
   }
 
   @override
-  void update(void updates(AuthStateBuilder b)) {
+  void update(void updates(AuthModuleStateBuilder b)) {
     if (updates != null) updates(this);
   }
 
   @override
-  _$AuthState build() {
-    _$AuthState _$result;
+  _$AuthModuleState build() {
+    _$AuthModuleState _$result;
     try {
       _$result = _$v ??
-          new _$AuthState._(
+          new _$AuthModuleState._(
               login: login.build(), loginRoute: _loginRoute?.build());
     } catch (_) {
       String _$failedField;
@@ -168,7 +172,7 @@ class AuthStateBuilder implements Builder<AuthState, AuthStateBuilder> {
         _loginRoute?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            'AuthState', _$failedField, e.toString());
+            'AuthModuleState', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -186,19 +190,20 @@ class AuthStateBuilder implements Builder<AuthState, AuthStateBuilder> {
 // ignore_for_file: avoid_classes_with_only_static_members
 // ignore_for_file: annotate_overrides
 
-typedef StatefulActionsOptions<AuthState, AuthStateBuilder,
-    AuthActions> AuthActionsOptions();
+typedef StatefulActionsOptions<AuthModuleState, AuthModuleStateBuilder,
+    AuthModuleActions> AuthModuleActionsOptions();
 
-class _$AuthActions extends AuthActions {
-  final StatefulActionsOptions<AuthState, AuthStateBuilder, AuthActions>
-      $options;
+class _$AuthModuleActions extends AuthModuleActions {
+  final StatefulActionsOptions<AuthModuleState, AuthModuleStateBuilder,
+      AuthModuleActions> $options;
 
-  final ActionDispatcher<AuthState> $replace;
+  final ActionDispatcher<AuthModuleState> $replace;
   final LoginActions login;
   final LoginRoute loginRoute;
 
-  _$AuthActions._(this.$options)
-      : $replace = $options.action<AuthState>('\$replace', (a) => a?.$replace),
+  _$AuthModuleActions._(this.$options)
+      : $replace =
+            $options.action<AuthModuleState>('\$replace', (a) => a?.$replace),
         login = LoginActions(() =>
             $options.stateful<LoginState, LoginStateBuilder, LoginActions>(
                 'login',
@@ -221,11 +226,11 @@ class _$AuthActions extends AuthActions {
                     (parent, builder) => parent?.loginRoute = builder)),
         super._();
 
-  factory _$AuthActions(AuthActionsOptions options) =>
-      _$AuthActions._(options());
+  factory _$AuthModuleActions(AuthModuleActionsOptions options) =>
+      _$AuthModuleActions._(options());
 
   @override
-  AuthStateBuilder $newBuilder() => AuthStateBuilder();
+  AuthModuleStateBuilder $newBuilder() => AuthModuleStateBuilder();
 
   BuiltList<ModuxActions> _$nested;
   @override
@@ -257,5 +262,5 @@ class _$AuthActions extends AuthActions {
 
   FullType _$fullType;
   @override
-  FullType get $fullType => _$fullType ??= FullType(AuthState);
+  FullType get $fullType => _$fullType ??= FullType(AuthModuleState);
 }

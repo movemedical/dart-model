@@ -4,29 +4,33 @@ import 'login.dart';
 
 part 'mod.g.dart';
 
-abstract class AuthActions
-    extends StateActions<AuthState, AuthStateBuilder, AuthActions> {
+abstract class AuthModuleActions extends StateActions<AuthModuleState,
+    AuthModuleStateBuilder, AuthModuleActions> {
   LoginActions get login;
 
   LoginRoute get loginRoute;
 
-  AuthState get $initial =>
-      AuthState((b) => b..login = login.$initial.toBuilder());
+  AuthModuleState get $initial =>
+      AuthModuleState((b) => b..login = login.$initial.toBuilder());
 
-  AuthActions._();
+  AuthModuleActions._();
 
-  factory AuthActions(AuthActionsOptions options) = _$AuthActions;
+  factory AuthModuleActions(AuthModuleActionsOptions options) =
+      _$AuthModuleActions;
 }
 
-abstract class AuthState implements Built<AuthState, AuthStateBuilder> {
+abstract class AuthModuleState
+    implements Built<AuthModuleState, AuthModuleStateBuilder> {
   LoginState get login;
 
   @nullable
   CommandState<RouteCommand<LoginState>, RouteResult<Nothing>> get loginRoute;
 
-  AuthState._();
+  AuthModuleState._();
 
-  factory AuthState([updates(AuthStateBuilder b)]) = _$AuthState;
+  factory AuthModuleState([updates(AuthModuleStateBuilder b)]) =
+      _$AuthModuleState;
 
-  static Serializer<AuthState> get serializer => _$authStateSerializer;
+  static Serializer<AuthModuleState> get serializer =>
+      _$authModuleStateSerializer;
 }

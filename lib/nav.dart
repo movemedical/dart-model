@@ -10,7 +10,7 @@ import 'schedule/mod.dart';
 import 'messages/mod.dart';
 import 'directory/mod.dart';
 import 'splash.dart';
-import 'dashboard/dashboard.dart';
+import 'dashboard/mod.dart';
 
 part 'nav.g.dart';
 
@@ -33,15 +33,15 @@ abstract class NavActions
 
   ScaffoldActions get scaffold;
 
-  DashboardActions get dashboard;
+  DashboardModuleActions get dashboard;
 
-  AuthActions get auth;
+  AuthModuleActions get auth;
 
-  ScheduleActions get schedule;
+  SchedulingModuleActions get scheduling;
 
-  MessagesActions get messages;
+  MessagingModuleActions get messaging;
 
-  DirectoryActions get dir;
+  DirectoryModuleActions get directory;
 
   NavActions._();
 
@@ -70,19 +70,19 @@ abstract class NavState
   ScaffoldState get scaffold;
 
   @nullable
-  DashboardState get dashboard;
+  DashboardModuleState get dashboard;
 
   @nullable
-  AuthState get auth;
+  AuthModuleState get auth;
 
   @nullable
-  ScheduleState get schedule;
+  SchedulingModuleState get scheduling;
 
   @nullable
-  MessagesState get messages;
+  MessagingModuleState get messaging;
 
   @nullable
-  DirectoryState get dir;
+  DirectoryModuleState get directory;
 
   NavState._();
 

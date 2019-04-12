@@ -6,82 +6,86 @@ part of 'mod.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<DirectoryState> _$directoryStateSerializer =
-    new _$DirectoryStateSerializer();
+Serializer<DirectoryModuleState> _$directoryModuleStateSerializer =
+    new _$DirectoryModuleStateSerializer();
 
-class _$DirectoryStateSerializer
-    implements StructuredSerializer<DirectoryState> {
+class _$DirectoryModuleStateSerializer
+    implements StructuredSerializer<DirectoryModuleState> {
   @override
-  final Iterable<Type> types = const [DirectoryState, _$DirectoryState];
+  final Iterable<Type> types = const [
+    DirectoryModuleState,
+    _$DirectoryModuleState
+  ];
   @override
-  final String wireName = 'movemedical_model/directory/DirectoryState';
+  final String wireName = 'movemedical_model/directory/DirectoryModuleState';
 
   @override
-  Iterable serialize(Serializers serializers, DirectoryState object,
+  Iterable serialize(Serializers serializers, DirectoryModuleState object,
       {FullType specifiedType = FullType.unspecified}) {
     return <Object>[];
   }
 
   @override
-  DirectoryState deserialize(Serializers serializers, Iterable serialized,
+  DirectoryModuleState deserialize(Serializers serializers, Iterable serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    return new DirectoryStateBuilder().build();
+    return new DirectoryModuleStateBuilder().build();
   }
 }
 
-class _$DirectoryState extends DirectoryState {
-  factory _$DirectoryState([void updates(DirectoryStateBuilder b)]) =>
-      (new DirectoryStateBuilder()..update(updates)).build();
+class _$DirectoryModuleState extends DirectoryModuleState {
+  factory _$DirectoryModuleState(
+          [void updates(DirectoryModuleStateBuilder b)]) =>
+      (new DirectoryModuleStateBuilder()..update(updates)).build();
 
-  _$DirectoryState._() : super._();
+  _$DirectoryModuleState._() : super._();
 
   @override
-  DirectoryState rebuild(void updates(DirectoryStateBuilder b)) =>
+  DirectoryModuleState rebuild(void updates(DirectoryModuleStateBuilder b)) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  DirectoryStateBuilder toBuilder() =>
-      new DirectoryStateBuilder()..replace(this);
+  DirectoryModuleStateBuilder toBuilder() =>
+      new DirectoryModuleStateBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is DirectoryState;
+    return other is DirectoryModuleState;
   }
 
   @override
   int get hashCode {
-    return 40078809;
+    return 824778324;
   }
 
   @override
   String toString() {
-    return newBuiltValueToStringHelper('DirectoryState').toString();
+    return newBuiltValueToStringHelper('DirectoryModuleState').toString();
   }
 }
 
-class DirectoryStateBuilder
-    implements Builder<DirectoryState, DirectoryStateBuilder> {
-  _$DirectoryState _$v;
+class DirectoryModuleStateBuilder
+    implements Builder<DirectoryModuleState, DirectoryModuleStateBuilder> {
+  _$DirectoryModuleState _$v;
 
-  DirectoryStateBuilder();
+  DirectoryModuleStateBuilder();
 
   @override
-  void replace(DirectoryState other) {
+  void replace(DirectoryModuleState other) {
     if (other == null) {
       throw new ArgumentError.notNull('other');
     }
-    _$v = other as _$DirectoryState;
+    _$v = other as _$DirectoryModuleState;
   }
 
   @override
-  void update(void updates(DirectoryStateBuilder b)) {
+  void update(void updates(DirectoryModuleStateBuilder b)) {
     if (updates != null) updates(this);
   }
 
   @override
-  _$DirectoryState build() {
-    final _$result = _$v ?? new _$DirectoryState._();
+  _$DirectoryModuleState build() {
+    final _$result = _$v ?? new _$DirectoryModuleState._();
     replace(_$result);
     return _$result;
   }
@@ -96,28 +100,30 @@ class DirectoryStateBuilder
 // ignore_for_file: avoid_classes_with_only_static_members
 // ignore_for_file: annotate_overrides
 
-typedef StatefulActionsOptions<DirectoryState, DirectoryStateBuilder,
-    DirectoryActions> DirectoryActionsOptions();
+typedef StatefulActionsOptions<
+    DirectoryModuleState,
+    DirectoryModuleStateBuilder,
+    DirectoryModuleActions> DirectoryModuleActionsOptions();
 
-class _$DirectoryActions extends DirectoryActions {
-  final StatefulActionsOptions<DirectoryState, DirectoryStateBuilder,
-      DirectoryActions> $options;
+class _$DirectoryModuleActions extends DirectoryModuleActions {
+  final StatefulActionsOptions<DirectoryModuleState,
+      DirectoryModuleStateBuilder, DirectoryModuleActions> $options;
 
-  final ActionDispatcher<DirectoryState> $replace;
+  final ActionDispatcher<DirectoryModuleState> $replace;
 
-  _$DirectoryActions._(this.$options)
-      : $replace =
-            $options.action<DirectoryState>('\$replace', (a) => a?.$replace),
+  _$DirectoryModuleActions._(this.$options)
+      : $replace = $options.action<DirectoryModuleState>(
+            '\$replace', (a) => a?.$replace),
         super._();
 
-  factory _$DirectoryActions(DirectoryActionsOptions options) =>
-      _$DirectoryActions._(options());
+  factory _$DirectoryModuleActions(DirectoryModuleActionsOptions options) =>
+      _$DirectoryModuleActions._(options());
 
   @override
-  DirectoryState get $initial => DirectoryState();
+  DirectoryModuleState get $initial => DirectoryModuleState();
 
   @override
-  DirectoryStateBuilder $newBuilder() => DirectoryStateBuilder();
+  DirectoryModuleStateBuilder $newBuilder() => DirectoryModuleStateBuilder();
 
   BuiltList<ActionDispatcher> _$actions;
   @override
@@ -128,5 +134,5 @@ class _$DirectoryActions extends DirectoryActions {
 
   FullType _$fullType;
   @override
-  FullType get $fullType => _$fullType ??= FullType(DirectoryState);
+  FullType get $fullType => _$fullType ??= FullType(DirectoryModuleState);
 }

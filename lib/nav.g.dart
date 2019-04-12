@@ -50,31 +50,31 @@ class _$NavStateSerializer implements StructuredSerializer<NavState> {
       result
         ..add('dashboard')
         ..add(serializers.serialize(object.dashboard,
-            specifiedType: const FullType(DashboardState)));
+            specifiedType: const FullType(DashboardModuleState)));
     }
     if (object.auth != null) {
       result
         ..add('auth')
         ..add(serializers.serialize(object.auth,
-            specifiedType: const FullType(AuthState)));
+            specifiedType: const FullType(AuthModuleState)));
     }
-    if (object.schedule != null) {
+    if (object.scheduling != null) {
       result
-        ..add('schedule')
-        ..add(serializers.serialize(object.schedule,
-            specifiedType: const FullType(ScheduleState)));
+        ..add('scheduling')
+        ..add(serializers.serialize(object.scheduling,
+            specifiedType: const FullType(SchedulingModuleState)));
     }
-    if (object.messages != null) {
+    if (object.messaging != null) {
       result
-        ..add('messages')
-        ..add(serializers.serialize(object.messages,
-            specifiedType: const FullType(MessagesState)));
+        ..add('messaging')
+        ..add(serializers.serialize(object.messaging,
+            specifiedType: const FullType(MessagingModuleState)));
     }
-    if (object.dir != null) {
+    if (object.directory != null) {
       result
-        ..add('dir')
-        ..add(serializers.serialize(object.dir,
-            specifiedType: const FullType(DirectoryState)));
+        ..add('directory')
+        ..add(serializers.serialize(object.directory,
+            specifiedType: const FullType(DirectoryModuleState)));
     }
 
     return result;
@@ -116,23 +116,28 @@ class _$NavStateSerializer implements StructuredSerializer<NavState> {
           break;
         case 'dashboard':
           result.dashboard.replace(serializers.deserialize(value,
-              specifiedType: const FullType(DashboardState)) as DashboardState);
+                  specifiedType: const FullType(DashboardModuleState))
+              as DashboardModuleState);
           break;
         case 'auth':
           result.auth.replace(serializers.deserialize(value,
-              specifiedType: const FullType(AuthState)) as AuthState);
+                  specifiedType: const FullType(AuthModuleState))
+              as AuthModuleState);
           break;
-        case 'schedule':
-          result.schedule.replace(serializers.deserialize(value,
-              specifiedType: const FullType(ScheduleState)) as ScheduleState);
+        case 'scheduling':
+          result.scheduling.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(SchedulingModuleState))
+              as SchedulingModuleState);
           break;
-        case 'messages':
-          result.messages.replace(serializers.deserialize(value,
-              specifiedType: const FullType(MessagesState)) as MessagesState);
+        case 'messaging':
+          result.messaging.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(MessagingModuleState))
+              as MessagingModuleState);
           break;
-        case 'dir':
-          result.dir.replace(serializers.deserialize(value,
-              specifiedType: const FullType(DirectoryState)) as DirectoryState);
+        case 'directory':
+          result.directory.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(DirectoryModuleState))
+              as DirectoryModuleState);
           break;
       }
     }
@@ -152,15 +157,15 @@ class _$NavState extends NavState {
   @override
   final ScaffoldState scaffold;
   @override
-  final DashboardState dashboard;
+  final DashboardModuleState dashboard;
   @override
-  final AuthState auth;
+  final AuthModuleState auth;
   @override
-  final ScheduleState schedule;
+  final SchedulingModuleState scheduling;
   @override
-  final MessagesState messages;
+  final MessagingModuleState messaging;
   @override
-  final DirectoryState dir;
+  final DirectoryModuleState directory;
 
   factory _$NavState([void updates(NavStateBuilder b)]) =>
       (new NavStateBuilder()..update(updates)).build();
@@ -172,9 +177,9 @@ class _$NavState extends NavState {
       this.scaffold,
       this.dashboard,
       this.auth,
-      this.schedule,
-      this.messages,
-      this.dir})
+      this.scheduling,
+      this.messaging,
+      this.directory})
       : super._();
 
   @override
@@ -194,9 +199,9 @@ class _$NavState extends NavState {
         scaffold == other.scaffold &&
         dashboard == other.dashboard &&
         auth == other.auth &&
-        schedule == other.schedule &&
-        messages == other.messages &&
-        dir == other.dir;
+        scheduling == other.scheduling &&
+        messaging == other.messaging &&
+        directory == other.directory;
   }
 
   @override
@@ -212,9 +217,9 @@ class _$NavState extends NavState {
                             scaffold.hashCode),
                         dashboard.hashCode),
                     auth.hashCode),
-                schedule.hashCode),
-            messages.hashCode),
-        dir.hashCode));
+                scheduling.hashCode),
+            messaging.hashCode),
+        directory.hashCode));
   }
 
   @override
@@ -226,9 +231,9 @@ class _$NavState extends NavState {
           ..add('scaffold', scaffold)
           ..add('dashboard', dashboard)
           ..add('auth', auth)
-          ..add('schedule', schedule)
-          ..add('messages', messages)
-          ..add('dir', dir))
+          ..add('scheduling', scheduling)
+          ..add('messaging', messaging)
+          ..add('directory', directory))
         .toString();
   }
 }
@@ -259,29 +264,34 @@ class NavStateBuilder implements Builder<NavState, NavStateBuilder> {
       _$this._scaffold ??= new ScaffoldStateBuilder();
   set scaffold(ScaffoldStateBuilder scaffold) => _$this._scaffold = scaffold;
 
-  DashboardStateBuilder _dashboard;
-  DashboardStateBuilder get dashboard =>
-      _$this._dashboard ??= new DashboardStateBuilder();
-  set dashboard(DashboardStateBuilder dashboard) =>
+  DashboardModuleStateBuilder _dashboard;
+  DashboardModuleStateBuilder get dashboard =>
+      _$this._dashboard ??= new DashboardModuleStateBuilder();
+  set dashboard(DashboardModuleStateBuilder dashboard) =>
       _$this._dashboard = dashboard;
 
-  AuthStateBuilder _auth;
-  AuthStateBuilder get auth => _$this._auth ??= new AuthStateBuilder();
-  set auth(AuthStateBuilder auth) => _$this._auth = auth;
+  AuthModuleStateBuilder _auth;
+  AuthModuleStateBuilder get auth =>
+      _$this._auth ??= new AuthModuleStateBuilder();
+  set auth(AuthModuleStateBuilder auth) => _$this._auth = auth;
 
-  ScheduleStateBuilder _schedule;
-  ScheduleStateBuilder get schedule =>
-      _$this._schedule ??= new ScheduleStateBuilder();
-  set schedule(ScheduleStateBuilder schedule) => _$this._schedule = schedule;
+  SchedulingModuleStateBuilder _scheduling;
+  SchedulingModuleStateBuilder get scheduling =>
+      _$this._scheduling ??= new SchedulingModuleStateBuilder();
+  set scheduling(SchedulingModuleStateBuilder scheduling) =>
+      _$this._scheduling = scheduling;
 
-  MessagesStateBuilder _messages;
-  MessagesStateBuilder get messages =>
-      _$this._messages ??= new MessagesStateBuilder();
-  set messages(MessagesStateBuilder messages) => _$this._messages = messages;
+  MessagingModuleStateBuilder _messaging;
+  MessagingModuleStateBuilder get messaging =>
+      _$this._messaging ??= new MessagingModuleStateBuilder();
+  set messaging(MessagingModuleStateBuilder messaging) =>
+      _$this._messaging = messaging;
 
-  DirectoryStateBuilder _dir;
-  DirectoryStateBuilder get dir => _$this._dir ??= new DirectoryStateBuilder();
-  set dir(DirectoryStateBuilder dir) => _$this._dir = dir;
+  DirectoryModuleStateBuilder _directory;
+  DirectoryModuleStateBuilder get directory =>
+      _$this._directory ??= new DirectoryModuleStateBuilder();
+  set directory(DirectoryModuleStateBuilder directory) =>
+      _$this._directory = directory;
 
   NavStateBuilder();
 
@@ -293,9 +303,9 @@ class NavStateBuilder implements Builder<NavState, NavStateBuilder> {
       _scaffold = _$v.scaffold?.toBuilder();
       _dashboard = _$v.dashboard?.toBuilder();
       _auth = _$v.auth?.toBuilder();
-      _schedule = _$v.schedule?.toBuilder();
-      _messages = _$v.messages?.toBuilder();
-      _dir = _$v.dir?.toBuilder();
+      _scheduling = _$v.scheduling?.toBuilder();
+      _messaging = _$v.messaging?.toBuilder();
+      _directory = _$v.directory?.toBuilder();
       _$v = null;
     }
     return this;
@@ -326,9 +336,9 @@ class NavStateBuilder implements Builder<NavState, NavStateBuilder> {
               scaffold: _scaffold?.build(),
               dashboard: _dashboard?.build(),
               auth: _auth?.build(),
-              schedule: _schedule?.build(),
-              messages: _messages?.build(),
-              dir: _dir?.build());
+              scheduling: _scheduling?.build(),
+              messaging: _messaging?.build(),
+              directory: _directory?.build());
     } catch (_) {
       String _$failedField;
       try {
@@ -344,12 +354,12 @@ class NavStateBuilder implements Builder<NavState, NavStateBuilder> {
         _dashboard?.build();
         _$failedField = 'auth';
         _auth?.build();
-        _$failedField = 'schedule';
-        _schedule?.build();
-        _$failedField = 'messages';
-        _messages?.build();
-        _$failedField = 'dir';
-        _dir?.build();
+        _$failedField = 'scheduling';
+        _scheduling?.build();
+        _$failedField = 'messaging';
+        _messaging?.build();
+        _$failedField = 'directory';
+        _directory?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             'NavState', _$failedField, e.toString());
@@ -381,11 +391,11 @@ class _$NavActions extends NavActions {
   final SplashActions splash;
   final SplashRoute splashRoute;
   final ScaffoldActions scaffold;
-  final DashboardActions dashboard;
-  final AuthActions auth;
-  final ScheduleActions schedule;
-  final MessagesActions messages;
-  final DirectoryActions dir;
+  final DashboardModuleActions dashboard;
+  final AuthModuleActions auth;
+  final SchedulingModuleActions scheduling;
+  final MessagingModuleActions messaging;
+  final DirectoryModuleActions directory;
 
   _$NavActions._(this.$options)
       : $replace = $options.action<NavState>('\$replace', (a) => a?.$replace),
@@ -415,41 +425,49 @@ class _$NavActions extends NavActions {
                 (s) => s?.scaffold,
                 (b) => b?.scaffold,
                 (parent, builder) => parent?.scaffold = builder)),
-        dashboard = DashboardActions(() => $options
-            .stateful<DashboardState, DashboardStateBuilder, DashboardActions>(
-                'dashboard',
-                (a) => a.dashboard,
-                (s) => s?.dashboard,
-                (b) => b?.dashboard,
-                (parent, builder) => parent?.dashboard = builder)),
-        auth = AuthActions(() =>
-            $options.stateful<AuthState, AuthStateBuilder, AuthActions>(
-                'auth',
-                (a) => a.auth,
-                (s) => s?.auth,
-                (b) => b?.auth,
-                (parent, builder) => parent?.auth = builder)),
-        schedule = ScheduleActions(() => $options
-            .stateful<ScheduleState, ScheduleStateBuilder, ScheduleActions>(
-                'schedule',
-                (a) => a.schedule,
-                (s) => s?.schedule,
-                (b) => b?.schedule,
-                (parent, builder) => parent?.schedule = builder)),
-        messages = MessagesActions(() => $options
-            .stateful<MessagesState, MessagesStateBuilder, MessagesActions>(
-                'messages',
-                (a) => a.messages,
-                (s) => s?.messages,
-                (b) => b?.messages,
-                (parent, builder) => parent?.messages = builder)),
-        dir = DirectoryActions(() => $options
-            .stateful<DirectoryState, DirectoryStateBuilder, DirectoryActions>(
-                'dir',
-                (a) => a.dir,
-                (s) => s?.dir,
-                (b) => b?.dir,
-                (parent, builder) => parent?.dir = builder)),
+        dashboard = DashboardModuleActions(() => $options.stateful<
+                DashboardModuleState,
+                DashboardModuleStateBuilder,
+                DashboardModuleActions>(
+            'dashboard',
+            (a) => a.dashboard,
+            (s) => s?.dashboard,
+            (b) => b?.dashboard,
+            (parent, builder) => parent?.dashboard = builder)),
+        auth = AuthModuleActions(() => $options.stateful<AuthModuleState,
+                AuthModuleStateBuilder, AuthModuleActions>(
+            'auth',
+            (a) => a.auth,
+            (s) => s?.auth,
+            (b) => b?.auth,
+            (parent, builder) => parent?.auth = builder)),
+        scheduling = SchedulingModuleActions(() => $options.stateful<
+                SchedulingModuleState,
+                SchedulingModuleStateBuilder,
+                SchedulingModuleActions>(
+            'scheduling',
+            (a) => a.scheduling,
+            (s) => s?.scheduling,
+            (b) => b?.scheduling,
+            (parent, builder) => parent?.scheduling = builder)),
+        messaging = MessagingModuleActions(() => $options.stateful<
+                MessagingModuleState,
+                MessagingModuleStateBuilder,
+                MessagingModuleActions>(
+            'messaging',
+            (a) => a.messaging,
+            (s) => s?.messaging,
+            (b) => b?.messaging,
+            (parent, builder) => parent?.messaging = builder)),
+        directory = DirectoryModuleActions(() => $options.stateful<
+                DirectoryModuleState,
+                DirectoryModuleStateBuilder,
+                DirectoryModuleActions>(
+            'directory',
+            (a) => a.directory,
+            (s) => s?.directory,
+            (b) => b?.directory,
+            (parent, builder) => parent?.directory = builder)),
         super._();
 
   factory _$NavActions(NavActionsOptions options) => _$NavActions._(options());
@@ -465,9 +483,9 @@ class _$NavActions extends NavActions {
         this.scaffold,
         this.dashboard,
         this.auth,
-        this.schedule,
-        this.messages,
-        this.dir,
+        this.scheduling,
+        this.messaging,
+        this.directory,
       ]);
 
   BuiltList<ActionDispatcher> _$actions;
@@ -487,9 +505,9 @@ class _$NavActions extends NavActions {
     scaffold.$reducer(reducer);
     dashboard.$reducer(reducer);
     auth.$reducer(reducer);
-    schedule.$reducer(reducer);
-    messages.$reducer(reducer);
-    dir.$reducer(reducer);
+    scheduling.$reducer(reducer);
+    messaging.$reducer(reducer);
+    directory.$reducer(reducer);
   }
 
   @override
@@ -500,9 +518,9 @@ class _$NavActions extends NavActions {
     scaffold.$middleware(middleware);
     dashboard.$middleware(middleware);
     auth.$middleware(middleware);
-    schedule.$middleware(middleware);
-    messages.$middleware(middleware);
-    dir.$middleware(middleware);
+    scheduling.$middleware(middleware);
+    messaging.$middleware(middleware);
+    directory.$middleware(middleware);
   }
 
   FullType _$fullType;

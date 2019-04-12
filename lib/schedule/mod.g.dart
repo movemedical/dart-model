@@ -6,17 +6,21 @@ part of 'mod.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<ScheduleState> _$scheduleStateSerializer =
-    new _$ScheduleStateSerializer();
+Serializer<SchedulingModuleState> _$schedulingModuleStateSerializer =
+    new _$SchedulingModuleStateSerializer();
 
-class _$ScheduleStateSerializer implements StructuredSerializer<ScheduleState> {
+class _$SchedulingModuleStateSerializer
+    implements StructuredSerializer<SchedulingModuleState> {
   @override
-  final Iterable<Type> types = const [ScheduleState, _$ScheduleState];
+  final Iterable<Type> types = const [
+    SchedulingModuleState,
+    _$SchedulingModuleState
+  ];
   @override
-  final String wireName = 'movemedical_model/schedule/ScheduleState';
+  final String wireName = 'movemedical_model/schedule/SchedulingModuleState';
 
   @override
-  Iterable serialize(Serializers serializers, ScheduleState object,
+  Iterable serialize(Serializers serializers, SchedulingModuleState object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[];
     if (object.list != null) {
@@ -42,9 +46,10 @@ class _$ScheduleStateSerializer implements StructuredSerializer<ScheduleState> {
   }
 
   @override
-  ScheduleState deserialize(Serializers serializers, Iterable serialized,
+  SchedulingModuleState deserialize(
+      Serializers serializers, Iterable serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new ScheduleStateBuilder();
+    final result = new SchedulingModuleStateBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -74,7 +79,7 @@ class _$ScheduleStateSerializer implements StructuredSerializer<ScheduleState> {
   }
 }
 
-class _$ScheduleState extends ScheduleState {
+class _$SchedulingModuleState extends SchedulingModuleState {
   @override
   final CaseEventListState list;
   @override
@@ -82,22 +87,25 @@ class _$ScheduleState extends ScheduleState {
   @override
   final CaseEventDetailState detail;
 
-  factory _$ScheduleState([void updates(ScheduleStateBuilder b)]) =>
-      (new ScheduleStateBuilder()..update(updates)).build();
+  factory _$SchedulingModuleState(
+          [void updates(SchedulingModuleStateBuilder b)]) =>
+      (new SchedulingModuleStateBuilder()..update(updates)).build();
 
-  _$ScheduleState._({this.list, this.listFilter, this.detail}) : super._();
+  _$SchedulingModuleState._({this.list, this.listFilter, this.detail})
+      : super._();
 
   @override
-  ScheduleState rebuild(void updates(ScheduleStateBuilder b)) =>
+  SchedulingModuleState rebuild(void updates(SchedulingModuleStateBuilder b)) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  ScheduleStateBuilder toBuilder() => new ScheduleStateBuilder()..replace(this);
+  SchedulingModuleStateBuilder toBuilder() =>
+      new SchedulingModuleStateBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is ScheduleState &&
+    return other is SchedulingModuleState &&
         list == other.list &&
         listFilter == other.listFilter &&
         detail == other.detail;
@@ -111,7 +119,7 @@ class _$ScheduleState extends ScheduleState {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('ScheduleState')
+    return (newBuiltValueToStringHelper('SchedulingModuleState')
           ..add('list', list)
           ..add('listFilter', listFilter)
           ..add('detail', detail))
@@ -119,9 +127,9 @@ class _$ScheduleState extends ScheduleState {
   }
 }
 
-class ScheduleStateBuilder
-    implements Builder<ScheduleState, ScheduleStateBuilder> {
-  _$ScheduleState _$v;
+class SchedulingModuleStateBuilder
+    implements Builder<SchedulingModuleState, SchedulingModuleStateBuilder> {
+  _$SchedulingModuleState _$v;
 
   CaseEventListStateBuilder _list;
   CaseEventListStateBuilder get list =>
@@ -139,9 +147,9 @@ class ScheduleStateBuilder
       _$this._detail ??= new CaseEventDetailStateBuilder();
   set detail(CaseEventDetailStateBuilder detail) => _$this._detail = detail;
 
-  ScheduleStateBuilder();
+  SchedulingModuleStateBuilder();
 
-  ScheduleStateBuilder get _$this {
+  SchedulingModuleStateBuilder get _$this {
     if (_$v != null) {
       _list = _$v.list?.toBuilder();
       _listFilter = _$v.listFilter?.toBuilder();
@@ -152,24 +160,24 @@ class ScheduleStateBuilder
   }
 
   @override
-  void replace(ScheduleState other) {
+  void replace(SchedulingModuleState other) {
     if (other == null) {
       throw new ArgumentError.notNull('other');
     }
-    _$v = other as _$ScheduleState;
+    _$v = other as _$SchedulingModuleState;
   }
 
   @override
-  void update(void updates(ScheduleStateBuilder b)) {
+  void update(void updates(SchedulingModuleStateBuilder b)) {
     if (updates != null) updates(this);
   }
 
   @override
-  _$ScheduleState build() {
-    _$ScheduleState _$result;
+  _$SchedulingModuleState build() {
+    _$SchedulingModuleState _$result;
     try {
       _$result = _$v ??
-          new _$ScheduleState._(
+          new _$SchedulingModuleState._(
               list: _list?.build(),
               listFilter: _listFilter?.build(),
               detail: _detail?.build());
@@ -184,7 +192,7 @@ class ScheduleStateBuilder
         _detail?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            'ScheduleState', _$failedField, e.toString());
+            'SchedulingModuleState', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -202,21 +210,23 @@ class ScheduleStateBuilder
 // ignore_for_file: avoid_classes_with_only_static_members
 // ignore_for_file: annotate_overrides
 
-typedef StatefulActionsOptions<ScheduleState, ScheduleStateBuilder,
-    ScheduleActions> ScheduleActionsOptions();
+typedef StatefulActionsOptions<
+    SchedulingModuleState,
+    SchedulingModuleStateBuilder,
+    SchedulingModuleActions> SchedulingModuleActionsOptions();
 
-class _$ScheduleActions extends ScheduleActions {
-  final StatefulActionsOptions<ScheduleState, ScheduleStateBuilder,
-      ScheduleActions> $options;
+class _$SchedulingModuleActions extends SchedulingModuleActions {
+  final StatefulActionsOptions<SchedulingModuleState,
+      SchedulingModuleStateBuilder, SchedulingModuleActions> $options;
 
-  final ActionDispatcher<ScheduleState> $replace;
+  final ActionDispatcher<SchedulingModuleState> $replace;
   final CaseEventListActions list;
   final CaseEventListFilterActions listFilter;
   final CaseEventDetailActions detail;
 
-  _$ScheduleActions._(this.$options)
-      : $replace =
-            $options.action<ScheduleState>('\$replace', (a) => a?.$replace),
+  _$SchedulingModuleActions._(this.$options)
+      : $replace = $options.action<SchedulingModuleState>(
+            '\$replace', (a) => a?.$replace),
         list = CaseEventListActions(() => $options.stateful<CaseEventListState,
                 CaseEventListStateBuilder, CaseEventListActions>(
             'list',
@@ -244,14 +254,14 @@ class _$ScheduleActions extends ScheduleActions {
             (parent, builder) => parent?.detail = builder)),
         super._();
 
-  factory _$ScheduleActions(ScheduleActionsOptions options) =>
-      _$ScheduleActions._(options());
+  factory _$SchedulingModuleActions(SchedulingModuleActionsOptions options) =>
+      _$SchedulingModuleActions._(options());
 
   @override
-  ScheduleState get $initial => ScheduleState();
+  SchedulingModuleState get $initial => SchedulingModuleState();
 
   @override
-  ScheduleStateBuilder $newBuilder() => ScheduleStateBuilder();
+  SchedulingModuleStateBuilder $newBuilder() => SchedulingModuleStateBuilder();
 
   BuiltList<ModuxActions> _$nested;
   @override
@@ -286,5 +296,5 @@ class _$ScheduleActions extends ScheduleActions {
 
   FullType _$fullType;
   @override
-  FullType get $fullType => _$fullType ??= FullType(ScheduleState);
+  FullType get $fullType => _$fullType ??= FullType(SchedulingModuleState);
 }

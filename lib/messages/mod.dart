@@ -9,8 +9,8 @@ import 'create_conversation.dart';
 
 part 'mod.g.dart';
 
-abstract class MessagesActions
-    extends StateActions<MessagesState, MessagesStateBuilder, MessagesActions> {
+abstract class MessagingModuleActions extends StateActions<MessagingModuleState,
+    MessagingModuleStateBuilder, MessagingModuleActions> {
   ConversationListActions get list;
 
   ConversationListRoute get listRoute;
@@ -35,13 +35,14 @@ abstract class MessagesActions
 
   CreateMessageRoute get createMessageRoute;
 
-  MessagesActions._();
+  MessagingModuleActions._();
 
-  factory MessagesActions(MessagesActionsOptions options) = _$MessagesActions;
+  factory MessagingModuleActions(MessagingModuleActionsOptions options) =
+      _$MessagingModuleActions;
 }
 
-abstract class MessagesState
-    implements Built<MessagesState, MessagesStateBuilder> {
+abstract class MessagingModuleState
+    implements Built<MessagingModuleState, MessagingModuleStateBuilder> {
   @nullable
   ConversationListState get list;
 
@@ -84,9 +85,11 @@ abstract class MessagesState
   CommandState<RouteCommand<CreateMessageState>,
       RouteResult<CreateMessageApiResponse>> get createMessageRoute;
 
-  MessagesState._();
+  MessagingModuleState._();
 
-  factory MessagesState([updates(MessagesStateBuilder b)]) = _$MessagesState;
+  factory MessagingModuleState([updates(MessagingModuleStateBuilder b)]) =
+      _$MessagingModuleState;
 
-  static Serializer<MessagesState> get serializer => _$messagesStateSerializer;
+  static Serializer<MessagingModuleState> get serializer =>
+      _$messagingModuleStateSerializer;
 }

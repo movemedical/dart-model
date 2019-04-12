@@ -11,7 +11,7 @@ import 'package:movemedical_model/store_io.dart';
 
 Store<AppState, AppStateBuilder, AppActions> storeFactory() => createIOStore(
         (a) => (a.$initialBuilder
-              ..nav = (NavStateBuilder()..messages)
+              ..nav = (NavStateBuilder()..messaging)
               ..api = (ApiStateBuilder()
                 ..url = 'https://dev.movemedical.com'
                 ..appVersion = '1.0.0'

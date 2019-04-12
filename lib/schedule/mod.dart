@@ -5,21 +5,24 @@ import 'list_filter.dart';
 
 part 'mod.g.dart';
 
-abstract class ScheduleActions
-    extends StateActions<ScheduleState, ScheduleStateBuilder, ScheduleActions> {
+abstract class SchedulingModuleActions extends StateActions<
+    SchedulingModuleState,
+    SchedulingModuleStateBuilder,
+    SchedulingModuleActions> {
   CaseEventListActions get list;
 
   CaseEventListFilterActions get listFilter;
 
   CaseEventDetailActions get detail;
 
-  ScheduleActions._();
+  SchedulingModuleActions._();
 
-  factory ScheduleActions(ScheduleActionsOptions options) = _$ScheduleActions;
+  factory SchedulingModuleActions(SchedulingModuleActionsOptions options) =
+      _$SchedulingModuleActions;
 }
 
-abstract class ScheduleState
-    implements Built<ScheduleState, ScheduleStateBuilder> {
+abstract class SchedulingModuleState
+    implements Built<SchedulingModuleState, SchedulingModuleStateBuilder> {
   @nullable
   CaseEventListState get list;
 
@@ -29,9 +32,11 @@ abstract class ScheduleState
   @nullable
   CaseEventDetailState get detail;
 
-  ScheduleState._();
+  SchedulingModuleState._();
 
-  factory ScheduleState([updates(ScheduleStateBuilder b)]) = _$ScheduleState;
+  factory SchedulingModuleState([updates(SchedulingModuleStateBuilder b)]) =
+      _$SchedulingModuleState;
 
-  static Serializer<ScheduleState> get serializer => _$scheduleStateSerializer;
+  static Serializer<SchedulingModuleState> get serializer =>
+      _$schedulingModuleStateSerializer;
 }

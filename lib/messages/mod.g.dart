@@ -6,17 +6,21 @@ part of 'mod.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<MessagesState> _$messagesStateSerializer =
-    new _$MessagesStateSerializer();
+Serializer<MessagingModuleState> _$messagingModuleStateSerializer =
+    new _$MessagingModuleStateSerializer();
 
-class _$MessagesStateSerializer implements StructuredSerializer<MessagesState> {
+class _$MessagingModuleStateSerializer
+    implements StructuredSerializer<MessagingModuleState> {
   @override
-  final Iterable<Type> types = const [MessagesState, _$MessagesState];
+  final Iterable<Type> types = const [
+    MessagingModuleState,
+    _$MessagingModuleState
+  ];
   @override
-  final String wireName = 'movemedical_model/messages/MessagesState';
+  final String wireName = 'movemedical_model/messages/MessagingModuleState';
 
   @override
-  Iterable serialize(Serializers serializers, MessagesState object,
+  Iterable serialize(Serializers serializers, MessagingModuleState object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[];
     if (object.list != null) {
@@ -122,9 +126,9 @@ class _$MessagesStateSerializer implements StructuredSerializer<MessagesState> {
   }
 
   @override
-  MessagesState deserialize(Serializers serializers, Iterable serialized,
+  MessagingModuleState deserialize(Serializers serializers, Iterable serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new MessagesStateBuilder();
+    final result = new MessagingModuleStateBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -231,7 +235,7 @@ class _$MessagesStateSerializer implements StructuredSerializer<MessagesState> {
   }
 }
 
-class _$MessagesState extends MessagesState {
+class _$MessagingModuleState extends MessagingModuleState {
   @override
   final ConversationListState list;
   @override
@@ -263,10 +267,11 @@ class _$MessagesState extends MessagesState {
   final CommandState<RouteCommand<CreateMessageState>,
       RouteResult<CreateMessageApiResponse>> createMessageRoute;
 
-  factory _$MessagesState([void updates(MessagesStateBuilder b)]) =>
-      (new MessagesStateBuilder()..update(updates)).build();
+  factory _$MessagingModuleState(
+          [void updates(MessagingModuleStateBuilder b)]) =>
+      (new MessagingModuleStateBuilder()..update(updates)).build();
 
-  _$MessagesState._(
+  _$MessagingModuleState._(
       {this.list,
       this.listRoute,
       this.listFilter,
@@ -282,16 +287,17 @@ class _$MessagesState extends MessagesState {
       : super._();
 
   @override
-  MessagesState rebuild(void updates(MessagesStateBuilder b)) =>
+  MessagingModuleState rebuild(void updates(MessagingModuleStateBuilder b)) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  MessagesStateBuilder toBuilder() => new MessagesStateBuilder()..replace(this);
+  MessagingModuleStateBuilder toBuilder() =>
+      new MessagingModuleStateBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is MessagesState &&
+    return other is MessagingModuleState &&
         list == other.list &&
         listRoute == other.listRoute &&
         listFilter == other.listFilter &&
@@ -334,7 +340,7 @@ class _$MessagesState extends MessagesState {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('MessagesState')
+    return (newBuiltValueToStringHelper('MessagingModuleState')
           ..add('list', list)
           ..add('listRoute', listRoute)
           ..add('listFilter', listFilter)
@@ -351,9 +357,9 @@ class _$MessagesState extends MessagesState {
   }
 }
 
-class MessagesStateBuilder
-    implements Builder<MessagesState, MessagesStateBuilder> {
-  _$MessagesState _$v;
+class MessagingModuleStateBuilder
+    implements Builder<MessagingModuleState, MessagingModuleStateBuilder> {
+  _$MessagingModuleState _$v;
 
   ConversationListStateBuilder _list;
   ConversationListStateBuilder get list =>
@@ -468,9 +474,9 @@ class MessagesStateBuilder
               createMessageRoute) =>
       _$this._createMessageRoute = createMessageRoute;
 
-  MessagesStateBuilder();
+  MessagingModuleStateBuilder();
 
-  MessagesStateBuilder get _$this {
+  MessagingModuleStateBuilder get _$this {
     if (_$v != null) {
       _list = _$v.list?.toBuilder();
       _listRoute = _$v.listRoute?.toBuilder();
@@ -490,24 +496,24 @@ class MessagesStateBuilder
   }
 
   @override
-  void replace(MessagesState other) {
+  void replace(MessagingModuleState other) {
     if (other == null) {
       throw new ArgumentError.notNull('other');
     }
-    _$v = other as _$MessagesState;
+    _$v = other as _$MessagingModuleState;
   }
 
   @override
-  void update(void updates(MessagesStateBuilder b)) {
+  void update(void updates(MessagingModuleStateBuilder b)) {
     if (updates != null) updates(this);
   }
 
   @override
-  _$MessagesState build() {
-    _$MessagesState _$result;
+  _$MessagingModuleState build() {
+    _$MessagingModuleState _$result;
     try {
       _$result = _$v ??
-          new _$MessagesState._(
+          new _$MessagingModuleState._(
               list: _list?.build(),
               listRoute: _listRoute?.build(),
               listFilter: _listFilter?.build(),
@@ -549,7 +555,7 @@ class MessagesStateBuilder
         _createMessageRoute?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            'MessagesState', _$failedField, e.toString());
+            'MessagingModuleState', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -567,14 +573,16 @@ class MessagesStateBuilder
 // ignore_for_file: avoid_classes_with_only_static_members
 // ignore_for_file: annotate_overrides
 
-typedef StatefulActionsOptions<MessagesState, MessagesStateBuilder,
-    MessagesActions> MessagesActionsOptions();
+typedef StatefulActionsOptions<
+    MessagingModuleState,
+    MessagingModuleStateBuilder,
+    MessagingModuleActions> MessagingModuleActionsOptions();
 
-class _$MessagesActions extends MessagesActions {
-  final StatefulActionsOptions<MessagesState, MessagesStateBuilder,
-      MessagesActions> $options;
+class _$MessagingModuleActions extends MessagingModuleActions {
+  final StatefulActionsOptions<MessagingModuleState,
+      MessagingModuleStateBuilder, MessagingModuleActions> $options;
 
-  final ActionDispatcher<MessagesState> $replace;
+  final ActionDispatcher<MessagingModuleState> $replace;
   final ConversationListActions list;
   final ConversationListRoute listRoute;
   final ConversationListFilterActions listFilter;
@@ -588,9 +596,9 @@ class _$MessagesActions extends MessagesActions {
   final CreateMessageActions createMessage;
   final CreateMessageRoute createMessageRoute;
 
-  _$MessagesActions._(this.$options)
-      : $replace =
-            $options.action<MessagesState>('\$replace', (a) => a?.$replace),
+  _$MessagingModuleActions._(this.$options)
+      : $replace = $options.action<MessagingModuleState>(
+            '\$replace', (a) => a?.$replace),
         list = ConversationListActions(() => $options.stateful<
                 ConversationListState,
                 ConversationListStateBuilder,
@@ -714,14 +722,14 @@ class _$MessagesActions extends MessagesActions {
             (parent, builder) => parent?.createMessageRoute = builder)),
         super._();
 
-  factory _$MessagesActions(MessagesActionsOptions options) =>
-      _$MessagesActions._(options());
+  factory _$MessagingModuleActions(MessagingModuleActionsOptions options) =>
+      _$MessagingModuleActions._(options());
 
   @override
-  MessagesState get $initial => MessagesState();
+  MessagingModuleState get $initial => MessagingModuleState();
 
   @override
-  MessagesStateBuilder $newBuilder() => MessagesStateBuilder();
+  MessagingModuleStateBuilder $newBuilder() => MessagingModuleStateBuilder();
 
   BuiltList<ModuxActions> _$nested;
   @override
@@ -783,5 +791,5 @@ class _$MessagesActions extends MessagesActions {
 
   FullType _$fullType;
   @override
-  FullType get $fullType => _$fullType ??= FullType(MessagesState);
+  FullType get $fullType => _$fullType ??= FullType(MessagingModuleState);
 }

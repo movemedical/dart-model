@@ -2,20 +2,21 @@ import '../foundation.dart';
 
 part 'mod.g.dart';
 
-abstract class DirectoryActions extends StateActions<DirectoryState,
-    DirectoryStateBuilder, DirectoryActions> {
-  DirectoryActions._();
+abstract class DirectoryModuleActions extends StateActions<DirectoryModuleState,
+    DirectoryModuleStateBuilder, DirectoryModuleActions> {
+  DirectoryModuleActions._();
 
-  factory DirectoryActions(DirectoryActionsOptions options) =
-      _$DirectoryActions;
+  factory DirectoryModuleActions(DirectoryModuleActionsOptions options) =
+      _$DirectoryModuleActions;
 }
 
-abstract class DirectoryState
-    implements Built<DirectoryState, DirectoryStateBuilder> {
-  DirectoryState._();
+abstract class DirectoryModuleState
+    implements Built<DirectoryModuleState, DirectoryModuleStateBuilder> {
+  DirectoryModuleState._();
 
-  factory DirectoryState([updates(DirectoryStateBuilder b)]) = _$DirectoryState;
+  factory DirectoryModuleState([updates(DirectoryModuleStateBuilder b)]) =
+      _$DirectoryModuleState;
 
-  static Serializer<DirectoryState> get serializer =>
-      _$directoryStateSerializer;
+  static Serializer<DirectoryModuleState> get serializer =>
+      _$directoryModuleStateSerializer;
 }
