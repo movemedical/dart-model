@@ -20,6 +20,23 @@ Serializers _create(SerializersBuilder b) {
   // Json serialization plugin.
   b.addPlugin(StandardJsonPlugin());
 
+  b
+    ..addBuilderFactory(
+        FullType(BuiltList, [FullType(String)]), () => ListBuilder<String>())
+    ..addBuilderFactory(
+        FullType(BuiltList, [FullType(int)]), () => ListBuilder<int>())
+    ..addBuilderFactory(
+        FullType(BuiltList, [FullType(num)]), () => ListBuilder<num>())
+    ..addBuilderFactory(FullType(BuiltList, [FullType(Duration)]),
+        () => ListBuilder<Duration>())
+    ..addBuilderFactory(
+        FullType(BuiltSet, [FullType(String)]), () => SetBuilder<String>())
+    ..addBuilderFactory(
+        FullType(BuiltMap, [FullType(String), FullType(String)]),
+        () => MapBuilder<String, String>())
+    ..addBuilderFactory(FullType(BuiltMap, [FullType(int), FullType(String)]),
+        () => MapBuilder<int, String>());
+
   return b.build();
 }
 

@@ -9,18 +9,21 @@ import 'package:movemedical_model/auth/login.dart';
 
 import 'package:movemedical_model/store_io.dart';
 
-void main() async {
-  test('Store serialization', () async {
-    final store = createIOStore(
+Store<AppState, AppStateBuilder, AppActions> storeFactory() => createIOStore(
         (a) => (a.$initialBuilder
               ..nav = (NavStateBuilder()..messages)
               ..api = (ApiStateBuilder()
-                ..url = 'https://integra-qa.movemedical.com'))
+                ..url = 'https://dev.movemedical.com'
+                ..appVersion = '1.0.0'
+                ..platformVersion = 'Dart'))
             .build(), serviceFactory: (store, register) {
       final router = RouterService(store, store.actions.nav);
       register(router);
     });
 
+void main() async {
+  test('Store serialization', () async {
+    final store = storeFactory();
     store.actionsStream.listen((data) {
       print('Action: ${data.action.name}');
     });
@@ -37,6 +40,33 @@ void main() async {
 
     print(deserialized);
 //    print(json.decode(json.encode(serialized)));
+  });
+
+  test('ApiService login', () async {
+    final store = storeFactory();
+    final api = store.service<ApiService>();
+
+    store.actions.api.loginCommand.onResult((event, result) {
+      print('Result!!! -> ${result}');
+    });
+
+    final future = store.actions.api.loginCommand(
+        request: LoginRequest((b) => b
+          ..session = ''
+          ..email = 'admin@movemedical.com'
+          ..password = 'move'));
+
+    final result = await future;
+
+    final setupFuture = store.actions.api.setupCommand(
+        builder: (b) => b
+          ..appVersion = '1.0.0'
+          ..platformVersion = 'Dart 2.2',
+        timeout: Duration(seconds: 600));
+
+    final setupResult = await setupFuture;
+    print(result);
+    print(setupResult);
   });
 }
 
