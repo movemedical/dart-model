@@ -25,9 +25,6 @@ abstract class DashboardRoute extends ScreenRoute<DashboardState,
 abstract class DashboardActions extends ScreenActions<DashboardState,
     DashboardStateBuilder, DashboardActions, DashboardRoute> {
   @override
-  MobileNavigationElement get $navElement => MobileNavigationElement.DASHBOARD;
-
-  @override
   DashboardState get $initial => DashboardState();
 
   DashboardActions._();

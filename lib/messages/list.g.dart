@@ -52,7 +52,7 @@ class _$ConversationListStateSerializer
             specifiedType: const FullType(CommandState, const [
               const FullType(RouteCommand,
                   const [const FullType(UpdateConversationState)]),
-              const FullType(RouteResult, const [const FullType(Empty)])
+              const FullType(RouteResult, const [const FullType(Nothing)])
             ])));
     }
     if (object.gotoConversation != null) {
@@ -62,7 +62,7 @@ class _$ConversationListStateSerializer
             specifiedType: const FullType(CommandState, const [
               const FullType(
                   RouteCommand, const [const FullType(ConversationState)]),
-              const FullType(RouteResult, const [const FullType(Empty)])
+              const FullType(RouteResult, const [const FullType(Nothing)])
             ])));
     }
 
@@ -108,20 +108,20 @@ class _$ConversationListStateSerializer
                   specifiedType: const FullType(CommandState, const [
                     const FullType(RouteCommand,
                         const [const FullType(UpdateConversationState)]),
-                    const FullType(RouteResult, const [const FullType(Empty)])
+                    const FullType(RouteResult, const [const FullType(Nothing)])
                   ]))
               as CommandState<RouteCommand<UpdateConversationState>,
-                  RouteResult<Empty>>);
+                  RouteResult<Nothing>>);
           break;
         case 'gotoConversation':
           result.gotoConversation.replace(serializers.deserialize(value,
                   specifiedType: const FullType(CommandState, const [
                     const FullType(RouteCommand,
                         const [const FullType(ConversationState)]),
-                    const FullType(RouteResult, const [const FullType(Empty)])
+                    const FullType(RouteResult, const [const FullType(Nothing)])
                   ]))
               as CommandState<RouteCommand<ConversationState>,
-                  RouteResult<Empty>>);
+                  RouteResult<Nothing>>);
           break;
       }
     }
@@ -138,10 +138,10 @@ class _$ConversationListState extends ConversationListState {
   final CommandState<RouteCommand<ConversationListFilterState>,
       RouteResult<ListConversationsApiRequest>> filter;
   @override
-  final CommandState<RouteCommand<UpdateConversationState>, RouteResult<Empty>>
-      gotoUpdate;
+  final CommandState<RouteCommand<UpdateConversationState>,
+      RouteResult<Nothing>> gotoUpdate;
   @override
-  final CommandState<RouteCommand<ConversationState>, RouteResult<Empty>>
+  final CommandState<RouteCommand<ConversationState>, RouteResult<Nothing>>
       gotoConversation;
   ListConversationsApiRequest __filterRequest;
   BuiltList<ListConversationsApiConversation> __events;
@@ -229,26 +229,27 @@ class ConversationListStateBuilder
               filter) =>
       _$this._filter = filter;
 
-  CommandStateBuilder<RouteCommand<UpdateConversationState>, RouteResult<Empty>>
-      _gotoUpdate;
-  CommandStateBuilder<RouteCommand<UpdateConversationState>, RouteResult<Empty>>
+  CommandStateBuilder<RouteCommand<UpdateConversationState>,
+      RouteResult<Nothing>> _gotoUpdate;
+  CommandStateBuilder<RouteCommand<UpdateConversationState>,
+          RouteResult<Nothing>>
       get gotoUpdate => _$this._gotoUpdate ??= new CommandStateBuilder<
-          RouteCommand<UpdateConversationState>, RouteResult<Empty>>();
+          RouteCommand<UpdateConversationState>, RouteResult<Nothing>>();
   set gotoUpdate(
           CommandStateBuilder<RouteCommand<UpdateConversationState>,
-                  RouteResult<Empty>>
+                  RouteResult<Nothing>>
               gotoUpdate) =>
       _$this._gotoUpdate = gotoUpdate;
 
-  CommandStateBuilder<RouteCommand<ConversationState>, RouteResult<Empty>>
+  CommandStateBuilder<RouteCommand<ConversationState>, RouteResult<Nothing>>
       _gotoConversation;
-  CommandStateBuilder<RouteCommand<ConversationState>, RouteResult<Empty>>
+  CommandStateBuilder<RouteCommand<ConversationState>, RouteResult<Nothing>>
       get gotoConversation =>
           _$this._gotoConversation ??= new CommandStateBuilder<
-              RouteCommand<ConversationState>, RouteResult<Empty>>();
+              RouteCommand<ConversationState>, RouteResult<Nothing>>();
   set gotoConversation(
           CommandStateBuilder<RouteCommand<ConversationState>,
-                  RouteResult<Empty>>
+                  RouteResult<Nothing>>
               gotoConversation) =>
       _$this._gotoConversation = gotoConversation;
 
@@ -320,65 +321,65 @@ class ConversationListStateBuilder
 // ignore_for_file: annotate_overrides
 
 typedef StatefulActionsOptions<
-    CommandState<RouteCommand<ConversationListState>, RouteResult<Empty>>,
+    CommandState<RouteCommand<ConversationListState>, RouteResult<Nothing>>,
     CommandStateBuilder<RouteCommand<ConversationListState>,
-        RouteResult<Empty>>,
+        RouteResult<Nothing>>,
     ConversationListRoute> ConversationListRouteOptions();
 
 class _$ConversationListRoute extends ConversationListRoute {
   final StatefulActionsOptions<
-      CommandState<RouteCommand<ConversationListState>, RouteResult<Empty>>,
+      CommandState<RouteCommand<ConversationListState>, RouteResult<Nothing>>,
       CommandStateBuilder<RouteCommand<ConversationListState>,
-          RouteResult<Empty>>,
+          RouteResult<Nothing>>,
       ConversationListRoute> $options;
 
   final ActionDispatcher<
-          CommandState<RouteCommand<ConversationListState>, RouteResult<Empty>>>
-      $replace;
+      CommandState<RouteCommand<ConversationListState>,
+          RouteResult<Nothing>>> $replace;
   final ActionDispatcher<
-      CommandPayload<RouteCommand<ConversationListState>, RouteResult<Empty>,
+      CommandPayload<RouteCommand<ConversationListState>, RouteResult<Nothing>,
           ConversationListRoute, String>> $cancel;
   final ActionDispatcher<
       CommandPayload<
           RouteCommand<ConversationListState>,
-          RouteResult<Empty>,
+          RouteResult<Nothing>,
           ConversationListRoute,
           Command<RouteCommand<ConversationListState>>>> $execute;
   final ActionDispatcher<
-      CommandPayload<RouteCommand<ConversationListState>, RouteResult<Empty>,
-          ConversationListRoute, CommandResult<RouteResult<Empty>>>> $result;
+      CommandPayload<RouteCommand<ConversationListState>, RouteResult<Nothing>,
+          ConversationListRoute, CommandResult<RouteResult<Nothing>>>> $result;
   final ActionDispatcher<
-      CommandPayload<RouteCommand<ConversationListState>, RouteResult<Empty>,
+      CommandPayload<RouteCommand<ConversationListState>, RouteResult<Nothing>,
           ConversationListRoute, CommandProgress>> $progress;
 
   _$ConversationListRoute._(this.$options)
       : $replace = $options.action<
             CommandState<RouteCommand<ConversationListState>,
-                RouteResult<Empty>>>('\$replace', (a) => a?.$replace),
+                RouteResult<Nothing>>>('\$replace', (a) => a?.$replace),
         $cancel = $options.action<
             CommandPayload<
                 RouteCommand<ConversationListState>,
-                RouteResult<Empty>,
+                RouteResult<Nothing>,
                 ConversationListRoute,
                 String>>('\$cancel', (a) => a?.$cancel),
         $execute = $options.action<
                 CommandPayload<
                     RouteCommand<ConversationListState>,
-                    RouteResult<Empty>,
+                    RouteResult<Nothing>,
                     ConversationListRoute,
                     Command<RouteCommand<ConversationListState>>>>(
             '\$execute', (a) => a?.$execute),
         $result = $options.action<
                 CommandPayload<
                     RouteCommand<ConversationListState>,
-                    RouteResult<Empty>,
+                    RouteResult<Nothing>,
                     ConversationListRoute,
-                    CommandResult<RouteResult<Empty>>>>(
+                    CommandResult<RouteResult<Nothing>>>>(
             '\$result', (a) => a?.$result),
         $progress = $options.action<
             CommandPayload<
                 RouteCommand<ConversationListState>,
-                RouteResult<Empty>,
+                RouteResult<Nothing>,
                 ConversationListRoute,
                 CommandProgress>>('\$progress', (a) => a?.$progress),
         super._();
@@ -387,14 +388,14 @@ class _$ConversationListRoute extends ConversationListRoute {
       _$ConversationListRoute._(options());
 
   @override
-  CommandState<RouteCommand<ConversationListState>, RouteResult<Empty>>
+  CommandState<RouteCommand<ConversationListState>, RouteResult<Nothing>>
       get $initial => CommandState<RouteCommand<ConversationListState>,
-          RouteResult<Empty>>();
+          RouteResult<Nothing>>();
 
   @override
-  CommandStateBuilder<RouteCommand<ConversationListState>, RouteResult<Empty>>
+  CommandStateBuilder<RouteCommand<ConversationListState>, RouteResult<Nothing>>
       $newBuilder() => CommandStateBuilder<RouteCommand<ConversationListState>,
-          RouteResult<Empty>>();
+          RouteResult<Nothing>>();
 
   BuiltList<ActionDispatcher> _$actions;
   @override
@@ -411,7 +412,7 @@ class _$ConversationListRoute extends ConversationListRoute {
   @override
   FullType get $fullType => _$fullType ??= FullType(CommandState, [
         FullType(RouteCommand, [FullType(ConversationListState)]),
-        FullType(RouteResult, [FullType(Empty)])
+        FullType(RouteResult, [FullType(Nothing)])
       ]);
 
   @override
@@ -419,8 +420,8 @@ class _$ConversationListRoute extends ConversationListRoute {
       RouteCommand<ConversationListState>().toBuilder();
 
   @override
-  RouteResultBuilder<Empty> newResultBuilder() =>
-      RouteResult<Empty>().toBuilder();
+  RouteResultBuilder<Nothing> newResultBuilder() =>
+      RouteResult<Nothing>().toBuilder();
 
   @override
   Serializer<RouteResult> get resultSerializer => RouteResult.serializer;
@@ -430,14 +431,14 @@ class _$ConversationListRoute extends ConversationListRoute {
       ConversationListState().toBuilder();
 
   @override
-  EmptyBuilder newResultPayloadBuilder() => Empty().toBuilder();
+  NothingBuilder newResultPayloadBuilder() => Nothing().toBuilder();
 
   @override
   Serializer<ConversationListState> get commandPayloadSerializer =>
       ConversationListState.serializer;
 
   @override
-  Serializer<Empty> get resultPayloadSerializer => Empty.serializer;
+  Serializer<Nothing> get resultPayloadSerializer => Nothing.serializer;
 }
 
 typedef StatefulActionsOptions<
@@ -453,7 +454,7 @@ class _$ConversationListActions extends ConversationListActions {
   final ActionDispatcher<Null> $activated;
   final ActionDispatcher<Null> $deactivated;
   final ActionDispatcher<ConversationListState> $pushing;
-  final ActionDispatcher<Empty> $popping;
+  final ActionDispatcher<Nothing> $popping;
   final ListConversationsApi command;
   final ConversationListFilterRoute filter;
   final UpdateConversationRoute gotoUpdate;
@@ -467,7 +468,7 @@ class _$ConversationListActions extends ConversationListActions {
             $options.action<Null>('\$deactivated', (a) => a?.$deactivated),
         $pushing = $options.action<ConversationListState>(
             '\$pushing', (a) => a?.$pushing),
-        $popping = $options.action<Empty>('\$popping', (a) => a?.$popping),
+        $popping = $options.action<Nothing>('\$popping', (a) => a?.$popping),
         command = ListConversationsApi(() => $options.stateful<
                 CommandState<ApiCommand<ListConversationsApiRequest>,
                     ApiResult<ListConversationsApiResponse>>,
@@ -492,9 +493,9 @@ class _$ConversationListActions extends ConversationListActions {
             (parent, builder) => parent?.filter = builder)),
         gotoUpdate = UpdateConversationRoute(() => $options.stateful<
                 CommandState<RouteCommand<UpdateConversationState>,
-                    RouteResult<Empty>>,
+                    RouteResult<Nothing>>,
                 CommandStateBuilder<RouteCommand<UpdateConversationState>,
-                    RouteResult<Empty>>,
+                    RouteResult<Nothing>>,
                 UpdateConversationRoute>(
             'gotoUpdate',
             (a) => a.gotoUpdate,
@@ -504,9 +505,9 @@ class _$ConversationListActions extends ConversationListActions {
         gotoConversation = ConversationRoute(() =>
             $options.stateful<
                     CommandState<RouteCommand<ConversationState>,
-                        RouteResult<Empty>>,
+                        RouteResult<Nothing>>,
                     CommandStateBuilder<RouteCommand<ConversationState>,
-                        RouteResult<Empty>>,
+                        RouteResult<Nothing>>,
                     ConversationRoute>(
                 'gotoConversation',
                 (a) => a.gotoConversation,
@@ -564,5 +565,5 @@ class _$ConversationListActions extends ConversationListActions {
   FullType get $fullType => _$fullType ??= FullType(ConversationListState);
 
   @override
-  EmptyBuilder $newResultBuilder() => Empty().toBuilder();
+  NothingBuilder $newResultBuilder() => Nothing().toBuilder();
 }

@@ -46,7 +46,7 @@ abstract class LoginActions extends ScreenActions<LoginState, LoginStateBuilder,
 abstract class LoginState implements Built<LoginState, LoginStateBuilder> {
   LoginRequest get request;
 
-  CommandState<RouteCommand<DashboardState>, RouteResult<Null>>
+  CommandState<RouteCommand<DashboardState>, RouteResult<Nothing>>
       get dashboardRoute;
 
   factory LoginState.of({String email, String password, String session}) =>

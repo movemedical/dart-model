@@ -97,50 +97,57 @@ class DashboardStateBuilder
 // ignore_for_file: annotate_overrides
 
 typedef StatefulActionsOptions<
-    CommandState<RouteCommand<DashboardState>, RouteResult<Empty>>,
-    CommandStateBuilder<RouteCommand<DashboardState>, RouteResult<Empty>>,
+    CommandState<RouteCommand<DashboardState>, RouteResult<Nothing>>,
+    CommandStateBuilder<RouteCommand<DashboardState>, RouteResult<Nothing>>,
     DashboardRoute> DashboardRouteOptions();
 
 class _$DashboardRoute extends DashboardRoute {
   final StatefulActionsOptions<
-      CommandState<RouteCommand<DashboardState>, RouteResult<Empty>>,
-      CommandStateBuilder<RouteCommand<DashboardState>, RouteResult<Empty>>,
+      CommandState<RouteCommand<DashboardState>, RouteResult<Nothing>>,
+      CommandStateBuilder<RouteCommand<DashboardState>, RouteResult<Nothing>>,
       DashboardRoute> $options;
 
   final ActionDispatcher<
-      CommandState<RouteCommand<DashboardState>, RouteResult<Empty>>> $replace;
+          CommandState<RouteCommand<DashboardState>, RouteResult<Nothing>>>
+      $replace;
   final ActionDispatcher<
-      CommandPayload<RouteCommand<DashboardState>, RouteResult<Empty>,
+      CommandPayload<RouteCommand<DashboardState>, RouteResult<Nothing>,
           DashboardRoute, String>> $cancel;
   final ActionDispatcher<
-      CommandPayload<RouteCommand<DashboardState>, RouteResult<Empty>,
+      CommandPayload<RouteCommand<DashboardState>, RouteResult<Nothing>,
           DashboardRoute, Command<RouteCommand<DashboardState>>>> $execute;
   final ActionDispatcher<
-      CommandPayload<RouteCommand<DashboardState>, RouteResult<Empty>,
-          DashboardRoute, CommandResult<RouteResult<Empty>>>> $result;
+      CommandPayload<RouteCommand<DashboardState>, RouteResult<Nothing>,
+          DashboardRoute, CommandResult<RouteResult<Nothing>>>> $result;
   final ActionDispatcher<
-      CommandPayload<RouteCommand<DashboardState>, RouteResult<Empty>,
+      CommandPayload<RouteCommand<DashboardState>, RouteResult<Nothing>,
           DashboardRoute, CommandProgress>> $progress;
 
   _$DashboardRoute._(this.$options)
       : $replace = $options.action<
-                CommandState<RouteCommand<DashboardState>, RouteResult<Empty>>>(
-            '\$replace', (a) => a?.$replace),
+            CommandState<RouteCommand<DashboardState>,
+                RouteResult<Nothing>>>('\$replace', (a) => a?.$replace),
         $cancel = $options.action<
-            CommandPayload<RouteCommand<DashboardState>, RouteResult<Empty>,
+            CommandPayload<RouteCommand<DashboardState>, RouteResult<Nothing>,
                 DashboardRoute, String>>('\$cancel', (a) => a?.$cancel),
         $execute = $options.action<
-                CommandPayload<RouteCommand<DashboardState>, RouteResult<Empty>,
-                    DashboardRoute, Command<RouteCommand<DashboardState>>>>(
+                CommandPayload<
+                    RouteCommand<DashboardState>,
+                    RouteResult<Nothing>,
+                    DashboardRoute,
+                    Command<RouteCommand<DashboardState>>>>(
             '\$execute', (a) => a?.$execute),
         $result = $options.action<
-                CommandPayload<RouteCommand<DashboardState>, RouteResult<Empty>,
-                    DashboardRoute, CommandResult<RouteResult<Empty>>>>(
+                CommandPayload<
+                    RouteCommand<DashboardState>,
+                    RouteResult<Nothing>,
+                    DashboardRoute,
+                    CommandResult<RouteResult<Nothing>>>>(
             '\$result', (a) => a?.$result),
         $progress = $options.action<
             CommandPayload<
                 RouteCommand<DashboardState>,
-                RouteResult<Empty>,
+                RouteResult<Nothing>,
                 DashboardRoute,
                 CommandProgress>>('\$progress', (a) => a?.$progress),
         super._();
@@ -149,13 +156,14 @@ class _$DashboardRoute extends DashboardRoute {
       _$DashboardRoute._(options());
 
   @override
-  CommandState<RouteCommand<DashboardState>, RouteResult<Empty>> get $initial =>
-      CommandState<RouteCommand<DashboardState>, RouteResult<Empty>>();
+  CommandState<RouteCommand<DashboardState>, RouteResult<Nothing>>
+      get $initial =>
+          CommandState<RouteCommand<DashboardState>, RouteResult<Nothing>>();
 
   @override
-  CommandStateBuilder<RouteCommand<DashboardState>, RouteResult<Empty>>
+  CommandStateBuilder<RouteCommand<DashboardState>, RouteResult<Nothing>>
       $newBuilder() => CommandStateBuilder<RouteCommand<DashboardState>,
-          RouteResult<Empty>>();
+          RouteResult<Nothing>>();
 
   BuiltList<ActionDispatcher> _$actions;
   @override
@@ -172,7 +180,7 @@ class _$DashboardRoute extends DashboardRoute {
   @override
   FullType get $fullType => _$fullType ??= FullType(CommandState, [
         FullType(RouteCommand, [FullType(DashboardState)]),
-        FullType(RouteResult, [FullType(Empty)])
+        FullType(RouteResult, [FullType(Nothing)])
       ]);
 
   @override
@@ -180,8 +188,8 @@ class _$DashboardRoute extends DashboardRoute {
       RouteCommand<DashboardState>().toBuilder();
 
   @override
-  RouteResultBuilder<Empty> newResultBuilder() =>
-      RouteResult<Empty>().toBuilder();
+  RouteResultBuilder<Nothing> newResultBuilder() =>
+      RouteResult<Nothing>().toBuilder();
 
   @override
   Serializer<RouteResult> get resultSerializer => RouteResult.serializer;
@@ -191,14 +199,14 @@ class _$DashboardRoute extends DashboardRoute {
       DashboardState().toBuilder();
 
   @override
-  EmptyBuilder newResultPayloadBuilder() => Empty().toBuilder();
+  NothingBuilder newResultPayloadBuilder() => Nothing().toBuilder();
 
   @override
   Serializer<DashboardState> get commandPayloadSerializer =>
       DashboardState.serializer;
 
   @override
-  Serializer<Empty> get resultPayloadSerializer => Empty.serializer;
+  Serializer<Nothing> get resultPayloadSerializer => Nothing.serializer;
 }
 
 typedef StatefulActionsOptions<DashboardState, DashboardStateBuilder,
@@ -212,7 +220,7 @@ class _$DashboardActions extends DashboardActions {
   final ActionDispatcher<Null> $activated;
   final ActionDispatcher<Null> $deactivated;
   final ActionDispatcher<DashboardState> $pushing;
-  final ActionDispatcher<Empty> $popping;
+  final ActionDispatcher<Nothing> $popping;
 
   _$DashboardActions._(this.$options)
       : $replace =
@@ -222,7 +230,7 @@ class _$DashboardActions extends DashboardActions {
             $options.action<Null>('\$deactivated', (a) => a?.$deactivated),
         $pushing =
             $options.action<DashboardState>('\$pushing', (a) => a?.$pushing),
-        $popping = $options.action<Empty>('\$popping', (a) => a?.$popping),
+        $popping = $options.action<Nothing>('\$popping', (a) => a?.$popping),
         super._();
 
   factory _$DashboardActions(DashboardActionsOptions options) =>
@@ -247,5 +255,5 @@ class _$DashboardActions extends DashboardActions {
   FullType get $fullType => _$fullType ??= FullType(DashboardState);
 
   @override
-  EmptyBuilder $newResultBuilder() => Empty().toBuilder();
+  NothingBuilder $newResultBuilder() => Nothing().toBuilder();
 }

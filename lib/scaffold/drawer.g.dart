@@ -183,50 +183,50 @@ class DrawerStateBuilder implements Builder<DrawerState, DrawerStateBuilder> {
 // ignore_for_file: annotate_overrides
 
 typedef StatefulActionsOptions<
-    CommandState<RouteCommand<DrawerState>, RouteResult<Empty>>,
-    CommandStateBuilder<RouteCommand<DrawerState>, RouteResult<Empty>>,
+    CommandState<RouteCommand<DrawerState>, RouteResult<Nothing>>,
+    CommandStateBuilder<RouteCommand<DrawerState>, RouteResult<Nothing>>,
     DrawerRoute> DrawerRouteOptions();
 
 class _$DrawerRoute extends DrawerRoute {
   final StatefulActionsOptions<
-      CommandState<RouteCommand<DrawerState>, RouteResult<Empty>>,
-      CommandStateBuilder<RouteCommand<DrawerState>, RouteResult<Empty>>,
+      CommandState<RouteCommand<DrawerState>, RouteResult<Nothing>>,
+      CommandStateBuilder<RouteCommand<DrawerState>, RouteResult<Nothing>>,
       DrawerRoute> $options;
 
   final ActionDispatcher<
-      CommandState<RouteCommand<DrawerState>, RouteResult<Empty>>> $replace;
+      CommandState<RouteCommand<DrawerState>, RouteResult<Nothing>>> $replace;
   final ActionDispatcher<
-      CommandPayload<RouteCommand<DrawerState>, RouteResult<Empty>, DrawerRoute,
-          String>> $cancel;
+      CommandPayload<RouteCommand<DrawerState>, RouteResult<Nothing>,
+          DrawerRoute, String>> $cancel;
   final ActionDispatcher<
-      CommandPayload<RouteCommand<DrawerState>, RouteResult<Empty>, DrawerRoute,
-          Command<RouteCommand<DrawerState>>>> $execute;
+      CommandPayload<RouteCommand<DrawerState>, RouteResult<Nothing>,
+          DrawerRoute, Command<RouteCommand<DrawerState>>>> $execute;
   final ActionDispatcher<
-      CommandPayload<RouteCommand<DrawerState>, RouteResult<Empty>, DrawerRoute,
-          CommandResult<RouteResult<Empty>>>> $result;
+      CommandPayload<RouteCommand<DrawerState>, RouteResult<Nothing>,
+          DrawerRoute, CommandResult<RouteResult<Nothing>>>> $result;
   final ActionDispatcher<
-      CommandPayload<RouteCommand<DrawerState>, RouteResult<Empty>, DrawerRoute,
-          CommandProgress>> $progress;
+      CommandPayload<RouteCommand<DrawerState>, RouteResult<Nothing>,
+          DrawerRoute, CommandProgress>> $progress;
 
   _$DrawerRoute._(this.$options)
       : $replace = $options.action<
-                CommandState<RouteCommand<DrawerState>, RouteResult<Empty>>>(
+                CommandState<RouteCommand<DrawerState>, RouteResult<Nothing>>>(
             '\$replace', (a) => a?.$replace),
         $cancel = $options.action<
-            CommandPayload<RouteCommand<DrawerState>, RouteResult<Empty>,
+            CommandPayload<RouteCommand<DrawerState>, RouteResult<Nothing>,
                 DrawerRoute, String>>('\$cancel', (a) => a?.$cancel),
         $execute = $options.action<
-                CommandPayload<RouteCommand<DrawerState>, RouteResult<Empty>,
+                CommandPayload<RouteCommand<DrawerState>, RouteResult<Nothing>,
                     DrawerRoute, Command<RouteCommand<DrawerState>>>>(
             '\$execute', (a) => a?.$execute),
         $result = $options.action<
-                CommandPayload<RouteCommand<DrawerState>, RouteResult<Empty>,
-                    DrawerRoute, CommandResult<RouteResult<Empty>>>>(
+                CommandPayload<RouteCommand<DrawerState>, RouteResult<Nothing>,
+                    DrawerRoute, CommandResult<RouteResult<Nothing>>>>(
             '\$result', (a) => a?.$result),
         $progress = $options.action<
             CommandPayload<
                 RouteCommand<DrawerState>,
-                RouteResult<Empty>,
+                RouteResult<Nothing>,
                 DrawerRoute,
                 CommandProgress>>('\$progress', (a) => a?.$progress),
         super._();
@@ -235,13 +235,13 @@ class _$DrawerRoute extends DrawerRoute {
       _$DrawerRoute._(options());
 
   @override
-  CommandState<RouteCommand<DrawerState>, RouteResult<Empty>> get $initial =>
-      CommandState<RouteCommand<DrawerState>, RouteResult<Empty>>();
+  CommandState<RouteCommand<DrawerState>, RouteResult<Nothing>> get $initial =>
+      CommandState<RouteCommand<DrawerState>, RouteResult<Nothing>>();
 
   @override
-  CommandStateBuilder<RouteCommand<DrawerState>, RouteResult<Empty>>
-      $newBuilder() =>
-          CommandStateBuilder<RouteCommand<DrawerState>, RouteResult<Empty>>();
+  CommandStateBuilder<RouteCommand<DrawerState>, RouteResult<Nothing>>
+      $newBuilder() => CommandStateBuilder<RouteCommand<DrawerState>,
+          RouteResult<Nothing>>();
 
   BuiltList<ActionDispatcher> _$actions;
   @override
@@ -258,7 +258,7 @@ class _$DrawerRoute extends DrawerRoute {
   @override
   FullType get $fullType => _$fullType ??= FullType(CommandState, [
         FullType(RouteCommand, [FullType(DrawerState)]),
-        FullType(RouteResult, [FullType(Empty)])
+        FullType(RouteResult, [FullType(Nothing)])
       ]);
 
   @override
@@ -266,8 +266,8 @@ class _$DrawerRoute extends DrawerRoute {
       RouteCommand<DrawerState>().toBuilder();
 
   @override
-  RouteResultBuilder<Empty> newResultBuilder() =>
-      RouteResult<Empty>().toBuilder();
+  RouteResultBuilder<Nothing> newResultBuilder() =>
+      RouteResult<Nothing>().toBuilder();
 
   @override
   Serializer<RouteResult> get resultSerializer => RouteResult.serializer;
@@ -276,14 +276,14 @@ class _$DrawerRoute extends DrawerRoute {
   DrawerStateBuilder newCommandPayloadBuilder() => DrawerState().toBuilder();
 
   @override
-  EmptyBuilder newResultPayloadBuilder() => Empty().toBuilder();
+  NothingBuilder newResultPayloadBuilder() => Nothing().toBuilder();
 
   @override
   Serializer<DrawerState> get commandPayloadSerializer =>
       DrawerState.serializer;
 
   @override
-  Serializer<Empty> get resultPayloadSerializer => Empty.serializer;
+  Serializer<Nothing> get resultPayloadSerializer => Nothing.serializer;
 }
 
 typedef StatefulActionsOptions<DrawerState, DrawerStateBuilder,
@@ -297,7 +297,7 @@ class _$DrawerActions extends DrawerActions {
   final ActionDispatcher<Null> $activated;
   final ActionDispatcher<Null> $deactivated;
   final ActionDispatcher<DrawerState> $pushing;
-  final ActionDispatcher<Empty> $popping;
+  final ActionDispatcher<Nothing> $popping;
   final LoginRoute loginRoute;
   final FieldDispatcher<MobileNavigationElement> selectedTab;
 
@@ -309,18 +309,20 @@ class _$DrawerActions extends DrawerActions {
             $options.action<Null>('\$deactivated', (a) => a?.$deactivated),
         $pushing =
             $options.action<DrawerState>('\$pushing', (a) => a?.$pushing),
-        $popping = $options.action<Empty>('\$popping', (a) => a?.$popping),
-        loginRoute = LoginRoute(() =>
-            $options.stateful<
-                    CommandState<RouteCommand<LoginState>, RouteResult<Empty>>,
-                    CommandStateBuilder<RouteCommand<LoginState>,
-                        RouteResult<Empty>>,
-                    LoginRoute>(
-                'loginRoute',
-                (a) => a.loginRoute,
-                (s) => s?.loginRoute,
-                (b) => b?.loginRoute,
-                (parent, builder) => parent?.loginRoute = builder)),
+        $popping = $options.action<Nothing>('\$popping', (a) => a?.$popping),
+        loginRoute = LoginRoute(
+            () =>
+                $options.stateful<
+                        CommandState<RouteCommand<LoginState>,
+                            RouteResult<Nothing>>,
+                        CommandStateBuilder<RouteCommand<LoginState>,
+                            RouteResult<Nothing>>,
+                        LoginRoute>(
+                    'loginRoute',
+                    (a) => a.loginRoute,
+                    (s) => s?.loginRoute,
+                    (b) => b?.loginRoute,
+                    (parent, builder) => parent?.loginRoute = builder)),
         selectedTab = $options.field<MobileNavigationElement>(
             'selectedTab',
             (a) => a?.selectedTab,
@@ -370,5 +372,5 @@ class _$DrawerActions extends DrawerActions {
   FullType get $fullType => _$fullType ??= FullType(DrawerState);
 
   @override
-  EmptyBuilder $newResultBuilder() => Empty().toBuilder();
+  NothingBuilder $newResultBuilder() => Nothing().toBuilder();
 }

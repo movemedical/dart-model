@@ -242,17 +242,19 @@ class _$ScaffoldActions extends ScaffoldActions {
                 (s) => s?.bottomBar,
                 (b) => b?.bottomBar,
                 (parent, builder) => parent?.bottomBar = builder)),
-        loginRoute = LoginRoute(() =>
-            $options.stateful<
-                    CommandState<RouteCommand<LoginState>, RouteResult<Empty>>,
-                    CommandStateBuilder<RouteCommand<LoginState>,
-                        RouteResult<Empty>>,
-                    LoginRoute>(
-                'loginRoute',
-                (a) => a.loginRoute,
-                (s) => s?.loginRoute,
-                (b) => b?.loginRoute,
-                (parent, builder) => parent?.loginRoute = builder)),
+        loginRoute = LoginRoute(
+            () =>
+                $options.stateful<
+                        CommandState<RouteCommand<LoginState>,
+                            RouteResult<Nothing>>,
+                        CommandStateBuilder<RouteCommand<LoginState>,
+                            RouteResult<Nothing>>,
+                        LoginRoute>(
+                    'loginRoute',
+                    (a) => a.loginRoute,
+                    (s) => s?.loginRoute,
+                    (b) => b?.loginRoute,
+                    (parent, builder) => parent?.loginRoute = builder)),
         super._();
 
   factory _$ScaffoldActions(ScaffoldActionsOptions options) =>

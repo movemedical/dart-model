@@ -202,50 +202,50 @@ class SplashStateBuilder implements Builder<SplashState, SplashStateBuilder> {
 // ignore_for_file: annotate_overrides
 
 typedef StatefulActionsOptions<
-    CommandState<RouteCommand<SplashState>, RouteResult<Empty>>,
-    CommandStateBuilder<RouteCommand<SplashState>, RouteResult<Empty>>,
+    CommandState<RouteCommand<SplashState>, RouteResult<Nothing>>,
+    CommandStateBuilder<RouteCommand<SplashState>, RouteResult<Nothing>>,
     SplashRoute> SplashRouteOptions();
 
 class _$SplashRoute extends SplashRoute {
   final StatefulActionsOptions<
-      CommandState<RouteCommand<SplashState>, RouteResult<Empty>>,
-      CommandStateBuilder<RouteCommand<SplashState>, RouteResult<Empty>>,
+      CommandState<RouteCommand<SplashState>, RouteResult<Nothing>>,
+      CommandStateBuilder<RouteCommand<SplashState>, RouteResult<Nothing>>,
       SplashRoute> $options;
 
   final ActionDispatcher<
-      CommandState<RouteCommand<SplashState>, RouteResult<Empty>>> $replace;
+      CommandState<RouteCommand<SplashState>, RouteResult<Nothing>>> $replace;
   final ActionDispatcher<
-      CommandPayload<RouteCommand<SplashState>, RouteResult<Empty>, SplashRoute,
-          String>> $cancel;
+      CommandPayload<RouteCommand<SplashState>, RouteResult<Nothing>,
+          SplashRoute, String>> $cancel;
   final ActionDispatcher<
-      CommandPayload<RouteCommand<SplashState>, RouteResult<Empty>, SplashRoute,
-          Command<RouteCommand<SplashState>>>> $execute;
+      CommandPayload<RouteCommand<SplashState>, RouteResult<Nothing>,
+          SplashRoute, Command<RouteCommand<SplashState>>>> $execute;
   final ActionDispatcher<
-      CommandPayload<RouteCommand<SplashState>, RouteResult<Empty>, SplashRoute,
-          CommandResult<RouteResult<Empty>>>> $result;
+      CommandPayload<RouteCommand<SplashState>, RouteResult<Nothing>,
+          SplashRoute, CommandResult<RouteResult<Nothing>>>> $result;
   final ActionDispatcher<
-      CommandPayload<RouteCommand<SplashState>, RouteResult<Empty>, SplashRoute,
-          CommandProgress>> $progress;
+      CommandPayload<RouteCommand<SplashState>, RouteResult<Nothing>,
+          SplashRoute, CommandProgress>> $progress;
 
   _$SplashRoute._(this.$options)
       : $replace = $options.action<
-                CommandState<RouteCommand<SplashState>, RouteResult<Empty>>>(
+                CommandState<RouteCommand<SplashState>, RouteResult<Nothing>>>(
             '\$replace', (a) => a?.$replace),
         $cancel = $options.action<
-            CommandPayload<RouteCommand<SplashState>, RouteResult<Empty>,
+            CommandPayload<RouteCommand<SplashState>, RouteResult<Nothing>,
                 SplashRoute, String>>('\$cancel', (a) => a?.$cancel),
         $execute = $options.action<
-                CommandPayload<RouteCommand<SplashState>, RouteResult<Empty>,
+                CommandPayload<RouteCommand<SplashState>, RouteResult<Nothing>,
                     SplashRoute, Command<RouteCommand<SplashState>>>>(
             '\$execute', (a) => a?.$execute),
         $result = $options.action<
-                CommandPayload<RouteCommand<SplashState>, RouteResult<Empty>,
-                    SplashRoute, CommandResult<RouteResult<Empty>>>>(
+                CommandPayload<RouteCommand<SplashState>, RouteResult<Nothing>,
+                    SplashRoute, CommandResult<RouteResult<Nothing>>>>(
             '\$result', (a) => a?.$result),
         $progress = $options.action<
             CommandPayload<
                 RouteCommand<SplashState>,
-                RouteResult<Empty>,
+                RouteResult<Nothing>,
                 SplashRoute,
                 CommandProgress>>('\$progress', (a) => a?.$progress),
         super._();
@@ -254,13 +254,13 @@ class _$SplashRoute extends SplashRoute {
       _$SplashRoute._(options());
 
   @override
-  CommandState<RouteCommand<SplashState>, RouteResult<Empty>> get $initial =>
-      CommandState<RouteCommand<SplashState>, RouteResult<Empty>>();
+  CommandState<RouteCommand<SplashState>, RouteResult<Nothing>> get $initial =>
+      CommandState<RouteCommand<SplashState>, RouteResult<Nothing>>();
 
   @override
-  CommandStateBuilder<RouteCommand<SplashState>, RouteResult<Empty>>
-      $newBuilder() =>
-          CommandStateBuilder<RouteCommand<SplashState>, RouteResult<Empty>>();
+  CommandStateBuilder<RouteCommand<SplashState>, RouteResult<Nothing>>
+      $newBuilder() => CommandStateBuilder<RouteCommand<SplashState>,
+          RouteResult<Nothing>>();
 
   BuiltList<ActionDispatcher> _$actions;
   @override
@@ -277,7 +277,7 @@ class _$SplashRoute extends SplashRoute {
   @override
   FullType get $fullType => _$fullType ??= FullType(CommandState, [
         FullType(RouteCommand, [FullType(SplashState)]),
-        FullType(RouteResult, [FullType(Empty)])
+        FullType(RouteResult, [FullType(Nothing)])
       ]);
 
   @override
@@ -285,8 +285,8 @@ class _$SplashRoute extends SplashRoute {
       RouteCommand<SplashState>().toBuilder();
 
   @override
-  RouteResultBuilder<Empty> newResultBuilder() =>
-      RouteResult<Empty>().toBuilder();
+  RouteResultBuilder<Nothing> newResultBuilder() =>
+      RouteResult<Nothing>().toBuilder();
 
   @override
   Serializer<RouteResult> get resultSerializer => RouteResult.serializer;
@@ -295,14 +295,14 @@ class _$SplashRoute extends SplashRoute {
   SplashStateBuilder newCommandPayloadBuilder() => SplashState().toBuilder();
 
   @override
-  EmptyBuilder newResultPayloadBuilder() => Empty().toBuilder();
+  NothingBuilder newResultPayloadBuilder() => Nothing().toBuilder();
 
   @override
   Serializer<SplashState> get commandPayloadSerializer =>
       SplashState.serializer;
 
   @override
-  Serializer<Empty> get resultPayloadSerializer => Empty.serializer;
+  Serializer<Nothing> get resultPayloadSerializer => Nothing.serializer;
 }
 
 typedef StatefulActionsOptions<SplashState, SplashStateBuilder,
@@ -316,7 +316,7 @@ class _$SplashActions extends SplashActions {
   final ActionDispatcher<Null> $activated;
   final ActionDispatcher<Null> $deactivated;
   final ActionDispatcher<SplashState> $pushing;
-  final ActionDispatcher<Empty> $popping;
+  final ActionDispatcher<Nothing> $popping;
   final LoginRoute gotoLogin;
   final DashboardRoute gotoDashboard;
 
@@ -328,28 +328,32 @@ class _$SplashActions extends SplashActions {
             $options.action<Null>('\$deactivated', (a) => a?.$deactivated),
         $pushing =
             $options.action<SplashState>('\$pushing', (a) => a?.$pushing),
-        $popping = $options.action<Empty>('\$popping', (a) => a?.$popping),
-        gotoLogin = LoginRoute(() =>
+        $popping = $options.action<Nothing>('\$popping', (a) => a?.$popping),
+        gotoLogin = LoginRoute(
+            () =>
+                $options.stateful<
+                        CommandState<RouteCommand<LoginState>,
+                            RouteResult<Nothing>>,
+                        CommandStateBuilder<RouteCommand<LoginState>,
+                            RouteResult<Nothing>>,
+                        LoginRoute>(
+                    'gotoLogin',
+                    (a) => a.gotoLogin,
+                    (s) => s?.gotoLogin,
+                    (b) => b?.gotoLogin,
+                    (parent, builder) => parent?.gotoLogin = builder)),
+        gotoDashboard = DashboardRoute(() =>
             $options.stateful<
-                    CommandState<RouteCommand<LoginState>, RouteResult<Empty>>,
-                    CommandStateBuilder<RouteCommand<LoginState>,
-                        RouteResult<Empty>>,
-                    LoginRoute>(
-                'gotoLogin',
-                (a) => a.gotoLogin,
-                (s) => s?.gotoLogin,
-                (b) => b?.gotoLogin,
-                (parent, builder) => parent?.gotoLogin = builder)),
-        gotoDashboard = DashboardRoute(() => $options.stateful<
-                CommandState<RouteCommand<DashboardState>, RouteResult<Empty>>,
-                CommandStateBuilder<RouteCommand<DashboardState>,
-                    RouteResult<Empty>>,
-                DashboardRoute>(
-            'gotoDashboard',
-            (a) => a.gotoDashboard,
-            (s) => s?.gotoDashboard,
-            (b) => b?.gotoDashboard,
-            (parent, builder) => parent?.gotoDashboard = builder)),
+                    CommandState<RouteCommand<DashboardState>,
+                        RouteResult<Nothing>>,
+                    CommandStateBuilder<RouteCommand<DashboardState>,
+                        RouteResult<Nothing>>,
+                    DashboardRoute>(
+                'gotoDashboard',
+                (a) => a.gotoDashboard,
+                (s) => s?.gotoDashboard,
+                (b) => b?.gotoDashboard,
+                (parent, builder) => parent?.gotoDashboard = builder)),
         super._();
 
   factory _$SplashActions(SplashActionsOptions options) =>
@@ -398,5 +402,5 @@ class _$SplashActions extends SplashActions {
   FullType get $fullType => _$fullType ??= FullType(SplashState);
 
   @override
-  EmptyBuilder $newResultBuilder() => Empty().toBuilder();
+  NothingBuilder $newResultBuilder() => Nothing().toBuilder();
 }

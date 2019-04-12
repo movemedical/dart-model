@@ -1,6 +1,7 @@
 library messages.list_filter;
 
 import 'package:movemedical_api/state/action/messaging/conversations/list_conversations_api.dart';
+export 'package:movemedical_api/state/action/messaging/conversations/list_conversations_api.dart';
 import '../foundation.dart';
 
 part 'list_filter.g.dart';
@@ -46,14 +47,6 @@ abstract class ConversationListFilterActions extends DialogActions<
 
   @override
   ConversationListFilterState get $initial => ConversationListFilterState();
-
-  ////////////////////////////////////
-  /// Reducers
-  ////////////////////////////////////
-
-  ////////////////////////////////////
-  /// Middleware
-  ////////////////////////////////////
 
   ////////////////////////////////////
   /// Construction

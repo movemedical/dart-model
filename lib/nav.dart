@@ -27,9 +27,9 @@ abstract class NavActions
   /// Modules
   ////////////////////
 
-  SplashRoute get gotoSplash;
-
   SplashActions get splash;
+
+  SplashRoute get splashRoute;
 
   ScaffoldActions get scaffold;
 
@@ -56,15 +56,15 @@ abstract class NavState
   @nullable
   BuiltList<String> get stack;
 
-  @nullable
-  CommandState<RouteCommand<SplashState>, RouteResult<Empty>> get gotoSplash;
-
   ////////////////////
   /// Modules
   ////////////////////
 
   @nullable
   SplashState get splash;
+
+  @nullable
+  CommandState<RouteCommand<SplashState>, RouteResult<Nothing>> get splashRoute;
 
   @nullable
   ScaffoldState get scaffold;

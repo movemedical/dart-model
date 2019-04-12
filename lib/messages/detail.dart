@@ -5,7 +5,7 @@ import 'package:movemedical_api/state/action/messaging/conversations/get_convers
 
 import '../foundation.dart';
 
-part 'convo.g.dart';
+part 'detail.g.dart';
 
 ////////////////////////////////
 /// Route

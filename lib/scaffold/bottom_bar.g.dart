@@ -26,26 +26,6 @@ class _$BottomBarStateSerializer
         ..add(serializers.serialize(object.selectedTab,
             specifiedType: const FullType(MobileNavigationElement)));
     }
-    if (object.gotoDashboard != null) {
-      result
-        ..add('gotoDashboard')
-        ..add(serializers.serialize(object.gotoDashboard,
-            specifiedType: const FullType(CommandState, const [
-              const FullType(
-                  RouteCommand, const [const FullType(DashboardState)]),
-              const FullType(RouteResult, const [const FullType(Empty)])
-            ])));
-    }
-    if (object.gotoConversationList != null) {
-      result
-        ..add('gotoConversationList')
-        ..add(serializers.serialize(object.gotoConversationList,
-            specifiedType: const FullType(CommandState, const [
-              const FullType(
-                  RouteCommand, const [const FullType(ConversationListState)]),
-              const FullType(RouteResult, const [const FullType(Empty)])
-            ])));
-    }
 
     return result;
   }
@@ -66,26 +46,6 @@ class _$BottomBarStateSerializer
                   specifiedType: const FullType(MobileNavigationElement))
               as MobileNavigationElement;
           break;
-        case 'gotoDashboard':
-          result.gotoDashboard.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(CommandState, const [
-                    const FullType(
-                        RouteCommand, const [const FullType(DashboardState)]),
-                    const FullType(RouteResult, const [const FullType(Empty)])
-                  ]))
-              as CommandState<RouteCommand<DashboardState>,
-                  RouteResult<Empty>>);
-          break;
-        case 'gotoConversationList':
-          result.gotoConversationList.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(CommandState, const [
-                    const FullType(RouteCommand,
-                        const [const FullType(ConversationListState)]),
-                    const FullType(RouteResult, const [const FullType(Empty)])
-                  ]))
-              as CommandState<RouteCommand<ConversationListState>,
-                  RouteResult<Empty>>);
-          break;
       }
     }
 
@@ -96,19 +56,11 @@ class _$BottomBarStateSerializer
 class _$BottomBarState extends BottomBarState {
   @override
   final MobileNavigationElement selectedTab;
-  @override
-  final CommandState<RouteCommand<DashboardState>, RouteResult<Empty>>
-      gotoDashboard;
-  @override
-  final CommandState<RouteCommand<ConversationListState>, RouteResult<Empty>>
-      gotoConversationList;
 
   factory _$BottomBarState([void updates(BottomBarStateBuilder b)]) =>
       (new BottomBarStateBuilder()..update(updates)).build();
 
-  _$BottomBarState._(
-      {this.selectedTab, this.gotoDashboard, this.gotoConversationList})
-      : super._();
+  _$BottomBarState._({this.selectedTab}) : super._();
 
   @override
   BottomBarState rebuild(void updates(BottomBarStateBuilder b)) =>
@@ -121,24 +73,18 @@ class _$BottomBarState extends BottomBarState {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is BottomBarState &&
-        selectedTab == other.selectedTab &&
-        gotoDashboard == other.gotoDashboard &&
-        gotoConversationList == other.gotoConversationList;
+    return other is BottomBarState && selectedTab == other.selectedTab;
   }
 
   @override
   int get hashCode {
-    return $jf($jc($jc($jc(0, selectedTab.hashCode), gotoDashboard.hashCode),
-        gotoConversationList.hashCode));
+    return $jf($jc(0, selectedTab.hashCode));
   }
 
   @override
   String toString() {
     return (newBuiltValueToStringHelper('BottomBarState')
-          ..add('selectedTab', selectedTab)
-          ..add('gotoDashboard', gotoDashboard)
-          ..add('gotoConversationList', gotoConversationList))
+          ..add('selectedTab', selectedTab))
         .toString();
   }
 }
@@ -152,35 +98,11 @@ class BottomBarStateBuilder
   set selectedTab(MobileNavigationElement selectedTab) =>
       _$this._selectedTab = selectedTab;
 
-  CommandStateBuilder<RouteCommand<DashboardState>, RouteResult<Empty>>
-      _gotoDashboard;
-  CommandStateBuilder<RouteCommand<DashboardState>, RouteResult<Empty>>
-      get gotoDashboard => _$this._gotoDashboard ??= new CommandStateBuilder<
-          RouteCommand<DashboardState>, RouteResult<Empty>>();
-  set gotoDashboard(
-          CommandStateBuilder<RouteCommand<DashboardState>, RouteResult<Empty>>
-              gotoDashboard) =>
-      _$this._gotoDashboard = gotoDashboard;
-
-  CommandStateBuilder<RouteCommand<ConversationListState>, RouteResult<Empty>>
-      _gotoConversationList;
-  CommandStateBuilder<RouteCommand<ConversationListState>, RouteResult<Empty>>
-      get gotoConversationList =>
-          _$this._gotoConversationList ??= new CommandStateBuilder<
-              RouteCommand<ConversationListState>, RouteResult<Empty>>();
-  set gotoConversationList(
-          CommandStateBuilder<RouteCommand<ConversationListState>,
-                  RouteResult<Empty>>
-              gotoConversationList) =>
-      _$this._gotoConversationList = gotoConversationList;
-
   BottomBarStateBuilder();
 
   BottomBarStateBuilder get _$this {
     if (_$v != null) {
       _selectedTab = _$v.selectedTab;
-      _gotoDashboard = _$v.gotoDashboard?.toBuilder();
-      _gotoConversationList = _$v.gotoConversationList?.toBuilder();
       _$v = null;
     }
     return this;
@@ -201,26 +123,7 @@ class BottomBarStateBuilder
 
   @override
   _$BottomBarState build() {
-    _$BottomBarState _$result;
-    try {
-      _$result = _$v ??
-          new _$BottomBarState._(
-              selectedTab: selectedTab,
-              gotoDashboard: _gotoDashboard?.build(),
-              gotoConversationList: _gotoConversationList?.build());
-    } catch (_) {
-      String _$failedField;
-      try {
-        _$failedField = 'gotoDashboard';
-        _gotoDashboard?.build();
-        _$failedField = 'gotoConversationList';
-        _gotoConversationList?.build();
-      } catch (e) {
-        throw new BuiltValueNestedFieldError(
-            'BottomBarState', _$failedField, e.toString());
-      }
-      rethrow;
-    }
+    final _$result = _$v ?? new _$BottomBarState._(selectedTab: selectedTab);
     replace(_$result);
     return _$result;
   }
@@ -244,8 +147,6 @@ class _$BottomBarActions extends BottomBarActions {
 
   final ActionDispatcher<BottomBarState> $replace;
   final FieldDispatcher<MobileNavigationElement> selectedTab;
-  final DashboardRoute gotoDashboard;
-  final ConversationListRoute gotoConversationList;
 
   _$BottomBarActions._(this.$options)
       : $replace =
@@ -255,27 +156,6 @@ class _$BottomBarActions extends BottomBarActions {
             (a) => a?.selectedTab,
             (s) => s?.selectedTab,
             (p, b) => p?.selectedTab = b),
-        gotoDashboard = DashboardRoute(() => $options.stateful<
-                CommandState<RouteCommand<DashboardState>, RouteResult<Empty>>,
-                CommandStateBuilder<RouteCommand<DashboardState>,
-                    RouteResult<Empty>>,
-                DashboardRoute>(
-            'gotoDashboard',
-            (a) => a.gotoDashboard,
-            (s) => s?.gotoDashboard,
-            (b) => b?.gotoDashboard,
-            (parent, builder) => parent?.gotoDashboard = builder)),
-        gotoConversationList = ConversationListRoute(() => $options.stateful<
-                CommandState<RouteCommand<ConversationListState>,
-                    RouteResult<Empty>>,
-                CommandStateBuilder<RouteCommand<ConversationListState>,
-                    RouteResult<Empty>>,
-                ConversationListRoute>(
-            'gotoConversationList',
-            (a) => a.gotoConversationList,
-            (s) => s?.gotoConversationList,
-            (b) => b?.gotoConversationList,
-            (parent, builder) => parent?.gotoConversationList = builder)),
         super._();
 
   factory _$BottomBarActions(BottomBarActionsOptions options) =>
@@ -283,13 +163,6 @@ class _$BottomBarActions extends BottomBarActions {
 
   @override
   BottomBarStateBuilder $newBuilder() => BottomBarStateBuilder();
-
-  BuiltList<ModuxActions> _$nested;
-  @override
-  BuiltList<ModuxActions> get $nested => _$nested ??= BuiltList<ModuxActions>([
-        this.gotoDashboard,
-        this.gotoConversationList,
-      ]);
 
   BuiltList<ActionDispatcher> _$actions;
   @override
@@ -303,15 +176,11 @@ class _$BottomBarActions extends BottomBarActions {
   void $reducer(AppReducerBuilder reducer) {
     super.$reducer(reducer);
     selectedTab.$reducer(reducer);
-    gotoDashboard.$reducer(reducer);
-    gotoConversationList.$reducer(reducer);
   }
 
   @override
   void $middleware(AppMiddlewareBuilder middleware) {
     super.$middleware(middleware);
-    gotoDashboard.$middleware(middleware);
-    gotoConversationList.$middleware(middleware);
   }
 
   FullType _$fullType;

@@ -18,10 +18,6 @@ abstract class BottomBarActions extends StateActions<BottomBarState,
     BottomBarStateBuilder, BottomBarActions> {
   FieldDispatcher<MobileNavigationElement> get selectedTab;
 
-  DashboardRoute get gotoDashboard;
-
-  ConversationListRoute get gotoConversationList;
-
   @override
   BottomBarState get $initial => BottomBarState();
 
@@ -38,14 +34,6 @@ abstract class BottomBarState
     implements Built<BottomBarState, BottomBarStateBuilder> {
   @nullable
   MobileNavigationElement get selectedTab;
-
-  @nullable
-  CommandState<RouteCommand<DashboardState>, RouteResult<Empty>>
-      get gotoDashboard;
-
-  @nullable
-  CommandState<RouteCommand<ConversationListState>, RouteResult<Empty>>
-      get gotoConversationList;
 
   BottomBarState._();
 

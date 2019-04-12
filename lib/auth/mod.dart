@@ -8,6 +8,8 @@ abstract class AuthActions
     extends StateActions<AuthState, AuthStateBuilder, AuthActions> {
   LoginActions get login;
 
+  LoginRoute get loginRoute;
+
   AuthState get $initial =>
       AuthState((b) => b..login = login.$initial.toBuilder());
 
@@ -18,6 +20,9 @@ abstract class AuthActions
 
 abstract class AuthState implements Built<AuthState, AuthStateBuilder> {
   LoginState get login;
+
+  @nullable
+  CommandState<RouteCommand<LoginState>, RouteResult<Nothing>> get loginRoute;
 
   AuthState._();
 

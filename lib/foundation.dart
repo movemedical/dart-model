@@ -172,8 +172,8 @@ abstract class ScreenRoute<
         StateBuilder extends Builder<State, StateBuilder>,
         Actions extends ScreenActions<State, StateBuilder, Actions, D>,
         D extends ScreenRoute<State, StateBuilder, Actions, D>>
-    extends RouteDispatcher<State, StateBuilder, Empty, EmptyBuilder, Actions,
-        D> {}
+    extends RouteDispatcher<State, StateBuilder, Nothing, NothingBuilder,
+        Actions, D> {}
 
 ///
 abstract class ScreenActions<
@@ -182,9 +182,11 @@ abstract class ScreenActions<
     LocalActions extends ScreenActions<LocalState, LocalStateBuilder,
         LocalActions, Route>,
     Route extends ScreenRoute<LocalState, LocalStateBuilder, LocalActions,
-        Route>> extends AppRouteActions<LocalState, LocalStateBuilder, Empty,
-    EmptyBuilder, LocalActions, Route> {
-  MobileNavigationElement get $navElement;
+        Route>> extends AppRouteActions<LocalState, LocalStateBuilder, Nothing,
+    NothingBuilder, LocalActions, Route> {
+  MobileNavigationElement _$navElement;
+  MobileNavigationElement get $navElement =>
+      _$navElement ??= _mobileNavigationElementFor($store, $name);
 
   @override
   void $onPush(covariant Store<AppState, AppStateBuilder, AppActions> store,
@@ -192,7 +194,7 @@ abstract class ScreenActions<
 
   @override
   void $onPop(covariant Store<AppState, AppStateBuilder, AppActions> store,
-      LocalState state, Empty result) {}
+      LocalState state, Nothing result) {}
 
   @override
   void $didActivate(
@@ -240,4 +242,21 @@ abstract class DialogActions<
         ResultBuilder, LocalActions, Route>,
     Route extends DialogRoute<LocalState, LocalStateBuilder, Result,
         ResultBuilder, LocalActions, Route>> extends AppRouteActions<LocalState,
-    LocalStateBuilder, Result, ResultBuilder, LocalActions, Route> {}
+    LocalStateBuilder, Result, ResultBuilder, LocalActions, Route> {
+  MobileNavigationElement _$navElement;
+  MobileNavigationElement get $navElement =>
+      _$navElement ??= _mobileNavigationElementFor($store, $name);
+}
+
+MobileNavigationElement _mobileNavigationElementFor(
+    Store<AppState, AppStateBuilder, AppActions> store, String name) {
+  if (name.startsWith(store.actions.nav.messages.$name)) {
+    return MobileNavigationElement.MESSAGES;
+  } else if (name.startsWith(store.actions.nav.dashboard.$name)) {
+    return MobileNavigationElement.DASHBOARD;
+  } else if (name.startsWith(store.actions.nav.schedule.$name)) {
+    return MobileNavigationElement.SCHEDULE;
+  }
+
+  return null;
+}

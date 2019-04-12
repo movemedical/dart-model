@@ -5,7 +5,7 @@ import 'package:movemedical_api/state/action/messaging/conversations/update_conv
 
 import '../foundation.dart';
 
-part 'convo_update.g.dart';
+part 'update_conversation.g.dart';
 
 ////////////////////////////////
 /// Route
@@ -14,8 +14,8 @@ part 'convo_update.g.dart';
 abstract class UpdateConversationRoute extends DialogRoute<
     UpdateConversationState,
     UpdateConversationStateBuilder,
-    Empty,
-    EmptyBuilder,
+    Nothing,
+    NothingBuilder,
     UpdateConversationActions,
     UpdateConversationRoute> {
   UpdateConversationRoute._();
@@ -31,8 +31,8 @@ abstract class UpdateConversationRoute extends DialogRoute<
 abstract class UpdateConversationActions extends DialogActions<
     UpdateConversationState,
     UpdateConversationStateBuilder,
-    Empty,
-    EmptyBuilder,
+    Nothing,
+    NothingBuilder,
     UpdateConversationActions,
     UpdateConversationRoute> {
   ////////////////////////////////////
@@ -51,7 +51,6 @@ abstract class UpdateConversationActions extends DialogActions<
 
   @override
   Future<bool> $onWillPop() async {
-    print('UpdateConversationActions.\$onWillPop()');
     return true;
   }
 

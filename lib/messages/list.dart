@@ -9,8 +9,8 @@ import 'package:movemedical_api/state/action/messaging/conversations/list_conver
 import '../foundation.dart';
 
 import 'list_filter.dart';
-import 'convo.dart';
-import 'convo_update.dart';
+import 'detail.dart';
+import 'update_conversation.dart';
 
 part 'list.g.dart';
 
@@ -56,9 +56,6 @@ abstract class ConversationListActions extends ScreenActions<
   @override
   ConversationListState get $initial => ConversationListState((b) => b);
 
-  @override
-  MobileNavigationElement get $navElement => MobileNavigationElement.MESSAGES;
-
   ////////////////////////////////////
   /// Construction
   ////////////////////////////////////
@@ -84,11 +81,11 @@ abstract class ConversationListState
       RouteResult<ListConversationsApiRequest>> get filter;
 
   @nullable
-  CommandState<RouteCommand<UpdateConversationState>, RouteResult<Empty>>
+  CommandState<RouteCommand<UpdateConversationState>, RouteResult<Nothing>>
       get gotoUpdate;
 
   @nullable
-  CommandState<RouteCommand<ConversationState>, RouteResult<Empty>>
+  CommandState<RouteCommand<ConversationState>, RouteResult<Nothing>>
       get gotoConversation;
 
   @memoized

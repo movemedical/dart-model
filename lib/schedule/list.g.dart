@@ -214,60 +214,64 @@ class CaseEventListStateBuilder
 // ignore_for_file: annotate_overrides
 
 typedef StatefulActionsOptions<
-    CommandState<RouteCommand<CaseEventListState>, RouteResult<Empty>>,
-    CommandStateBuilder<RouteCommand<CaseEventListState>, RouteResult<Empty>>,
+    CommandState<RouteCommand<CaseEventListState>, RouteResult<Nothing>>,
+    CommandStateBuilder<RouteCommand<CaseEventListState>, RouteResult<Nothing>>,
     CaseEventListRoute> CaseEventListRouteOptions();
 
 class _$CaseEventListRoute extends CaseEventListRoute {
   final StatefulActionsOptions<
-      CommandState<RouteCommand<CaseEventListState>, RouteResult<Empty>>,
-      CommandStateBuilder<RouteCommand<CaseEventListState>, RouteResult<Empty>>,
+      CommandState<RouteCommand<CaseEventListState>, RouteResult<Nothing>>,
+      CommandStateBuilder<RouteCommand<CaseEventListState>,
+          RouteResult<Nothing>>,
       CaseEventListRoute> $options;
 
   final ActionDispatcher<
-          CommandState<RouteCommand<CaseEventListState>, RouteResult<Empty>>>
+          CommandState<RouteCommand<CaseEventListState>, RouteResult<Nothing>>>
       $replace;
   final ActionDispatcher<
-      CommandPayload<RouteCommand<CaseEventListState>, RouteResult<Empty>,
+      CommandPayload<RouteCommand<CaseEventListState>, RouteResult<Nothing>,
           CaseEventListRoute, String>> $cancel;
   final ActionDispatcher<
       CommandPayload<
           RouteCommand<CaseEventListState>,
-          RouteResult<Empty>,
+          RouteResult<Nothing>,
           CaseEventListRoute,
           Command<RouteCommand<CaseEventListState>>>> $execute;
   final ActionDispatcher<
-      CommandPayload<RouteCommand<CaseEventListState>, RouteResult<Empty>,
-          CaseEventListRoute, CommandResult<RouteResult<Empty>>>> $result;
+      CommandPayload<RouteCommand<CaseEventListState>, RouteResult<Nothing>,
+          CaseEventListRoute, CommandResult<RouteResult<Nothing>>>> $result;
   final ActionDispatcher<
-      CommandPayload<RouteCommand<CaseEventListState>, RouteResult<Empty>,
+      CommandPayload<RouteCommand<CaseEventListState>, RouteResult<Nothing>,
           CaseEventListRoute, CommandProgress>> $progress;
 
   _$CaseEventListRoute._(this.$options)
       : $replace = $options.action<
             CommandState<RouteCommand<CaseEventListState>,
-                RouteResult<Empty>>>('\$replace', (a) => a?.$replace),
+                RouteResult<Nothing>>>('\$replace', (a) => a?.$replace),
         $cancel = $options.action<
-            CommandPayload<RouteCommand<CaseEventListState>, RouteResult<Empty>,
-                CaseEventListRoute, String>>('\$cancel', (a) => a?.$cancel),
+            CommandPayload<
+                RouteCommand<CaseEventListState>,
+                RouteResult<Nothing>,
+                CaseEventListRoute,
+                String>>('\$cancel', (a) => a?.$cancel),
         $execute = $options.action<
                 CommandPayload<
                     RouteCommand<CaseEventListState>,
-                    RouteResult<Empty>,
+                    RouteResult<Nothing>,
                     CaseEventListRoute,
                     Command<RouteCommand<CaseEventListState>>>>(
             '\$execute', (a) => a?.$execute),
         $result = $options.action<
                 CommandPayload<
                     RouteCommand<CaseEventListState>,
-                    RouteResult<Empty>,
+                    RouteResult<Nothing>,
                     CaseEventListRoute,
-                    CommandResult<RouteResult<Empty>>>>(
+                    CommandResult<RouteResult<Nothing>>>>(
             '\$result', (a) => a?.$result),
         $progress = $options.action<
             CommandPayload<
                 RouteCommand<CaseEventListState>,
-                RouteResult<Empty>,
+                RouteResult<Nothing>,
                 CaseEventListRoute,
                 CommandProgress>>('\$progress', (a) => a?.$progress),
         super._();
@@ -276,14 +280,14 @@ class _$CaseEventListRoute extends CaseEventListRoute {
       _$CaseEventListRoute._(options());
 
   @override
-  CommandState<RouteCommand<CaseEventListState>, RouteResult<Empty>>
-      get $initial =>
-          CommandState<RouteCommand<CaseEventListState>, RouteResult<Empty>>();
+  CommandState<RouteCommand<CaseEventListState>, RouteResult<Nothing>>
+      get $initial => CommandState<RouteCommand<CaseEventListState>,
+          RouteResult<Nothing>>();
 
   @override
-  CommandStateBuilder<RouteCommand<CaseEventListState>, RouteResult<Empty>>
+  CommandStateBuilder<RouteCommand<CaseEventListState>, RouteResult<Nothing>>
       $newBuilder() => CommandStateBuilder<RouteCommand<CaseEventListState>,
-          RouteResult<Empty>>();
+          RouteResult<Nothing>>();
 
   BuiltList<ActionDispatcher> _$actions;
   @override
@@ -300,7 +304,7 @@ class _$CaseEventListRoute extends CaseEventListRoute {
   @override
   FullType get $fullType => _$fullType ??= FullType(CommandState, [
         FullType(RouteCommand, [FullType(CaseEventListState)]),
-        FullType(RouteResult, [FullType(Empty)])
+        FullType(RouteResult, [FullType(Nothing)])
       ]);
 
   @override
@@ -308,8 +312,8 @@ class _$CaseEventListRoute extends CaseEventListRoute {
       RouteCommand<CaseEventListState>().toBuilder();
 
   @override
-  RouteResultBuilder<Empty> newResultBuilder() =>
-      RouteResult<Empty>().toBuilder();
+  RouteResultBuilder<Nothing> newResultBuilder() =>
+      RouteResult<Nothing>().toBuilder();
 
   @override
   Serializer<RouteResult> get resultSerializer => RouteResult.serializer;
@@ -319,14 +323,14 @@ class _$CaseEventListRoute extends CaseEventListRoute {
       CaseEventListState().toBuilder();
 
   @override
-  EmptyBuilder newResultPayloadBuilder() => Empty().toBuilder();
+  NothingBuilder newResultPayloadBuilder() => Nothing().toBuilder();
 
   @override
   Serializer<CaseEventListState> get commandPayloadSerializer =>
       CaseEventListState.serializer;
 
   @override
-  Serializer<Empty> get resultPayloadSerializer => Empty.serializer;
+  Serializer<Nothing> get resultPayloadSerializer => Nothing.serializer;
 }
 
 typedef StatefulActionsOptions<CaseEventListState, CaseEventListStateBuilder,
@@ -340,7 +344,7 @@ class _$CaseEventListActions extends CaseEventListActions {
   final ActionDispatcher<Null> $activated;
   final ActionDispatcher<Null> $deactivated;
   final ActionDispatcher<CaseEventListState> $pushing;
-  final ActionDispatcher<Empty> $popping;
+  final ActionDispatcher<Nothing> $popping;
   final list_case_events_api.ListCaseEventsApi listCommand;
   final list_case_events_api.ListCaseEventsApiRequestActions request;
 
@@ -352,7 +356,7 @@ class _$CaseEventListActions extends CaseEventListActions {
             $options.action<Null>('\$deactivated', (a) => a?.$deactivated),
         $pushing = $options.action<CaseEventListState>(
             '\$pushing', (a) => a?.$pushing),
-        $popping = $options.action<Empty>('\$popping', (a) => a?.$popping),
+        $popping = $options.action<Nothing>('\$popping', (a) => a?.$popping),
         listCommand =
             list_case_events_api.ListCaseEventsApi(
                 () =>
@@ -434,5 +438,5 @@ class _$CaseEventListActions extends CaseEventListActions {
   FullType get $fullType => _$fullType ??= FullType(CaseEventListState);
 
   @override
-  EmptyBuilder $newResultBuilder() => Empty().toBuilder();
+  NothingBuilder $newResultBuilder() => Nothing().toBuilder();
 }
