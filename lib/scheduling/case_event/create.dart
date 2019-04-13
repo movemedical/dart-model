@@ -94,8 +94,11 @@ abstract class CreateCaseEventState
 
   CreateCaseEventState._();
 
-  factory CreateCaseEventState([updates(CreateCaseEventStateBuilder b)]) =
-      _$CreateCaseEventState;
+  factory CreateCaseEventState([updates(CreateCaseEventStateBuilder b)]) =>
+      _$CreateCaseEventState((b) {
+        updates?.call(b);
+        b.request ??= CreateCaseEventApiRequest().toBuilder();
+      });
 
   static Serializer<CreateCaseEventState> get serializer =>
       _$createCaseEventStateSerializer;

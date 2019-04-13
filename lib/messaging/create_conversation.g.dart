@@ -22,7 +22,11 @@ class _$CreateConversationStateSerializer
   @override
   Iterable serialize(Serializers serializers, CreateConversationState object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[];
+    final result = <Object>[
+      'request',
+      serializers.serialize(object.request,
+          specifiedType: const FullType(CreateConversationApiRequest)),
+    ];
     if (object.cmdCreate != null) {
       result
         ..add('cmdCreate')
@@ -50,6 +54,11 @@ class _$CreateConversationStateSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
+        case 'request':
+          result.request.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(CreateConversationApiRequest))
+              as CreateConversationApiRequest);
+          break;
         case 'cmdCreate':
           result.cmdCreate.replace(serializers.deserialize(value,
                   specifiedType: const FullType(CommandState, const [
@@ -70,6 +79,8 @@ class _$CreateConversationStateSerializer
 
 class _$CreateConversationState extends CreateConversationState {
   @override
+  final CreateConversationApiRequest request;
+  @override
   final CommandState<ApiCommand<CreateConversationApiRequest>,
       ApiResult<CreateConversationApiResponse>> cmdCreate;
 
@@ -77,7 +88,11 @@ class _$CreateConversationState extends CreateConversationState {
           [void updates(CreateConversationStateBuilder b)]) =>
       (new CreateConversationStateBuilder()..update(updates)).build();
 
-  _$CreateConversationState._({this.cmdCreate}) : super._();
+  _$CreateConversationState._({this.request, this.cmdCreate}) : super._() {
+    if (request == null) {
+      throw new BuiltValueNullFieldError('CreateConversationState', 'request');
+    }
+  }
 
   @override
   CreateConversationState rebuild(
@@ -91,17 +106,20 @@ class _$CreateConversationState extends CreateConversationState {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CreateConversationState && cmdCreate == other.cmdCreate;
+    return other is CreateConversationState &&
+        request == other.request &&
+        cmdCreate == other.cmdCreate;
   }
 
   @override
   int get hashCode {
-    return $jf($jc(0, cmdCreate.hashCode));
+    return $jf($jc($jc(0, request.hashCode), cmdCreate.hashCode));
   }
 
   @override
   String toString() {
     return (newBuiltValueToStringHelper('CreateConversationState')
+          ..add('request', request)
           ..add('cmdCreate', cmdCreate))
         .toString();
   }
@@ -111,6 +129,12 @@ class CreateConversationStateBuilder
     implements
         Builder<CreateConversationState, CreateConversationStateBuilder> {
   _$CreateConversationState _$v;
+
+  CreateConversationApiRequestBuilder _request;
+  CreateConversationApiRequestBuilder get request =>
+      _$this._request ??= new CreateConversationApiRequestBuilder();
+  set request(CreateConversationApiRequestBuilder request) =>
+      _$this._request = request;
 
   CommandStateBuilder<ApiCommand<CreateConversationApiRequest>,
       ApiResult<CreateConversationApiResponse>> _cmdCreate;
@@ -129,6 +153,7 @@ class CreateConversationStateBuilder
 
   CreateConversationStateBuilder get _$this {
     if (_$v != null) {
+      _request = _$v.request?.toBuilder();
       _cmdCreate = _$v.cmdCreate?.toBuilder();
       _$v = null;
     }
@@ -153,10 +178,13 @@ class CreateConversationStateBuilder
     _$CreateConversationState _$result;
     try {
       _$result = _$v ??
-          new _$CreateConversationState._(cmdCreate: _cmdCreate?.build());
+          new _$CreateConversationState._(
+              request: request.build(), cmdCreate: _cmdCreate?.build());
     } catch (_) {
       String _$failedField;
       try {
+        _$failedField = 'request';
+        request.build();
         _$failedField = 'cmdCreate';
         _cmdCreate?.build();
       } catch (e) {
@@ -331,6 +359,7 @@ class _$CreateConversationActions extends CreateConversationActions {
   final ActionDispatcher<Null> $deactivated;
   final ActionDispatcher<CreateConversationState> $pushing;
   final ActionDispatcher<CreateConversationApiResponse> $popping;
+  final CreateConversationApiRequestActions request;
   final CreateConversationApi cmdCreate;
 
   _$CreateConversationActions._(this.$options)
@@ -343,6 +372,15 @@ class _$CreateConversationActions extends CreateConversationActions {
             '\$pushing', (a) => a?.$pushing),
         $popping = $options.action<CreateConversationApiResponse>(
             '\$popping', (a) => a?.$popping),
+        request = CreateConversationApiRequestActions(() => $options.stateful<
+                CreateConversationApiRequest,
+                CreateConversationApiRequestBuilder,
+                CreateConversationApiRequestActions>(
+            'request',
+            (a) => a.request,
+            (s) => s?.request,
+            (b) => b?.request,
+            (parent, builder) => parent?.request = builder)),
         cmdCreate = CreateConversationApi(() => $options.stateful<
                 CommandState<ApiCommand<CreateConversationApiRequest>,
                     ApiResult<CreateConversationApiResponse>>,
@@ -367,6 +405,7 @@ class _$CreateConversationActions extends CreateConversationActions {
   BuiltList<ModuxActions> _$nested;
   @override
   BuiltList<ModuxActions> get $nested => _$nested ??= BuiltList<ModuxActions>([
+        this.request,
         this.cmdCreate,
       ]);
 
@@ -384,12 +423,14 @@ class _$CreateConversationActions extends CreateConversationActions {
   @override
   void $reducer(AppReducerBuilder reducer) {
     super.$reducer(reducer);
+    request.$reducer(reducer);
     cmdCreate.$reducer(reducer);
   }
 
   @override
   void $middleware(AppMiddlewareBuilder middleware) {
     super.$middleware(middleware);
+    request.$middleware(middleware);
     cmdCreate.$middleware(middleware);
   }
 

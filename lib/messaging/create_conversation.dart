@@ -38,6 +38,8 @@ abstract class CreateConversationActions extends DialogActions<
   /// Actions
   ////////////////////////////////////
 
+  CreateConversationApiRequestActions get request;
+
   CreateConversationApi get cmdCreate;
 
   ////////////////////////////////////
@@ -46,9 +48,6 @@ abstract class CreateConversationActions extends DialogActions<
 
   @override
   CreateConversationState get $initial => CreateConversationState((b) => b);
-
-  @override
-  MobileNavigationElement get $navElement => MobileNavigationElement.MESSAGES;
 
   @override
   Future<bool> $onWillPop() async {
@@ -71,6 +70,8 @@ abstract class CreateConversationActions extends DialogActions<
 
 abstract class CreateConversationState
     implements Built<CreateConversationState, CreateConversationStateBuilder> {
+  CreateConversationApiRequest get request;
+
   @nullable
   CommandState<ApiCommand<CreateConversationApiRequest>,
       ApiResult<CreateConversationApiResponse>> get cmdCreate;
@@ -81,8 +82,12 @@ abstract class CreateConversationState
 
   CreateConversationState._();
 
-  factory CreateConversationState([updates(CreateConversationStateBuilder b)]) =
-      _$CreateConversationState;
+  factory CreateConversationState(
+          [updates(CreateConversationStateBuilder b)]) =>
+      _$CreateConversationState((b) {
+        updates?.call(b);
+        b.request ??= CreateConversationApiRequest().toBuilder();
+      });
 
   static Serializer<CreateConversationState> get serializer =>
       _$createConversationStateSerializer;
