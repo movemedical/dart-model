@@ -32,8 +32,7 @@ abstract class BarcodeScanActions extends DialogActions<
     BarcodeScanStateBuilder,
     Value<String>,
     ValueBuilder<String>,
-    BarcodeScanActions,
-    BarcodeScanRoute> {
+    BarcodeScanActions> {
   ////////////////////////////////////
   /// Actions
   ////////////////////////////////////

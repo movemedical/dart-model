@@ -32,8 +32,7 @@ abstract class CaseEventListFilterActions extends DialogActions<
     CaseEventListFilterStateBuilder,
     ListCaseEventsApiRequest,
     ListCaseEventsApiRequestBuilder,
-    CaseEventListFilterActions,
-    CaseEventListFilterRoute> {
+    CaseEventListFilterActions> {
   ////////////////////////////////////
   /// Actions
   ////////////////////////////////////

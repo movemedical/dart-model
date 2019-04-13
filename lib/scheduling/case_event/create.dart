@@ -33,8 +33,7 @@ abstract class CreateCaseEventActions extends DialogActions<
     CreateCaseEventStateBuilder,
     CreateCaseEventApiResponse,
     CreateCaseEventApiResponseBuilder,
-    CreateCaseEventActions,
-    CreateCaseEventRoute> {
+    CreateCaseEventActions> {
   CreateCaseEventApiRequestActions get request;
 
   ////////////////////////////////////

@@ -15,8 +15,8 @@ abstract class SplashRoute extends ScreenRoute<SplashState, SplashStateBuilder,
 /// Actions
 ////////////////////////////////
 
-abstract class SplashActions extends ScreenActions<SplashState,
-    SplashStateBuilder, SplashActions, SplashRoute> {
+abstract class SplashActions
+    extends ScreenActions<SplashState, SplashStateBuilder, SplashActions> {
   LoginRoute get gotoLogin;
 
   DashboardRoute get gotoDashboard;

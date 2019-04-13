@@ -24,10 +24,7 @@ abstract class CaseEventDetailRoute extends ScreenRoute<CaseEventDetailState,
 ////////////////////////////////////
 
 abstract class CaseEventDetailActions extends ScreenActions<
-    CaseEventDetailState,
-    CaseEventDetailStateBuilder,
-    CaseEventDetailActions,
-    CaseEventDetailRoute> {
+    CaseEventDetailState, CaseEventDetailStateBuilder, CaseEventDetailActions> {
   GetCaseEventDetailApiRequestActions get request;
 
   GetCaseEventDetailApiResponseActions get model;

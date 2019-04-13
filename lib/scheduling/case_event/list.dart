@@ -24,7 +24,7 @@ abstract class CaseEventListRoute extends ScreenRoute<CaseEventListState,
 ////////////////////////////////////
 
 abstract class CaseEventListActions extends ScreenActions<CaseEventListState,
-    CaseEventListStateBuilder, CaseEventListActions, CaseEventListRoute> {
+    CaseEventListStateBuilder, CaseEventListActions> {
   ////////////////////////////////////
   /// Actions
   ////////////////////////////////////

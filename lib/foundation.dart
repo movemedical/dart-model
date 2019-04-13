@@ -147,10 +147,8 @@ abstract class AppRouteActions<
     Result extends Built<Result, ResultBuilder>,
     ResultBuilder extends Builder<Result, ResultBuilder>,
     LocalActions extends AppRouteActions<LocalState, LocalStateBuilder, Result,
-        ResultBuilder, LocalActions, Route>,
-    Route extends RouteDispatcher<LocalState, LocalStateBuilder, Result,
-        ResultBuilder, LocalActions, Route>> extends RouteActions<LocalState,
-    LocalStateBuilder, Result, ResultBuilder, LocalActions, Route> {
+        ResultBuilder, LocalActions>> extends RouteActions<LocalState,
+    LocalStateBuilder, Result, ResultBuilder, LocalActions> {
   @override
   @mustCallSuper
   @protected
@@ -164,13 +162,17 @@ abstract class AppRouteActions<
   void $middleware(covariant AppMiddlewareBuilder builder) {
     super.$middleware(builder);
   }
+
+  @override
+  Store<AppState, AppStateBuilder, AppActions> get $store =>
+      super.$store as Store<AppState, AppStateBuilder, AppActions>;
 }
 
 ///
 abstract class ScreenRoute<
         State extends Built<State, StateBuilder>,
         StateBuilder extends Builder<State, StateBuilder>,
-        Actions extends ScreenActions<State, StateBuilder, Actions, D>,
+        Actions extends ScreenActions<State, StateBuilder, Actions>,
         D extends ScreenRoute<State, StateBuilder, Actions, D>>
     extends RouteDispatcher<State, StateBuilder, Nothing, NothingBuilder,
         Actions, D> {}
@@ -180,45 +182,44 @@ abstract class ScreenActions<
     LocalState extends Built<LocalState, LocalStateBuilder>,
     LocalStateBuilder extends Builder<LocalState, LocalStateBuilder>,
     LocalActions extends ScreenActions<LocalState, LocalStateBuilder,
-        LocalActions, Route>,
-    Route extends ScreenRoute<LocalState, LocalStateBuilder, LocalActions,
-        Route>> extends AppRouteActions<LocalState, LocalStateBuilder, Nothing,
-    NothingBuilder, LocalActions, Route> {
+        LocalActions>> extends AppRouteActions<LocalState, LocalStateBuilder,
+    Nothing, NothingBuilder, LocalActions> {
   MobileNavigationElement _$navElement;
 
   MobileNavigationElement get $navElement =>
-      _$navElement ??= _mobileNavigationElementFor($store, $name);
+//      _$navElement ??= _mobileNavigationElementFor($store, $name);
+      _$navElement ??= MobileNavigationElement.DASHBOARD;
 
-  @override
-  void $onPush(covariant Store<AppState, AppStateBuilder, AppActions> store,
-      LocalState state) {}
-
-  @override
-  void $onPop(covariant Store<AppState, AppStateBuilder, AppActions> store,
-      LocalState state, Nothing result) {}
-
-  @override
-  void $didActivate(
-      covariant Store<AppState, AppStateBuilder, AppActions> store,
-      LocalState state) {}
-
-  @override
-  void $didDeactivate(
-      covariant Store<AppState, AppStateBuilder, AppActions> store,
-      LocalState state) {
-    super.$didDeactivate(store, state);
-    $cancelAllCommands(store);
-  }
-
-  void $cancelAllCommands(
-      covariant Store<AppState, AppStateBuilder, AppActions> store) {
-    $visitCommands((owner, dispatcher) {
-      final id = dispatcher.$mapState(store.state)?.command?.id;
-      if (id != null) {
-        dispatcher.cancel();
-      }
-    });
-  }
+//  @override
+//  void $onPush(covariant Store<AppState, AppStateBuilder, AppActions> store,
+//      LocalState state) {}
+//
+//  @override
+//  void $onPop(covariant Store<AppState, AppStateBuilder, AppActions> store,
+//      LocalState state, Nothing result) {}
+//
+//  @override
+//  void $didActivate(
+//      covariant Store<AppState, AppStateBuilder, AppActions> store,
+//      LocalState state) {}
+//
+//  @override
+//  void $didDeactivate(
+//      covariant Store<AppState, AppStateBuilder, AppActions> store,
+//      LocalState state) {
+//    super.$didDeactivate(store, state);
+//    $cancelAllCommands(store);
+//  }
+//
+//  void $cancelAllCommands(
+//      covariant Store<AppState, AppStateBuilder, AppActions> store) {
+//    $visitCommands((owner, dispatcher) {
+//      final id = dispatcher.$mapState(store.state)?.command?.id;
+//      if (id != null) {
+//        dispatcher.cancel();
+//      }
+//    });
+//  }
 }
 
 ///
@@ -228,7 +229,7 @@ abstract class DialogRoute<
     Result extends Built<Result, ResultBuilder>,
     ResultBuilder extends Builder<Result, ResultBuilder>,
     Actions extends DialogActions<State, StateBuilder, Result, ResultBuilder,
-        Actions, D>,
+        Actions>,
     D extends DialogRoute<State, StateBuilder, Result, ResultBuilder, Actions,
         D>> extends RouteDispatcher<State, StateBuilder, Result, ResultBuilder,
     Actions, D> {}
@@ -240,10 +241,8 @@ abstract class DialogActions<
     Result extends Built<Result, ResultBuilder>,
     ResultBuilder extends Builder<Result, ResultBuilder>,
     LocalActions extends DialogActions<LocalState, LocalStateBuilder, Result,
-        ResultBuilder, LocalActions, Route>,
-    Route extends DialogRoute<LocalState, LocalStateBuilder, Result,
-        ResultBuilder, LocalActions, Route>> extends AppRouteActions<LocalState,
-    LocalStateBuilder, Result, ResultBuilder, LocalActions, Route> {
+        ResultBuilder, LocalActions>> extends AppRouteActions<LocalState,
+    LocalStateBuilder, Result, ResultBuilder, LocalActions> {
   MobileNavigationElement _$navElement;
 
   MobileNavigationElement get $navElement =>

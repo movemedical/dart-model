@@ -21,8 +21,8 @@ abstract class DrawerRoute extends ScreenRoute<DrawerState, DrawerStateBuilder,
 /// Actions
 ////////////////////////////////
 
-abstract class DrawerActions extends ScreenActions<DrawerState,
-    DrawerStateBuilder, DrawerActions, DrawerRoute> {
+abstract class DrawerActions
+    extends ScreenActions<DrawerState, DrawerStateBuilder, DrawerActions> {
   FieldDispatcher<MobileNavigationElement> selectedTab;
 
   LoginRoute get loginRoute;

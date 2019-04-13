@@ -30,8 +30,7 @@ abstract class UpdateConversationActions extends DialogActions<
     UpdateConversationStateBuilder,
     Nothing,
     NothingBuilder,
-    UpdateConversationActions,
-    UpdateConversationRoute> {
+    UpdateConversationActions> {
   ////////////////////////////////////
   /// Actions
   ////////////////////////////////////

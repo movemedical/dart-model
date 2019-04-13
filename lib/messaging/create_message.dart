@@ -33,8 +33,7 @@ abstract class CreateMessageActions extends DialogActions<
     CreateMessageStateBuilder,
     CreateMessageApiResponse,
     CreateMessageApiResponseBuilder,
-    CreateMessageActions,
-    CreateMessageRoute> {
+    CreateMessageActions> {
   ////////////////////////////////////
   /// Actions
   ////////////////////////////////////

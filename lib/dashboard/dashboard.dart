@@ -18,7 +18,7 @@ abstract class DashboardRoute extends ScreenRoute<DashboardState,
 ////////////////////////////////
 
 abstract class DashboardActions extends ScreenActions<DashboardState,
-    DashboardStateBuilder, DashboardActions, DashboardRoute> {
+    DashboardStateBuilder, DashboardActions> {
   @override
   DashboardState get $initial => DashboardState();
 

@@ -24,7 +24,7 @@ abstract class ConversationRoute extends ScreenRoute<ConversationState,
 ////////////////////////////////////
 
 abstract class ConversationActions extends ScreenActions<ConversationState,
-    ConversationStateBuilder, ConversationActions, ConversationRoute> {
+    ConversationStateBuilder, ConversationActions> {
   ////////////////////////////////////
   /// Actions
   ////////////////////////////////////

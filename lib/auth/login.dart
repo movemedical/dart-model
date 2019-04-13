@@ -20,8 +20,8 @@ abstract class LoginRoute extends ScreenRoute<LoginState, LoginStateBuilder,
 /// Actions
 ////////////////////////////////
 
-abstract class LoginActions extends ScreenActions<LoginState, LoginStateBuilder,
-    LoginActions, LoginRoute> {
+abstract class LoginActions
+    extends ScreenActions<LoginState, LoginStateBuilder, LoginActions> {
   LoginRequestActions get request;
 
   DashboardRoute get dashboardRoute;

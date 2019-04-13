@@ -35,8 +35,7 @@ abstract class ConversationListFilterActions extends DialogActions<
     ConversationListFilterStateBuilder,
     ListConversationsApiRequest,
     ListConversationsApiRequestBuilder,
-    ConversationListFilterActions,
-    ConversationListFilterRoute> {
+    ConversationListFilterActions> {
   ////////////////////////////////////
   /// Actions
   ////////////////////////////////////

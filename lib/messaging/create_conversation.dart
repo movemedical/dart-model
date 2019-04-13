@@ -33,8 +33,7 @@ abstract class CreateConversationActions extends DialogActions<
     CreateConversationStateBuilder,
     CreateConversationApiResponse,
     CreateConversationApiResponseBuilder,
-    CreateConversationActions,
-    CreateConversationRoute> {
+    CreateConversationActions> {
   ////////////////////////////////////
   /// Actions
   ////////////////////////////////////
