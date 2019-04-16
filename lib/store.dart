@@ -5,10 +5,11 @@ import 'foundation.dart';
 import 's.ser.dart';
 
 Store<AppState, AppStateBuilder, AppActions> createStore(
-    AppState Function(AppActions) state,
+    AppState Function(AppActions, Serializers) stateBuilder,
     HttpClientFactory httpFactory,
     WebSocketFactory wsFactory,
     {AppActions actions,
+    Serializers serializers,
     Iterable<Middleware<AppState, AppStateBuilder, AppActions>> middleware =
         const [],
     ApiService apiService(Store<AppState, AppStateBuilder, AppActions> s),
@@ -16,15 +17,18 @@ Store<AppState, AppStateBuilder, AppActions> createStore(
             Function(StoreService s) register)
         serviceFactory}) {
   if (actions == null) actions = AppActions();
-  if (state == null) state = (AppActions a) => a.$initial;
+  if (stateBuilder == null)
+    stateBuilder = (AppActions a, Serializers ser) => a.$initial;
 
   final m = List<Middleware<AppState, AppStateBuilder, AppActions>>();
   final actionMiddleware = actions.$createMiddleware();
   m.add(actionMiddleware);
   if (middleware != null) m.addAll(middleware);
 
+  if (serializers == null) serializers = createSerializers();
+
   return Store<AppState, AppStateBuilder, AppActions>(
-      createSerializers(), actions, state(actions),
+      createSerializers(), actions, stateBuilder(actions, serializers),
       httpFactory: httpFactory,
       wsFactory: wsFactory,
       middleware: middleware, serviceFactory: (store, register) {

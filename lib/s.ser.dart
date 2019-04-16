@@ -3,6 +3,7 @@ library serializers;
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart';
+import 'package:movemedical_api/command.dart';
 import 'package:movemedical_api/state/push.dart';
 
 import 'foundation.dart';
@@ -34,6 +35,11 @@ Serializers _create(SerializersBuilder b) {
     ..addBuilderFactory(
         FullType(BuiltMap, [FullType(String), FullType(String)]),
         () => MapBuilder<String, String>())
+    ..addBuilderFactory(
+        FullType(BuiltList, [
+          FullType(ApiResult, [FullType(LoginResponse)])
+        ]),
+        () => ListBuilder<ApiResult<LoginResponse>>())
     ..addBuilderFactory(FullType(BuiltMap, [FullType(int), FullType(String)]),
         () => MapBuilder<int, String>());
 

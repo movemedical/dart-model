@@ -10,7 +10,7 @@ import 'package:movemedical_model/auth/login.dart';
 import 'package:movemedical_model/store_io.dart';
 
 Store<AppState, AppStateBuilder, AppActions> storeFactory() => createIOStore(
-        (a) => (a.$initialBuilder
+        (a, ser) => (a.$initialBuilder
               ..nav = (NavStateBuilder()..messaging)
               ..api = (ApiStateBuilder()
                 ..url = 'https://dev.movemedical.com'
@@ -67,6 +67,11 @@ void main() async {
     final setupResult = await setupFuture;
     print(result);
     print(setupResult);
+
+    final appState =
+        await store.json.serialize(AppState.serializer, store.state);
+
+    print(utf8.decode(appState));
   });
 }
 

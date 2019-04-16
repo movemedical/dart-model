@@ -187,8 +187,7 @@ abstract class ScreenActions<
   MobileNavigationElement _$navElement;
 
   MobileNavigationElement get $navElement =>
-//      _$navElement ??= _mobileNavigationElementFor($store, $name);
-      _$navElement ??= MobileNavigationElement.DASHBOARD;
+      _$navElement ??= _mobileNavigationElementFor($store, $name);
 
 //  @override
 //  void $onPush(covariant Store<AppState, AppStateBuilder, AppActions> store,

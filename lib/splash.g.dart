@@ -17,78 +17,21 @@ class _$SplashStateSerializer implements StructuredSerializer<SplashState> {
   @override
   Iterable serialize(Serializers serializers, SplashState object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
-      'gotoLogin',
-      serializers.serialize(object.gotoLogin,
-          specifiedType: const FullType(CommandState, const [
-            const FullType(RouteCommand, const [const FullType(LoginState)]),
-            const FullType(RouteResult, const [const FullType(Null)])
-          ])),
-      'gotoDashboard',
-      serializers.serialize(object.gotoDashboard,
-          specifiedType: const FullType(CommandState, const [
-            const FullType(
-                RouteCommand, const [const FullType(DashboardState)]),
-            const FullType(RouteResult, const [const FullType(Null)])
-          ])),
-    ];
-
-    return result;
+    return <Object>[];
   }
 
   @override
   SplashState deserialize(Serializers serializers, Iterable serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new SplashStateBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current as String;
-      iterator.moveNext();
-      final dynamic value = iterator.current;
-      switch (key) {
-        case 'gotoLogin':
-          result.gotoLogin.replace(serializers.deserialize(value,
-              specifiedType: const FullType(CommandState, const [
-                const FullType(
-                    RouteCommand, const [const FullType(LoginState)]),
-                const FullType(RouteResult, const [const FullType(Null)])
-              ])) as CommandState<RouteCommand<LoginState>, RouteResult<Null>>);
-          break;
-        case 'gotoDashboard':
-          result.gotoDashboard.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(CommandState, const [
-                    const FullType(
-                        RouteCommand, const [const FullType(DashboardState)]),
-                    const FullType(RouteResult, const [const FullType(Null)])
-                  ]))
-              as CommandState<RouteCommand<DashboardState>, RouteResult<Null>>);
-          break;
-      }
-    }
-
-    return result.build();
+    return new SplashStateBuilder().build();
   }
 }
 
 class _$SplashState extends SplashState {
-  @override
-  final CommandState<RouteCommand<LoginState>, RouteResult<Null>> gotoLogin;
-  @override
-  final CommandState<RouteCommand<DashboardState>, RouteResult<Null>>
-      gotoDashboard;
-
   factory _$SplashState([void updates(SplashStateBuilder b)]) =>
       (new SplashStateBuilder()..update(updates)).build();
 
-  _$SplashState._({this.gotoLogin, this.gotoDashboard}) : super._() {
-    if (gotoLogin == null) {
-      throw new BuiltValueNullFieldError('SplashState', 'gotoLogin');
-    }
-    if (gotoDashboard == null) {
-      throw new BuiltValueNullFieldError('SplashState', 'gotoDashboard');
-    }
-  }
+  _$SplashState._() : super._();
 
   @override
   SplashState rebuild(void updates(SplashStateBuilder b)) =>
@@ -100,58 +43,24 @@ class _$SplashState extends SplashState {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is SplashState &&
-        gotoLogin == other.gotoLogin &&
-        gotoDashboard == other.gotoDashboard;
+    return other is SplashState;
   }
 
   @override
   int get hashCode {
-    return $jf($jc($jc(0, gotoLogin.hashCode), gotoDashboard.hashCode));
+    return 136543255;
   }
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('SplashState')
-          ..add('gotoLogin', gotoLogin)
-          ..add('gotoDashboard', gotoDashboard))
-        .toString();
+    return newBuiltValueToStringHelper('SplashState').toString();
   }
 }
 
 class SplashStateBuilder implements Builder<SplashState, SplashStateBuilder> {
   _$SplashState _$v;
 
-  CommandStateBuilder<RouteCommand<LoginState>, RouteResult<Null>> _gotoLogin;
-  CommandStateBuilder<RouteCommand<LoginState>,
-      RouteResult<Null>> get gotoLogin => _$this
-          ._gotoLogin ??=
-      new CommandStateBuilder<RouteCommand<LoginState>, RouteResult<Null>>();
-  set gotoLogin(
-          CommandStateBuilder<RouteCommand<LoginState>, RouteResult<Null>>
-              gotoLogin) =>
-      _$this._gotoLogin = gotoLogin;
-
-  CommandStateBuilder<RouteCommand<DashboardState>, RouteResult<Null>>
-      _gotoDashboard;
-  CommandStateBuilder<RouteCommand<DashboardState>, RouteResult<Null>>
-      get gotoDashboard => _$this._gotoDashboard ??= new CommandStateBuilder<
-          RouteCommand<DashboardState>, RouteResult<Null>>();
-  set gotoDashboard(
-          CommandStateBuilder<RouteCommand<DashboardState>, RouteResult<Null>>
-              gotoDashboard) =>
-      _$this._gotoDashboard = gotoDashboard;
-
   SplashStateBuilder();
-
-  SplashStateBuilder get _$this {
-    if (_$v != null) {
-      _gotoLogin = _$v.gotoLogin?.toBuilder();
-      _gotoDashboard = _$v.gotoDashboard?.toBuilder();
-      _$v = null;
-    }
-    return this;
-  }
 
   @override
   void replace(SplashState other) {
@@ -168,25 +77,7 @@ class SplashStateBuilder implements Builder<SplashState, SplashStateBuilder> {
 
   @override
   _$SplashState build() {
-    _$SplashState _$result;
-    try {
-      _$result = _$v ??
-          new _$SplashState._(
-              gotoLogin: gotoLogin.build(),
-              gotoDashboard: gotoDashboard.build());
-    } catch (_) {
-      String _$failedField;
-      try {
-        _$failedField = 'gotoLogin';
-        gotoLogin.build();
-        _$failedField = 'gotoDashboard';
-        gotoDashboard.build();
-      } catch (e) {
-        throw new BuiltValueNestedFieldError(
-            'SplashState', _$failedField, e.toString());
-      }
-      rethrow;
-    }
+    final _$result = _$v ?? new _$SplashState._();
     replace(_$result);
     return _$result;
   }
@@ -317,8 +208,6 @@ class _$SplashActions extends SplashActions {
   final ActionDispatcher<Null> $deactivated;
   final ActionDispatcher<SplashState> $pushing;
   final ActionDispatcher<Nothing> $popping;
-  final LoginRoute gotoLogin;
-  final DashboardRoute gotoDashboard;
 
   _$SplashActions._(this.$options)
       : $replace =
@@ -329,31 +218,6 @@ class _$SplashActions extends SplashActions {
         $pushing =
             $options.action<SplashState>('\$pushing', (a) => a?.$pushing),
         $popping = $options.action<Nothing>('\$popping', (a) => a?.$popping),
-        gotoLogin = LoginRoute(
-            () =>
-                $options.stateful<
-                        CommandState<RouteCommand<LoginState>,
-                            RouteResult<Nothing>>,
-                        CommandStateBuilder<RouteCommand<LoginState>,
-                            RouteResult<Nothing>>,
-                        LoginRoute>(
-                    'gotoLogin',
-                    (a) => a.gotoLogin,
-                    (s) => s?.gotoLogin,
-                    (b) => b?.gotoLogin,
-                    (parent, builder) => parent?.gotoLogin = builder)),
-        gotoDashboard = DashboardRoute(() =>
-            $options.stateful<
-                    CommandState<RouteCommand<DashboardState>,
-                        RouteResult<Nothing>>,
-                    CommandStateBuilder<RouteCommand<DashboardState>,
-                        RouteResult<Nothing>>,
-                    DashboardRoute>(
-                'gotoDashboard',
-                (a) => a.gotoDashboard,
-                (s) => s?.gotoDashboard,
-                (b) => b?.gotoDashboard,
-                (parent, builder) => parent?.gotoDashboard = builder)),
         super._();
 
   factory _$SplashActions(SplashActionsOptions options) =>
@@ -365,13 +229,6 @@ class _$SplashActions extends SplashActions {
   @override
   SplashStateBuilder $newBuilder() => SplashStateBuilder();
 
-  BuiltList<ModuxActions> _$nested;
-  @override
-  BuiltList<ModuxActions> get $nested => _$nested ??= BuiltList<ModuxActions>([
-        this.gotoLogin,
-        this.gotoDashboard,
-      ]);
-
   BuiltList<ActionDispatcher> _$actions;
   @override
   BuiltList<ActionDispatcher> get $actions =>
@@ -382,20 +239,6 @@ class _$SplashActions extends SplashActions {
         this.$pushing,
         this.$popping,
       ]);
-
-  @override
-  void $reducer(AppReducerBuilder reducer) {
-    super.$reducer(reducer);
-    gotoLogin.$reducer(reducer);
-    gotoDashboard.$reducer(reducer);
-  }
-
-  @override
-  void $middleware(AppMiddlewareBuilder middleware) {
-    super.$middleware(middleware);
-    gotoLogin.$middleware(middleware);
-    gotoDashboard.$middleware(middleware);
-  }
 
   FullType _$fullType;
   @override

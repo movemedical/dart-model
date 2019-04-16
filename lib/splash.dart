@@ -17,10 +17,6 @@ abstract class SplashRoute extends ScreenRoute<SplashState, SplashStateBuilder,
 
 abstract class SplashActions
     extends ScreenActions<SplashState, SplashStateBuilder, SplashActions> {
-  LoginRoute get gotoLogin;
-
-  DashboardRoute get gotoDashboard;
-
   @override
   MobileNavigationElement get $navElement => null;
 
@@ -39,11 +35,6 @@ abstract class SplashActions
 ////////////////////////////////
 
 abstract class SplashState implements Built<SplashState, SplashStateBuilder> {
-  CommandState<RouteCommand<LoginState>, RouteResult<Null>> get gotoLogin;
-
-  CommandState<RouteCommand<DashboardState>, RouteResult<Null>>
-      get gotoDashboard;
-
   SplashState._();
 
   factory SplashState([updates(SplashStateBuilder b)]) = _$SplashState;

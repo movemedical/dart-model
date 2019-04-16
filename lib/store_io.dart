@@ -6,7 +6,7 @@ import 'package:movemedical_model/store.dart' as s;
 import 'package:web_socket_channel/io.dart' as ws;
 
 Store<AppState, AppStateBuilder, AppActions> createIOStore(
-        AppState Function(AppActions) state,
+        AppState Function(AppActions, Serializers) state,
         {AppActions actions,
         Iterable<Middleware<AppState, AppStateBuilder, AppActions>> middleware =
             const [],
