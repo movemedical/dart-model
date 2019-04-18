@@ -46,13 +46,12 @@ void main() async {
     final store = storeFactory();
     final api = store.service<ApiService>();
 
-    store.actions.api.loginCommand.onResult((event, result) {
-      print('Result!!! -> ${result}');
+    store.actions.api.loginCommand.onExecute((command) {
+      print('${command}');
     });
 
     final future = store.actions.api.loginCommand(
         request: LoginRequest((b) => b
-          ..session = ''
           ..email = 'admin@movemedical.com'
           ..password = 'move'));
 
