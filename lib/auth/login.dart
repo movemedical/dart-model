@@ -27,10 +27,10 @@ abstract class LoginActions
   DashboardRoute get dashboardRoute;
 
   @override
-  MobileNavigationElement get $navElement => null;
+  MobileNavigationElement get navElement$ => null;
 
   @override
-  LoginState get $initial =>
+  LoginState get initialState$ =>
       LoginState.of(email: '', password: '', session: '');
 
   LoginActions._();

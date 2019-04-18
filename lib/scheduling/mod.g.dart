@@ -437,9 +437,9 @@ typedef StatefulActionsOptions<
 
 class _$SchedulingModuleActions extends SchedulingModuleActions {
   final StatefulActionsOptions<SchedulingModuleState,
-      SchedulingModuleStateBuilder, SchedulingModuleActions> $options;
+      SchedulingModuleStateBuilder, SchedulingModuleActions> options$;
 
-  final ActionDispatcher<SchedulingModuleState> $replace;
+  final ActionDispatcher<SchedulingModuleState> replace$;
   final CaseEventListActions caseEventList;
   final CaseEventListRoute caseEventListRoute;
   final CaseEventListFilterActions caseEventListFilter;
@@ -449,10 +449,10 @@ class _$SchedulingModuleActions extends SchedulingModuleActions {
   final CaseEventDetailActions caseEventDetail;
   final CaseEventDetailRoute caseEventDetailRoute;
 
-  _$SchedulingModuleActions._(this.$options)
-      : $replace = $options.action<SchedulingModuleState>(
-            '\$replace', (a) => a?.$replace),
-        caseEventList = CaseEventListActions(() => $options.stateful<
+  _$SchedulingModuleActions._(this.options$)
+      : replace$ = options$.action<SchedulingModuleState>(
+            'replace\$', (a) => a?.replace$),
+        caseEventList = CaseEventListActions(() => options$.stateful<
                 CaseEventListState,
                 CaseEventListStateBuilder,
                 CaseEventListActions>(
@@ -461,7 +461,7 @@ class _$SchedulingModuleActions extends SchedulingModuleActions {
             (s) => s?.caseEventList,
             (b) => b?.caseEventList,
             (parent, builder) => parent?.caseEventList = builder)),
-        caseEventListRoute = CaseEventListRoute(() => $options.stateful<
+        caseEventListRoute = CaseEventListRoute(() => options$.stateful<
                 CommandState<RouteCommand<CaseEventListState>,
                     RouteResult<Nothing>>,
                 CommandStateBuilder<RouteCommand<CaseEventListState>,
@@ -473,7 +473,7 @@ class _$SchedulingModuleActions extends SchedulingModuleActions {
             (b) => b?.caseEventListRoute,
             (parent, builder) => parent?.caseEventListRoute = builder)),
         caseEventListFilter = CaseEventListFilterActions(() =>
-            $options.stateful<
+            options$.stateful<
                     CaseEventListFilterState,
                     CaseEventListFilterStateBuilder,
                     CaseEventListFilterActions>(
@@ -483,7 +483,7 @@ class _$SchedulingModuleActions extends SchedulingModuleActions {
                 (b) => b?.caseEventListFilter,
                 (parent, builder) => parent?.caseEventListFilter = builder)),
         caseEventListFilterRoute = CaseEventListFilterRoute(() =>
-            $options.stateful<
+            options$.stateful<
                     CommandState<RouteCommand<CaseEventListFilterState>,
                         RouteResult<ListCaseEventsApiRequest>>,
                     CommandStateBuilder<RouteCommand<CaseEventListFilterState>,
@@ -495,7 +495,7 @@ class _$SchedulingModuleActions extends SchedulingModuleActions {
                 (b) => b?.caseEventListFilterRoute,
                 (parent, builder) =>
                     parent?.caseEventListFilterRoute = builder)),
-        createCaseEvent = CreateCaseEventActions(() => $options.stateful<
+        createCaseEvent = CreateCaseEventActions(() => options$.stateful<
                 CreateCaseEventState,
                 CreateCaseEventStateBuilder,
                 CreateCaseEventActions>(
@@ -504,7 +504,7 @@ class _$SchedulingModuleActions extends SchedulingModuleActions {
             (s) => s?.createCaseEvent,
             (b) => b?.createCaseEvent,
             (parent, builder) => parent?.createCaseEvent = builder)),
-        createCaseEventRoute = CreateCaseEventRoute(() => $options.stateful<
+        createCaseEventRoute = CreateCaseEventRoute(() => options$.stateful<
                 CommandState<RouteCommand<CreateCaseEventState>,
                     RouteResult<CreateCaseEventApiResponse>>,
                 CommandStateBuilder<RouteCommand<CreateCaseEventState>,
@@ -515,7 +515,7 @@ class _$SchedulingModuleActions extends SchedulingModuleActions {
             (s) => s?.createCaseEventRoute,
             (b) => b?.createCaseEventRoute,
             (parent, builder) => parent?.createCaseEventRoute = builder)),
-        caseEventDetail = CaseEventDetailActions(() => $options.stateful<
+        caseEventDetail = CaseEventDetailActions(() => options$.stateful<
                 CaseEventDetailState,
                 CaseEventDetailStateBuilder,
                 CaseEventDetailActions>(
@@ -524,7 +524,7 @@ class _$SchedulingModuleActions extends SchedulingModuleActions {
             (s) => s?.caseEventDetail,
             (b) => b?.caseEventDetail,
             (parent, builder) => parent?.caseEventDetail = builder)),
-        caseEventDetailRoute = CaseEventDetailRoute(() => $options.stateful<
+        caseEventDetailRoute = CaseEventDetailRoute(() => options$.stateful<
                 CommandState<RouteCommand<CaseEventDetailState>,
                     RouteResult<Nothing>>,
                 CommandStateBuilder<RouteCommand<CaseEventDetailState>,
@@ -541,14 +541,14 @@ class _$SchedulingModuleActions extends SchedulingModuleActions {
       _$SchedulingModuleActions._(options());
 
   @override
-  SchedulingModuleState get $initial => SchedulingModuleState();
+  SchedulingModuleState get initialState$ => SchedulingModuleState();
 
   @override
-  SchedulingModuleStateBuilder $newBuilder() => SchedulingModuleStateBuilder();
+  SchedulingModuleStateBuilder newBuilder$() => SchedulingModuleStateBuilder();
 
-  BuiltList<ModuxActions> _$nested;
+  BuiltList<ModuxActions> _nested$;
   @override
-  BuiltList<ModuxActions> get $nested => _$nested ??= BuiltList<ModuxActions>([
+  BuiltList<ModuxActions> get nested$ => _nested$ ??= BuiltList<ModuxActions>([
         this.caseEventList,
         this.caseEventListRoute,
         this.caseEventListFilter,
@@ -559,40 +559,36 @@ class _$SchedulingModuleActions extends SchedulingModuleActions {
         this.caseEventDetailRoute,
       ]);
 
-  BuiltList<ActionDispatcher> _$actions;
+  BuiltList<ActionDispatcher> _actions$;
   @override
-  BuiltList<ActionDispatcher> get $actions =>
-      _$actions ??= BuiltList<ActionDispatcher>([
-        this.$replace,
+  BuiltList<ActionDispatcher> get actions$ =>
+      _actions$ ??= BuiltList<ActionDispatcher>([
+        this.replace$,
       ]);
 
   @override
-  void $reducer(AppReducerBuilder reducer) {
-    super.$reducer(reducer);
-    caseEventList.$reducer(reducer);
-    caseEventListRoute.$reducer(reducer);
-    caseEventListFilter.$reducer(reducer);
-    caseEventListFilterRoute.$reducer(reducer);
-    createCaseEvent.$reducer(reducer);
-    createCaseEventRoute.$reducer(reducer);
-    caseEventDetail.$reducer(reducer);
-    caseEventDetailRoute.$reducer(reducer);
+  void reducer$(AppReducerBuilder reducer) {
+    super.reducer$(reducer);
+    caseEventList.reducer$(reducer);
+    caseEventListRoute.reducer$(reducer);
+    caseEventListFilter.reducer$(reducer);
+    caseEventListFilterRoute.reducer$(reducer);
+    createCaseEvent.reducer$(reducer);
+    createCaseEventRoute.reducer$(reducer);
+    caseEventDetail.reducer$(reducer);
+    caseEventDetailRoute.reducer$(reducer);
   }
 
   @override
-  void $middleware(AppMiddlewareBuilder middleware) {
-    super.$middleware(middleware);
-    caseEventList.$middleware(middleware);
-    caseEventListRoute.$middleware(middleware);
-    caseEventListFilter.$middleware(middleware);
-    caseEventListFilterRoute.$middleware(middleware);
-    createCaseEvent.$middleware(middleware);
-    createCaseEventRoute.$middleware(middleware);
-    caseEventDetail.$middleware(middleware);
-    caseEventDetailRoute.$middleware(middleware);
+  void middleware$(AppMiddlewareBuilder middleware) {
+    super.middleware$(middleware);
+    caseEventList.middleware$(middleware);
+    caseEventListRoute.middleware$(middleware);
+    caseEventListFilter.middleware$(middleware);
+    caseEventListFilterRoute.middleware$(middleware);
+    createCaseEvent.middleware$(middleware);
+    createCaseEventRoute.middleware$(middleware);
+    caseEventDetail.middleware$(middleware);
+    caseEventDetailRoute.middleware$(middleware);
   }
-
-  FullType _$fullType;
-  @override
-  FullType get $fullType => _$fullType ??= FullType(SchedulingModuleState);
 }

@@ -28,10 +28,10 @@ abstract class DrawerActions
   LoginRoute get loginRoute;
 
   @override
-  DrawerState get $initial => DrawerState();
+  DrawerState get initialState$ => DrawerState();
 
   @override
-  MobileNavigationElement get $navElement => null;
+  MobileNavigationElement get navElement$ => null;
 
   DrawerActions._();
 

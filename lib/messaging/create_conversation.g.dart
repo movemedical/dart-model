@@ -220,67 +220,32 @@ class _$CreateConversationRoute extends CreateConversationRoute {
           RouteResult<CreateConversationApiResponse>>,
       CommandStateBuilder<RouteCommand<CreateConversationState>,
           RouteResult<CreateConversationApiResponse>>,
-      CreateConversationRoute> $options;
+      CreateConversationRoute> options$;
 
   final ActionDispatcher<
       CommandState<RouteCommand<CreateConversationState>,
-          RouteResult<CreateConversationApiResponse>>> $replace;
+          RouteResult<CreateConversationApiResponse>>> replace$;
+  final ActionDispatcher<String> cancel$;
+  final ActionDispatcher<Command<RouteCommand<CreateConversationState>>>
+      execute$;
   final ActionDispatcher<
-      CommandPayload<
-          RouteCommand<CreateConversationState>,
-          RouteResult<CreateConversationApiResponse>,
-          CreateConversationRoute,
-          String>> $cancel;
-  final ActionDispatcher<
-      CommandPayload<
-          RouteCommand<CreateConversationState>,
-          RouteResult<CreateConversationApiResponse>,
-          CreateConversationRoute,
-          Command<RouteCommand<CreateConversationState>>>> $execute;
-  final ActionDispatcher<
-      CommandPayload<
-          RouteCommand<CreateConversationState>,
-          RouteResult<CreateConversationApiResponse>,
-          CreateConversationRoute,
-          CommandResult<RouteResult<CreateConversationApiResponse>>>> $result;
-  final ActionDispatcher<
-      CommandPayload<
-          RouteCommand<CreateConversationState>,
-          RouteResult<CreateConversationApiResponse>,
-          CreateConversationRoute,
-          CommandProgress>> $progress;
+      CommandResult<RouteResult<CreateConversationApiResponse>>> result$;
+  final ActionDispatcher<CommandProgress> progress$;
 
-  _$CreateConversationRoute._(this.$options)
-      : $replace = $options.action<
+  _$CreateConversationRoute._(this.options$)
+      : replace$ = options$.action<
                 CommandState<RouteCommand<CreateConversationState>,
                     RouteResult<CreateConversationApiResponse>>>(
-            '\$replace', (a) => a?.$replace),
-        $cancel = $options.action<
-            CommandPayload<
-                RouteCommand<CreateConversationState>,
-                RouteResult<CreateConversationApiResponse>,
-                CreateConversationRoute,
-                String>>('\$cancel', (a) => a?.$cancel),
-        $execute = $options.action<
-                CommandPayload<
-                    RouteCommand<CreateConversationState>,
-                    RouteResult<CreateConversationApiResponse>,
-                    CreateConversationRoute,
-                    Command<RouteCommand<CreateConversationState>>>>(
-            '\$execute', (a) => a?.$execute),
-        $result = $options.action<
-                CommandPayload<
-                    RouteCommand<CreateConversationState>,
-                    RouteResult<CreateConversationApiResponse>,
-                    CreateConversationRoute,
-                    CommandResult<RouteResult<CreateConversationApiResponse>>>>(
-            '\$result', (a) => a?.$result),
-        $progress = $options.action<
-            CommandPayload<
-                RouteCommand<CreateConversationState>,
-                RouteResult<CreateConversationApiResponse>,
-                CreateConversationRoute,
-                CommandProgress>>('\$progress', (a) => a?.$progress),
+            'replace\$', (a) => a?.replace$),
+        cancel$ = options$.action<String>('cancel\$', (a) => a?.cancel$),
+        execute$ =
+            options$.action<Command<RouteCommand<CreateConversationState>>>(
+                'execute\$', (a) => a?.execute$),
+        result$ = options$
+            .action<CommandResult<RouteResult<CreateConversationApiResponse>>>(
+                'result\$', (a) => a?.result$),
+        progress$ =
+            options$.action<CommandProgress>('progress\$', (a) => a?.progress$),
         super._();
 
   factory _$CreateConversationRoute(CreateConversationRouteOptions options) =>
@@ -289,32 +254,25 @@ class _$CreateConversationRoute extends CreateConversationRoute {
   @override
   CommandState<RouteCommand<CreateConversationState>,
           RouteResult<CreateConversationApiResponse>>
-      get $initial => CommandState<RouteCommand<CreateConversationState>,
+      get initialState$ => CommandState<RouteCommand<CreateConversationState>,
           RouteResult<CreateConversationApiResponse>>();
 
   @override
   CommandStateBuilder<RouteCommand<CreateConversationState>,
           RouteResult<CreateConversationApiResponse>>
-      $newBuilder() => CommandStateBuilder<
+      newBuilder$() => CommandStateBuilder<
           RouteCommand<CreateConversationState>,
           RouteResult<CreateConversationApiResponse>>();
 
-  BuiltList<ActionDispatcher> _$actions;
+  BuiltList<ActionDispatcher> _actions$;
   @override
-  BuiltList<ActionDispatcher> get $actions =>
-      _$actions ??= BuiltList<ActionDispatcher>([
-        this.$replace,
-        this.$cancel,
-        this.$execute,
-        this.$result,
-        this.$progress,
-      ]);
-
-  FullType _$fullType;
-  @override
-  FullType get $fullType => _$fullType ??= FullType(CommandState, [
-        FullType(RouteCommand, [FullType(CreateConversationState)]),
-        FullType(RouteResult, [FullType(CreateConversationApiResponse)])
+  BuiltList<ActionDispatcher> get actions$ =>
+      _actions$ ??= BuiltList<ActionDispatcher>([
+        this.replace$,
+        this.cancel$,
+        this.execute$,
+        this.result$,
+        this.progress$,
       ]);
 
   @override
@@ -352,27 +310,27 @@ typedef StatefulActionsOptions<
 
 class _$CreateConversationActions extends CreateConversationActions {
   final StatefulActionsOptions<CreateConversationState,
-      CreateConversationStateBuilder, CreateConversationActions> $options;
+      CreateConversationStateBuilder, CreateConversationActions> options$;
 
-  final ActionDispatcher<CreateConversationState> $replace;
-  final ActionDispatcher<Null> $activated;
-  final ActionDispatcher<Null> $deactivated;
-  final ActionDispatcher<CreateConversationState> $pushing;
-  final ActionDispatcher<CreateConversationApiResponse> $popping;
+  final ActionDispatcher<CreateConversationState> replace$;
+  final ActionDispatcher<Null> activated$;
+  final ActionDispatcher<Null> deactivated$;
+  final ActionDispatcher<CreateConversationState> pushing$;
+  final ActionDispatcher<CreateConversationApiResponse> popping$;
   final CreateConversationApiRequestActions request;
   final CreateConversationApi cmdCreate;
 
-  _$CreateConversationActions._(this.$options)
-      : $replace = $options.action<CreateConversationState>(
-            '\$replace', (a) => a?.$replace),
-        $activated = $options.action<Null>('\$activated', (a) => a?.$activated),
-        $deactivated =
-            $options.action<Null>('\$deactivated', (a) => a?.$deactivated),
-        $pushing = $options.action<CreateConversationState>(
-            '\$pushing', (a) => a?.$pushing),
-        $popping = $options.action<CreateConversationApiResponse>(
-            '\$popping', (a) => a?.$popping),
-        request = CreateConversationApiRequestActions(() => $options.stateful<
+  _$CreateConversationActions._(this.options$)
+      : replace$ = options$.action<CreateConversationState>(
+            'replace\$', (a) => a?.replace$),
+        activated$ = options$.action<Null>('activated\$', (a) => a?.activated$),
+        deactivated$ =
+            options$.action<Null>('deactivated\$', (a) => a?.deactivated$),
+        pushing$ = options$.action<CreateConversationState>(
+            'pushing\$', (a) => a?.pushing$),
+        popping$ = options$.action<CreateConversationApiResponse>(
+            'popping\$', (a) => a?.popping$),
+        request = CreateConversationApiRequestActions(() => options$.stateful<
                 CreateConversationApiRequest,
                 CreateConversationApiRequestBuilder,
                 CreateConversationApiRequestActions>(
@@ -381,7 +339,7 @@ class _$CreateConversationActions extends CreateConversationActions {
             (s) => s?.request,
             (b) => b?.request,
             (parent, builder) => parent?.request = builder)),
-        cmdCreate = CreateConversationApi(() => $options.stateful<
+        cmdCreate = CreateConversationApi(() => options$.stateful<
                 CommandState<ApiCommand<CreateConversationApiRequest>,
                     ApiResult<CreateConversationApiResponse>>,
                 CommandStateBuilder<ApiCommand<CreateConversationApiRequest>,
@@ -399,46 +357,42 @@ class _$CreateConversationActions extends CreateConversationActions {
       _$CreateConversationActions._(options());
 
   @override
-  CreateConversationStateBuilder $newBuilder() =>
+  CreateConversationStateBuilder newBuilder$() =>
       CreateConversationStateBuilder();
 
-  BuiltList<ModuxActions> _$nested;
+  BuiltList<ModuxActions> _nested$;
   @override
-  BuiltList<ModuxActions> get $nested => _$nested ??= BuiltList<ModuxActions>([
+  BuiltList<ModuxActions> get nested$ => _nested$ ??= BuiltList<ModuxActions>([
         this.request,
         this.cmdCreate,
       ]);
 
-  BuiltList<ActionDispatcher> _$actions;
+  BuiltList<ActionDispatcher> _actions$;
   @override
-  BuiltList<ActionDispatcher> get $actions =>
-      _$actions ??= BuiltList<ActionDispatcher>([
-        this.$replace,
-        this.$activated,
-        this.$deactivated,
-        this.$pushing,
-        this.$popping,
+  BuiltList<ActionDispatcher> get actions$ =>
+      _actions$ ??= BuiltList<ActionDispatcher>([
+        this.replace$,
+        this.activated$,
+        this.deactivated$,
+        this.pushing$,
+        this.popping$,
       ]);
 
   @override
-  void $reducer(AppReducerBuilder reducer) {
-    super.$reducer(reducer);
-    request.$reducer(reducer);
-    cmdCreate.$reducer(reducer);
+  void reducer$(AppReducerBuilder reducer) {
+    super.reducer$(reducer);
+    request.reducer$(reducer);
+    cmdCreate.reducer$(reducer);
   }
 
   @override
-  void $middleware(AppMiddlewareBuilder middleware) {
-    super.$middleware(middleware);
-    request.$middleware(middleware);
-    cmdCreate.$middleware(middleware);
+  void middleware$(AppMiddlewareBuilder middleware) {
+    super.middleware$(middleware);
+    request.middleware$(middleware);
+    cmdCreate.middleware$(middleware);
   }
 
-  FullType _$fullType;
   @override
-  FullType get $fullType => _$fullType ??= FullType(CreateConversationState);
-
-  @override
-  CreateConversationApiResponseBuilder $newResultBuilder() =>
+  CreateConversationApiResponseBuilder newResultBuilder$() =>
       CreateConversationApiResponse().toBuilder();
 }

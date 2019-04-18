@@ -179,15 +179,15 @@ typedef StatefulActionsOptions<SettingsState, SettingsStateBuilder,
 
 class _$SettingsActions extends SettingsActions {
   final StatefulActionsOptions<SettingsState, SettingsStateBuilder,
-      SettingsActions> $options;
+      SettingsActions> options$;
 
-  final ActionDispatcher<SettingsState> $replace;
+  final ActionDispatcher<SettingsState> replace$;
   final FieldDispatcher<ThemeName> themeName;
 
-  _$SettingsActions._(this.$options)
-      : $replace =
-            $options.action<SettingsState>('\$replace', (a) => a?.$replace),
-        themeName = $options.field<ThemeName>('themeName', (a) => a?.themeName,
+  _$SettingsActions._(this.options$)
+      : replace$ =
+            options$.action<SettingsState>('replace\$', (a) => a?.replace$),
+        themeName = options$.field<ThemeName>('themeName', (a) => a?.themeName,
             (s) => s?.themeName, (p, b) => p?.themeName = b),
         super._();
 
@@ -195,31 +195,27 @@ class _$SettingsActions extends SettingsActions {
       _$SettingsActions._(options());
 
   @override
-  SettingsState get $initial => SettingsState();
+  SettingsState get initialState$ => SettingsState();
 
   @override
-  SettingsStateBuilder $newBuilder() => SettingsStateBuilder();
+  SettingsStateBuilder newBuilder$() => SettingsStateBuilder();
 
-  BuiltList<ActionDispatcher> _$actions;
+  BuiltList<ActionDispatcher> _actions$;
   @override
-  BuiltList<ActionDispatcher> get $actions =>
-      _$actions ??= BuiltList<ActionDispatcher>([
-        this.$replace,
+  BuiltList<ActionDispatcher> get actions$ =>
+      _actions$ ??= BuiltList<ActionDispatcher>([
+        this.replace$,
         this.themeName,
       ]);
 
   @override
-  void $reducer(AppReducerBuilder reducer) {
-    super.$reducer(reducer);
-    themeName.$reducer(reducer);
+  void reducer$(AppReducerBuilder reducer) {
+    super.reducer$(reducer);
+    themeName.reducer$(reducer);
   }
 
   @override
-  void $middleware(AppMiddlewareBuilder middleware) {
-    super.$middleware(middleware);
+  void middleware$(AppMiddlewareBuilder middleware) {
+    super.middleware$(middleware);
   }
-
-  FullType _$fullType;
-  @override
-  FullType get $fullType => _$fullType ??= FullType(SettingsState);
 }

@@ -99,32 +99,28 @@ typedef StatefulActionsOptions<PresenceState, PresenceStateBuilder,
 
 class _$PresenceActions extends PresenceActions {
   final StatefulActionsOptions<PresenceState, PresenceStateBuilder,
-      PresenceActions> $options;
+      PresenceActions> options$;
 
-  final ActionDispatcher<PresenceState> $replace;
+  final ActionDispatcher<PresenceState> replace$;
 
-  _$PresenceActions._(this.$options)
-      : $replace =
-            $options.action<PresenceState>('\$replace', (a) => a?.$replace),
+  _$PresenceActions._(this.options$)
+      : replace$ =
+            options$.action<PresenceState>('replace\$', (a) => a?.replace$),
         super._();
 
   factory _$PresenceActions(PresenceActionsOptions options) =>
       _$PresenceActions._(options());
 
   @override
-  PresenceState get $initial => PresenceState();
+  PresenceState get initialState$ => PresenceState();
 
   @override
-  PresenceStateBuilder $newBuilder() => PresenceStateBuilder();
+  PresenceStateBuilder newBuilder$() => PresenceStateBuilder();
 
-  BuiltList<ActionDispatcher> _$actions;
+  BuiltList<ActionDispatcher> _actions$;
   @override
-  BuiltList<ActionDispatcher> get $actions =>
-      _$actions ??= BuiltList<ActionDispatcher>([
-        this.$replace,
+  BuiltList<ActionDispatcher> get actions$ =>
+      _actions$ ??= BuiltList<ActionDispatcher>([
+        this.replace$,
       ]);
-
-  FullType _$fullType;
-  @override
-  FullType get $fullType => _$fullType ??= FullType(PresenceState);
 }

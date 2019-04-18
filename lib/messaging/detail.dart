@@ -36,10 +36,10 @@ abstract class ConversationActions extends ScreenActions<ConversationState,
   ////////////////////////////////////
 
   @override
-  ConversationState get $initial => ConversationState((b) => b);
+  ConversationState get initialState$ => ConversationState((b) => b);
 
   @override
-  MobileNavigationElement get $navElement => MobileNavigationElement.MESSAGES;
+  MobileNavigationElement get navElement$ => MobileNavigationElement.MESSAGES;
 
   ////////////////////////////////////
   /// Construction

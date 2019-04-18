@@ -47,7 +47,8 @@ abstract class ConversationListFilterActions extends DialogActions<
   ////////////////////////////////////
 
   @override
-  ConversationListFilterState get $initial => ConversationListFilterState();
+  ConversationListFilterState get initialState$ =>
+      ConversationListFilterState();
 
   ////////////////////////////////////
   /// Construction

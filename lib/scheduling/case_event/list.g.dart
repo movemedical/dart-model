@@ -224,57 +224,27 @@ class _$CaseEventListRoute extends CaseEventListRoute {
       CommandState<RouteCommand<CaseEventListState>, RouteResult<Nothing>>,
       CommandStateBuilder<RouteCommand<CaseEventListState>,
           RouteResult<Nothing>>,
-      CaseEventListRoute> $options;
+      CaseEventListRoute> options$;
 
   final ActionDispatcher<
           CommandState<RouteCommand<CaseEventListState>, RouteResult<Nothing>>>
-      $replace;
-  final ActionDispatcher<
-      CommandPayload<RouteCommand<CaseEventListState>, RouteResult<Nothing>,
-          CaseEventListRoute, String>> $cancel;
-  final ActionDispatcher<
-      CommandPayload<
-          RouteCommand<CaseEventListState>,
-          RouteResult<Nothing>,
-          CaseEventListRoute,
-          Command<RouteCommand<CaseEventListState>>>> $execute;
-  final ActionDispatcher<
-      CommandPayload<RouteCommand<CaseEventListState>, RouteResult<Nothing>,
-          CaseEventListRoute, CommandResult<RouteResult<Nothing>>>> $result;
-  final ActionDispatcher<
-      CommandPayload<RouteCommand<CaseEventListState>, RouteResult<Nothing>,
-          CaseEventListRoute, CommandProgress>> $progress;
+      replace$;
+  final ActionDispatcher<String> cancel$;
+  final ActionDispatcher<Command<RouteCommand<CaseEventListState>>> execute$;
+  final ActionDispatcher<CommandResult<RouteResult<Nothing>>> result$;
+  final ActionDispatcher<CommandProgress> progress$;
 
-  _$CaseEventListRoute._(this.$options)
-      : $replace = $options.action<
+  _$CaseEventListRoute._(this.options$)
+      : replace$ = options$.action<
             CommandState<RouteCommand<CaseEventListState>,
-                RouteResult<Nothing>>>('\$replace', (a) => a?.$replace),
-        $cancel = $options.action<
-            CommandPayload<
-                RouteCommand<CaseEventListState>,
-                RouteResult<Nothing>,
-                CaseEventListRoute,
-                String>>('\$cancel', (a) => a?.$cancel),
-        $execute = $options.action<
-                CommandPayload<
-                    RouteCommand<CaseEventListState>,
-                    RouteResult<Nothing>,
-                    CaseEventListRoute,
-                    Command<RouteCommand<CaseEventListState>>>>(
-            '\$execute', (a) => a?.$execute),
-        $result = $options.action<
-                CommandPayload<
-                    RouteCommand<CaseEventListState>,
-                    RouteResult<Nothing>,
-                    CaseEventListRoute,
-                    CommandResult<RouteResult<Nothing>>>>(
-            '\$result', (a) => a?.$result),
-        $progress = $options.action<
-            CommandPayload<
-                RouteCommand<CaseEventListState>,
-                RouteResult<Nothing>,
-                CaseEventListRoute,
-                CommandProgress>>('\$progress', (a) => a?.$progress),
+                RouteResult<Nothing>>>('replace\$', (a) => a?.replace$),
+        cancel$ = options$.action<String>('cancel\$', (a) => a?.cancel$),
+        execute$ = options$.action<Command<RouteCommand<CaseEventListState>>>(
+            'execute\$', (a) => a?.execute$),
+        result$ = options$.action<CommandResult<RouteResult<Nothing>>>(
+            'result\$', (a) => a?.result$),
+        progress$ =
+            options$.action<CommandProgress>('progress\$', (a) => a?.progress$),
         super._();
 
   factory _$CaseEventListRoute(CaseEventListRouteOptions options) =>
@@ -282,30 +252,23 @@ class _$CaseEventListRoute extends CaseEventListRoute {
 
   @override
   CommandState<RouteCommand<CaseEventListState>, RouteResult<Nothing>>
-      get $initial => CommandState<RouteCommand<CaseEventListState>,
+      get initialState$ => CommandState<RouteCommand<CaseEventListState>,
           RouteResult<Nothing>>();
 
   @override
   CommandStateBuilder<RouteCommand<CaseEventListState>, RouteResult<Nothing>>
-      $newBuilder() => CommandStateBuilder<RouteCommand<CaseEventListState>,
+      newBuilder$() => CommandStateBuilder<RouteCommand<CaseEventListState>,
           RouteResult<Nothing>>();
 
-  BuiltList<ActionDispatcher> _$actions;
+  BuiltList<ActionDispatcher> _actions$;
   @override
-  BuiltList<ActionDispatcher> get $actions =>
-      _$actions ??= BuiltList<ActionDispatcher>([
-        this.$replace,
-        this.$cancel,
-        this.$execute,
-        this.$result,
-        this.$progress,
-      ]);
-
-  FullType _$fullType;
-  @override
-  FullType get $fullType => _$fullType ??= FullType(CommandState, [
-        FullType(RouteCommand, [FullType(CaseEventListState)]),
-        FullType(RouteResult, [FullType(Nothing)])
+  BuiltList<ActionDispatcher> get actions$ =>
+      _actions$ ??= BuiltList<ActionDispatcher>([
+        this.replace$,
+        this.cancel$,
+        this.execute$,
+        this.result$,
+        this.progress$,
       ]);
 
   @override
@@ -339,29 +302,29 @@ typedef StatefulActionsOptions<CaseEventListState, CaseEventListStateBuilder,
 
 class _$CaseEventListActions extends CaseEventListActions {
   final StatefulActionsOptions<CaseEventListState, CaseEventListStateBuilder,
-      CaseEventListActions> $options;
+      CaseEventListActions> options$;
 
-  final ActionDispatcher<CaseEventListState> $replace;
-  final ActionDispatcher<Null> $activated;
-  final ActionDispatcher<Null> $deactivated;
-  final ActionDispatcher<CaseEventListState> $pushing;
-  final ActionDispatcher<Nothing> $popping;
+  final ActionDispatcher<CaseEventListState> replace$;
+  final ActionDispatcher<Null> activated$;
+  final ActionDispatcher<Null> deactivated$;
+  final ActionDispatcher<CaseEventListState> pushing$;
+  final ActionDispatcher<Nothing> popping$;
   final list_case_events_api.ListCaseEventsApi listCommand;
   final list_case_events_api.ListCaseEventsApiRequestActions request;
 
-  _$CaseEventListActions._(this.$options)
-      : $replace = $options.action<CaseEventListState>(
-            '\$replace', (a) => a?.$replace),
-        $activated = $options.action<Null>('\$activated', (a) => a?.$activated),
-        $deactivated =
-            $options.action<Null>('\$deactivated', (a) => a?.$deactivated),
-        $pushing = $options.action<CaseEventListState>(
-            '\$pushing', (a) => a?.$pushing),
-        $popping = $options.action<Nothing>('\$popping', (a) => a?.$popping),
+  _$CaseEventListActions._(this.options$)
+      : replace$ = options$.action<CaseEventListState>(
+            'replace\$', (a) => a?.replace$),
+        activated$ = options$.action<Null>('activated\$', (a) => a?.activated$),
+        deactivated$ =
+            options$.action<Null>('deactivated\$', (a) => a?.deactivated$),
+        pushing$ = options$.action<CaseEventListState>(
+            'pushing\$', (a) => a?.pushing$),
+        popping$ = options$.action<Nothing>('popping\$', (a) => a?.popping$),
         listCommand =
             list_case_events_api.ListCaseEventsApi(
                 () =>
-                    $options
+                    options$
                         .stateful<
                                 CommandState<
                                     ApiCommand<
@@ -385,7 +348,7 @@ class _$CaseEventListActions extends CaseEventListActions {
                             (parent, builder) =>
                                 parent?.listCommand = builder)),
         request = list_case_events_api.ListCaseEventsApiRequestActions(() =>
-            $options.stateful<
+            options$.stateful<
                     list_case_events_api.ListCaseEventsApiRequest,
                     list_case_events_api.ListCaseEventsApiRequestBuilder,
                     list_case_events_api.ListCaseEventsApiRequestActions>(
@@ -400,44 +363,40 @@ class _$CaseEventListActions extends CaseEventListActions {
       _$CaseEventListActions._(options());
 
   @override
-  CaseEventListStateBuilder $newBuilder() => CaseEventListStateBuilder();
+  CaseEventListStateBuilder newBuilder$() => CaseEventListStateBuilder();
 
-  BuiltList<ModuxActions> _$nested;
+  BuiltList<ModuxActions> _nested$;
   @override
-  BuiltList<ModuxActions> get $nested => _$nested ??= BuiltList<ModuxActions>([
+  BuiltList<ModuxActions> get nested$ => _nested$ ??= BuiltList<ModuxActions>([
         this.listCommand,
         this.request,
       ]);
 
-  BuiltList<ActionDispatcher> _$actions;
+  BuiltList<ActionDispatcher> _actions$;
   @override
-  BuiltList<ActionDispatcher> get $actions =>
-      _$actions ??= BuiltList<ActionDispatcher>([
-        this.$replace,
-        this.$activated,
-        this.$deactivated,
-        this.$pushing,
-        this.$popping,
+  BuiltList<ActionDispatcher> get actions$ =>
+      _actions$ ??= BuiltList<ActionDispatcher>([
+        this.replace$,
+        this.activated$,
+        this.deactivated$,
+        this.pushing$,
+        this.popping$,
       ]);
 
   @override
-  void $reducer(AppReducerBuilder reducer) {
-    super.$reducer(reducer);
-    listCommand.$reducer(reducer);
-    request.$reducer(reducer);
+  void reducer$(AppReducerBuilder reducer) {
+    super.reducer$(reducer);
+    listCommand.reducer$(reducer);
+    request.reducer$(reducer);
   }
 
   @override
-  void $middleware(AppMiddlewareBuilder middleware) {
-    super.$middleware(middleware);
-    listCommand.$middleware(middleware);
-    request.$middleware(middleware);
+  void middleware$(AppMiddlewareBuilder middleware) {
+    super.middleware$(middleware);
+    listCommand.middleware$(middleware);
+    request.middleware$(middleware);
   }
 
-  FullType _$fullType;
   @override
-  FullType get $fullType => _$fullType ??= FullType(CaseEventListState);
-
-  @override
-  NothingBuilder $newResultBuilder() => Nothing().toBuilder();
+  NothingBuilder newResultBuilder$() => Nothing().toBuilder();
 }

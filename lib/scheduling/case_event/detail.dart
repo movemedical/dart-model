@@ -40,20 +40,20 @@ abstract class CaseEventDetailActions extends ScreenActions<
   ////////////////////////////////////
 
   @override
-  CaseEventDetailState get $initial => CaseEventDetailState((b) => b);
+  CaseEventDetailState get initialState$ => CaseEventDetailState((b) => b);
 
   ////////////////////////////////////
   /// Middleware
   ////////////////////////////////////
 
   @override
-  void $middleware(AppMiddlewareBuilder middleware) {
-    super.$middleware(middleware);
+  void middleware$(AppMiddlewareBuilder middleware) {
+    super.middleware$(middleware);
 
     middleware.nest(this)
-      ..add(cmdLoad.$result, (api, next, action) {
-        if (action?.payload?.payload is GetCaseEventDetailApiResponse) {
-          model.$reset(action.payload.payload as GetCaseEventDetailApiResponse);
+      ..add(cmdLoad.result$, (api, next, action) {
+        if (action?.payload is GetCaseEventDetailApiResponse) {
+          model.$reset(action.payload as GetCaseEventDetailApiResponse);
         }
       });
   }

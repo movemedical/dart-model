@@ -185,67 +185,30 @@ class _$CreateMessageRoute extends CreateMessageRoute {
           RouteResult<CreateMessageApiResponse>>,
       CommandStateBuilder<RouteCommand<CreateMessageState>,
           RouteResult<CreateMessageApiResponse>>,
-      CreateMessageRoute> $options;
+      CreateMessageRoute> options$;
 
   final ActionDispatcher<
       CommandState<RouteCommand<CreateMessageState>,
-          RouteResult<CreateMessageApiResponse>>> $replace;
-  final ActionDispatcher<
-      CommandPayload<
-          RouteCommand<CreateMessageState>,
-          RouteResult<CreateMessageApiResponse>,
-          CreateMessageRoute,
-          String>> $cancel;
-  final ActionDispatcher<
-      CommandPayload<
-          RouteCommand<CreateMessageState>,
-          RouteResult<CreateMessageApiResponse>,
-          CreateMessageRoute,
-          Command<RouteCommand<CreateMessageState>>>> $execute;
-  final ActionDispatcher<
-      CommandPayload<
-          RouteCommand<CreateMessageState>,
-          RouteResult<CreateMessageApiResponse>,
-          CreateMessageRoute,
-          CommandResult<RouteResult<CreateMessageApiResponse>>>> $result;
-  final ActionDispatcher<
-      CommandPayload<
-          RouteCommand<CreateMessageState>,
-          RouteResult<CreateMessageApiResponse>,
-          CreateMessageRoute,
-          CommandProgress>> $progress;
+          RouteResult<CreateMessageApiResponse>>> replace$;
+  final ActionDispatcher<String> cancel$;
+  final ActionDispatcher<Command<RouteCommand<CreateMessageState>>> execute$;
+  final ActionDispatcher<CommandResult<RouteResult<CreateMessageApiResponse>>>
+      result$;
+  final ActionDispatcher<CommandProgress> progress$;
 
-  _$CreateMessageRoute._(this.$options)
-      : $replace = $options.action<
+  _$CreateMessageRoute._(this.options$)
+      : replace$ = options$.action<
                 CommandState<RouteCommand<CreateMessageState>,
                     RouteResult<CreateMessageApiResponse>>>(
-            '\$replace', (a) => a?.$replace),
-        $cancel = $options.action<
-            CommandPayload<
-                RouteCommand<CreateMessageState>,
-                RouteResult<CreateMessageApiResponse>,
-                CreateMessageRoute,
-                String>>('\$cancel', (a) => a?.$cancel),
-        $execute = $options.action<
-                CommandPayload<
-                    RouteCommand<CreateMessageState>,
-                    RouteResult<CreateMessageApiResponse>,
-                    CreateMessageRoute,
-                    Command<RouteCommand<CreateMessageState>>>>(
-            '\$execute', (a) => a?.$execute),
-        $result = $options.action<
-                CommandPayload<
-                    RouteCommand<CreateMessageState>,
-                    RouteResult<CreateMessageApiResponse>,
-                    CreateMessageRoute,
-                    CommandResult<RouteResult<CreateMessageApiResponse>>>>(
-            '\$result', (a) => a?.$result),
-        $progress = $options.action<
-            CommandPayload<
-                RouteCommand<CreateMessageState>,
-                RouteResult<CreateMessageApiResponse>,
-                CreateMessageRoute,
-                CommandProgress>>('\$progress', (a) => a?.$progress),
+            'replace\$', (a) => a?.replace$),
+        cancel$ = options$.action<String>('cancel\$', (a) => a?.cancel$),
+        execute$ = options$.action<Command<RouteCommand<CreateMessageState>>>(
+            'execute\$', (a) => a?.execute$),
+        result$ = options$
+            .action<CommandResult<RouteResult<CreateMessageApiResponse>>>(
+                'result\$', (a) => a?.result$),
+        progress$ =
+            options$.action<CommandProgress>('progress\$', (a) => a?.progress$),
         super._();
 
   factory _$CreateMessageRoute(CreateMessageRouteOptions options) =>
@@ -254,31 +217,24 @@ class _$CreateMessageRoute extends CreateMessageRoute {
   @override
   CommandState<RouteCommand<CreateMessageState>,
           RouteResult<CreateMessageApiResponse>>
-      get $initial => CommandState<RouteCommand<CreateMessageState>,
+      get initialState$ => CommandState<RouteCommand<CreateMessageState>,
           RouteResult<CreateMessageApiResponse>>();
 
   @override
   CommandStateBuilder<RouteCommand<CreateMessageState>,
           RouteResult<CreateMessageApiResponse>>
-      $newBuilder() => CommandStateBuilder<RouteCommand<CreateMessageState>,
+      newBuilder$() => CommandStateBuilder<RouteCommand<CreateMessageState>,
           RouteResult<CreateMessageApiResponse>>();
 
-  BuiltList<ActionDispatcher> _$actions;
+  BuiltList<ActionDispatcher> _actions$;
   @override
-  BuiltList<ActionDispatcher> get $actions =>
-      _$actions ??= BuiltList<ActionDispatcher>([
-        this.$replace,
-        this.$cancel,
-        this.$execute,
-        this.$result,
-        this.$progress,
-      ]);
-
-  FullType _$fullType;
-  @override
-  FullType get $fullType => _$fullType ??= FullType(CommandState, [
-        FullType(RouteCommand, [FullType(CreateMessageState)]),
-        FullType(RouteResult, [FullType(CreateMessageApiResponse)])
+  BuiltList<ActionDispatcher> get actions$ =>
+      _actions$ ??= BuiltList<ActionDispatcher>([
+        this.replace$,
+        this.cancel$,
+        this.execute$,
+        this.result$,
+        this.progress$,
       ]);
 
   @override
@@ -314,26 +270,26 @@ typedef StatefulActionsOptions<CreateMessageState, CreateMessageStateBuilder,
 
 class _$CreateMessageActions extends CreateMessageActions {
   final StatefulActionsOptions<CreateMessageState, CreateMessageStateBuilder,
-      CreateMessageActions> $options;
+      CreateMessageActions> options$;
 
-  final ActionDispatcher<CreateMessageState> $replace;
-  final ActionDispatcher<Null> $activated;
-  final ActionDispatcher<Null> $deactivated;
-  final ActionDispatcher<CreateMessageState> $pushing;
-  final ActionDispatcher<CreateMessageApiResponse> $popping;
+  final ActionDispatcher<CreateMessageState> replace$;
+  final ActionDispatcher<Null> activated$;
+  final ActionDispatcher<Null> deactivated$;
+  final ActionDispatcher<CreateMessageState> pushing$;
+  final ActionDispatcher<CreateMessageApiResponse> popping$;
   final CreateMessageApi cmdCreate;
 
-  _$CreateMessageActions._(this.$options)
-      : $replace = $options.action<CreateMessageState>(
-            '\$replace', (a) => a?.$replace),
-        $activated = $options.action<Null>('\$activated', (a) => a?.$activated),
-        $deactivated =
-            $options.action<Null>('\$deactivated', (a) => a?.$deactivated),
-        $pushing = $options.action<CreateMessageState>(
-            '\$pushing', (a) => a?.$pushing),
-        $popping = $options.action<CreateMessageApiResponse>(
-            '\$popping', (a) => a?.$popping),
-        cmdCreate = CreateMessageApi(() => $options.stateful<
+  _$CreateMessageActions._(this.options$)
+      : replace$ = options$.action<CreateMessageState>(
+            'replace\$', (a) => a?.replace$),
+        activated$ = options$.action<Null>('activated\$', (a) => a?.activated$),
+        deactivated$ =
+            options$.action<Null>('deactivated\$', (a) => a?.deactivated$),
+        pushing$ = options$.action<CreateMessageState>(
+            'pushing\$', (a) => a?.pushing$),
+        popping$ = options$.action<CreateMessageApiResponse>(
+            'popping\$', (a) => a?.popping$),
+        cmdCreate = CreateMessageApi(() => options$.stateful<
                 CommandState<ApiCommand<CreateMessageApiRequest>,
                     ApiResult<CreateMessageApiResponse>>,
                 CommandStateBuilder<ApiCommand<CreateMessageApiRequest>,
@@ -350,42 +306,38 @@ class _$CreateMessageActions extends CreateMessageActions {
       _$CreateMessageActions._(options());
 
   @override
-  CreateMessageStateBuilder $newBuilder() => CreateMessageStateBuilder();
+  CreateMessageStateBuilder newBuilder$() => CreateMessageStateBuilder();
 
-  BuiltList<ModuxActions> _$nested;
+  BuiltList<ModuxActions> _nested$;
   @override
-  BuiltList<ModuxActions> get $nested => _$nested ??= BuiltList<ModuxActions>([
+  BuiltList<ModuxActions> get nested$ => _nested$ ??= BuiltList<ModuxActions>([
         this.cmdCreate,
       ]);
 
-  BuiltList<ActionDispatcher> _$actions;
+  BuiltList<ActionDispatcher> _actions$;
   @override
-  BuiltList<ActionDispatcher> get $actions =>
-      _$actions ??= BuiltList<ActionDispatcher>([
-        this.$replace,
-        this.$activated,
-        this.$deactivated,
-        this.$pushing,
-        this.$popping,
+  BuiltList<ActionDispatcher> get actions$ =>
+      _actions$ ??= BuiltList<ActionDispatcher>([
+        this.replace$,
+        this.activated$,
+        this.deactivated$,
+        this.pushing$,
+        this.popping$,
       ]);
 
   @override
-  void $reducer(AppReducerBuilder reducer) {
-    super.$reducer(reducer);
-    cmdCreate.$reducer(reducer);
+  void reducer$(AppReducerBuilder reducer) {
+    super.reducer$(reducer);
+    cmdCreate.reducer$(reducer);
   }
 
   @override
-  void $middleware(AppMiddlewareBuilder middleware) {
-    super.$middleware(middleware);
-    cmdCreate.$middleware(middleware);
+  void middleware$(AppMiddlewareBuilder middleware) {
+    super.middleware$(middleware);
+    cmdCreate.middleware$(middleware);
   }
 
-  FullType _$fullType;
   @override
-  FullType get $fullType => _$fullType ??= FullType(CreateMessageState);
-
-  @override
-  CreateMessageApiResponseBuilder $newResultBuilder() =>
+  CreateMessageApiResponseBuilder newResultBuilder$() =>
       CreateMessageApiResponse().toBuilder();
 }

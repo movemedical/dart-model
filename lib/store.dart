@@ -18,10 +18,10 @@ Store<AppState, AppStateBuilder, AppActions> createStore(
         serviceFactory}) {
   if (actions == null) actions = AppActions();
   if (stateBuilder == null)
-    stateBuilder = (AppActions a, Serializers ser) => a.$initial;
+    stateBuilder = (AppActions a, Serializers ser) => a.initialState$;
 
   final m = List<Middleware<AppState, AppStateBuilder, AppActions>>();
-  final actionMiddleware = actions.$createMiddleware();
+  final actionMiddleware = actions.createMiddleware$();
   m.add(actionMiddleware);
   if (middleware != null) m.addAll(middleware);
 

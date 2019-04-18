@@ -88,15 +88,15 @@ abstract class AppModelActions<
   @override
   @mustCallSuper
   @protected
-  void $reducer(covariant AppReducerBuilder reducer) {
-    super.$reducer(reducer);
+  void reducer$(covariant AppReducerBuilder reducer) {
+    super.reducer$(reducer);
   }
 
   @override
   @mustCallSuper
   @protected
-  void $middleware(covariant AppMiddlewareBuilder builder) {
-    super.$middleware(builder);
+  void middleware$(covariant AppMiddlewareBuilder builder) {
+    super.middleware$(builder);
   }
 }
 
@@ -110,15 +110,15 @@ abstract class StateActions<
   @override
   @mustCallSuper
   @protected
-  void $reducer(covariant AppReducerBuilder reducer) {
-    super.$reducer(reducer);
+  void reducer$(covariant AppReducerBuilder reducer) {
+    super.reducer$(reducer);
   }
 
   @override
   @mustCallSuper
   @protected
-  void $middleware(covariant AppMiddlewareBuilder builder) {
-    super.$middleware(builder);
+  void middleware$(covariant AppMiddlewareBuilder builder) {
+    super.middleware$(builder);
   }
 }
 
@@ -128,15 +128,15 @@ abstract class BusActions<Actions extends BusActions<Actions>>
   @override
   @mustCallSuper
   @protected
-  void $reducer(covariant AppReducerBuilder reducer) {
-    super.$reducer(reducer);
+  void reducer$(covariant AppReducerBuilder reducer) {
+    super.reducer$(reducer);
   }
 
   @override
   @mustCallSuper
   @protected
-  void $middleware(covariant AppMiddlewareBuilder builder) {
-    super.$middleware(builder);
+  void middleware$(covariant AppMiddlewareBuilder builder) {
+    super.middleware$(builder);
   }
 }
 
@@ -152,20 +152,20 @@ abstract class AppRouteActions<
   @override
   @mustCallSuper
   @protected
-  void $reducer(covariant AppReducerBuilder reducer) {
-    super.$reducer(reducer);
+  void reducer$(covariant AppReducerBuilder reducer) {
+    super.reducer$(reducer);
   }
 
   @override
   @mustCallSuper
   @protected
-  void $middleware(covariant AppMiddlewareBuilder builder) {
-    super.$middleware(builder);
+  void middleware$(covariant AppMiddlewareBuilder builder) {
+    super.middleware$(builder);
   }
 
   @override
-  Store<AppState, AppStateBuilder, AppActions> get $store =>
-      super.$store as Store<AppState, AppStateBuilder, AppActions>;
+  Store<AppState, AppStateBuilder, AppActions> get store$ =>
+      super.store$ as Store<AppState, AppStateBuilder, AppActions>;
 }
 
 ///
@@ -184,10 +184,10 @@ abstract class ScreenActions<
     LocalActions extends ScreenActions<LocalState, LocalStateBuilder,
         LocalActions>> extends AppRouteActions<LocalState, LocalStateBuilder,
     Nothing, NothingBuilder, LocalActions> {
-  MobileNavigationElement _$navElement;
+  MobileNavigationElement _navElement$;
 
-  MobileNavigationElement get $navElement =>
-      _$navElement ??= _mobileNavigationElementFor($store, $name);
+  MobileNavigationElement get navElement$ =>
+      _navElement$ ??= _mobileNavigationElementFor(store$, name$);
 
 //  @override
 //  void $onPush(covariant Store<AppState, AppStateBuilder, AppActions> store,
@@ -242,19 +242,19 @@ abstract class DialogActions<
     LocalActions extends DialogActions<LocalState, LocalStateBuilder, Result,
         ResultBuilder, LocalActions>> extends AppRouteActions<LocalState,
     LocalStateBuilder, Result, ResultBuilder, LocalActions> {
-  MobileNavigationElement _$navElement;
+  MobileNavigationElement _navElement$;
 
-  MobileNavigationElement get $navElement =>
-      _$navElement ??= _mobileNavigationElementFor($store, $name);
+  MobileNavigationElement get navElement$ =>
+      _navElement$ ??= _mobileNavigationElementFor(store$, name$);
 }
 
 MobileNavigationElement _mobileNavigationElementFor(
     Store<AppState, AppStateBuilder, AppActions> store, String name) {
-  if (name.startsWith(store.actions.nav.messaging.$name)) {
+  if (name.startsWith(store.actions.nav.messaging.name$)) {
     return MobileNavigationElement.MESSAGES;
-  } else if (name.startsWith(store.actions.nav.dashboard.$name)) {
+  } else if (name.startsWith(store.actions.nav.dashboard.name$)) {
     return MobileNavigationElement.DASHBOARD;
-  } else if (name.startsWith(store.actions.nav.scheduling.$name)) {
+  } else if (name.startsWith(store.actions.nav.scheduling.name$)) {
     return MobileNavigationElement.SCHEDULE;
   }
 

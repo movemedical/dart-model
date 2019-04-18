@@ -21,7 +21,7 @@ abstract class ScaffoldActions
   LoginRoute get loginRoute;
 
   @override
-  ScaffoldState get $initial => ScaffoldState();
+  ScaffoldState get initialState$ => ScaffoldState();
 
   ScaffoldActions._();
 

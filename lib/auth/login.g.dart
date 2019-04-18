@@ -199,73 +199,49 @@ class _$LoginRoute extends LoginRoute {
   final StatefulActionsOptions<
       CommandState<RouteCommand<LoginState>, RouteResult<Nothing>>,
       CommandStateBuilder<RouteCommand<LoginState>, RouteResult<Nothing>>,
-      LoginRoute> $options;
+      LoginRoute> options$;
 
   final ActionDispatcher<
-      CommandState<RouteCommand<LoginState>, RouteResult<Nothing>>> $replace;
-  final ActionDispatcher<
-      CommandPayload<RouteCommand<LoginState>, RouteResult<Nothing>, LoginRoute,
-          String>> $cancel;
-  final ActionDispatcher<
-      CommandPayload<RouteCommand<LoginState>, RouteResult<Nothing>, LoginRoute,
-          Command<RouteCommand<LoginState>>>> $execute;
-  final ActionDispatcher<
-      CommandPayload<RouteCommand<LoginState>, RouteResult<Nothing>, LoginRoute,
-          CommandResult<RouteResult<Nothing>>>> $result;
-  final ActionDispatcher<
-      CommandPayload<RouteCommand<LoginState>, RouteResult<Nothing>, LoginRoute,
-          CommandProgress>> $progress;
+      CommandState<RouteCommand<LoginState>, RouteResult<Nothing>>> replace$;
+  final ActionDispatcher<String> cancel$;
+  final ActionDispatcher<Command<RouteCommand<LoginState>>> execute$;
+  final ActionDispatcher<CommandResult<RouteResult<Nothing>>> result$;
+  final ActionDispatcher<CommandProgress> progress$;
 
-  _$LoginRoute._(this.$options)
-      : $replace = $options.action<
+  _$LoginRoute._(this.options$)
+      : replace$ = options$.action<
                 CommandState<RouteCommand<LoginState>, RouteResult<Nothing>>>(
-            '\$replace', (a) => a?.$replace),
-        $cancel = $options.action<
-            CommandPayload<RouteCommand<LoginState>, RouteResult<Nothing>,
-                LoginRoute, String>>('\$cancel', (a) => a?.$cancel),
-        $execute = $options.action<
-                CommandPayload<RouteCommand<LoginState>, RouteResult<Nothing>,
-                    LoginRoute, Command<RouteCommand<LoginState>>>>(
-            '\$execute', (a) => a?.$execute),
-        $result = $options.action<
-                CommandPayload<RouteCommand<LoginState>, RouteResult<Nothing>,
-                    LoginRoute, CommandResult<RouteResult<Nothing>>>>(
-            '\$result', (a) => a?.$result),
-        $progress = $options.action<
-            CommandPayload<
-                RouteCommand<LoginState>,
-                RouteResult<Nothing>,
-                LoginRoute,
-                CommandProgress>>('\$progress', (a) => a?.$progress),
+            'replace\$', (a) => a?.replace$),
+        cancel$ = options$.action<String>('cancel\$', (a) => a?.cancel$),
+        execute$ = options$.action<Command<RouteCommand<LoginState>>>(
+            'execute\$', (a) => a?.execute$),
+        result$ = options$.action<CommandResult<RouteResult<Nothing>>>(
+            'result\$', (a) => a?.result$),
+        progress$ =
+            options$.action<CommandProgress>('progress\$', (a) => a?.progress$),
         super._();
 
   factory _$LoginRoute(LoginRouteOptions options) => _$LoginRoute._(options());
 
   @override
-  CommandState<RouteCommand<LoginState>, RouteResult<Nothing>> get $initial =>
-      CommandState<RouteCommand<LoginState>, RouteResult<Nothing>>();
+  CommandState<RouteCommand<LoginState>, RouteResult<Nothing>>
+      get initialState$ =>
+          CommandState<RouteCommand<LoginState>, RouteResult<Nothing>>();
 
   @override
   CommandStateBuilder<RouteCommand<LoginState>, RouteResult<Nothing>>
-      $newBuilder() =>
+      newBuilder$() =>
           CommandStateBuilder<RouteCommand<LoginState>, RouteResult<Nothing>>();
 
-  BuiltList<ActionDispatcher> _$actions;
+  BuiltList<ActionDispatcher> _actions$;
   @override
-  BuiltList<ActionDispatcher> get $actions =>
-      _$actions ??= BuiltList<ActionDispatcher>([
-        this.$replace,
-        this.$cancel,
-        this.$execute,
-        this.$result,
-        this.$progress,
-      ]);
-
-  FullType _$fullType;
-  @override
-  FullType get $fullType => _$fullType ??= FullType(CommandState, [
-        FullType(RouteCommand, [FullType(LoginState)]),
-        FullType(RouteResult, [FullType(Nothing)])
+  BuiltList<ActionDispatcher> get actions$ =>
+      _actions$ ??= BuiltList<ActionDispatcher>([
+        this.replace$,
+        this.cancel$,
+        this.execute$,
+        this.result$,
+        this.progress$,
       ]);
 
   @override
@@ -297,24 +273,24 @@ typedef StatefulActionsOptions<LoginState, LoginStateBuilder,
 
 class _$LoginActions extends LoginActions {
   final StatefulActionsOptions<LoginState, LoginStateBuilder, LoginActions>
-      $options;
+      options$;
 
-  final ActionDispatcher<LoginState> $replace;
-  final ActionDispatcher<Null> $activated;
-  final ActionDispatcher<Null> $deactivated;
-  final ActionDispatcher<LoginState> $pushing;
-  final ActionDispatcher<Nothing> $popping;
+  final ActionDispatcher<LoginState> replace$;
+  final ActionDispatcher<Null> activated$;
+  final ActionDispatcher<Null> deactivated$;
+  final ActionDispatcher<LoginState> pushing$;
+  final ActionDispatcher<Nothing> popping$;
   final LoginRequestActions request;
   final DashboardRoute dashboardRoute;
 
-  _$LoginActions._(this.$options)
-      : $replace = $options.action<LoginState>('\$replace', (a) => a?.$replace),
-        $activated = $options.action<Null>('\$activated', (a) => a?.$activated),
-        $deactivated =
-            $options.action<Null>('\$deactivated', (a) => a?.$deactivated),
-        $pushing = $options.action<LoginState>('\$pushing', (a) => a?.$pushing),
-        $popping = $options.action<Nothing>('\$popping', (a) => a?.$popping),
-        request = LoginRequestActions(() => $options
+  _$LoginActions._(this.options$)
+      : replace$ = options$.action<LoginState>('replace\$', (a) => a?.replace$),
+        activated$ = options$.action<Null>('activated\$', (a) => a?.activated$),
+        deactivated$ =
+            options$.action<Null>('deactivated\$', (a) => a?.deactivated$),
+        pushing$ = options$.action<LoginState>('pushing\$', (a) => a?.pushing$),
+        popping$ = options$.action<Nothing>('popping\$', (a) => a?.popping$),
+        request = LoginRequestActions(() => options$
             .stateful<LoginRequest, LoginRequestBuilder, LoginRequestActions>(
                 'request',
                 (a) => a.request,
@@ -322,7 +298,7 @@ class _$LoginActions extends LoginActions {
                 (b) => b?.request,
                 (parent, builder) => parent?.request = builder)),
         dashboardRoute = DashboardRoute(() =>
-            $options.stateful<
+            options$.stateful<
                     CommandState<RouteCommand<DashboardState>,
                         RouteResult<Nothing>>,
                     CommandStateBuilder<RouteCommand<DashboardState>,
@@ -339,44 +315,40 @@ class _$LoginActions extends LoginActions {
       _$LoginActions._(options());
 
   @override
-  LoginStateBuilder $newBuilder() => LoginStateBuilder();
+  LoginStateBuilder newBuilder$() => LoginStateBuilder();
 
-  BuiltList<ModuxActions> _$nested;
+  BuiltList<ModuxActions> _nested$;
   @override
-  BuiltList<ModuxActions> get $nested => _$nested ??= BuiltList<ModuxActions>([
+  BuiltList<ModuxActions> get nested$ => _nested$ ??= BuiltList<ModuxActions>([
         this.request,
         this.dashboardRoute,
       ]);
 
-  BuiltList<ActionDispatcher> _$actions;
+  BuiltList<ActionDispatcher> _actions$;
   @override
-  BuiltList<ActionDispatcher> get $actions =>
-      _$actions ??= BuiltList<ActionDispatcher>([
-        this.$replace,
-        this.$activated,
-        this.$deactivated,
-        this.$pushing,
-        this.$popping,
+  BuiltList<ActionDispatcher> get actions$ =>
+      _actions$ ??= BuiltList<ActionDispatcher>([
+        this.replace$,
+        this.activated$,
+        this.deactivated$,
+        this.pushing$,
+        this.popping$,
       ]);
 
   @override
-  void $reducer(AppReducerBuilder reducer) {
-    super.$reducer(reducer);
-    request.$reducer(reducer);
-    dashboardRoute.$reducer(reducer);
+  void reducer$(AppReducerBuilder reducer) {
+    super.reducer$(reducer);
+    request.reducer$(reducer);
+    dashboardRoute.reducer$(reducer);
   }
 
   @override
-  void $middleware(AppMiddlewareBuilder middleware) {
-    super.$middleware(middleware);
-    request.$middleware(middleware);
-    dashboardRoute.$middleware(middleware);
+  void middleware$(AppMiddlewareBuilder middleware) {
+    super.middleware$(middleware);
+    request.middleware$(middleware);
+    dashboardRoute.middleware$(middleware);
   }
 
-  FullType _$fullType;
   @override
-  FullType get $fullType => _$fullType ??= FullType(LoginState);
-
-  @override
-  NothingBuilder $newResultBuilder() => Nothing().toBuilder();
+  NothingBuilder newResultBuilder$() => Nothing().toBuilder();
 }

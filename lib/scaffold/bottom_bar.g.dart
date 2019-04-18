@@ -143,15 +143,15 @@ typedef StatefulActionsOptions<BottomBarState, BottomBarStateBuilder,
 
 class _$BottomBarActions extends BottomBarActions {
   final StatefulActionsOptions<BottomBarState, BottomBarStateBuilder,
-      BottomBarActions> $options;
+      BottomBarActions> options$;
 
-  final ActionDispatcher<BottomBarState> $replace;
+  final ActionDispatcher<BottomBarState> replace$;
   final FieldDispatcher<MobileNavigationElement> selectedTab;
 
-  _$BottomBarActions._(this.$options)
-      : $replace =
-            $options.action<BottomBarState>('\$replace', (a) => a?.$replace),
-        selectedTab = $options.field<MobileNavigationElement>(
+  _$BottomBarActions._(this.options$)
+      : replace$ =
+            options$.action<BottomBarState>('replace\$', (a) => a?.replace$),
+        selectedTab = options$.field<MobileNavigationElement>(
             'selectedTab',
             (a) => a?.selectedTab,
             (s) => s?.selectedTab,
@@ -162,28 +162,24 @@ class _$BottomBarActions extends BottomBarActions {
       _$BottomBarActions._(options());
 
   @override
-  BottomBarStateBuilder $newBuilder() => BottomBarStateBuilder();
+  BottomBarStateBuilder newBuilder$() => BottomBarStateBuilder();
 
-  BuiltList<ActionDispatcher> _$actions;
+  BuiltList<ActionDispatcher> _actions$;
   @override
-  BuiltList<ActionDispatcher> get $actions =>
-      _$actions ??= BuiltList<ActionDispatcher>([
-        this.$replace,
+  BuiltList<ActionDispatcher> get actions$ =>
+      _actions$ ??= BuiltList<ActionDispatcher>([
+        this.replace$,
         this.selectedTab,
       ]);
 
   @override
-  void $reducer(AppReducerBuilder reducer) {
-    super.$reducer(reducer);
-    selectedTab.$reducer(reducer);
+  void reducer$(AppReducerBuilder reducer) {
+    super.reducer$(reducer);
+    selectedTab.reducer$(reducer);
   }
 
   @override
-  void $middleware(AppMiddlewareBuilder middleware) {
-    super.$middleware(middleware);
+  void middleware$(AppMiddlewareBuilder middleware) {
+    super.middleware$(middleware);
   }
-
-  FullType _$fullType;
-  @override
-  FullType get $fullType => _$fullType ??= FullType(BottomBarState);
 }

@@ -9,8 +9,8 @@ abstract class AuthModuleActions extends StateActions<AuthModuleState,
 
   LoginRoute get loginRoute;
 
-  AuthModuleState get $initial =>
-      AuthModuleState((b) => b..login = login.$initial.toBuilder());
+  AuthModuleState get initialState$ =>
+      AuthModuleState((b) => b..login = login.initialBuilder$);
 
   AuthModuleActions._();
 

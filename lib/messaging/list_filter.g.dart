@@ -180,67 +180,32 @@ class _$ConversationListFilterRoute extends ConversationListFilterRoute {
           RouteResult<ListConversationsApiRequest>>,
       CommandStateBuilder<RouteCommand<ConversationListFilterState>,
           RouteResult<ListConversationsApiRequest>>,
-      ConversationListFilterRoute> $options;
+      ConversationListFilterRoute> options$;
 
   final ActionDispatcher<
       CommandState<RouteCommand<ConversationListFilterState>,
-          RouteResult<ListConversationsApiRequest>>> $replace;
+          RouteResult<ListConversationsApiRequest>>> replace$;
+  final ActionDispatcher<String> cancel$;
+  final ActionDispatcher<Command<RouteCommand<ConversationListFilterState>>>
+      execute$;
   final ActionDispatcher<
-      CommandPayload<
-          RouteCommand<ConversationListFilterState>,
-          RouteResult<ListConversationsApiRequest>,
-          ConversationListFilterRoute,
-          String>> $cancel;
-  final ActionDispatcher<
-      CommandPayload<
-          RouteCommand<ConversationListFilterState>,
-          RouteResult<ListConversationsApiRequest>,
-          ConversationListFilterRoute,
-          Command<RouteCommand<ConversationListFilterState>>>> $execute;
-  final ActionDispatcher<
-      CommandPayload<
-          RouteCommand<ConversationListFilterState>,
-          RouteResult<ListConversationsApiRequest>,
-          ConversationListFilterRoute,
-          CommandResult<RouteResult<ListConversationsApiRequest>>>> $result;
-  final ActionDispatcher<
-      CommandPayload<
-          RouteCommand<ConversationListFilterState>,
-          RouteResult<ListConversationsApiRequest>,
-          ConversationListFilterRoute,
-          CommandProgress>> $progress;
+      CommandResult<RouteResult<ListConversationsApiRequest>>> result$;
+  final ActionDispatcher<CommandProgress> progress$;
 
-  _$ConversationListFilterRoute._(this.$options)
-      : $replace = $options.action<
+  _$ConversationListFilterRoute._(this.options$)
+      : replace$ = options$.action<
                 CommandState<RouteCommand<ConversationListFilterState>,
                     RouteResult<ListConversationsApiRequest>>>(
-            '\$replace', (a) => a?.$replace),
-        $cancel = $options.action<
-            CommandPayload<
-                RouteCommand<ConversationListFilterState>,
-                RouteResult<ListConversationsApiRequest>,
-                ConversationListFilterRoute,
-                String>>('\$cancel', (a) => a?.$cancel),
-        $execute = $options.action<
-                CommandPayload<
-                    RouteCommand<ConversationListFilterState>,
-                    RouteResult<ListConversationsApiRequest>,
-                    ConversationListFilterRoute,
-                    Command<RouteCommand<ConversationListFilterState>>>>(
-            '\$execute', (a) => a?.$execute),
-        $result = $options.action<
-                CommandPayload<
-                    RouteCommand<ConversationListFilterState>,
-                    RouteResult<ListConversationsApiRequest>,
-                    ConversationListFilterRoute,
-                    CommandResult<RouteResult<ListConversationsApiRequest>>>>(
-            '\$result', (a) => a?.$result),
-        $progress = $options.action<
-            CommandPayload<
-                RouteCommand<ConversationListFilterState>,
-                RouteResult<ListConversationsApiRequest>,
-                ConversationListFilterRoute,
-                CommandProgress>>('\$progress', (a) => a?.$progress),
+            'replace\$', (a) => a?.replace$),
+        cancel$ = options$.action<String>('cancel\$', (a) => a?.cancel$),
+        execute$ =
+            options$.action<Command<RouteCommand<ConversationListFilterState>>>(
+                'execute\$', (a) => a?.execute$),
+        result$ = options$
+            .action<CommandResult<RouteResult<ListConversationsApiRequest>>>(
+                'result\$', (a) => a?.result$),
+        progress$ =
+            options$.action<CommandProgress>('progress\$', (a) => a?.progress$),
         super._();
 
   factory _$ConversationListFilterRoute(
@@ -250,32 +215,26 @@ class _$ConversationListFilterRoute extends ConversationListFilterRoute {
   @override
   CommandState<RouteCommand<ConversationListFilterState>,
           RouteResult<ListConversationsApiRequest>>
-      get $initial => CommandState<RouteCommand<ConversationListFilterState>,
+      get initialState$ => CommandState<
+          RouteCommand<ConversationListFilterState>,
           RouteResult<ListConversationsApiRequest>>();
 
   @override
   CommandStateBuilder<RouteCommand<ConversationListFilterState>,
           RouteResult<ListConversationsApiRequest>>
-      $newBuilder() => CommandStateBuilder<
+      newBuilder$() => CommandStateBuilder<
           RouteCommand<ConversationListFilterState>,
           RouteResult<ListConversationsApiRequest>>();
 
-  BuiltList<ActionDispatcher> _$actions;
+  BuiltList<ActionDispatcher> _actions$;
   @override
-  BuiltList<ActionDispatcher> get $actions =>
-      _$actions ??= BuiltList<ActionDispatcher>([
-        this.$replace,
-        this.$cancel,
-        this.$execute,
-        this.$result,
-        this.$progress,
-      ]);
-
-  FullType _$fullType;
-  @override
-  FullType get $fullType => _$fullType ??= FullType(CommandState, [
-        FullType(RouteCommand, [FullType(ConversationListFilterState)]),
-        FullType(RouteResult, [FullType(ListConversationsApiRequest)])
+  BuiltList<ActionDispatcher> get actions$ =>
+      _actions$ ??= BuiltList<ActionDispatcher>([
+        this.replace$,
+        this.cancel$,
+        this.execute$,
+        this.result$,
+        this.progress$,
       ]);
 
   @override
@@ -315,26 +274,26 @@ class _$ConversationListFilterActions extends ConversationListFilterActions {
   final StatefulActionsOptions<
       ConversationListFilterState,
       ConversationListFilterStateBuilder,
-      ConversationListFilterActions> $options;
+      ConversationListFilterActions> options$;
 
-  final ActionDispatcher<ConversationListFilterState> $replace;
-  final ActionDispatcher<Null> $activated;
-  final ActionDispatcher<Null> $deactivated;
-  final ActionDispatcher<ConversationListFilterState> $pushing;
-  final ActionDispatcher<ListConversationsApiRequest> $popping;
+  final ActionDispatcher<ConversationListFilterState> replace$;
+  final ActionDispatcher<Null> activated$;
+  final ActionDispatcher<Null> deactivated$;
+  final ActionDispatcher<ConversationListFilterState> pushing$;
+  final ActionDispatcher<ListConversationsApiRequest> popping$;
   final ListConversationsApiRequestActions request;
 
-  _$ConversationListFilterActions._(this.$options)
-      : $replace = $options.action<ConversationListFilterState>(
-            '\$replace', (a) => a?.$replace),
-        $activated = $options.action<Null>('\$activated', (a) => a?.$activated),
-        $deactivated =
-            $options.action<Null>('\$deactivated', (a) => a?.$deactivated),
-        $pushing = $options.action<ConversationListFilterState>(
-            '\$pushing', (a) => a?.$pushing),
-        $popping = $options.action<ListConversationsApiRequest>(
-            '\$popping', (a) => a?.$popping),
-        request = ListConversationsApiRequestActions(() => $options.stateful<
+  _$ConversationListFilterActions._(this.options$)
+      : replace$ = options$.action<ConversationListFilterState>(
+            'replace\$', (a) => a?.replace$),
+        activated$ = options$.action<Null>('activated\$', (a) => a?.activated$),
+        deactivated$ =
+            options$.action<Null>('deactivated\$', (a) => a?.deactivated$),
+        pushing$ = options$.action<ConversationListFilterState>(
+            'pushing\$', (a) => a?.pushing$),
+        popping$ = options$.action<ListConversationsApiRequest>(
+            'popping\$', (a) => a?.popping$),
+        request = ListConversationsApiRequestActions(() => options$.stateful<
                 ListConversationsApiRequest,
                 ListConversationsApiRequestBuilder,
                 ListConversationsApiRequestActions>(
@@ -350,44 +309,39 @@ class _$ConversationListFilterActions extends ConversationListFilterActions {
       _$ConversationListFilterActions._(options());
 
   @override
-  ConversationListFilterStateBuilder $newBuilder() =>
+  ConversationListFilterStateBuilder newBuilder$() =>
       ConversationListFilterStateBuilder();
 
-  BuiltList<ModuxActions> _$nested;
+  BuiltList<ModuxActions> _nested$;
   @override
-  BuiltList<ModuxActions> get $nested => _$nested ??= BuiltList<ModuxActions>([
+  BuiltList<ModuxActions> get nested$ => _nested$ ??= BuiltList<ModuxActions>([
         this.request,
       ]);
 
-  BuiltList<ActionDispatcher> _$actions;
+  BuiltList<ActionDispatcher> _actions$;
   @override
-  BuiltList<ActionDispatcher> get $actions =>
-      _$actions ??= BuiltList<ActionDispatcher>([
-        this.$replace,
-        this.$activated,
-        this.$deactivated,
-        this.$pushing,
-        this.$popping,
+  BuiltList<ActionDispatcher> get actions$ =>
+      _actions$ ??= BuiltList<ActionDispatcher>([
+        this.replace$,
+        this.activated$,
+        this.deactivated$,
+        this.pushing$,
+        this.popping$,
       ]);
 
   @override
-  void $reducer(AppReducerBuilder reducer) {
-    super.$reducer(reducer);
-    request.$reducer(reducer);
+  void reducer$(AppReducerBuilder reducer) {
+    super.reducer$(reducer);
+    request.reducer$(reducer);
   }
 
   @override
-  void $middleware(AppMiddlewareBuilder middleware) {
-    super.$middleware(middleware);
-    request.$middleware(middleware);
+  void middleware$(AppMiddlewareBuilder middleware) {
+    super.middleware$(middleware);
+    request.middleware$(middleware);
   }
 
-  FullType _$fullType;
   @override
-  FullType get $fullType =>
-      _$fullType ??= FullType(ConversationListFilterState);
-
-  @override
-  ListConversationsApiRequestBuilder $newResultBuilder() =>
+  ListConversationsApiRequestBuilder newResultBuilder$() =>
       ListConversationsApiRequest().toBuilder();
 }

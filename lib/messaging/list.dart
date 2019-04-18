@@ -52,7 +52,7 @@ abstract class ConversationListActions extends ScreenActions<
   ////////////////////////////////////
 
   @override
-  ConversationListState get $initial => ConversationListState((b) => b);
+  ConversationListState get initialState$ => ConversationListState((b) => b);
 
   ////////////////////////////////////
   /// Construction

@@ -218,24 +218,24 @@ typedef StatefulActionsOptions<ScaffoldState, ScaffoldStateBuilder,
 
 class _$ScaffoldActions extends ScaffoldActions {
   final StatefulActionsOptions<ScaffoldState, ScaffoldStateBuilder,
-      ScaffoldActions> $options;
+      ScaffoldActions> options$;
 
-  final ActionDispatcher<ScaffoldState> $replace;
+  final ActionDispatcher<ScaffoldState> replace$;
   final DrawerActions drawer;
   final BottomBarActions bottomBar;
   final LoginRoute loginRoute;
 
-  _$ScaffoldActions._(this.$options)
-      : $replace =
-            $options.action<ScaffoldState>('\$replace', (a) => a?.$replace),
+  _$ScaffoldActions._(this.options$)
+      : replace$ =
+            options$.action<ScaffoldState>('replace\$', (a) => a?.replace$),
         drawer = DrawerActions(() =>
-            $options.stateful<DrawerState, DrawerStateBuilder, DrawerActions>(
+            options$.stateful<DrawerState, DrawerStateBuilder, DrawerActions>(
                 'drawer',
                 (a) => a.drawer,
                 (s) => s?.drawer,
                 (b) => b?.drawer,
                 (parent, builder) => parent?.drawer = builder)),
-        bottomBar = BottomBarActions(() => $options
+        bottomBar = BottomBarActions(() => options$
             .stateful<BottomBarState, BottomBarStateBuilder, BottomBarActions>(
                 'bottomBar',
                 (a) => a.bottomBar,
@@ -244,7 +244,7 @@ class _$ScaffoldActions extends ScaffoldActions {
                 (parent, builder) => parent?.bottomBar = builder)),
         loginRoute = LoginRoute(
             () =>
-                $options.stateful<
+                options$.stateful<
                         CommandState<RouteCommand<LoginState>,
                             RouteResult<Nothing>>,
                         CommandStateBuilder<RouteCommand<LoginState>,
@@ -261,40 +261,36 @@ class _$ScaffoldActions extends ScaffoldActions {
       _$ScaffoldActions._(options());
 
   @override
-  ScaffoldStateBuilder $newBuilder() => ScaffoldStateBuilder();
+  ScaffoldStateBuilder newBuilder$() => ScaffoldStateBuilder();
 
-  BuiltList<ModuxActions> _$nested;
+  BuiltList<ModuxActions> _nested$;
   @override
-  BuiltList<ModuxActions> get $nested => _$nested ??= BuiltList<ModuxActions>([
+  BuiltList<ModuxActions> get nested$ => _nested$ ??= BuiltList<ModuxActions>([
         this.drawer,
         this.bottomBar,
         this.loginRoute,
       ]);
 
-  BuiltList<ActionDispatcher> _$actions;
+  BuiltList<ActionDispatcher> _actions$;
   @override
-  BuiltList<ActionDispatcher> get $actions =>
-      _$actions ??= BuiltList<ActionDispatcher>([
-        this.$replace,
+  BuiltList<ActionDispatcher> get actions$ =>
+      _actions$ ??= BuiltList<ActionDispatcher>([
+        this.replace$,
       ]);
 
   @override
-  void $reducer(AppReducerBuilder reducer) {
-    super.$reducer(reducer);
-    drawer.$reducer(reducer);
-    bottomBar.$reducer(reducer);
-    loginRoute.$reducer(reducer);
+  void reducer$(AppReducerBuilder reducer) {
+    super.reducer$(reducer);
+    drawer.reducer$(reducer);
+    bottomBar.reducer$(reducer);
+    loginRoute.reducer$(reducer);
   }
 
   @override
-  void $middleware(AppMiddlewareBuilder middleware) {
-    super.$middleware(middleware);
-    drawer.$middleware(middleware);
-    bottomBar.$middleware(middleware);
-    loginRoute.$middleware(middleware);
+  void middleware$(AppMiddlewareBuilder middleware) {
+    super.middleware$(middleware);
+    drawer.middleware$(middleware);
+    bottomBar.middleware$(middleware);
+    loginRoute.middleware$(middleware);
   }
-
-  FullType _$fullType;
-  @override
-  FullType get $fullType => _$fullType ??= FullType(ScaffoldState);
 }

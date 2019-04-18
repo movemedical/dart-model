@@ -171,67 +171,63 @@ typedef StatefulActionsOptions<AppState, AppStateBuilder,
     AppActions> AppActionsOptions();
 
 class _$AppActions extends AppActions {
-  final StatefulActionsOptions<AppState, AppStateBuilder, AppActions> $options;
+  final StatefulActionsOptions<AppState, AppStateBuilder, AppActions> options$;
 
-  final ActionDispatcher<AppState> $replace;
+  final ActionDispatcher<AppState> replace$;
   final ApiActions api;
   final NavActions nav;
   final ActionDispatcher<Null> reset;
 
-  _$AppActions._(this.$options)
-      : $replace = $options.action<AppState>('\$replace', (a) => a?.$replace),
+  _$AppActions._(this.options$)
+      : replace$ = options$.action<AppState>('replace\$', (a) => a?.replace$),
         api = ApiActions(() =>
-            $options.stateful<ApiState, ApiStateBuilder, ApiActions>(
+            options$.stateful<ApiState, ApiStateBuilder, ApiActions>(
                 'api',
                 (a) => a.api,
                 (s) => s?.api,
                 (b) => b?.api,
                 (parent, builder) => parent?.api = builder)),
         nav = NavActions(() =>
-            $options.stateful<NavState, NavStateBuilder, NavActions>(
+            options$.stateful<NavState, NavStateBuilder, NavActions>(
                 'nav',
                 (a) => a.nav,
                 (s) => s?.nav,
                 (b) => b?.nav,
                 (parent, builder) => parent?.nav = builder)),
-        reset = $options.action<Null>('reset', (a) => a?.reset),
+        reset = options$.action<Null>('reset', (a) => a?.reset),
         super._();
 
   factory _$AppActions(AppActionsOptions options) => _$AppActions._(options());
 
   @override
-  AppStateBuilder $newBuilder() => AppStateBuilder();
+  AppStateBuilder newBuilder$() => AppStateBuilder();
 
-  BuiltList<ModuxActions> _$nested;
+  BuiltList<ModuxActions> _nested$;
   @override
-  BuiltList<ModuxActions> get $nested => _$nested ??= BuiltList<ModuxActions>([
+  BuiltList<ModuxActions> get nested$ => _nested$ ??= BuiltList<ModuxActions>([
         this.api,
         this.nav,
       ]);
 
-  BuiltList<ActionDispatcher> _$actions;
+  BuiltList<ActionDispatcher> _actions$;
   @override
-  BuiltList<ActionDispatcher> get $actions =>
-      _$actions ??= BuiltList<ActionDispatcher>([
-        this.$replace,
+  BuiltList<ActionDispatcher> get actions$ =>
+      _actions$ ??= BuiltList<ActionDispatcher>([
+        this.replace$,
         this.reset,
       ]);
 
   @override
-  void $reducer(AppReducerBuilder reducer) {
-    super.$reducer(reducer);
-    api.$reducer(reducer);
-    nav.$reducer(reducer);
+  void reducer$(AppReducerBuilder reducer) {
+    super.reducer$(reducer);
+    api.reducer$(reducer);
+    nav.reducer$(reducer);
   }
 
   @override
-  void $middleware(AppMiddlewareBuilder middleware) {
-    super.$middleware(middleware);
-    api.$middleware(middleware);
-    nav.$middleware(middleware);
+  void middleware$(AppMiddlewareBuilder middleware) {
+    super.middleware$(middleware);
+    api.middleware$(middleware);
+    nav.middleware$(middleware);
   }
-
-  FullType _$fullType;
-  @override
-  FullType get $fullType => _$fullType ??= FullType(AppState);
 }

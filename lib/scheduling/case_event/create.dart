@@ -47,15 +47,15 @@ abstract class CreateCaseEventActions extends DialogActions<
   ////////////////////////////////////
 
   @override
-  CreateCaseEventState get $initial => CreateCaseEventState((b) => b);
+  CreateCaseEventState get initialState$ => CreateCaseEventState((b) => b);
 
   ////////////////////////////////////
   /// Middleware
   ////////////////////////////////////
 
   @override
-  void $middleware(AppMiddlewareBuilder middleware) {
-    super.$middleware(middleware);
+  void middleware$(AppMiddlewareBuilder middleware) {
+    super.middleware$(middleware);
 
 //    middleware.nest(this)
 //      ..add(cmdLoad.$result, (api, next, action) {

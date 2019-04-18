@@ -40,7 +40,8 @@ abstract class UpdateConversationActions extends DialogActions<
   ////////////////////////////////////
 
   @override
-  UpdateConversationState get $initial => UpdateConversationState((b) => b);
+  UpdateConversationState get initialState$ =>
+      UpdateConversationState((b) => b);
 
   @override
   MobileNavigationElement get $navElement => MobileNavigationElement.MESSAGES;

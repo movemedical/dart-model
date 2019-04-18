@@ -96,30 +96,26 @@ typedef StatefulActionsOptions<BgState, BgStateBuilder,
     BgActions> BgActionsOptions();
 
 class _$BgActions extends BgActions {
-  final StatefulActionsOptions<BgState, BgStateBuilder, BgActions> $options;
+  final StatefulActionsOptions<BgState, BgStateBuilder, BgActions> options$;
 
-  final ActionDispatcher<BgState> $replace;
+  final ActionDispatcher<BgState> replace$;
 
-  _$BgActions._(this.$options)
-      : $replace = $options.action<BgState>('\$replace', (a) => a?.$replace),
+  _$BgActions._(this.options$)
+      : replace$ = options$.action<BgState>('replace\$', (a) => a?.replace$),
         super._();
 
   factory _$BgActions(BgActionsOptions options) => _$BgActions._(options());
 
   @override
-  BgState get $initial => BgState();
+  BgState get initialState$ => BgState();
 
   @override
-  BgStateBuilder $newBuilder() => BgStateBuilder();
+  BgStateBuilder newBuilder$() => BgStateBuilder();
 
-  BuiltList<ActionDispatcher> _$actions;
+  BuiltList<ActionDispatcher> _actions$;
   @override
-  BuiltList<ActionDispatcher> get $actions =>
-      _$actions ??= BuiltList<ActionDispatcher>([
-        this.$replace,
+  BuiltList<ActionDispatcher> get actions$ =>
+      _actions$ ??= BuiltList<ActionDispatcher>([
+        this.replace$,
       ]);
-
-  FullType _$fullType;
-  @override
-  FullType get $fullType => _$fullType ??= FullType(BgState);
 }

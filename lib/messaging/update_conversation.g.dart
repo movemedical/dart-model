@@ -114,63 +114,29 @@ class _$UpdateConversationRoute extends UpdateConversationRoute {
       CommandState<RouteCommand<UpdateConversationState>, RouteResult<Nothing>>,
       CommandStateBuilder<RouteCommand<UpdateConversationState>,
           RouteResult<Nothing>>,
-      UpdateConversationRoute> $options;
+      UpdateConversationRoute> options$;
 
   final ActionDispatcher<
       CommandState<RouteCommand<UpdateConversationState>,
-          RouteResult<Nothing>>> $replace;
-  final ActionDispatcher<
-      CommandPayload<RouteCommand<UpdateConversationState>,
-          RouteResult<Nothing>, UpdateConversationRoute, String>> $cancel;
-  final ActionDispatcher<
-      CommandPayload<
-          RouteCommand<UpdateConversationState>,
-          RouteResult<Nothing>,
-          UpdateConversationRoute,
-          Command<RouteCommand<UpdateConversationState>>>> $execute;
-  final ActionDispatcher<
-      CommandPayload<
-          RouteCommand<UpdateConversationState>,
-          RouteResult<Nothing>,
-          UpdateConversationRoute,
-          CommandResult<RouteResult<Nothing>>>> $result;
-  final ActionDispatcher<
-      CommandPayload<
-          RouteCommand<UpdateConversationState>,
-          RouteResult<Nothing>,
-          UpdateConversationRoute,
-          CommandProgress>> $progress;
+          RouteResult<Nothing>>> replace$;
+  final ActionDispatcher<String> cancel$;
+  final ActionDispatcher<Command<RouteCommand<UpdateConversationState>>>
+      execute$;
+  final ActionDispatcher<CommandResult<RouteResult<Nothing>>> result$;
+  final ActionDispatcher<CommandProgress> progress$;
 
-  _$UpdateConversationRoute._(this.$options)
-      : $replace = $options.action<
+  _$UpdateConversationRoute._(this.options$)
+      : replace$ = options$.action<
             CommandState<RouteCommand<UpdateConversationState>,
-                RouteResult<Nothing>>>('\$replace', (a) => a?.$replace),
-        $cancel = $options.action<
-            CommandPayload<
-                RouteCommand<UpdateConversationState>,
-                RouteResult<Nothing>,
-                UpdateConversationRoute,
-                String>>('\$cancel', (a) => a?.$cancel),
-        $execute = $options.action<
-                CommandPayload<
-                    RouteCommand<UpdateConversationState>,
-                    RouteResult<Nothing>,
-                    UpdateConversationRoute,
-                    Command<RouteCommand<UpdateConversationState>>>>(
-            '\$execute', (a) => a?.$execute),
-        $result = $options.action<
-                CommandPayload<
-                    RouteCommand<UpdateConversationState>,
-                    RouteResult<Nothing>,
-                    UpdateConversationRoute,
-                    CommandResult<RouteResult<Nothing>>>>(
-            '\$result', (a) => a?.$result),
-        $progress = $options.action<
-            CommandPayload<
-                RouteCommand<UpdateConversationState>,
-                RouteResult<Nothing>,
-                UpdateConversationRoute,
-                CommandProgress>>('\$progress', (a) => a?.$progress),
+                RouteResult<Nothing>>>('replace\$', (a) => a?.replace$),
+        cancel$ = options$.action<String>('cancel\$', (a) => a?.cancel$),
+        execute$ =
+            options$.action<Command<RouteCommand<UpdateConversationState>>>(
+                'execute\$', (a) => a?.execute$),
+        result$ = options$.action<CommandResult<RouteResult<Nothing>>>(
+            'result\$', (a) => a?.result$),
+        progress$ =
+            options$.action<CommandProgress>('progress\$', (a) => a?.progress$),
         super._();
 
   factory _$UpdateConversationRoute(UpdateConversationRouteOptions options) =>
@@ -178,31 +144,24 @@ class _$UpdateConversationRoute extends UpdateConversationRoute {
 
   @override
   CommandState<RouteCommand<UpdateConversationState>, RouteResult<Nothing>>
-      get $initial => CommandState<RouteCommand<UpdateConversationState>,
+      get initialState$ => CommandState<RouteCommand<UpdateConversationState>,
           RouteResult<Nothing>>();
 
   @override
   CommandStateBuilder<RouteCommand<UpdateConversationState>,
           RouteResult<Nothing>>
-      $newBuilder() => CommandStateBuilder<
+      newBuilder$() => CommandStateBuilder<
           RouteCommand<UpdateConversationState>, RouteResult<Nothing>>();
 
-  BuiltList<ActionDispatcher> _$actions;
+  BuiltList<ActionDispatcher> _actions$;
   @override
-  BuiltList<ActionDispatcher> get $actions =>
-      _$actions ??= BuiltList<ActionDispatcher>([
-        this.$replace,
-        this.$cancel,
-        this.$execute,
-        this.$result,
-        this.$progress,
-      ]);
-
-  FullType _$fullType;
-  @override
-  FullType get $fullType => _$fullType ??= FullType(CommandState, [
-        FullType(RouteCommand, [FullType(UpdateConversationState)]),
-        FullType(RouteResult, [FullType(Nothing)])
+  BuiltList<ActionDispatcher> get actions$ =>
+      _actions$ ??= BuiltList<ActionDispatcher>([
+        this.replace$,
+        this.cancel$,
+        this.execute$,
+        this.result$,
+        this.progress$,
       ]);
 
   @override
@@ -238,23 +197,23 @@ typedef StatefulActionsOptions<
 
 class _$UpdateConversationActions extends UpdateConversationActions {
   final StatefulActionsOptions<UpdateConversationState,
-      UpdateConversationStateBuilder, UpdateConversationActions> $options;
+      UpdateConversationStateBuilder, UpdateConversationActions> options$;
 
-  final ActionDispatcher<UpdateConversationState> $replace;
-  final ActionDispatcher<Null> $activated;
-  final ActionDispatcher<Null> $deactivated;
-  final ActionDispatcher<UpdateConversationState> $pushing;
-  final ActionDispatcher<Nothing> $popping;
+  final ActionDispatcher<UpdateConversationState> replace$;
+  final ActionDispatcher<Null> activated$;
+  final ActionDispatcher<Null> deactivated$;
+  final ActionDispatcher<UpdateConversationState> pushing$;
+  final ActionDispatcher<Nothing> popping$;
 
-  _$UpdateConversationActions._(this.$options)
-      : $replace = $options.action<UpdateConversationState>(
-            '\$replace', (a) => a?.$replace),
-        $activated = $options.action<Null>('\$activated', (a) => a?.$activated),
-        $deactivated =
-            $options.action<Null>('\$deactivated', (a) => a?.$deactivated),
-        $pushing = $options.action<UpdateConversationState>(
-            '\$pushing', (a) => a?.$pushing),
-        $popping = $options.action<Nothing>('\$popping', (a) => a?.$popping),
+  _$UpdateConversationActions._(this.options$)
+      : replace$ = options$.action<UpdateConversationState>(
+            'replace\$', (a) => a?.replace$),
+        activated$ = options$.action<Null>('activated\$', (a) => a?.activated$),
+        deactivated$ =
+            options$.action<Null>('deactivated\$', (a) => a?.deactivated$),
+        pushing$ = options$.action<UpdateConversationState>(
+            'pushing\$', (a) => a?.pushing$),
+        popping$ = options$.action<Nothing>('popping\$', (a) => a?.popping$),
         super._();
 
   factory _$UpdateConversationActions(
@@ -262,24 +221,20 @@ class _$UpdateConversationActions extends UpdateConversationActions {
       _$UpdateConversationActions._(options());
 
   @override
-  UpdateConversationStateBuilder $newBuilder() =>
+  UpdateConversationStateBuilder newBuilder$() =>
       UpdateConversationStateBuilder();
 
-  BuiltList<ActionDispatcher> _$actions;
+  BuiltList<ActionDispatcher> _actions$;
   @override
-  BuiltList<ActionDispatcher> get $actions =>
-      _$actions ??= BuiltList<ActionDispatcher>([
-        this.$replace,
-        this.$activated,
-        this.$deactivated,
-        this.$pushing,
-        this.$popping,
+  BuiltList<ActionDispatcher> get actions$ =>
+      _actions$ ??= BuiltList<ActionDispatcher>([
+        this.replace$,
+        this.activated$,
+        this.deactivated$,
+        this.pushing$,
+        this.popping$,
       ]);
 
-  FullType _$fullType;
   @override
-  FullType get $fullType => _$fullType ??= FullType(UpdateConversationState);
-
-  @override
-  NothingBuilder $newResultBuilder() => Nothing().toBuilder();
+  NothingBuilder newResultBuilder$() => Nothing().toBuilder();
 }

@@ -43,7 +43,7 @@ abstract class BarcodeScanActions extends DialogActions<
   ////////////////////////////////////
 
   @override
-  BarcodeScanState get $initial => BarcodeScanState((b) => b);
+  BarcodeScanState get initialState$ => BarcodeScanState((b) => b);
 
   ////////////////////////////////////
   /// Construction

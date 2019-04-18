@@ -384,9 +384,9 @@ typedef StatefulActionsOptions<NavState, NavStateBuilder,
     NavActions> NavActionsOptions();
 
 class _$NavActions extends NavActions {
-  final StatefulActionsOptions<NavState, NavStateBuilder, NavActions> $options;
+  final StatefulActionsOptions<NavState, NavStateBuilder, NavActions> options$;
 
-  final ActionDispatcher<NavState> $replace;
+  final ActionDispatcher<NavState> replace$;
   final FieldDispatcher<BuiltList<String>> stack;
   final SplashActions splash;
   final SplashRoute splashRoute;
@@ -397,18 +397,18 @@ class _$NavActions extends NavActions {
   final MessagingModuleActions messaging;
   final DirectoryModuleActions directory;
 
-  _$NavActions._(this.$options)
-      : $replace = $options.action<NavState>('\$replace', (a) => a?.$replace),
-        stack = $options.field<BuiltList<String>>(
+  _$NavActions._(this.options$)
+      : replace$ = options$.action<NavState>('replace\$', (a) => a?.replace$),
+        stack = options$.field<BuiltList<String>>(
             'stack', (a) => a?.stack, (s) => s?.stack, (p, b) => p?.stack = b),
         splash = SplashActions(() =>
-            $options.stateful<SplashState, SplashStateBuilder, SplashActions>(
+            options$.stateful<SplashState, SplashStateBuilder, SplashActions>(
                 'splash',
                 (a) => a.splash,
                 (s) => s?.splash,
                 (b) => b?.splash,
                 (parent, builder) => parent?.splash = builder)),
-        splashRoute = SplashRoute(() => $options.stateful<
+        splashRoute = SplashRoute(() => options$.stateful<
                 CommandState<RouteCommand<SplashState>, RouteResult<Nothing>>,
                 CommandStateBuilder<RouteCommand<SplashState>,
                     RouteResult<Nothing>>,
@@ -418,14 +418,14 @@ class _$NavActions extends NavActions {
             (s) => s?.splashRoute,
             (b) => b?.splashRoute,
             (parent, builder) => parent?.splashRoute = builder)),
-        scaffold = ScaffoldActions(() => $options
+        scaffold = ScaffoldActions(() => options$
             .stateful<ScaffoldState, ScaffoldStateBuilder, ScaffoldActions>(
                 'scaffold',
                 (a) => a.scaffold,
                 (s) => s?.scaffold,
                 (b) => b?.scaffold,
                 (parent, builder) => parent?.scaffold = builder)),
-        dashboard = DashboardModuleActions(() => $options.stateful<
+        dashboard = DashboardModuleActions(() => options$.stateful<
                 DashboardModuleState,
                 DashboardModuleStateBuilder,
                 DashboardModuleActions>(
@@ -434,14 +434,14 @@ class _$NavActions extends NavActions {
             (s) => s?.dashboard,
             (b) => b?.dashboard,
             (parent, builder) => parent?.dashboard = builder)),
-        auth = AuthModuleActions(() => $options.stateful<AuthModuleState,
+        auth = AuthModuleActions(() => options$.stateful<AuthModuleState,
                 AuthModuleStateBuilder, AuthModuleActions>(
             'auth',
             (a) => a.auth,
             (s) => s?.auth,
             (b) => b?.auth,
             (parent, builder) => parent?.auth = builder)),
-        scheduling = SchedulingModuleActions(() => $options.stateful<
+        scheduling = SchedulingModuleActions(() => options$.stateful<
                 SchedulingModuleState,
                 SchedulingModuleStateBuilder,
                 SchedulingModuleActions>(
@@ -450,7 +450,7 @@ class _$NavActions extends NavActions {
             (s) => s?.scheduling,
             (b) => b?.scheduling,
             (parent, builder) => parent?.scheduling = builder)),
-        messaging = MessagingModuleActions(() => $options.stateful<
+        messaging = MessagingModuleActions(() => options$.stateful<
                 MessagingModuleState,
                 MessagingModuleStateBuilder,
                 MessagingModuleActions>(
@@ -459,7 +459,7 @@ class _$NavActions extends NavActions {
             (s) => s?.messaging,
             (b) => b?.messaging,
             (parent, builder) => parent?.messaging = builder)),
-        directory = DirectoryModuleActions(() => $options.stateful<
+        directory = DirectoryModuleActions(() => options$.stateful<
                 DirectoryModuleState,
                 DirectoryModuleStateBuilder,
                 DirectoryModuleActions>(
@@ -473,11 +473,11 @@ class _$NavActions extends NavActions {
   factory _$NavActions(NavActionsOptions options) => _$NavActions._(options());
 
   @override
-  NavStateBuilder $newBuilder() => NavStateBuilder();
+  NavStateBuilder newBuilder$() => NavStateBuilder();
 
-  BuiltList<ModuxActions> _$nested;
+  BuiltList<ModuxActions> _nested$;
   @override
-  BuiltList<ModuxActions> get $nested => _$nested ??= BuiltList<ModuxActions>([
+  BuiltList<ModuxActions> get nested$ => _nested$ ??= BuiltList<ModuxActions>([
         this.splash,
         this.splashRoute,
         this.scaffold,
@@ -488,42 +488,38 @@ class _$NavActions extends NavActions {
         this.directory,
       ]);
 
-  BuiltList<ActionDispatcher> _$actions;
+  BuiltList<ActionDispatcher> _actions$;
   @override
-  BuiltList<ActionDispatcher> get $actions =>
-      _$actions ??= BuiltList<ActionDispatcher>([
-        this.$replace,
+  BuiltList<ActionDispatcher> get actions$ =>
+      _actions$ ??= BuiltList<ActionDispatcher>([
+        this.replace$,
         this.stack,
       ]);
 
   @override
-  void $reducer(AppReducerBuilder reducer) {
-    super.$reducer(reducer);
-    stack.$reducer(reducer);
-    splash.$reducer(reducer);
-    splashRoute.$reducer(reducer);
-    scaffold.$reducer(reducer);
-    dashboard.$reducer(reducer);
-    auth.$reducer(reducer);
-    scheduling.$reducer(reducer);
-    messaging.$reducer(reducer);
-    directory.$reducer(reducer);
+  void reducer$(AppReducerBuilder reducer) {
+    super.reducer$(reducer);
+    stack.reducer$(reducer);
+    splash.reducer$(reducer);
+    splashRoute.reducer$(reducer);
+    scaffold.reducer$(reducer);
+    dashboard.reducer$(reducer);
+    auth.reducer$(reducer);
+    scheduling.reducer$(reducer);
+    messaging.reducer$(reducer);
+    directory.reducer$(reducer);
   }
 
   @override
-  void $middleware(AppMiddlewareBuilder middleware) {
-    super.$middleware(middleware);
-    splash.$middleware(middleware);
-    splashRoute.$middleware(middleware);
-    scaffold.$middleware(middleware);
-    dashboard.$middleware(middleware);
-    auth.$middleware(middleware);
-    scheduling.$middleware(middleware);
-    messaging.$middleware(middleware);
-    directory.$middleware(middleware);
+  void middleware$(AppMiddlewareBuilder middleware) {
+    super.middleware$(middleware);
+    splash.middleware$(middleware);
+    splashRoute.middleware$(middleware);
+    scaffold.middleware$(middleware);
+    dashboard.middleware$(middleware);
+    auth.middleware$(middleware);
+    scheduling.middleware$(middleware);
+    messaging.middleware$(middleware);
+    directory.middleware$(middleware);
   }
-
-  FullType _$fullType;
-  @override
-  FullType get $fullType => _$fullType ??= FullType(NavState);
 }

@@ -44,7 +44,7 @@ abstract class CaseEventListFilterActions extends DialogActions<
   ////////////////////////////////////
 
   @override
-  CaseEventListFilterState get $initial => CaseEventListFilterState();
+  CaseEventListFilterState get initialState$ => CaseEventListFilterState();
 
   ////////////////////////////////////
   /// Middleware

@@ -38,8 +38,8 @@ abstract class CaseEventListActions extends ScreenActions<CaseEventListState,
   ////////////////////////////////////
 
   @override
-  CaseEventListState get $initial =>
-      CaseEventListState((b) => b..listCommand = listCommand.$newBuilder());
+  CaseEventListState get initialState$ =>
+      CaseEventListState((b) => b..listCommand = listCommand.initialBuilder$);
 
   ////////////////////////////////////
   /// Construction

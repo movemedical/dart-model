@@ -580,9 +580,9 @@ typedef StatefulActionsOptions<
 
 class _$MessagingModuleActions extends MessagingModuleActions {
   final StatefulActionsOptions<MessagingModuleState,
-      MessagingModuleStateBuilder, MessagingModuleActions> $options;
+      MessagingModuleStateBuilder, MessagingModuleActions> options$;
 
-  final ActionDispatcher<MessagingModuleState> $replace;
+  final ActionDispatcher<MessagingModuleState> replace$;
   final ConversationListActions list;
   final ConversationListRoute listRoute;
   final ConversationListFilterActions listFilter;
@@ -596,15 +596,15 @@ class _$MessagingModuleActions extends MessagingModuleActions {
   final CreateMessageActions createMessage;
   final CreateMessageRoute createMessageRoute;
 
-  _$MessagingModuleActions._(this.$options)
-      : $replace = $options.action<MessagingModuleState>(
-            '\$replace', (a) => a?.$replace),
-        list = ConversationListActions(() => $options.stateful<
+  _$MessagingModuleActions._(this.options$)
+      : replace$ = options$.action<MessagingModuleState>(
+            'replace\$', (a) => a?.replace$),
+        list = ConversationListActions(() => options$.stateful<
                 ConversationListState,
                 ConversationListStateBuilder,
                 ConversationListActions>('list', (a) => a.list, (s) => s?.list,
             (b) => b?.list, (parent, builder) => parent?.list = builder)),
-        listRoute = ConversationListRoute(() => $options.stateful<
+        listRoute = ConversationListRoute(() => options$.stateful<
                 CommandState<RouteCommand<ConversationListState>,
                     RouteResult<Nothing>>,
                 CommandStateBuilder<RouteCommand<ConversationListState>,
@@ -615,7 +615,7 @@ class _$MessagingModuleActions extends MessagingModuleActions {
             (s) => s?.listRoute,
             (b) => b?.listRoute,
             (parent, builder) => parent?.listRoute = builder)),
-        listFilter = ConversationListFilterActions(() => $options.stateful<
+        listFilter = ConversationListFilterActions(() => options$.stateful<
                 ConversationListFilterState,
                 ConversationListFilterStateBuilder,
                 ConversationListFilterActions>(
@@ -624,7 +624,7 @@ class _$MessagingModuleActions extends MessagingModuleActions {
             (s) => s?.listFilter,
             (b) => b?.listFilter,
             (parent, builder) => parent?.listFilter = builder)),
-        listFilterRoute = ConversationListFilterRoute(() => $options.stateful<
+        listFilterRoute = ConversationListFilterRoute(() => options$.stateful<
                 CommandState<RouteCommand<ConversationListFilterState>,
                     RouteResult<ListConversationsApiRequest>>,
                 CommandStateBuilder<RouteCommand<ConversationListFilterState>,
@@ -635,7 +635,7 @@ class _$MessagingModuleActions extends MessagingModuleActions {
             (s) => s?.listFilterRoute,
             (b) => b?.listFilterRoute,
             (parent, builder) => parent?.listFilterRoute = builder)),
-        conversation = ConversationActions(() => $options.stateful<
+        conversation = ConversationActions(() => options$.stateful<
                 ConversationState,
                 ConversationStateBuilder,
                 ConversationActions>(
@@ -645,7 +645,7 @@ class _$MessagingModuleActions extends MessagingModuleActions {
             (b) => b?.conversation,
             (parent, builder) => parent?.conversation = builder)),
         conversationRoute = ConversationRoute(() =>
-            $options.stateful<
+            options$.stateful<
                     CommandState<RouteCommand<ConversationState>,
                         RouteResult<Nothing>>,
                     CommandStateBuilder<RouteCommand<ConversationState>,
@@ -656,7 +656,7 @@ class _$MessagingModuleActions extends MessagingModuleActions {
                 (s) => s?.conversationRoute,
                 (b) => b?.conversationRoute,
                 (parent, builder) => parent?.conversationRoute = builder)),
-        createConversation = CreateConversationActions(() => $options.stateful<
+        createConversation = CreateConversationActions(() => options$.stateful<
                 CreateConversationState,
                 CreateConversationStateBuilder,
                 CreateConversationActions>(
@@ -666,7 +666,7 @@ class _$MessagingModuleActions extends MessagingModuleActions {
             (b) => b?.createConversation,
             (parent, builder) => parent?.createConversation = builder)),
         createConversationRoute = CreateConversationRoute(() =>
-            $options.stateful<
+            options$.stateful<
                     CommandState<RouteCommand<CreateConversationState>,
                         RouteResult<CreateConversationApiResponse>>,
                     CommandStateBuilder<RouteCommand<CreateConversationState>,
@@ -678,7 +678,7 @@ class _$MessagingModuleActions extends MessagingModuleActions {
                 (b) => b?.createConversationRoute,
                 (parent, builder) =>
                     parent?.createConversationRoute = builder)),
-        updateConversation = UpdateConversationActions(() => $options.stateful<
+        updateConversation = UpdateConversationActions(() => options$.stateful<
                 UpdateConversationState,
                 UpdateConversationStateBuilder,
                 UpdateConversationActions>(
@@ -688,7 +688,7 @@ class _$MessagingModuleActions extends MessagingModuleActions {
             (b) => b?.updateConversation,
             (parent, builder) => parent?.updateConversation = builder)),
         updateConversationRoute = UpdateConversationRoute(() =>
-            $options.stateful<
+            options$.stateful<
                     CommandState<RouteCommand<UpdateConversationState>,
                         RouteResult<Nothing>>,
                     CommandStateBuilder<RouteCommand<UpdateConversationState>,
@@ -700,7 +700,7 @@ class _$MessagingModuleActions extends MessagingModuleActions {
                 (b) => b?.updateConversationRoute,
                 (parent, builder) =>
                     parent?.updateConversationRoute = builder)),
-        createMessage = CreateMessageActions(() => $options.stateful<
+        createMessage = CreateMessageActions(() => options$.stateful<
                 CreateMessageState,
                 CreateMessageStateBuilder,
                 CreateMessageActions>(
@@ -709,7 +709,7 @@ class _$MessagingModuleActions extends MessagingModuleActions {
             (s) => s?.createMessage,
             (b) => b?.createMessage,
             (parent, builder) => parent?.createMessage = builder)),
-        createMessageRoute = CreateMessageRoute(() => $options.stateful<
+        createMessageRoute = CreateMessageRoute(() => options$.stateful<
                 CommandState<RouteCommand<CreateMessageState>,
                     RouteResult<CreateMessageApiResponse>>,
                 CommandStateBuilder<RouteCommand<CreateMessageState>,
@@ -726,14 +726,14 @@ class _$MessagingModuleActions extends MessagingModuleActions {
       _$MessagingModuleActions._(options());
 
   @override
-  MessagingModuleState get $initial => MessagingModuleState();
+  MessagingModuleState get initialState$ => MessagingModuleState();
 
   @override
-  MessagingModuleStateBuilder $newBuilder() => MessagingModuleStateBuilder();
+  MessagingModuleStateBuilder newBuilder$() => MessagingModuleStateBuilder();
 
-  BuiltList<ModuxActions> _$nested;
+  BuiltList<ModuxActions> _nested$;
   @override
-  BuiltList<ModuxActions> get $nested => _$nested ??= BuiltList<ModuxActions>([
+  BuiltList<ModuxActions> get nested$ => _nested$ ??= BuiltList<ModuxActions>([
         this.list,
         this.listRoute,
         this.listFilter,
@@ -748,48 +748,44 @@ class _$MessagingModuleActions extends MessagingModuleActions {
         this.createMessageRoute,
       ]);
 
-  BuiltList<ActionDispatcher> _$actions;
+  BuiltList<ActionDispatcher> _actions$;
   @override
-  BuiltList<ActionDispatcher> get $actions =>
-      _$actions ??= BuiltList<ActionDispatcher>([
-        this.$replace,
+  BuiltList<ActionDispatcher> get actions$ =>
+      _actions$ ??= BuiltList<ActionDispatcher>([
+        this.replace$,
       ]);
 
   @override
-  void $reducer(AppReducerBuilder reducer) {
-    super.$reducer(reducer);
-    list.$reducer(reducer);
-    listRoute.$reducer(reducer);
-    listFilter.$reducer(reducer);
-    listFilterRoute.$reducer(reducer);
-    conversation.$reducer(reducer);
-    conversationRoute.$reducer(reducer);
-    createConversation.$reducer(reducer);
-    createConversationRoute.$reducer(reducer);
-    updateConversation.$reducer(reducer);
-    updateConversationRoute.$reducer(reducer);
-    createMessage.$reducer(reducer);
-    createMessageRoute.$reducer(reducer);
+  void reducer$(AppReducerBuilder reducer) {
+    super.reducer$(reducer);
+    list.reducer$(reducer);
+    listRoute.reducer$(reducer);
+    listFilter.reducer$(reducer);
+    listFilterRoute.reducer$(reducer);
+    conversation.reducer$(reducer);
+    conversationRoute.reducer$(reducer);
+    createConversation.reducer$(reducer);
+    createConversationRoute.reducer$(reducer);
+    updateConversation.reducer$(reducer);
+    updateConversationRoute.reducer$(reducer);
+    createMessage.reducer$(reducer);
+    createMessageRoute.reducer$(reducer);
   }
 
   @override
-  void $middleware(AppMiddlewareBuilder middleware) {
-    super.$middleware(middleware);
-    list.$middleware(middleware);
-    listRoute.$middleware(middleware);
-    listFilter.$middleware(middleware);
-    listFilterRoute.$middleware(middleware);
-    conversation.$middleware(middleware);
-    conversationRoute.$middleware(middleware);
-    createConversation.$middleware(middleware);
-    createConversationRoute.$middleware(middleware);
-    updateConversation.$middleware(middleware);
-    updateConversationRoute.$middleware(middleware);
-    createMessage.$middleware(middleware);
-    createMessageRoute.$middleware(middleware);
+  void middleware$(AppMiddlewareBuilder middleware) {
+    super.middleware$(middleware);
+    list.middleware$(middleware);
+    listRoute.middleware$(middleware);
+    listFilter.middleware$(middleware);
+    listFilterRoute.middleware$(middleware);
+    conversation.middleware$(middleware);
+    conversationRoute.middleware$(middleware);
+    createConversation.middleware$(middleware);
+    createConversationRoute.middleware$(middleware);
+    updateConversation.middleware$(middleware);
+    updateConversationRoute.middleware$(middleware);
+    createMessage.middleware$(middleware);
+    createMessageRoute.middleware$(middleware);
   }
-
-  FullType _$fullType;
-  @override
-  FullType get $fullType => _$fullType ??= FullType(MessagingModuleState);
 }

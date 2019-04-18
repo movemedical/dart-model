@@ -45,7 +45,7 @@ abstract class CreateMessageActions extends DialogActions<
   ////////////////////////////////////
 
   @override
-  CreateMessageState get $initial => CreateMessageState((b) => b);
+  CreateMessageState get initialState$ => CreateMessageState((b) => b);
 
   @override
   Future<bool> $onWillPop() async {

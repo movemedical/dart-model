@@ -18,11 +18,11 @@ abstract class SplashRoute extends ScreenRoute<SplashState, SplashStateBuilder,
 abstract class SplashActions
     extends ScreenActions<SplashState, SplashStateBuilder, SplashActions> {
   @override
-  MobileNavigationElement get $navElement => null;
+  MobileNavigationElement get navElement$ => null;
 
   @override
-  void $middleware(AppMiddlewareBuilder builder) {
-    super.$middleware(builder);
+  void middleware$(AppMiddlewareBuilder builder) {
+    super.middleware$(builder);
   }
 
   SplashActions._();

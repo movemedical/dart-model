@@ -23,27 +23,27 @@ abstract class AppActions
   ActionDispatcher<Null> get reset;
 
   @override
-  AppState get $initial => (AppStateBuilder()
+  AppState get initialState$ => (AppStateBuilder()
         ..api = ApiState().toBuilder()
         ..nav = NavState().toBuilder())
       .build();
 
   @override
-  void $reducer(AppReducerBuilder reducer) {
-    super.$reducer(reducer);
+  void reducer$(AppReducerBuilder reducer) {
+    super.reducer$(reducer);
   }
 
   @override
-  Reducer<AppState, AppStateBuilder, dynamic> $createReducer() {
+  Reducer<AppState, AppStateBuilder, dynamic> createReducer$() {
     final b = AppReducerBuilder();
-    $reducer(b);
+    reducer$(b);
     return b.build();
   }
 
   @override
-  Middleware<AppState, AppStateBuilder, AppActions> $createMiddleware() {
+  Middleware<AppState, AppStateBuilder, AppActions> createMiddleware$() {
     final b = AppMiddlewareBuilder();
-    $middleware(b);
+    middleware$(b);
     return b.build();
   }
 

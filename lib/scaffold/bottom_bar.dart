@@ -14,7 +14,7 @@ abstract class BottomBarActions extends StateActions<BottomBarState,
   FieldDispatcher<MobileNavigationElement> get selectedTab;
 
   @override
-  BottomBarState get $initial => BottomBarState();
+  BottomBarState get initialState$ => BottomBarState();
 
   BottomBarActions._();
 

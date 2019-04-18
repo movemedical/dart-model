@@ -149,56 +149,29 @@ class _$BarcodeScanRoute extends BarcodeScanRoute {
       CommandState<RouteCommand<BarcodeScanState>, RouteResult<Value<String>>>,
       CommandStateBuilder<RouteCommand<BarcodeScanState>,
           RouteResult<Value<String>>>,
-      BarcodeScanRoute> $options;
+      BarcodeScanRoute> options$;
 
   final ActionDispatcher<
       CommandState<RouteCommand<BarcodeScanState>,
-          RouteResult<Value<String>>>> $replace;
-  final ActionDispatcher<
-      CommandPayload<RouteCommand<BarcodeScanState>, RouteResult<Value<String>>,
-          BarcodeScanRoute, String>> $cancel;
-  final ActionDispatcher<
-      CommandPayload<RouteCommand<BarcodeScanState>, RouteResult<Value<String>>,
-          BarcodeScanRoute, Command<RouteCommand<BarcodeScanState>>>> $execute;
-  final ActionDispatcher<
-      CommandPayload<RouteCommand<BarcodeScanState>, RouteResult<Value<String>>,
-          BarcodeScanRoute, CommandResult<RouteResult<Value<String>>>>> $result;
-  final ActionDispatcher<
-      CommandPayload<RouteCommand<BarcodeScanState>, RouteResult<Value<String>>,
-          BarcodeScanRoute, CommandProgress>> $progress;
+          RouteResult<Value<String>>>> replace$;
+  final ActionDispatcher<String> cancel$;
+  final ActionDispatcher<Command<RouteCommand<BarcodeScanState>>> execute$;
+  final ActionDispatcher<CommandResult<RouteResult<Value<String>>>> result$;
+  final ActionDispatcher<CommandProgress> progress$;
   final ActionDispatcher<String> value;
 
-  _$BarcodeScanRoute._(this.$options)
-      : $replace = $options.action<
+  _$BarcodeScanRoute._(this.options$)
+      : replace$ = options$.action<
             CommandState<RouteCommand<BarcodeScanState>,
-                RouteResult<Value<String>>>>('\$replace', (a) => a?.$replace),
-        $cancel = $options.action<
-            CommandPayload<
-                RouteCommand<BarcodeScanState>,
-                RouteResult<Value<String>>,
-                BarcodeScanRoute,
-                String>>('\$cancel', (a) => a?.$cancel),
-        $execute = $options.action<
-                CommandPayload<
-                    RouteCommand<BarcodeScanState>,
-                    RouteResult<Value<String>>,
-                    BarcodeScanRoute,
-                    Command<RouteCommand<BarcodeScanState>>>>(
-            '\$execute', (a) => a?.$execute),
-        $result = $options.action<
-                CommandPayload<
-                    RouteCommand<BarcodeScanState>,
-                    RouteResult<Value<String>>,
-                    BarcodeScanRoute,
-                    CommandResult<RouteResult<Value<String>>>>>(
-            '\$result', (a) => a?.$result),
-        $progress = $options.action<
-            CommandPayload<
-                RouteCommand<BarcodeScanState>,
-                RouteResult<Value<String>>,
-                BarcodeScanRoute,
-                CommandProgress>>('\$progress', (a) => a?.$progress),
-        value = $options.action<String>('value', (a) => a?.value),
+                RouteResult<Value<String>>>>('replace\$', (a) => a?.replace$),
+        cancel$ = options$.action<String>('cancel\$', (a) => a?.cancel$),
+        execute$ = options$.action<Command<RouteCommand<BarcodeScanState>>>(
+            'execute\$', (a) => a?.execute$),
+        result$ = options$.action<CommandResult<RouteResult<Value<String>>>>(
+            'result\$', (a) => a?.result$),
+        progress$ =
+            options$.action<CommandProgress>('progress\$', (a) => a?.progress$),
+        value = options$.action<String>('value', (a) => a?.value),
         super._();
 
   factory _$BarcodeScanRoute(BarcodeScanRouteOptions options) =>
@@ -206,34 +179,25 @@ class _$BarcodeScanRoute extends BarcodeScanRoute {
 
   @override
   CommandState<RouteCommand<BarcodeScanState>, RouteResult<Value<String>>>
-      get $initial => CommandState<RouteCommand<BarcodeScanState>,
+      get initialState$ => CommandState<RouteCommand<BarcodeScanState>,
           RouteResult<Value<String>>>();
 
   @override
   CommandStateBuilder<RouteCommand<BarcodeScanState>,
           RouteResult<Value<String>>>
-      $newBuilder() => CommandStateBuilder<RouteCommand<BarcodeScanState>,
+      newBuilder$() => CommandStateBuilder<RouteCommand<BarcodeScanState>,
           RouteResult<Value<String>>>();
 
-  BuiltList<ActionDispatcher> _$actions;
+  BuiltList<ActionDispatcher> _actions$;
   @override
-  BuiltList<ActionDispatcher> get $actions =>
-      _$actions ??= BuiltList<ActionDispatcher>([
-        this.$replace,
-        this.$cancel,
-        this.$execute,
-        this.$result,
-        this.$progress,
+  BuiltList<ActionDispatcher> get actions$ =>
+      _actions$ ??= BuiltList<ActionDispatcher>([
+        this.replace$,
+        this.cancel$,
+        this.execute$,
+        this.result$,
+        this.progress$,
         this.value,
-      ]);
-
-  FullType _$fullType;
-  @override
-  FullType get $fullType => _$fullType ??= FullType(CommandState, [
-        FullType(RouteCommand, [FullType(BarcodeScanState)]),
-        FullType(RouteResult, [
-          FullType(Value, [FullType(String)])
-        ])
       ]);
 
   @override
@@ -267,26 +231,26 @@ typedef StatefulActionsOptions<BarcodeScanState, BarcodeScanStateBuilder,
 
 class _$BarcodeScanActions extends BarcodeScanActions {
   final StatefulActionsOptions<BarcodeScanState, BarcodeScanStateBuilder,
-      BarcodeScanActions> $options;
+      BarcodeScanActions> options$;
 
-  final ActionDispatcher<BarcodeScanState> $replace;
-  final ActionDispatcher<Null> $activated;
-  final ActionDispatcher<Null> $deactivated;
-  final ActionDispatcher<BarcodeScanState> $pushing;
-  final ActionDispatcher<Value<String>> $popping;
+  final ActionDispatcher<BarcodeScanState> replace$;
+  final ActionDispatcher<Null> activated$;
+  final ActionDispatcher<Null> deactivated$;
+  final ActionDispatcher<BarcodeScanState> pushing$;
+  final ActionDispatcher<Value<String>> popping$;
   final FieldDispatcher<String> value;
 
-  _$BarcodeScanActions._(this.$options)
-      : $replace =
-            $options.action<BarcodeScanState>('\$replace', (a) => a?.$replace),
-        $activated = $options.action<Null>('\$activated', (a) => a?.$activated),
-        $deactivated =
-            $options.action<Null>('\$deactivated', (a) => a?.$deactivated),
-        $pushing =
-            $options.action<BarcodeScanState>('\$pushing', (a) => a?.$pushing),
-        $popping =
-            $options.action<Value<String>>('\$popping', (a) => a?.$popping),
-        value = $options.field<String>(
+  _$BarcodeScanActions._(this.options$)
+      : replace$ =
+            options$.action<BarcodeScanState>('replace\$', (a) => a?.replace$),
+        activated$ = options$.action<Null>('activated\$', (a) => a?.activated$),
+        deactivated$ =
+            options$.action<Null>('deactivated\$', (a) => a?.deactivated$),
+        pushing$ =
+            options$.action<BarcodeScanState>('pushing\$', (a) => a?.pushing$),
+        popping$ =
+            options$.action<Value<String>>('popping\$', (a) => a?.popping$),
+        value = options$.field<String>(
             'value', (a) => a?.value, (s) => s?.value, (p, b) => p?.value = b),
         super._();
 
@@ -294,35 +258,31 @@ class _$BarcodeScanActions extends BarcodeScanActions {
       _$BarcodeScanActions._(options());
 
   @override
-  BarcodeScanStateBuilder $newBuilder() => BarcodeScanStateBuilder();
+  BarcodeScanStateBuilder newBuilder$() => BarcodeScanStateBuilder();
 
-  BuiltList<ActionDispatcher> _$actions;
+  BuiltList<ActionDispatcher> _actions$;
   @override
-  BuiltList<ActionDispatcher> get $actions =>
-      _$actions ??= BuiltList<ActionDispatcher>([
-        this.$replace,
-        this.$activated,
-        this.$deactivated,
-        this.$pushing,
-        this.$popping,
+  BuiltList<ActionDispatcher> get actions$ =>
+      _actions$ ??= BuiltList<ActionDispatcher>([
+        this.replace$,
+        this.activated$,
+        this.deactivated$,
+        this.pushing$,
+        this.popping$,
         this.value,
       ]);
 
   @override
-  void $reducer(AppReducerBuilder reducer) {
-    super.$reducer(reducer);
-    value.$reducer(reducer);
+  void reducer$(AppReducerBuilder reducer) {
+    super.reducer$(reducer);
+    value.reducer$(reducer);
   }
 
   @override
-  void $middleware(AppMiddlewareBuilder middleware) {
-    super.$middleware(middleware);
+  void middleware$(AppMiddlewareBuilder middleware) {
+    super.middleware$(middleware);
   }
 
-  FullType _$fullType;
   @override
-  FullType get $fullType => _$fullType ??= FullType(BarcodeScanState);
-
-  @override
-  ValueBuilder<String> $newResultBuilder() => Value<String>().toBuilder();
+  ValueBuilder<String> newResultBuilder$() => Value<String>().toBuilder();
 }

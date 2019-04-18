@@ -195,17 +195,17 @@ typedef StatefulActionsOptions<AuthModuleState, AuthModuleStateBuilder,
 
 class _$AuthModuleActions extends AuthModuleActions {
   final StatefulActionsOptions<AuthModuleState, AuthModuleStateBuilder,
-      AuthModuleActions> $options;
+      AuthModuleActions> options$;
 
-  final ActionDispatcher<AuthModuleState> $replace;
+  final ActionDispatcher<AuthModuleState> replace$;
   final LoginActions login;
   final LoginRoute loginRoute;
 
-  _$AuthModuleActions._(this.$options)
-      : $replace =
-            $options.action<AuthModuleState>('\$replace', (a) => a?.$replace),
+  _$AuthModuleActions._(this.options$)
+      : replace$ =
+            options$.action<AuthModuleState>('replace\$', (a) => a?.replace$),
         login = LoginActions(() =>
-            $options.stateful<LoginState, LoginStateBuilder, LoginActions>(
+            options$.stateful<LoginState, LoginStateBuilder, LoginActions>(
                 'login',
                 (a) => a.login,
                 (s) => s?.login,
@@ -213,7 +213,7 @@ class _$AuthModuleActions extends AuthModuleActions {
                 (parent, builder) => parent?.login = builder)),
         loginRoute = LoginRoute(
             () =>
-                $options.stateful<
+                options$.stateful<
                         CommandState<RouteCommand<LoginState>,
                             RouteResult<Nothing>>,
                         CommandStateBuilder<RouteCommand<LoginState>,
@@ -230,37 +230,33 @@ class _$AuthModuleActions extends AuthModuleActions {
       _$AuthModuleActions._(options());
 
   @override
-  AuthModuleStateBuilder $newBuilder() => AuthModuleStateBuilder();
+  AuthModuleStateBuilder newBuilder$() => AuthModuleStateBuilder();
 
-  BuiltList<ModuxActions> _$nested;
+  BuiltList<ModuxActions> _nested$;
   @override
-  BuiltList<ModuxActions> get $nested => _$nested ??= BuiltList<ModuxActions>([
+  BuiltList<ModuxActions> get nested$ => _nested$ ??= BuiltList<ModuxActions>([
         this.login,
         this.loginRoute,
       ]);
 
-  BuiltList<ActionDispatcher> _$actions;
+  BuiltList<ActionDispatcher> _actions$;
   @override
-  BuiltList<ActionDispatcher> get $actions =>
-      _$actions ??= BuiltList<ActionDispatcher>([
-        this.$replace,
+  BuiltList<ActionDispatcher> get actions$ =>
+      _actions$ ??= BuiltList<ActionDispatcher>([
+        this.replace$,
       ]);
 
   @override
-  void $reducer(AppReducerBuilder reducer) {
-    super.$reducer(reducer);
-    login.$reducer(reducer);
-    loginRoute.$reducer(reducer);
+  void reducer$(AppReducerBuilder reducer) {
+    super.reducer$(reducer);
+    login.reducer$(reducer);
+    loginRoute.reducer$(reducer);
   }
 
   @override
-  void $middleware(AppMiddlewareBuilder middleware) {
-    super.$middleware(middleware);
-    login.$middleware(middleware);
-    loginRoute.$middleware(middleware);
+  void middleware$(AppMiddlewareBuilder middleware) {
+    super.middleware$(middleware);
+    login.middleware$(middleware);
+    loginRoute.middleware$(middleware);
   }
-
-  FullType _$fullType;
-  @override
-  FullType get $fullType => _$fullType ??= FullType(AuthModuleState);
 }

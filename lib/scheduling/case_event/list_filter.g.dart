@@ -176,67 +176,32 @@ class _$CaseEventListFilterRoute extends CaseEventListFilterRoute {
           RouteResult<ListCaseEventsApiRequest>>,
       CommandStateBuilder<RouteCommand<CaseEventListFilterState>,
           RouteResult<ListCaseEventsApiRequest>>,
-      CaseEventListFilterRoute> $options;
+      CaseEventListFilterRoute> options$;
 
   final ActionDispatcher<
       CommandState<RouteCommand<CaseEventListFilterState>,
-          RouteResult<ListCaseEventsApiRequest>>> $replace;
-  final ActionDispatcher<
-      CommandPayload<
-          RouteCommand<CaseEventListFilterState>,
-          RouteResult<ListCaseEventsApiRequest>,
-          CaseEventListFilterRoute,
-          String>> $cancel;
-  final ActionDispatcher<
-      CommandPayload<
-          RouteCommand<CaseEventListFilterState>,
-          RouteResult<ListCaseEventsApiRequest>,
-          CaseEventListFilterRoute,
-          Command<RouteCommand<CaseEventListFilterState>>>> $execute;
-  final ActionDispatcher<
-      CommandPayload<
-          RouteCommand<CaseEventListFilterState>,
-          RouteResult<ListCaseEventsApiRequest>,
-          CaseEventListFilterRoute,
-          CommandResult<RouteResult<ListCaseEventsApiRequest>>>> $result;
-  final ActionDispatcher<
-      CommandPayload<
-          RouteCommand<CaseEventListFilterState>,
-          RouteResult<ListCaseEventsApiRequest>,
-          CaseEventListFilterRoute,
-          CommandProgress>> $progress;
+          RouteResult<ListCaseEventsApiRequest>>> replace$;
+  final ActionDispatcher<String> cancel$;
+  final ActionDispatcher<Command<RouteCommand<CaseEventListFilterState>>>
+      execute$;
+  final ActionDispatcher<CommandResult<RouteResult<ListCaseEventsApiRequest>>>
+      result$;
+  final ActionDispatcher<CommandProgress> progress$;
 
-  _$CaseEventListFilterRoute._(this.$options)
-      : $replace = $options.action<
+  _$CaseEventListFilterRoute._(this.options$)
+      : replace$ = options$.action<
                 CommandState<RouteCommand<CaseEventListFilterState>,
                     RouteResult<ListCaseEventsApiRequest>>>(
-            '\$replace', (a) => a?.$replace),
-        $cancel = $options.action<
-            CommandPayload<
-                RouteCommand<CaseEventListFilterState>,
-                RouteResult<ListCaseEventsApiRequest>,
-                CaseEventListFilterRoute,
-                String>>('\$cancel', (a) => a?.$cancel),
-        $execute = $options.action<
-                CommandPayload<
-                    RouteCommand<CaseEventListFilterState>,
-                    RouteResult<ListCaseEventsApiRequest>,
-                    CaseEventListFilterRoute,
-                    Command<RouteCommand<CaseEventListFilterState>>>>(
-            '\$execute', (a) => a?.$execute),
-        $result = $options.action<
-                CommandPayload<
-                    RouteCommand<CaseEventListFilterState>,
-                    RouteResult<ListCaseEventsApiRequest>,
-                    CaseEventListFilterRoute,
-                    CommandResult<RouteResult<ListCaseEventsApiRequest>>>>(
-            '\$result', (a) => a?.$result),
-        $progress = $options.action<
-            CommandPayload<
-                RouteCommand<CaseEventListFilterState>,
-                RouteResult<ListCaseEventsApiRequest>,
-                CaseEventListFilterRoute,
-                CommandProgress>>('\$progress', (a) => a?.$progress),
+            'replace\$', (a) => a?.replace$),
+        cancel$ = options$.action<String>('cancel\$', (a) => a?.cancel$),
+        execute$ =
+            options$.action<Command<RouteCommand<CaseEventListFilterState>>>(
+                'execute\$', (a) => a?.execute$),
+        result$ = options$
+            .action<CommandResult<RouteResult<ListCaseEventsApiRequest>>>(
+                'result\$', (a) => a?.result$),
+        progress$ =
+            options$.action<CommandProgress>('progress\$', (a) => a?.progress$),
         super._();
 
   factory _$CaseEventListFilterRoute(CaseEventListFilterRouteOptions options) =>
@@ -245,32 +210,25 @@ class _$CaseEventListFilterRoute extends CaseEventListFilterRoute {
   @override
   CommandState<RouteCommand<CaseEventListFilterState>,
           RouteResult<ListCaseEventsApiRequest>>
-      get $initial => CommandState<RouteCommand<CaseEventListFilterState>,
+      get initialState$ => CommandState<RouteCommand<CaseEventListFilterState>,
           RouteResult<ListCaseEventsApiRequest>>();
 
   @override
   CommandStateBuilder<RouteCommand<CaseEventListFilterState>,
           RouteResult<ListCaseEventsApiRequest>>
-      $newBuilder() => CommandStateBuilder<
+      newBuilder$() => CommandStateBuilder<
           RouteCommand<CaseEventListFilterState>,
           RouteResult<ListCaseEventsApiRequest>>();
 
-  BuiltList<ActionDispatcher> _$actions;
+  BuiltList<ActionDispatcher> _actions$;
   @override
-  BuiltList<ActionDispatcher> get $actions =>
-      _$actions ??= BuiltList<ActionDispatcher>([
-        this.$replace,
-        this.$cancel,
-        this.$execute,
-        this.$result,
-        this.$progress,
-      ]);
-
-  FullType _$fullType;
-  @override
-  FullType get $fullType => _$fullType ??= FullType(CommandState, [
-        FullType(RouteCommand, [FullType(CaseEventListFilterState)]),
-        FullType(RouteResult, [FullType(ListCaseEventsApiRequest)])
+  BuiltList<ActionDispatcher> get actions$ =>
+      _actions$ ??= BuiltList<ActionDispatcher>([
+        this.replace$,
+        this.cancel$,
+        this.execute$,
+        this.result$,
+        this.progress$,
       ]);
 
   @override
@@ -308,26 +266,26 @@ typedef StatefulActionsOptions<
 
 class _$CaseEventListFilterActions extends CaseEventListFilterActions {
   final StatefulActionsOptions<CaseEventListFilterState,
-      CaseEventListFilterStateBuilder, CaseEventListFilterActions> $options;
+      CaseEventListFilterStateBuilder, CaseEventListFilterActions> options$;
 
-  final ActionDispatcher<CaseEventListFilterState> $replace;
-  final ActionDispatcher<Null> $activated;
-  final ActionDispatcher<Null> $deactivated;
-  final ActionDispatcher<CaseEventListFilterState> $pushing;
-  final ActionDispatcher<ListCaseEventsApiRequest> $popping;
+  final ActionDispatcher<CaseEventListFilterState> replace$;
+  final ActionDispatcher<Null> activated$;
+  final ActionDispatcher<Null> deactivated$;
+  final ActionDispatcher<CaseEventListFilterState> pushing$;
+  final ActionDispatcher<ListCaseEventsApiRequest> popping$;
   final ListCaseEventsApiRequestActions request;
 
-  _$CaseEventListFilterActions._(this.$options)
-      : $replace = $options.action<CaseEventListFilterState>(
-            '\$replace', (a) => a?.$replace),
-        $activated = $options.action<Null>('\$activated', (a) => a?.$activated),
-        $deactivated =
-            $options.action<Null>('\$deactivated', (a) => a?.$deactivated),
-        $pushing = $options.action<CaseEventListFilterState>(
-            '\$pushing', (a) => a?.$pushing),
-        $popping = $options.action<ListCaseEventsApiRequest>(
-            '\$popping', (a) => a?.$popping),
-        request = ListCaseEventsApiRequestActions(() => $options.stateful<
+  _$CaseEventListFilterActions._(this.options$)
+      : replace$ = options$.action<CaseEventListFilterState>(
+            'replace\$', (a) => a?.replace$),
+        activated$ = options$.action<Null>('activated\$', (a) => a?.activated$),
+        deactivated$ =
+            options$.action<Null>('deactivated\$', (a) => a?.deactivated$),
+        pushing$ = options$.action<CaseEventListFilterState>(
+            'pushing\$', (a) => a?.pushing$),
+        popping$ = options$.action<ListCaseEventsApiRequest>(
+            'popping\$', (a) => a?.popping$),
+        request = ListCaseEventsApiRequestActions(() => options$.stateful<
                 ListCaseEventsApiRequest,
                 ListCaseEventsApiRequestBuilder,
                 ListCaseEventsApiRequestActions>(
@@ -343,43 +301,39 @@ class _$CaseEventListFilterActions extends CaseEventListFilterActions {
       _$CaseEventListFilterActions._(options());
 
   @override
-  CaseEventListFilterStateBuilder $newBuilder() =>
+  CaseEventListFilterStateBuilder newBuilder$() =>
       CaseEventListFilterStateBuilder();
 
-  BuiltList<ModuxActions> _$nested;
+  BuiltList<ModuxActions> _nested$;
   @override
-  BuiltList<ModuxActions> get $nested => _$nested ??= BuiltList<ModuxActions>([
+  BuiltList<ModuxActions> get nested$ => _nested$ ??= BuiltList<ModuxActions>([
         this.request,
       ]);
 
-  BuiltList<ActionDispatcher> _$actions;
+  BuiltList<ActionDispatcher> _actions$;
   @override
-  BuiltList<ActionDispatcher> get $actions =>
-      _$actions ??= BuiltList<ActionDispatcher>([
-        this.$replace,
-        this.$activated,
-        this.$deactivated,
-        this.$pushing,
-        this.$popping,
+  BuiltList<ActionDispatcher> get actions$ =>
+      _actions$ ??= BuiltList<ActionDispatcher>([
+        this.replace$,
+        this.activated$,
+        this.deactivated$,
+        this.pushing$,
+        this.popping$,
       ]);
 
   @override
-  void $reducer(AppReducerBuilder reducer) {
-    super.$reducer(reducer);
-    request.$reducer(reducer);
+  void reducer$(AppReducerBuilder reducer) {
+    super.reducer$(reducer);
+    request.reducer$(reducer);
   }
 
   @override
-  void $middleware(AppMiddlewareBuilder middleware) {
-    super.$middleware(middleware);
-    request.$middleware(middleware);
+  void middleware$(AppMiddlewareBuilder middleware) {
+    super.middleware$(middleware);
+    request.middleware$(middleware);
   }
 
-  FullType _$fullType;
   @override
-  FullType get $fullType => _$fullType ??= FullType(CaseEventListFilterState);
-
-  @override
-  ListCaseEventsApiRequestBuilder $newResultBuilder() =>
+  ListCaseEventsApiRequestBuilder newResultBuilder$() =>
       ListCaseEventsApiRequest().toBuilder();
 }

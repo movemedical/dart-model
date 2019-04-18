@@ -10,7 +10,7 @@ import 'package:movemedical_model/auth/login.dart';
 import 'package:movemedical_model/store_io.dart';
 
 Store<AppState, AppStateBuilder, AppActions> storeFactory() => createIOStore(
-        (a, ser) => (a.$initialBuilder
+        (a, ser) => (a.initialBuilder$
               ..nav = (NavStateBuilder()..messaging)
               ..api = (ApiStateBuilder()
                 ..url = 'https://dev.movemedical.com'

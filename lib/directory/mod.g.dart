@@ -107,32 +107,28 @@ typedef StatefulActionsOptions<
 
 class _$DirectoryModuleActions extends DirectoryModuleActions {
   final StatefulActionsOptions<DirectoryModuleState,
-      DirectoryModuleStateBuilder, DirectoryModuleActions> $options;
+      DirectoryModuleStateBuilder, DirectoryModuleActions> options$;
 
-  final ActionDispatcher<DirectoryModuleState> $replace;
+  final ActionDispatcher<DirectoryModuleState> replace$;
 
-  _$DirectoryModuleActions._(this.$options)
-      : $replace = $options.action<DirectoryModuleState>(
-            '\$replace', (a) => a?.$replace),
+  _$DirectoryModuleActions._(this.options$)
+      : replace$ = options$.action<DirectoryModuleState>(
+            'replace\$', (a) => a?.replace$),
         super._();
 
   factory _$DirectoryModuleActions(DirectoryModuleActionsOptions options) =>
       _$DirectoryModuleActions._(options());
 
   @override
-  DirectoryModuleState get $initial => DirectoryModuleState();
+  DirectoryModuleState get initialState$ => DirectoryModuleState();
 
   @override
-  DirectoryModuleStateBuilder $newBuilder() => DirectoryModuleStateBuilder();
+  DirectoryModuleStateBuilder newBuilder$() => DirectoryModuleStateBuilder();
 
-  BuiltList<ActionDispatcher> _$actions;
+  BuiltList<ActionDispatcher> _actions$;
   @override
-  BuiltList<ActionDispatcher> get $actions =>
-      _$actions ??= BuiltList<ActionDispatcher>([
-        this.$replace,
+  BuiltList<ActionDispatcher> get actions$ =>
+      _actions$ ??= BuiltList<ActionDispatcher>([
+        this.replace$,
       ]);
-
-  FullType _$fullType;
-  @override
-  FullType get $fullType => _$fullType ??= FullType(DirectoryModuleState);
 }

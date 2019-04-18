@@ -205,16 +205,16 @@ typedef StatefulActionsOptions<
 
 class _$DashboardModuleActions extends DashboardModuleActions {
   final StatefulActionsOptions<DashboardModuleState,
-      DashboardModuleStateBuilder, DashboardModuleActions> $options;
+      DashboardModuleStateBuilder, DashboardModuleActions> options$;
 
-  final ActionDispatcher<DashboardModuleState> $replace;
+  final ActionDispatcher<DashboardModuleState> replace$;
   final DashboardActions dashboard;
   final DashboardRoute dashboardRoute;
 
-  _$DashboardModuleActions._(this.$options)
-      : $replace = $options.action<DashboardModuleState>(
-            '\$replace', (a) => a?.$replace),
-        dashboard = DashboardActions(() => $options
+  _$DashboardModuleActions._(this.options$)
+      : replace$ = options$.action<DashboardModuleState>(
+            'replace\$', (a) => a?.replace$),
+        dashboard = DashboardActions(() => options$
             .stateful<DashboardState, DashboardStateBuilder, DashboardActions>(
                 'dashboard',
                 (a) => a.dashboard,
@@ -222,7 +222,7 @@ class _$DashboardModuleActions extends DashboardModuleActions {
                 (b) => b?.dashboard,
                 (parent, builder) => parent?.dashboard = builder)),
         dashboardRoute = DashboardRoute(() =>
-            $options.stateful<
+            options$.stateful<
                     CommandState<RouteCommand<DashboardState>,
                         RouteResult<Nothing>>,
                     CommandStateBuilder<RouteCommand<DashboardState>,
@@ -239,40 +239,36 @@ class _$DashboardModuleActions extends DashboardModuleActions {
       _$DashboardModuleActions._(options());
 
   @override
-  DashboardModuleState get $initial => DashboardModuleState();
+  DashboardModuleState get initialState$ => DashboardModuleState();
 
   @override
-  DashboardModuleStateBuilder $newBuilder() => DashboardModuleStateBuilder();
+  DashboardModuleStateBuilder newBuilder$() => DashboardModuleStateBuilder();
 
-  BuiltList<ModuxActions> _$nested;
+  BuiltList<ModuxActions> _nested$;
   @override
-  BuiltList<ModuxActions> get $nested => _$nested ??= BuiltList<ModuxActions>([
+  BuiltList<ModuxActions> get nested$ => _nested$ ??= BuiltList<ModuxActions>([
         this.dashboard,
         this.dashboardRoute,
       ]);
 
-  BuiltList<ActionDispatcher> _$actions;
+  BuiltList<ActionDispatcher> _actions$;
   @override
-  BuiltList<ActionDispatcher> get $actions =>
-      _$actions ??= BuiltList<ActionDispatcher>([
-        this.$replace,
+  BuiltList<ActionDispatcher> get actions$ =>
+      _actions$ ??= BuiltList<ActionDispatcher>([
+        this.replace$,
       ]);
 
   @override
-  void $reducer(AppReducerBuilder reducer) {
-    super.$reducer(reducer);
-    dashboard.$reducer(reducer);
-    dashboardRoute.$reducer(reducer);
+  void reducer$(AppReducerBuilder reducer) {
+    super.reducer$(reducer);
+    dashboard.reducer$(reducer);
+    dashboardRoute.reducer$(reducer);
   }
 
   @override
-  void $middleware(AppMiddlewareBuilder middleware) {
-    super.$middleware(middleware);
-    dashboard.$middleware(middleware);
-    dashboardRoute.$middleware(middleware);
+  void middleware$(AppMiddlewareBuilder middleware) {
+    super.middleware$(middleware);
+    dashboard.middleware$(middleware);
+    dashboardRoute.middleware$(middleware);
   }
-
-  FullType _$fullType;
-  @override
-  FullType get $fullType => _$fullType ??= FullType(DashboardModuleState);
 }

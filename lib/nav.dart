@@ -18,7 +18,7 @@ abstract class NavActions
   FieldDispatcher<BuiltList<String>> get stack;
 
   @override
-  NavState get $initial => NavState();
+  NavState get initialState$ => NavState();
 
   ////////////////////
   /// Modules

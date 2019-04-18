@@ -101,74 +101,50 @@ class _$SplashRoute extends SplashRoute {
   final StatefulActionsOptions<
       CommandState<RouteCommand<SplashState>, RouteResult<Nothing>>,
       CommandStateBuilder<RouteCommand<SplashState>, RouteResult<Nothing>>,
-      SplashRoute> $options;
+      SplashRoute> options$;
 
   final ActionDispatcher<
-      CommandState<RouteCommand<SplashState>, RouteResult<Nothing>>> $replace;
-  final ActionDispatcher<
-      CommandPayload<RouteCommand<SplashState>, RouteResult<Nothing>,
-          SplashRoute, String>> $cancel;
-  final ActionDispatcher<
-      CommandPayload<RouteCommand<SplashState>, RouteResult<Nothing>,
-          SplashRoute, Command<RouteCommand<SplashState>>>> $execute;
-  final ActionDispatcher<
-      CommandPayload<RouteCommand<SplashState>, RouteResult<Nothing>,
-          SplashRoute, CommandResult<RouteResult<Nothing>>>> $result;
-  final ActionDispatcher<
-      CommandPayload<RouteCommand<SplashState>, RouteResult<Nothing>,
-          SplashRoute, CommandProgress>> $progress;
+      CommandState<RouteCommand<SplashState>, RouteResult<Nothing>>> replace$;
+  final ActionDispatcher<String> cancel$;
+  final ActionDispatcher<Command<RouteCommand<SplashState>>> execute$;
+  final ActionDispatcher<CommandResult<RouteResult<Nothing>>> result$;
+  final ActionDispatcher<CommandProgress> progress$;
 
-  _$SplashRoute._(this.$options)
-      : $replace = $options.action<
+  _$SplashRoute._(this.options$)
+      : replace$ = options$.action<
                 CommandState<RouteCommand<SplashState>, RouteResult<Nothing>>>(
-            '\$replace', (a) => a?.$replace),
-        $cancel = $options.action<
-            CommandPayload<RouteCommand<SplashState>, RouteResult<Nothing>,
-                SplashRoute, String>>('\$cancel', (a) => a?.$cancel),
-        $execute = $options.action<
-                CommandPayload<RouteCommand<SplashState>, RouteResult<Nothing>,
-                    SplashRoute, Command<RouteCommand<SplashState>>>>(
-            '\$execute', (a) => a?.$execute),
-        $result = $options.action<
-                CommandPayload<RouteCommand<SplashState>, RouteResult<Nothing>,
-                    SplashRoute, CommandResult<RouteResult<Nothing>>>>(
-            '\$result', (a) => a?.$result),
-        $progress = $options.action<
-            CommandPayload<
-                RouteCommand<SplashState>,
-                RouteResult<Nothing>,
-                SplashRoute,
-                CommandProgress>>('\$progress', (a) => a?.$progress),
+            'replace\$', (a) => a?.replace$),
+        cancel$ = options$.action<String>('cancel\$', (a) => a?.cancel$),
+        execute$ = options$.action<Command<RouteCommand<SplashState>>>(
+            'execute\$', (a) => a?.execute$),
+        result$ = options$.action<CommandResult<RouteResult<Nothing>>>(
+            'result\$', (a) => a?.result$),
+        progress$ =
+            options$.action<CommandProgress>('progress\$', (a) => a?.progress$),
         super._();
 
   factory _$SplashRoute(SplashRouteOptions options) =>
       _$SplashRoute._(options());
 
   @override
-  CommandState<RouteCommand<SplashState>, RouteResult<Nothing>> get $initial =>
-      CommandState<RouteCommand<SplashState>, RouteResult<Nothing>>();
+  CommandState<RouteCommand<SplashState>, RouteResult<Nothing>>
+      get initialState$ =>
+          CommandState<RouteCommand<SplashState>, RouteResult<Nothing>>();
 
   @override
   CommandStateBuilder<RouteCommand<SplashState>, RouteResult<Nothing>>
-      $newBuilder() => CommandStateBuilder<RouteCommand<SplashState>,
+      newBuilder$() => CommandStateBuilder<RouteCommand<SplashState>,
           RouteResult<Nothing>>();
 
-  BuiltList<ActionDispatcher> _$actions;
+  BuiltList<ActionDispatcher> _actions$;
   @override
-  BuiltList<ActionDispatcher> get $actions =>
-      _$actions ??= BuiltList<ActionDispatcher>([
-        this.$replace,
-        this.$cancel,
-        this.$execute,
-        this.$result,
-        this.$progress,
-      ]);
-
-  FullType _$fullType;
-  @override
-  FullType get $fullType => _$fullType ??= FullType(CommandState, [
-        FullType(RouteCommand, [FullType(SplashState)]),
-        FullType(RouteResult, [FullType(Nothing)])
+  BuiltList<ActionDispatcher> get actions$ =>
+      _actions$ ??= BuiltList<ActionDispatcher>([
+        this.replace$,
+        this.cancel$,
+        this.execute$,
+        this.result$,
+        this.progress$,
       ]);
 
   @override
@@ -201,49 +177,45 @@ typedef StatefulActionsOptions<SplashState, SplashStateBuilder,
 
 class _$SplashActions extends SplashActions {
   final StatefulActionsOptions<SplashState, SplashStateBuilder, SplashActions>
-      $options;
+      options$;
 
-  final ActionDispatcher<SplashState> $replace;
-  final ActionDispatcher<Null> $activated;
-  final ActionDispatcher<Null> $deactivated;
-  final ActionDispatcher<SplashState> $pushing;
-  final ActionDispatcher<Nothing> $popping;
+  final ActionDispatcher<SplashState> replace$;
+  final ActionDispatcher<Null> activated$;
+  final ActionDispatcher<Null> deactivated$;
+  final ActionDispatcher<SplashState> pushing$;
+  final ActionDispatcher<Nothing> popping$;
 
-  _$SplashActions._(this.$options)
-      : $replace =
-            $options.action<SplashState>('\$replace', (a) => a?.$replace),
-        $activated = $options.action<Null>('\$activated', (a) => a?.$activated),
-        $deactivated =
-            $options.action<Null>('\$deactivated', (a) => a?.$deactivated),
-        $pushing =
-            $options.action<SplashState>('\$pushing', (a) => a?.$pushing),
-        $popping = $options.action<Nothing>('\$popping', (a) => a?.$popping),
+  _$SplashActions._(this.options$)
+      : replace$ =
+            options$.action<SplashState>('replace\$', (a) => a?.replace$),
+        activated$ = options$.action<Null>('activated\$', (a) => a?.activated$),
+        deactivated$ =
+            options$.action<Null>('deactivated\$', (a) => a?.deactivated$),
+        pushing$ =
+            options$.action<SplashState>('pushing\$', (a) => a?.pushing$),
+        popping$ = options$.action<Nothing>('popping\$', (a) => a?.popping$),
         super._();
 
   factory _$SplashActions(SplashActionsOptions options) =>
       _$SplashActions._(options());
 
   @override
-  SplashState get $initial => SplashState();
+  SplashState get initialState$ => SplashState();
 
   @override
-  SplashStateBuilder $newBuilder() => SplashStateBuilder();
+  SplashStateBuilder newBuilder$() => SplashStateBuilder();
 
-  BuiltList<ActionDispatcher> _$actions;
+  BuiltList<ActionDispatcher> _actions$;
   @override
-  BuiltList<ActionDispatcher> get $actions =>
-      _$actions ??= BuiltList<ActionDispatcher>([
-        this.$replace,
-        this.$activated,
-        this.$deactivated,
-        this.$pushing,
-        this.$popping,
+  BuiltList<ActionDispatcher> get actions$ =>
+      _actions$ ??= BuiltList<ActionDispatcher>([
+        this.replace$,
+        this.activated$,
+        this.deactivated$,
+        this.pushing$,
+        this.popping$,
       ]);
 
-  FullType _$fullType;
   @override
-  FullType get $fullType => _$fullType ??= FullType(SplashState);
-
-  @override
-  NothingBuilder $newResultBuilder() => Nothing().toBuilder();
+  NothingBuilder newResultBuilder$() => Nothing().toBuilder();
 }
