@@ -14,12 +14,12 @@ dependencies:
   web_socket_channel: ^1.0.9
 
   modux:
-    path: ../modux-dart
-#    git: git://github.com/movemedical/modux-dart
+#    path: ../modux-dart
+    git: git://github.com/movemedical/modux-dart
 
   movemedical_api:
-    path: ../move-dart-api
-#    git: git://github.com/movemedical/move-dart-api
+#    path: ../move-dart-api
+    git: git://github.com/movemedical/move-dart-api
 
 dev_dependencies:
   analyzer: ^0.35.4
@@ -33,5 +33,5 @@ dev_dependencies:
     git: https://github.com/movemedical/built-value-generator
 
   modux_generator:
-    path: ../modux-dart-generator
-#    git: git://github.com/movemedical/modux-dart-generator
+#    path: ../modux-dart-generator
+    git: git://github.com/movemedical/modux-dart-generator
