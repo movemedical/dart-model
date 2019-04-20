@@ -53,7 +53,7 @@ abstract class CaseEventDetailActions extends ScreenActions<
     middleware.nest(this)
       ..add(cmdLoad.result$, (api, next, action) {
         if (action?.payload is GetCaseEventDetailApiResponse) {
-          model.$reset(action.payload as GetCaseEventDetailApiResponse);
+          model.reset$(action.payload as GetCaseEventDetailApiResponse);
         }
       });
   }
