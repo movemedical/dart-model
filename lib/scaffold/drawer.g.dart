@@ -270,8 +270,8 @@ class _$DrawerActions extends DrawerActions {
       options$;
 
   final ActionDispatcher<DrawerState> replace$;
-  final ActionDispatcher<Null> activated$;
-  final ActionDispatcher<Null> deactivated$;
+  final ActionDispatcher activated$;
+  final ActionDispatcher deactivated$;
   final ActionDispatcher<DrawerState> pushing$;
   final ActionDispatcher<Nothing> popping$;
   final LoginRoute loginRoute;
@@ -280,9 +280,8 @@ class _$DrawerActions extends DrawerActions {
   _$DrawerActions._(this.options$)
       : replace$ =
             options$.action<DrawerState>('replace\$', (a) => a?.replace$),
-        activated$ = options$.action<Null>('activated\$', (a) => a?.activated$),
-        deactivated$ =
-            options$.action<Null>('deactivated\$', (a) => a?.deactivated$),
+        activated$ = options$.action('activated\$', (a) => a?.activated$),
+        deactivated$ = options$.action('deactivated\$', (a) => a?.deactivated$),
         pushing$ =
             options$.action<DrawerState>('pushing\$', (a) => a?.pushing$),
         popping$ = options$.action<Nothing>('popping\$', (a) => a?.popping$),

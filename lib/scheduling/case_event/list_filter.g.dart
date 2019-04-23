@@ -269,8 +269,8 @@ class _$CaseEventListFilterActions extends CaseEventListFilterActions {
       CaseEventListFilterStateBuilder, CaseEventListFilterActions> options$;
 
   final ActionDispatcher<CaseEventListFilterState> replace$;
-  final ActionDispatcher<Null> activated$;
-  final ActionDispatcher<Null> deactivated$;
+  final ActionDispatcher activated$;
+  final ActionDispatcher deactivated$;
   final ActionDispatcher<CaseEventListFilterState> pushing$;
   final ActionDispatcher<ListCaseEventsApiRequest> popping$;
   final ListCaseEventsApiRequestActions request;
@@ -278,9 +278,8 @@ class _$CaseEventListFilterActions extends CaseEventListFilterActions {
   _$CaseEventListFilterActions._(this.options$)
       : replace$ = options$.action<CaseEventListFilterState>(
             'replace\$', (a) => a?.replace$),
-        activated$ = options$.action<Null>('activated\$', (a) => a?.activated$),
-        deactivated$ =
-            options$.action<Null>('deactivated\$', (a) => a?.deactivated$),
+        activated$ = options$.action('activated\$', (a) => a?.activated$),
+        deactivated$ = options$.action('deactivated\$', (a) => a?.deactivated$),
         pushing$ = options$.action<CaseEventListFilterState>(
             'pushing\$', (a) => a?.pushing$),
         popping$ = options$.action<ListCaseEventsApiRequest>(

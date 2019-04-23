@@ -186,17 +186,16 @@ class _$DashboardActions extends DashboardActions {
       DashboardActions> options$;
 
   final ActionDispatcher<DashboardState> replace$;
-  final ActionDispatcher<Null> activated$;
-  final ActionDispatcher<Null> deactivated$;
+  final ActionDispatcher activated$;
+  final ActionDispatcher deactivated$;
   final ActionDispatcher<DashboardState> pushing$;
   final ActionDispatcher<Nothing> popping$;
 
   _$DashboardActions._(this.options$)
       : replace$ =
             options$.action<DashboardState>('replace\$', (a) => a?.replace$),
-        activated$ = options$.action<Null>('activated\$', (a) => a?.activated$),
-        deactivated$ =
-            options$.action<Null>('deactivated\$', (a) => a?.deactivated$),
+        activated$ = options$.action('activated\$', (a) => a?.activated$),
+        deactivated$ = options$.action('deactivated\$', (a) => a?.deactivated$),
         pushing$ =
             options$.action<DashboardState>('pushing\$', (a) => a?.pushing$),
         popping$ = options$.action<Nothing>('popping\$', (a) => a?.popping$),

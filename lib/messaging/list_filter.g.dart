@@ -277,8 +277,8 @@ class _$ConversationListFilterActions extends ConversationListFilterActions {
       ConversationListFilterActions> options$;
 
   final ActionDispatcher<ConversationListFilterState> replace$;
-  final ActionDispatcher<Null> activated$;
-  final ActionDispatcher<Null> deactivated$;
+  final ActionDispatcher activated$;
+  final ActionDispatcher deactivated$;
   final ActionDispatcher<ConversationListFilterState> pushing$;
   final ActionDispatcher<ListConversationsApiRequest> popping$;
   final ListConversationsApiRequestActions request;
@@ -286,9 +286,8 @@ class _$ConversationListFilterActions extends ConversationListFilterActions {
   _$ConversationListFilterActions._(this.options$)
       : replace$ = options$.action<ConversationListFilterState>(
             'replace\$', (a) => a?.replace$),
-        activated$ = options$.action<Null>('activated\$', (a) => a?.activated$),
-        deactivated$ =
-            options$.action<Null>('deactivated\$', (a) => a?.deactivated$),
+        activated$ = options$.action('activated\$', (a) => a?.activated$),
+        deactivated$ = options$.action('deactivated\$', (a) => a?.deactivated$),
         pushing$ = options$.action<ConversationListFilterState>(
             'pushing\$', (a) => a?.pushing$),
         popping$ = options$.action<ListConversationsApiRequest>(

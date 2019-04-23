@@ -305,8 +305,8 @@ class _$CaseEventListActions extends CaseEventListActions {
       CaseEventListActions> options$;
 
   final ActionDispatcher<CaseEventListState> replace$;
-  final ActionDispatcher<Null> activated$;
-  final ActionDispatcher<Null> deactivated$;
+  final ActionDispatcher activated$;
+  final ActionDispatcher deactivated$;
   final ActionDispatcher<CaseEventListState> pushing$;
   final ActionDispatcher<Nothing> popping$;
   final list_case_events_api.ListCaseEventsApi listCommand;
@@ -315,9 +315,8 @@ class _$CaseEventListActions extends CaseEventListActions {
   _$CaseEventListActions._(this.options$)
       : replace$ = options$.action<CaseEventListState>(
             'replace\$', (a) => a?.replace$),
-        activated$ = options$.action<Null>('activated\$', (a) => a?.activated$),
-        deactivated$ =
-            options$.action<Null>('deactivated\$', (a) => a?.deactivated$),
+        activated$ = options$.action('activated\$', (a) => a?.activated$),
+        deactivated$ = options$.action('deactivated\$', (a) => a?.deactivated$),
         pushing$ = options$.action<CaseEventListState>(
             'pushing\$', (a) => a?.pushing$),
         popping$ = options$.action<Nothing>('popping\$', (a) => a?.popping$),

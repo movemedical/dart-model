@@ -200,17 +200,16 @@ class _$UpdateConversationActions extends UpdateConversationActions {
       UpdateConversationStateBuilder, UpdateConversationActions> options$;
 
   final ActionDispatcher<UpdateConversationState> replace$;
-  final ActionDispatcher<Null> activated$;
-  final ActionDispatcher<Null> deactivated$;
+  final ActionDispatcher activated$;
+  final ActionDispatcher deactivated$;
   final ActionDispatcher<UpdateConversationState> pushing$;
   final ActionDispatcher<Nothing> popping$;
 
   _$UpdateConversationActions._(this.options$)
       : replace$ = options$.action<UpdateConversationState>(
             'replace\$', (a) => a?.replace$),
-        activated$ = options$.action<Null>('activated\$', (a) => a?.activated$),
-        deactivated$ =
-            options$.action<Null>('deactivated\$', (a) => a?.deactivated$),
+        activated$ = options$.action('activated\$', (a) => a?.activated$),
+        deactivated$ = options$.action('deactivated\$', (a) => a?.deactivated$),
         pushing$ = options$.action<UpdateConversationState>(
             'pushing\$', (a) => a?.pushing$),
         popping$ = options$.action<Nothing>('popping\$', (a) => a?.popping$),

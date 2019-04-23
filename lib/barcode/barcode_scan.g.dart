@@ -234,8 +234,8 @@ class _$BarcodeScanActions extends BarcodeScanActions {
       BarcodeScanActions> options$;
 
   final ActionDispatcher<BarcodeScanState> replace$;
-  final ActionDispatcher<Null> activated$;
-  final ActionDispatcher<Null> deactivated$;
+  final ActionDispatcher activated$;
+  final ActionDispatcher deactivated$;
   final ActionDispatcher<BarcodeScanState> pushing$;
   final ActionDispatcher<Value<String>> popping$;
   final FieldDispatcher<String> value;
@@ -243,9 +243,8 @@ class _$BarcodeScanActions extends BarcodeScanActions {
   _$BarcodeScanActions._(this.options$)
       : replace$ =
             options$.action<BarcodeScanState>('replace\$', (a) => a?.replace$),
-        activated$ = options$.action<Null>('activated\$', (a) => a?.activated$),
-        deactivated$ =
-            options$.action<Null>('deactivated\$', (a) => a?.deactivated$),
+        activated$ = options$.action('activated\$', (a) => a?.activated$),
+        deactivated$ = options$.action('deactivated\$', (a) => a?.deactivated$),
         pushing$ =
             options$.action<BarcodeScanState>('pushing\$', (a) => a?.pushing$),
         popping$ =

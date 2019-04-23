@@ -415,8 +415,8 @@ class _$ConversationListActions extends ConversationListActions {
       ConversationListStateBuilder, ConversationListActions> options$;
 
   final ActionDispatcher<ConversationListState> replace$;
-  final ActionDispatcher<Null> activated$;
-  final ActionDispatcher<Null> deactivated$;
+  final ActionDispatcher activated$;
+  final ActionDispatcher deactivated$;
   final ActionDispatcher<ConversationListState> pushing$;
   final ActionDispatcher<Nothing> popping$;
   final ListConversationsApi command;
@@ -427,9 +427,8 @@ class _$ConversationListActions extends ConversationListActions {
   _$ConversationListActions._(this.options$)
       : replace$ = options$.action<ConversationListState>(
             'replace\$', (a) => a?.replace$),
-        activated$ = options$.action<Null>('activated\$', (a) => a?.activated$),
-        deactivated$ =
-            options$.action<Null>('deactivated\$', (a) => a?.deactivated$),
+        activated$ = options$.action('activated\$', (a) => a?.activated$),
+        deactivated$ = options$.action('deactivated\$', (a) => a?.deactivated$),
         pushing$ = options$.action<ConversationListState>(
             'pushing\$', (a) => a?.pushing$),
         popping$ = options$.action<Nothing>('popping\$', (a) => a?.popping$),

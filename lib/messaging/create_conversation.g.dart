@@ -313,8 +313,8 @@ class _$CreateConversationActions extends CreateConversationActions {
       CreateConversationStateBuilder, CreateConversationActions> options$;
 
   final ActionDispatcher<CreateConversationState> replace$;
-  final ActionDispatcher<Null> activated$;
-  final ActionDispatcher<Null> deactivated$;
+  final ActionDispatcher activated$;
+  final ActionDispatcher deactivated$;
   final ActionDispatcher<CreateConversationState> pushing$;
   final ActionDispatcher<CreateConversationApiResponse> popping$;
   final CreateConversationApiRequestActions request;
@@ -323,9 +323,8 @@ class _$CreateConversationActions extends CreateConversationActions {
   _$CreateConversationActions._(this.options$)
       : replace$ = options$.action<CreateConversationState>(
             'replace\$', (a) => a?.replace$),
-        activated$ = options$.action<Null>('activated\$', (a) => a?.activated$),
-        deactivated$ =
-            options$.action<Null>('deactivated\$', (a) => a?.deactivated$),
+        activated$ = options$.action('activated\$', (a) => a?.activated$),
+        deactivated$ = options$.action('deactivated\$', (a) => a?.deactivated$),
         pushing$ = options$.action<CreateConversationState>(
             'pushing\$', (a) => a?.pushing$),
         popping$ = options$.action<CreateConversationApiResponse>(

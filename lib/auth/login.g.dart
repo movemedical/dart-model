@@ -276,8 +276,8 @@ class _$LoginActions extends LoginActions {
       options$;
 
   final ActionDispatcher<LoginState> replace$;
-  final ActionDispatcher<Null> activated$;
-  final ActionDispatcher<Null> deactivated$;
+  final ActionDispatcher activated$;
+  final ActionDispatcher deactivated$;
   final ActionDispatcher<LoginState> pushing$;
   final ActionDispatcher<Nothing> popping$;
   final LoginRequestActions request;
@@ -285,9 +285,8 @@ class _$LoginActions extends LoginActions {
 
   _$LoginActions._(this.options$)
       : replace$ = options$.action<LoginState>('replace\$', (a) => a?.replace$),
-        activated$ = options$.action<Null>('activated\$', (a) => a?.activated$),
-        deactivated$ =
-            options$.action<Null>('deactivated\$', (a) => a?.deactivated$),
+        activated$ = options$.action('activated\$', (a) => a?.activated$),
+        deactivated$ = options$.action('deactivated\$', (a) => a?.deactivated$),
         pushing$ = options$.action<LoginState>('pushing\$', (a) => a?.pushing$),
         popping$ = options$.action<Nothing>('popping\$', (a) => a?.popping$),
         request = LoginRequestActions(() => options$
