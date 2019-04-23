@@ -2,6 +2,9 @@ library app;
 
 import 'package:movemedical_api/command.dart';
 import 'package:movemedical_api/model/action/user/get_ui_setup_mobile_api_response.dart';
+import 'package:movemedical_api/model/action/user/get_ui_setup_all_api_biz_unit.dart';
+import 'package:movemedical_api/model/action/user/get_ui_setup_all_api_user.dart';
+import 'package:movemedical_api/model/action/user/get_ui_setup_all_api_response.dart';
 
 import 'foundation.dart';
 import 'nav.dart';
@@ -66,6 +69,10 @@ abstract class AppState implements Built<AppState, AppStateBuilder> {
   /// Computed
   ////////////////////
 
+  ////////////////////////////////////////////////////////////
+  /// User / Session
+  ////////////////////////////////////////////////////////////
+
   bool get isLoggedIn => api?.activeLogin?.moveSessionId != null;
 
   bool get isLoggingIn => api?.loginCommand?.isInProgress ?? false;
@@ -74,6 +81,20 @@ abstract class AppState implements Built<AppState, AppStateBuilder> {
 
   GetUiSetupMobileApiResponse get setup => api?.activeSetup;
 
+  String get defaultBizUnitId => user?.orgInfo?.defaultBizUnit ?? '';
+
+  GetUiSetupAllApiBizUnit get defaultBizUnit => user?.orgInfo?.defaultBizUnit;
+
+  BuiltList<GetUiSetupAllApiBizUnit> get bizUnits =>
+      api?.activeSetup?.uiSetup?.user?.orgInfo?.bizUnits ?? BuiltList();
+
+  GetUiSetupAllApiUser get user => api?.activeSetup?.uiSetup?.user;
+
+  GetUiSetupAllApiResponse get uiSetup => api?.activeSetup?.uiSetup;
+
+  /////////////////////
+  /// Construction
+  /////////////////////
   AppState._();
 
   factory AppState([updates(AppStateBuilder b)]) => _$AppState((b) {
