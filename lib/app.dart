@@ -81,8 +81,6 @@ abstract class AppState implements Built<AppState, AppStateBuilder> {
 
   GetUiSetupMobileApiResponse get setup => api?.activeSetup;
 
-  String get defaultBizUnitId => user?.orgInfo?.defaultBizUnit ?? '';
-
   GetUiSetupAllApiBizUnit get defaultBizUnit => user?.orgInfo?.defaultBizUnit;
 
   BuiltList<GetUiSetupAllApiBizUnit> get bizUnits =>
