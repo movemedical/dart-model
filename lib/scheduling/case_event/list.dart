@@ -29,7 +29,7 @@ abstract class CaseEventListActions extends ScreenActions<CaseEventListState,
   /// Actions
   ////////////////////////////////////
 
-  list_case_events_api.ListCaseEventsApi get listCommand;
+  list_case_events_api.ListCaseEventsApi get list;
 
   list_case_events_api.ListCaseEventsApiRequestActions get request;
 
@@ -39,7 +39,7 @@ abstract class CaseEventListActions extends ScreenActions<CaseEventListState,
 
   @override
   CaseEventListState get initialState$ =>
-      CaseEventListState((b) => b..listCommand = listCommand.initialBuilder$);
+      CaseEventListState((b) => b..listCommand = list.initialBuilder$);
 
   ////////////////////////////////////
   /// Construction
@@ -61,17 +61,16 @@ abstract class CaseEventListState
     implements Built<CaseEventListState, CaseEventListStateBuilder> {
   @nullable
   CommandState<ApiCommand<list_case_events_api.ListCaseEventsApiRequest>,
-          ApiResult<list_case_events_api.ListCaseEventsApiResponse>>
-      get listCommand;
+      ApiResult<list_case_events_api.ListCaseEventsApiResponse>> get list;
 
   @nullable
   list_case_events_api.ListCaseEventsApiRequest get request;
 
-  bool get isLoading => listCommand?.isInProgress ?? false;
+  bool get isLoading => list?.isInProgress ?? false;
 
   @memoized
   BuiltList<ListCaseEventsApiCaseEvent> get events =>
-      ApiResult.listOfState(listCommand);
+      ApiResult.listOfState(list);
 
   ////////////////////////////////////
   /// Boilerplate

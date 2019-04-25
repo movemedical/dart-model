@@ -21,10 +21,10 @@ class _$CaseEventListStateSerializer
   Iterable serialize(Serializers serializers, CaseEventListState object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[];
-    if (object.listCommand != null) {
+    if (object.list != null) {
       result
         ..add('listCommand')
-        ..add(serializers.serialize(object.listCommand,
+        ..add(serializers.serialize(object.list,
             specifiedType: const FullType(CommandState, const [
               const FullType(ApiCommand, const [
                 const FullType(list_case_events_api.ListCaseEventsApiRequest)
@@ -88,7 +88,7 @@ class _$CaseEventListStateSerializer
 class _$CaseEventListState extends CaseEventListState {
   @override
   final CommandState<ApiCommand<list_case_events_api.ListCaseEventsApiRequest>,
-      ApiResult<list_case_events_api.ListCaseEventsApiResponse>> listCommand;
+      ApiResult<list_case_events_api.ListCaseEventsApiResponse>> list;
   @override
   final list_case_events_api.ListCaseEventsApiRequest request;
   BuiltList<ListCaseEventsApiCaseEvent> __events;
@@ -96,7 +96,7 @@ class _$CaseEventListState extends CaseEventListState {
   factory _$CaseEventListState([void updates(CaseEventListStateBuilder b)]) =>
       (new CaseEventListStateBuilder()..update(updates)).build();
 
-  _$CaseEventListState._({this.listCommand, this.request}) : super._();
+  _$CaseEventListState._({this.list, this.request}) : super._();
 
   @override
   BuiltList<ListCaseEventsApiCaseEvent> get events => __events ??= super.events;
@@ -113,19 +113,19 @@ class _$CaseEventListState extends CaseEventListState {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is CaseEventListState &&
-        listCommand == other.listCommand &&
+        list == other.list &&
         request == other.request;
   }
 
   @override
   int get hashCode {
-    return $jf($jc($jc(0, listCommand.hashCode), request.hashCode));
+    return $jf($jc($jc(0, list.hashCode), request.hashCode));
   }
 
   @override
   String toString() {
     return (newBuiltValueToStringHelper('CaseEventListState')
-          ..add('listCommand', listCommand)
+          ..add('listCommand', list)
           ..add('request', request))
         .toString();
   }
@@ -160,7 +160,7 @@ class CaseEventListStateBuilder
 
   CaseEventListStateBuilder get _$this {
     if (_$v != null) {
-      _listCommand = _$v.listCommand?.toBuilder();
+      _listCommand = _$v.list?.toBuilder();
       _request = _$v.request?.toBuilder();
       _$v = null;
     }
@@ -186,7 +186,7 @@ class CaseEventListStateBuilder
     try {
       _$result = _$v ??
           new _$CaseEventListState._(
-              listCommand: _listCommand?.build(), request: _request?.build());
+              list: _listCommand?.build(), request: _request?.build());
     } catch (_) {
       String _$failedField;
       try {
@@ -309,7 +309,7 @@ class _$CaseEventListActions extends CaseEventListActions {
   final ActionDispatcher deactivated$;
   final ActionDispatcher<CaseEventListState> pushing$;
   final ActionDispatcher<Nothing> popping$;
-  final list_case_events_api.ListCaseEventsApi listCommand;
+  final list_case_events_api.ListCaseEventsApi list;
   final list_case_events_api.ListCaseEventsApiRequestActions request;
 
   _$CaseEventListActions._(this.options$)
@@ -320,32 +320,19 @@ class _$CaseEventListActions extends CaseEventListActions {
         pushing$ = options$.action<CaseEventListState>(
             'pushing\$', (a) => a?.pushing$),
         popping$ = options$.action<Nothing>('popping\$', (a) => a?.popping$),
-        listCommand =
-            list_case_events_api.ListCaseEventsApi(
-                () =>
-                    options$
-                        .stateful<
-                                CommandState<
-                                    ApiCommand<
-                                        list_case_events_api
-                                            .ListCaseEventsApiRequest>,
-                                    ApiResult<
-                                        list_case_events_api
-                                            .ListCaseEventsApiResponse>>,
-                                CommandStateBuilder<
-                                    ApiCommand<
-                                        list_case_events_api
-                                            .ListCaseEventsApiRequest>,
-                                    ApiResult<
-                                        list_case_events_api
-                                            .ListCaseEventsApiResponse>>,
-                                list_case_events_api.ListCaseEventsApi>(
-                            'listCommand',
-                            (a) => a.listCommand,
-                            (s) => s?.listCommand,
-                            (b) => b?.listCommand,
-                            (parent, builder) =>
-                                parent?.listCommand = builder)),
+        list = list_case_events_api.ListCaseEventsApi(() => options$.stateful<
+                CommandState<
+                    ApiCommand<list_case_events_api.ListCaseEventsApiRequest>,
+                    ApiResult<list_case_events_api.ListCaseEventsApiResponse>>,
+                CommandStateBuilder<
+                    ApiCommand<list_case_events_api.ListCaseEventsApiRequest>,
+                    ApiResult<list_case_events_api.ListCaseEventsApiResponse>>,
+                list_case_events_api.ListCaseEventsApi>(
+            'listCommand',
+            (a) => a.list,
+            (s) => s?.list,
+            (b) => b?.list,
+            (parent, builder) => parent?.list = builder)),
         request = list_case_events_api.ListCaseEventsApiRequestActions(() =>
             options$.stateful<
                     list_case_events_api.ListCaseEventsApiRequest,
@@ -367,7 +354,7 @@ class _$CaseEventListActions extends CaseEventListActions {
   BuiltList<ModuxActions> _nested$;
   @override
   BuiltList<ModuxActions> get nested$ => _nested$ ??= BuiltList<ModuxActions>([
-        this.listCommand,
+        this.list,
         this.request,
       ]);
 
@@ -385,14 +372,14 @@ class _$CaseEventListActions extends CaseEventListActions {
   @override
   void reducer$(AppReducerBuilder reducer) {
     super.reducer$(reducer);
-    listCommand.reducer$(reducer);
+    list.reducer$(reducer);
     request.reducer$(reducer);
   }
 
   @override
   void middleware$(AppMiddlewareBuilder middleware) {
     super.middleware$(middleware);
-    listCommand.middleware$(middleware);
+    list.middleware$(middleware);
     request.middleware$(middleware);
   }
 
