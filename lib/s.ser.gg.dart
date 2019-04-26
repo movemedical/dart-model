@@ -372,531 +372,107 @@ SerializersBuilder $serializers() => (Serializers().toBuilder()
       () => ListBuilder<_138.MessageMessageParticipant>())
   ..addBuilderFactory(FullType(BuiltList, [FullType(_137.Message)]),
       () => ListBuilder<_137.Message>())
-  ..add(CommandStatus.serializer)
-  ..add(Command.serializer)
-  ..add(CommandResultCode.serializer)
-  ..add(CommandResult.serializer)
-  ..add(CommandState.serializer)
-  ..add(RouteCommandAction.serializer)
-  ..add(RouteType.serializer)
-  ..add(RouteCommand.serializer)
-  ..add(Nothing.serializer)
-  ..add(RouteResult.serializer)
-  ..addBuilderFactory(
-      FullType(Command, [
-        FullType(_1.ApiCommand, [FullType(_2.LoginRequest)])
-      ]),
-      () => CommandBuilder<_1.ApiCommand<_2.LoginRequest>>())
-  ..addBuilderFactory(
-      FullType(Command, [
-        FullType(_1.ApiCommand, [FullType(_49.GetUiSetupMobileApiRequest)])
-      ]),
-      () => CommandBuilder<_1.ApiCommand<_49.GetUiSetupMobileApiRequest>>())
-  ..addBuilderFactory(
-      FullType(Command, [
-        FullType(RouteCommand, [FullType(_52.SplashState)])
-      ]),
-      () => CommandBuilder<RouteCommand<_52.SplashState>>())
-  ..addBuilderFactory(
-      FullType(Command, [
-        FullType(RouteCommand, [FullType(_56.DashboardState)])
-      ]),
-      () => CommandBuilder<RouteCommand<_56.DashboardState>>())
-  ..addBuilderFactory(
-      FullType(Command, [
-        FullType(RouteCommand, [FullType(_55.LoginState)])
-      ]),
-      () => CommandBuilder<RouteCommand<_55.LoginState>>())
-  ..addBuilderFactory(
-      FullType(Command, [
-        FullType(_1.ApiCommand, [FullType(_62.ListCaseEventsApiRequest)])
-      ]),
-      () => CommandBuilder<_1.ApiCommand<_62.ListCaseEventsApiRequest>>())
-  ..addBuilderFactory(
-      FullType(Command, [
-        FullType(RouteCommand, [FullType(_61.CaseEventListState)])
-      ]),
-      () => CommandBuilder<RouteCommand<_61.CaseEventListState>>())
-  ..addBuilderFactory(
-      FullType(Command, [
-        FullType(RouteCommand, [FullType(_73.CaseEventListFilterState)])
-      ]),
-      () => CommandBuilder<RouteCommand<_73.CaseEventListFilterState>>())
-  ..addBuilderFactory(
-      FullType(Command, [
-        FullType(_1.ApiCommand, [FullType(_75.CreateCaseEventApiRequest)])
-      ]),
-      () => CommandBuilder<_1.ApiCommand<_75.CreateCaseEventApiRequest>>())
-  ..addBuilderFactory(
-      FullType(Command, [
-        FullType(_1.ApiCommand, [FullType(_90.SearchHcrTeamsApiRequest)])
-      ]),
-      () => CommandBuilder<_1.ApiCommand<_90.SearchHcrTeamsApiRequest>>())
-  ..addBuilderFactory(
-      FullType(Command, [
-        FullType(_1.ApiCommand,
-            [FullType(_92.ListSurgeonPhysiciansForSchedulingApiRequest)])
-      ]),
-      () => CommandBuilder<
-          _1.ApiCommand<_92.ListSurgeonPhysiciansForSchedulingApiRequest>>())
-  ..addBuilderFactory(
-      FullType(Command, [
-        FullType(
-            _1.ApiCommand, [FullType(_94.ListHospitalsForSchedulingApiRequest)])
-      ]),
-      () => CommandBuilder<
-          _1.ApiCommand<_94.ListHospitalsForSchedulingApiRequest>>())
-  ..addBuilderFactory(
-      FullType(Command, [
-        FullType(_1.ApiCommand,
-            [FullType(_96.ListProceduresForSchedulingApiRequest)])
-      ]),
-      () => CommandBuilder<
-          _1.ApiCommand<_96.ListProceduresForSchedulingApiRequest>>())
-  ..addBuilderFactory(
-      FullType(Command, [
-        FullType(_1.ApiCommand, [FullType(_98.ListSubProceduresApiRequest)])
-      ]),
-      () => CommandBuilder<_1.ApiCommand<_98.ListSubProceduresApiRequest>>())
-  ..addBuilderFactory(
-      FullType(Command, [
-        FullType(_1.ApiCommand, [FullType(_100.ListCaseTypesApiRequest)])
-      ]),
-      () => CommandBuilder<_1.ApiCommand<_100.ListCaseTypesApiRequest>>())
-  ..addBuilderFactory(
-      FullType(Command, [
-        FullType(RouteCommand, [FullType(_74.CreateCaseEventState)])
-      ]),
-      () => CommandBuilder<RouteCommand<_74.CreateCaseEventState>>())
-  ..addBuilderFactory(
-      FullType(Command, [
-        FullType(_1.ApiCommand, [FullType(_103.GetCaseEventDetailApiRequest)])
-      ]),
-      () => CommandBuilder<_1.ApiCommand<_103.GetCaseEventDetailApiRequest>>())
-  ..addBuilderFactory(
-      FullType(Command, [
-        FullType(RouteCommand, [FullType(_102.CaseEventDetailState)])
-      ]),
-      () => CommandBuilder<RouteCommand<_102.CaseEventDetailState>>())
-  ..addBuilderFactory(
-      FullType(Command, [
-        FullType(_1.ApiCommand, [FullType(_126.ListConversationsApiRequest)])
-      ]),
-      () => CommandBuilder<_1.ApiCommand<_126.ListConversationsApiRequest>>())
-  ..addBuilderFactory(
-      FullType(Command, [
-        FullType(RouteCommand, [FullType(_131.ConversationListFilterState)])
-      ]),
-      () => CommandBuilder<RouteCommand<_131.ConversationListFilterState>>())
-  ..addBuilderFactory(
-      FullType(Command, [
-        FullType(RouteCommand, [FullType(_132.UpdateConversationState)])
-      ]),
-      () => CommandBuilder<RouteCommand<_132.UpdateConversationState>>())
-  ..addBuilderFactory(
-      FullType(Command, [
-        FullType(_1.ApiCommand, [FullType(_134.GetConversationApiRequest)])
-      ]),
-      () => CommandBuilder<_1.ApiCommand<_134.GetConversationApiRequest>>())
-  ..addBuilderFactory(
-      FullType(Command, [
-        FullType(RouteCommand, [FullType(_133.ConversationState)])
-      ]),
-      () => CommandBuilder<RouteCommand<_133.ConversationState>>())
-  ..addBuilderFactory(
-      FullType(Command, [
-        FullType(RouteCommand, [FullType(_125.ConversationListState)])
-      ]),
-      () => CommandBuilder<RouteCommand<_125.ConversationListState>>())
-  ..addBuilderFactory(
-      FullType(Command, [
-        FullType(_1.ApiCommand, [FullType(_141.CreateConversationApiRequest)])
-      ]),
-      () => CommandBuilder<_1.ApiCommand<_141.CreateConversationApiRequest>>())
-  ..addBuilderFactory(
-      FullType(Command, [
-        FullType(RouteCommand, [FullType(_140.CreateConversationState)])
-      ]),
-      () => CommandBuilder<RouteCommand<_140.CreateConversationState>>())
-  ..addBuilderFactory(
-      FullType(Command, [
-        FullType(_1.ApiCommand, [FullType(_144.CreateMessageApiRequest)])
-      ]),
-      () => CommandBuilder<_1.ApiCommand<_144.CreateMessageApiRequest>>())
-  ..addBuilderFactory(
-      FullType(Command, [
-        FullType(RouteCommand, [FullType(_143.CreateMessageState)])
-      ]),
-      () => CommandBuilder<RouteCommand<_143.CreateMessageState>>())
-  ..addBuilderFactory(
-      FullType(CommandResult, [
-        FullType(_1.ApiResult, [FullType(_2.LoginResponse)])
-      ]),
-      () => CommandResultBuilder<_1.ApiResult<_2.LoginResponse>>())
-  ..addBuilderFactory(
-      FullType(CommandResult, [
-        FullType(_1.ApiResult, [FullType(_3.GetUiSetupMobileApiResponse)])
-      ]),
-      () =>
-          CommandResultBuilder<_1.ApiResult<_3.GetUiSetupMobileApiResponse>>())
-  ..addBuilderFactory(
-      FullType(CommandResult, [
-        FullType(RouteResult, [FullType(Nothing)])
-      ]),
-      () => CommandResultBuilder<RouteResult<Nothing>>())
-  ..addBuilderFactory(FullType(CommandResult, [FullType(RouteResult)]),
-      () => CommandResultBuilder<RouteResult>())
-  ..addBuilderFactory(
-      FullType(CommandResult, [
-        FullType(_1.ApiResult, [FullType(_70.ListCaseEventsApiResponse)])
-      ]),
-      () => CommandResultBuilder<_1.ApiResult<_70.ListCaseEventsApiResponse>>())
-  ..addBuilderFactory(
-      FullType(CommandResult, [
-        FullType(RouteResult, [FullType(_62.ListCaseEventsApiRequest)])
-      ]),
-      () => CommandResultBuilder<RouteResult<_62.ListCaseEventsApiRequest>>())
-  ..addBuilderFactory(
-      FullType(CommandResult, [
-        FullType(_1.ApiResult, [FullType(_89.CreateCaseEventApiResponse)])
-      ]),
-      () =>
-          CommandResultBuilder<_1.ApiResult<_89.CreateCaseEventApiResponse>>())
-  ..addBuilderFactory(
-      FullType(CommandResult, [
-        FullType(_1.ApiResult, [FullType(_91.SearchHcrTeamsApiResponse)])
-      ]),
-      () => CommandResultBuilder<_1.ApiResult<_91.SearchHcrTeamsApiResponse>>())
-  ..addBuilderFactory(
-      FullType(CommandResult, [
-        FullType(_1.ApiResult,
-            [FullType(_93.ListSurgeonPhysiciansForSchedulingApiResponse)])
-      ]),
-      () => CommandResultBuilder<
-          _1.ApiResult<_93.ListSurgeonPhysiciansForSchedulingApiResponse>>())
-  ..addBuilderFactory(
-      FullType(CommandResult, [
-        FullType(
-            _1.ApiResult, [FullType(_95.ListHospitalsForSchedulingApiResponse)])
-      ]),
-      () => CommandResultBuilder<
-          _1.ApiResult<_95.ListHospitalsForSchedulingApiResponse>>())
-  ..addBuilderFactory(
-      FullType(CommandResult, [
-        FullType(_1.ApiResult,
-            [FullType(_97.ListProceduresForSchedulingApiResponse)])
-      ]),
-      () => CommandResultBuilder<
-          _1.ApiResult<_97.ListProceduresForSchedulingApiResponse>>())
-  ..addBuilderFactory(
-      FullType(CommandResult, [
-        FullType(_1.ApiResult, [FullType(_99.ListSubProceduresApiResponse)])
-      ]),
-      () => CommandResultBuilder<
-          _1.ApiResult<_99.ListSubProceduresApiResponse>>())
-  ..addBuilderFactory(
-      FullType(CommandResult, [
-        FullType(_1.ApiResult, [FullType(_101.ListCaseTypesApiResponse)])
-      ]),
-      () => CommandResultBuilder<_1.ApiResult<_101.ListCaseTypesApiResponse>>())
-  ..addBuilderFactory(
-      FullType(CommandResult, [
-        FullType(RouteResult, [FullType(_89.CreateCaseEventApiResponse)])
-      ]),
-      () => CommandResultBuilder<RouteResult<_89.CreateCaseEventApiResponse>>())
-  ..addBuilderFactory(
-      FullType(CommandResult, [
-        FullType(_1.ApiResult, [FullType(_104.GetCaseEventDetailApiResponse)])
-      ]),
-      () => CommandResultBuilder<
-          _1.ApiResult<_104.GetCaseEventDetailApiResponse>>())
-  ..addBuilderFactory(
-      FullType(CommandResult, [
-        FullType(_1.ApiResult, [FullType(_128.ListConversationsApiResponse)])
-      ]),
-      () => CommandResultBuilder<
-          _1.ApiResult<_128.ListConversationsApiResponse>>())
-  ..addBuilderFactory(
-      FullType(CommandResult, [
-        FullType(RouteResult, [FullType(_126.ListConversationsApiRequest)])
-      ]),
-      () =>
-          CommandResultBuilder<RouteResult<_126.ListConversationsApiRequest>>())
-  ..addBuilderFactory(
-      FullType(CommandResult, [
-        FullType(_1.ApiResult, [FullType(_135.GetConversationApiResponse)])
-      ]),
-      () =>
-          CommandResultBuilder<_1.ApiResult<_135.GetConversationApiResponse>>())
-  ..addBuilderFactory(
-      FullType(CommandResult, [
-        FullType(_1.ApiResult, [FullType(_142.CreateConversationApiResponse)])
-      ]),
-      () => CommandResultBuilder<
-          _1.ApiResult<_142.CreateConversationApiResponse>>())
-  ..addBuilderFactory(
-      FullType(CommandResult, [
-        FullType(RouteResult, [FullType(_142.CreateConversationApiResponse)])
-      ]),
-      () => CommandResultBuilder<
-          RouteResult<_142.CreateConversationApiResponse>>())
-  ..addBuilderFactory(
-      FullType(CommandResult, [
-        FullType(_1.ApiResult, [FullType(_145.CreateMessageApiResponse)])
-      ]),
-      () => CommandResultBuilder<_1.ApiResult<_145.CreateMessageApiResponse>>())
-  ..addBuilderFactory(
-      FullType(CommandResult, [
-        FullType(RouteResult, [FullType(_145.CreateMessageApiResponse)])
-      ]),
-      () => CommandResultBuilder<RouteResult<_145.CreateMessageApiResponse>>())
-  ..addBuilderFactory(
-      FullType(CommandState, [
-        FullType(_1.ApiCommand, [FullType(_2.LoginRequest)]),
-        FullType(_1.ApiResult, [FullType(_2.LoginResponse)])
-      ]),
-      () => CommandStateBuilder<_1.ApiCommand<_2.LoginRequest>,
-          _1.ApiResult<_2.LoginResponse>>())
-  ..addBuilderFactory(
-      FullType(CommandState, [
-        FullType(_1.ApiCommand, [FullType(_49.GetUiSetupMobileApiRequest)]),
-        FullType(_1.ApiResult, [FullType(_3.GetUiSetupMobileApiResponse)])
-      ]),
-      () => CommandStateBuilder<_1.ApiCommand<_49.GetUiSetupMobileApiRequest>,
-          _1.ApiResult<_3.GetUiSetupMobileApiResponse>>())
-  ..addBuilderFactory(
-      FullType(CommandState, [
-        FullType(RouteCommand, [FullType(_52.SplashState)]),
-        FullType(RouteResult, [FullType(Nothing)])
-      ]),
-      () => CommandStateBuilder<RouteCommand<_52.SplashState>,
-          RouteResult<Nothing>>())
-  ..addBuilderFactory(
-      FullType(CommandState, [
-        FullType(RouteCommand, [FullType(_56.DashboardState)]),
-        FullType(RouteResult, [FullType(Nothing)])
-      ]),
-      () => CommandStateBuilder<RouteCommand<_56.DashboardState>,
-          RouteResult<Nothing>>())
-  ..addBuilderFactory(
-      FullType(CommandState, [
-        FullType(RouteCommand, [FullType(_55.LoginState)]),
-        FullType(RouteResult)
-      ]),
-      () => CommandStateBuilder<RouteCommand<_55.LoginState>, RouteResult>())
-  ..addBuilderFactory(
-      FullType(CommandState, [
-        FullType(RouteCommand, [FullType(_55.LoginState)]),
-        FullType(RouteResult, [FullType(Nothing)])
-      ]),
-      () => CommandStateBuilder<RouteCommand<_55.LoginState>,
-          RouteResult<Nothing>>())
-  ..addBuilderFactory(
-      FullType(CommandState, [
-        FullType(_1.ApiCommand, [FullType(_62.ListCaseEventsApiRequest)]),
-        FullType(_1.ApiResult, [FullType(_70.ListCaseEventsApiResponse)])
-      ]),
-      () => CommandStateBuilder<_1.ApiCommand<_62.ListCaseEventsApiRequest>,
-          _1.ApiResult<_70.ListCaseEventsApiResponse>>())
-  ..addBuilderFactory(
-      FullType(CommandState, [
-        FullType(RouteCommand, [FullType(_61.CaseEventListState)]),
-        FullType(RouteResult, [FullType(Nothing)])
-      ]),
-      () =>
-          CommandStateBuilder<RouteCommand<_61.CaseEventListState>, RouteResult<Nothing>>())
-  ..addBuilderFactory(
-      FullType(CommandState, [
-        FullType(RouteCommand, [FullType(_73.CaseEventListFilterState)]),
-        FullType(RouteResult, [FullType(_62.ListCaseEventsApiRequest)])
-      ]),
-      () => CommandStateBuilder<RouteCommand<_73.CaseEventListFilterState>, RouteResult<_62.ListCaseEventsApiRequest>>())
-  ..addBuilderFactory(
-      FullType(CommandState, [
-        FullType(_1.ApiCommand, [FullType(_75.CreateCaseEventApiRequest)]),
-        FullType(_1.ApiResult, [FullType(_89.CreateCaseEventApiResponse)])
-      ]),
-      () => CommandStateBuilder<_1.ApiCommand<_75.CreateCaseEventApiRequest>, _1.ApiResult<_89.CreateCaseEventApiResponse>>())
-  ..addBuilderFactory(
-      FullType(CommandState, [
-        FullType(_1.ApiCommand, [FullType(_90.SearchHcrTeamsApiRequest)]),
-        FullType(_1.ApiResult, [FullType(_91.SearchHcrTeamsApiResponse)])
-      ]),
-      () => CommandStateBuilder<_1.ApiCommand<_90.SearchHcrTeamsApiRequest>, _1.ApiResult<_91.SearchHcrTeamsApiResponse>>())
-  ..addBuilderFactory(
-      FullType(CommandState, [
-        FullType(_1.ApiCommand,
-            [FullType(_92.ListSurgeonPhysiciansForSchedulingApiRequest)]),
-        FullType(_1.ApiResult,
-            [FullType(_93.ListSurgeonPhysiciansForSchedulingApiResponse)])
-      ]),
-      () => CommandStateBuilder<_1.ApiCommand<_92.ListSurgeonPhysiciansForSchedulingApiRequest>, _1.ApiResult<_93.ListSurgeonPhysiciansForSchedulingApiResponse>>())
-  ..addBuilderFactory(
-      FullType(CommandState, [
-        FullType(_1.ApiCommand,
-            [FullType(_94.ListHospitalsForSchedulingApiRequest)]),
-        FullType(
-            _1.ApiResult, [FullType(_95.ListHospitalsForSchedulingApiResponse)])
-      ]),
-      () => CommandStateBuilder<_1.ApiCommand<_94.ListHospitalsForSchedulingApiRequest>, _1.ApiResult<_95.ListHospitalsForSchedulingApiResponse>>())
-  ..addBuilderFactory(
-      FullType(CommandState, [
-        FullType(_1.ApiCommand,
-            [FullType(_96.ListProceduresForSchedulingApiRequest)]),
-        FullType(_1.ApiResult,
-            [FullType(_97.ListProceduresForSchedulingApiResponse)])
-      ]),
-      () => CommandStateBuilder<_1.ApiCommand<_96.ListProceduresForSchedulingApiRequest>, _1.ApiResult<_97.ListProceduresForSchedulingApiResponse>>())
-  ..addBuilderFactory(
-      FullType(CommandState, [
-        FullType(_1.ApiCommand, [FullType(_98.ListSubProceduresApiRequest)]),
-        FullType(_1.ApiResult, [FullType(_99.ListSubProceduresApiResponse)])
-      ]),
-      () => CommandStateBuilder<_1.ApiCommand<_98.ListSubProceduresApiRequest>, _1.ApiResult<_99.ListSubProceduresApiResponse>>())
-  ..addBuilderFactory(
-      FullType(CommandState, [
-        FullType(_1.ApiCommand, [FullType(_100.ListCaseTypesApiRequest)]),
-        FullType(_1.ApiResult, [FullType(_101.ListCaseTypesApiResponse)])
-      ]),
-      () => CommandStateBuilder<_1.ApiCommand<_100.ListCaseTypesApiRequest>, _1.ApiResult<_101.ListCaseTypesApiResponse>>())
-  ..addBuilderFactory(
-      FullType(CommandState, [
-        FullType(RouteCommand, [FullType(_74.CreateCaseEventState)]),
-        FullType(RouteResult, [FullType(_89.CreateCaseEventApiResponse)])
-      ]),
-      () => CommandStateBuilder<RouteCommand<_74.CreateCaseEventState>, RouteResult<_89.CreateCaseEventApiResponse>>())
-  ..addBuilderFactory(
-      FullType(CommandState, [
-        FullType(_1.ApiCommand, [FullType(_103.GetCaseEventDetailApiRequest)]),
-        FullType(_1.ApiResult, [FullType(_104.GetCaseEventDetailApiResponse)])
-      ]),
-      () => CommandStateBuilder<_1.ApiCommand<_103.GetCaseEventDetailApiRequest>, _1.ApiResult<_104.GetCaseEventDetailApiResponse>>())
-  ..addBuilderFactory(
-      FullType(CommandState, [
-        FullType(RouteCommand, [FullType(_102.CaseEventDetailState)]),
-        FullType(RouteResult, [FullType(Nothing)])
-      ]),
-      () => CommandStateBuilder<RouteCommand<_102.CaseEventDetailState>, RouteResult<Nothing>>())
-  ..addBuilderFactory(
-      FullType(CommandState, [
-        FullType(_1.ApiCommand, [FullType(_126.ListConversationsApiRequest)]),
-        FullType(_1.ApiResult, [FullType(_128.ListConversationsApiResponse)])
-      ]),
-      () => CommandStateBuilder<_1.ApiCommand<_126.ListConversationsApiRequest>, _1.ApiResult<_128.ListConversationsApiResponse>>())
-  ..addBuilderFactory(
-      FullType(CommandState, [
-        FullType(RouteCommand, [FullType(_131.ConversationListFilterState)]),
-        FullType(RouteResult, [FullType(_126.ListConversationsApiRequest)])
-      ]),
-      () => CommandStateBuilder<RouteCommand<_131.ConversationListFilterState>, RouteResult<_126.ListConversationsApiRequest>>())
-  ..addBuilderFactory(
-      FullType(CommandState, [
-        FullType(RouteCommand, [FullType(_132.UpdateConversationState)]),
-        FullType(RouteResult, [FullType(Nothing)])
-      ]),
-      () => CommandStateBuilder<RouteCommand<_132.UpdateConversationState>, RouteResult<Nothing>>())
-  ..addBuilderFactory(
-      FullType(CommandState, [
-        FullType(_1.ApiCommand, [FullType(_134.GetConversationApiRequest)]),
-        FullType(_1.ApiResult, [FullType(_135.GetConversationApiResponse)])
-      ]),
-      () => CommandStateBuilder<_1.ApiCommand<_134.GetConversationApiRequest>, _1.ApiResult<_135.GetConversationApiResponse>>())
-  ..addBuilderFactory(
-      FullType(CommandState, [
-        FullType(RouteCommand, [FullType(_133.ConversationState)]),
-        FullType(RouteResult, [FullType(Nothing)])
-      ]),
-      () => CommandStateBuilder<RouteCommand<_133.ConversationState>, RouteResult<Nothing>>())
-  ..addBuilderFactory(
-      FullType(CommandState, [
-        FullType(RouteCommand, [FullType(_125.ConversationListState)]),
-        FullType(RouteResult, [FullType(Nothing)])
-      ]),
-      () => CommandStateBuilder<RouteCommand<_125.ConversationListState>, RouteResult<Nothing>>())
-  ..addBuilderFactory(
-      FullType(CommandState, [
-        FullType(RouteCommand, [FullType(_131.ConversationListFilterState)]),
-        FullType(RouteResult, [FullType(Nothing)])
-      ]),
-      () => CommandStateBuilder<RouteCommand<_131.ConversationListFilterState>, RouteResult<Nothing>>())
-  ..addBuilderFactory(
-      FullType(CommandState, [
-        FullType(_1.ApiCommand, [FullType(_141.CreateConversationApiRequest)]),
-        FullType(_1.ApiResult, [FullType(_142.CreateConversationApiResponse)])
-      ]),
-      () => CommandStateBuilder<_1.ApiCommand<_141.CreateConversationApiRequest>, _1.ApiResult<_142.CreateConversationApiResponse>>())
-  ..addBuilderFactory(
-      FullType(CommandState, [
-        FullType(RouteCommand, [FullType(_140.CreateConversationState)]),
-        FullType(RouteResult, [FullType(_142.CreateConversationApiResponse)])
-      ]),
-      () => CommandStateBuilder<RouteCommand<_140.CreateConversationState>, RouteResult<_142.CreateConversationApiResponse>>())
-  ..addBuilderFactory(
-      FullType(CommandState, [
-        FullType(_1.ApiCommand, [FullType(_144.CreateMessageApiRequest)]),
-        FullType(_1.ApiResult, [FullType(_145.CreateMessageApiResponse)])
-      ]),
-      () => CommandStateBuilder<_1.ApiCommand<_144.CreateMessageApiRequest>, _1.ApiResult<_145.CreateMessageApiResponse>>())
-  ..addBuilderFactory(
-      FullType(CommandState, [
-        FullType(RouteCommand, [FullType(_143.CreateMessageState)]),
-        FullType(RouteResult, [FullType(_145.CreateMessageApiResponse)])
-      ]),
-      () => CommandStateBuilder<RouteCommand<_143.CreateMessageState>, RouteResult<_145.CreateMessageApiResponse>>())
-  ..addBuilderFactory(FullType(RouteCommand, [FullType(_52.SplashState)]), () => RouteCommandBuilder<_52.SplashState>())
-  ..addBuilderFactory(FullType(RouteCommand, [FullType(_56.DashboardState)]), () => RouteCommandBuilder<_56.DashboardState>())
-  ..addBuilderFactory(FullType(RouteCommand, [FullType(_55.LoginState)]), () => RouteCommandBuilder<_55.LoginState>())
-  ..addBuilderFactory(FullType(RouteCommand, [FullType(_61.CaseEventListState)]), () => RouteCommandBuilder<_61.CaseEventListState>())
-  ..addBuilderFactory(FullType(RouteCommand, [FullType(_73.CaseEventListFilterState)]), () => RouteCommandBuilder<_73.CaseEventListFilterState>())
-  ..addBuilderFactory(FullType(RouteCommand, [FullType(_74.CreateCaseEventState)]), () => RouteCommandBuilder<_74.CreateCaseEventState>())
-  ..addBuilderFactory(FullType(RouteCommand, [FullType(_102.CaseEventDetailState)]), () => RouteCommandBuilder<_102.CaseEventDetailState>())
-  ..addBuilderFactory(FullType(RouteCommand, [FullType(_131.ConversationListFilterState)]), () => RouteCommandBuilder<_131.ConversationListFilterState>())
-  ..addBuilderFactory(FullType(RouteCommand, [FullType(_132.UpdateConversationState)]), () => RouteCommandBuilder<_132.UpdateConversationState>())
-  ..addBuilderFactory(FullType(RouteCommand, [FullType(_133.ConversationState)]), () => RouteCommandBuilder<_133.ConversationState>())
-  ..addBuilderFactory(FullType(RouteCommand, [FullType(_125.ConversationListState)]), () => RouteCommandBuilder<_125.ConversationListState>())
-  ..addBuilderFactory(FullType(RouteCommand, [FullType(_140.CreateConversationState)]), () => RouteCommandBuilder<_140.CreateConversationState>())
-  ..addBuilderFactory(FullType(RouteCommand, [FullType(_143.CreateMessageState)]), () => RouteCommandBuilder<_143.CreateMessageState>())
-  ..addBuilderFactory(FullType(RouteResult, [FullType(Nothing)]), () => RouteResultBuilder<Nothing>())
-  ..addBuilderFactory(FullType(RouteResult, [FullType(_62.ListCaseEventsApiRequest)]), () => RouteResultBuilder<_62.ListCaseEventsApiRequest>())
-  ..addBuilderFactory(FullType(RouteResult, [FullType(_89.CreateCaseEventApiResponse)]), () => RouteResultBuilder<_89.CreateCaseEventApiResponse>())
-  ..addBuilderFactory(FullType(RouteResult, [FullType(_126.ListConversationsApiRequest)]), () => RouteResultBuilder<_126.ListConversationsApiRequest>())
-  ..addBuilderFactory(FullType(RouteResult, [FullType(_142.CreateConversationApiResponse)]), () => RouteResultBuilder<_142.CreateConversationApiResponse>())
-  ..addBuilderFactory(FullType(RouteResult, [FullType(_145.CreateMessageApiResponse)]), () => RouteResultBuilder<_145.CreateMessageApiResponse>())
   ..add(_0.AppState.serializer)
   ..add(_1.ApiCommand.serializer)
   ..add(_1.ApiResultCode.serializer)
   ..add(_1.ApiResult.serializer)
   ..add(_1.ApiState.serializer)
-  ..addBuilderFactory(FullType(_1.ApiCommand, [FullType(_2.LoginRequest)]), () => _1.ApiCommandBuilder<_2.LoginRequest>())
-  ..addBuilderFactory(FullType(_1.ApiCommand, [FullType(_49.GetUiSetupMobileApiRequest)]), () => _1.ApiCommandBuilder<_49.GetUiSetupMobileApiRequest>())
-  ..addBuilderFactory(FullType(_1.ApiCommand, [FullType(_62.ListCaseEventsApiRequest)]), () => _1.ApiCommandBuilder<_62.ListCaseEventsApiRequest>())
-  ..addBuilderFactory(FullType(_1.ApiCommand, [FullType(_75.CreateCaseEventApiRequest)]), () => _1.ApiCommandBuilder<_75.CreateCaseEventApiRequest>())
-  ..addBuilderFactory(FullType(_1.ApiCommand, [FullType(_90.SearchHcrTeamsApiRequest)]), () => _1.ApiCommandBuilder<_90.SearchHcrTeamsApiRequest>())
-  ..addBuilderFactory(FullType(_1.ApiCommand, [FullType(_92.ListSurgeonPhysiciansForSchedulingApiRequest)]), () => _1.ApiCommandBuilder<_92.ListSurgeonPhysiciansForSchedulingApiRequest>())
-  ..addBuilderFactory(FullType(_1.ApiCommand, [FullType(_94.ListHospitalsForSchedulingApiRequest)]), () => _1.ApiCommandBuilder<_94.ListHospitalsForSchedulingApiRequest>())
-  ..addBuilderFactory(FullType(_1.ApiCommand, [FullType(_96.ListProceduresForSchedulingApiRequest)]), () => _1.ApiCommandBuilder<_96.ListProceduresForSchedulingApiRequest>())
-  ..addBuilderFactory(FullType(_1.ApiCommand, [FullType(_98.ListSubProceduresApiRequest)]), () => _1.ApiCommandBuilder<_98.ListSubProceduresApiRequest>())
-  ..addBuilderFactory(FullType(_1.ApiCommand, [FullType(_100.ListCaseTypesApiRequest)]), () => _1.ApiCommandBuilder<_100.ListCaseTypesApiRequest>())
-  ..addBuilderFactory(FullType(_1.ApiCommand, [FullType(_103.GetCaseEventDetailApiRequest)]), () => _1.ApiCommandBuilder<_103.GetCaseEventDetailApiRequest>())
-  ..addBuilderFactory(FullType(_1.ApiCommand, [FullType(_126.ListConversationsApiRequest)]), () => _1.ApiCommandBuilder<_126.ListConversationsApiRequest>())
-  ..addBuilderFactory(FullType(_1.ApiCommand, [FullType(_134.GetConversationApiRequest)]), () => _1.ApiCommandBuilder<_134.GetConversationApiRequest>())
-  ..addBuilderFactory(FullType(_1.ApiCommand, [FullType(_141.CreateConversationApiRequest)]), () => _1.ApiCommandBuilder<_141.CreateConversationApiRequest>())
-  ..addBuilderFactory(FullType(_1.ApiCommand, [FullType(_144.CreateMessageApiRequest)]), () => _1.ApiCommandBuilder<_144.CreateMessageApiRequest>())
-  ..addBuilderFactory(FullType(_1.ApiResult, [FullType(_2.LoginResponse)]), () => _1.ApiResultBuilder<_2.LoginResponse>())
-  ..addBuilderFactory(FullType(_1.ApiResult, [FullType(_3.GetUiSetupMobileApiResponse)]), () => _1.ApiResultBuilder<_3.GetUiSetupMobileApiResponse>())
-  ..addBuilderFactory(FullType(_1.ApiResult, [FullType(_70.ListCaseEventsApiResponse)]), () => _1.ApiResultBuilder<_70.ListCaseEventsApiResponse>())
-  ..addBuilderFactory(FullType(_1.ApiResult, [FullType(_89.CreateCaseEventApiResponse)]), () => _1.ApiResultBuilder<_89.CreateCaseEventApiResponse>())
-  ..addBuilderFactory(FullType(_1.ApiResult, [FullType(_91.SearchHcrTeamsApiResponse)]), () => _1.ApiResultBuilder<_91.SearchHcrTeamsApiResponse>())
-  ..addBuilderFactory(FullType(_1.ApiResult, [FullType(_93.ListSurgeonPhysiciansForSchedulingApiResponse)]), () => _1.ApiResultBuilder<_93.ListSurgeonPhysiciansForSchedulingApiResponse>())
-  ..addBuilderFactory(FullType(_1.ApiResult, [FullType(_95.ListHospitalsForSchedulingApiResponse)]), () => _1.ApiResultBuilder<_95.ListHospitalsForSchedulingApiResponse>())
-  ..addBuilderFactory(FullType(_1.ApiResult, [FullType(_97.ListProceduresForSchedulingApiResponse)]), () => _1.ApiResultBuilder<_97.ListProceduresForSchedulingApiResponse>())
-  ..addBuilderFactory(FullType(_1.ApiResult, [FullType(_99.ListSubProceduresApiResponse)]), () => _1.ApiResultBuilder<_99.ListSubProceduresApiResponse>())
-  ..addBuilderFactory(FullType(_1.ApiResult, [FullType(_101.ListCaseTypesApiResponse)]), () => _1.ApiResultBuilder<_101.ListCaseTypesApiResponse>())
-  ..addBuilderFactory(FullType(_1.ApiResult, [FullType(_104.GetCaseEventDetailApiResponse)]), () => _1.ApiResultBuilder<_104.GetCaseEventDetailApiResponse>())
-  ..addBuilderFactory(FullType(_1.ApiResult, [FullType(_128.ListConversationsApiResponse)]), () => _1.ApiResultBuilder<_128.ListConversationsApiResponse>())
-  ..addBuilderFactory(FullType(_1.ApiResult, [FullType(_135.GetConversationApiResponse)]), () => _1.ApiResultBuilder<_135.GetConversationApiResponse>())
-  ..addBuilderFactory(FullType(_1.ApiResult, [FullType(_142.CreateConversationApiResponse)]), () => _1.ApiResultBuilder<_142.CreateConversationApiResponse>())
-  ..addBuilderFactory(FullType(_1.ApiResult, [FullType(_145.CreateMessageApiResponse)]), () => _1.ApiResultBuilder<_145.CreateMessageApiResponse>())
+  ..addBuilderFactory(FullType(_1.ApiCommand, [FullType(_2.LoginRequest)]),
+      () => _1.ApiCommandBuilder<_2.LoginRequest>())
+  ..addBuilderFactory(
+      FullType(_1.ApiCommand, [FullType(_49.GetUiSetupMobileApiRequest)]),
+      () => _1.ApiCommandBuilder<_49.GetUiSetupMobileApiRequest>())
+  ..addBuilderFactory(
+      FullType(_1.ApiCommand, [FullType(_62.ListCaseEventsApiRequest)]),
+      () => _1.ApiCommandBuilder<_62.ListCaseEventsApiRequest>())
+  ..addBuilderFactory(
+      FullType(_1.ApiCommand, [FullType(_75.CreateCaseEventApiRequest)]),
+      () => _1.ApiCommandBuilder<_75.CreateCaseEventApiRequest>())
+  ..addBuilderFactory(
+      FullType(_1.ApiCommand, [FullType(_90.SearchHcrTeamsApiRequest)]),
+      () => _1.ApiCommandBuilder<_90.SearchHcrTeamsApiRequest>())
+  ..addBuilderFactory(
+      FullType(_1.ApiCommand,
+          [FullType(_92.ListSurgeonPhysiciansForSchedulingApiRequest)]),
+      () => _1.ApiCommandBuilder<
+          _92.ListSurgeonPhysiciansForSchedulingApiRequest>())
+  ..addBuilderFactory(
+      FullType(
+          _1.ApiCommand, [FullType(_94.ListHospitalsForSchedulingApiRequest)]),
+      () => _1.ApiCommandBuilder<_94.ListHospitalsForSchedulingApiRequest>())
+  ..addBuilderFactory(
+      FullType(
+          _1.ApiCommand, [FullType(_96.ListProceduresForSchedulingApiRequest)]),
+      () => _1.ApiCommandBuilder<_96.ListProceduresForSchedulingApiRequest>())
+  ..addBuilderFactory(
+      FullType(_1.ApiCommand, [FullType(_98.ListSubProceduresApiRequest)]),
+      () => _1.ApiCommandBuilder<_98.ListSubProceduresApiRequest>())
+  ..addBuilderFactory(
+      FullType(_1.ApiCommand, [FullType(_100.ListCaseTypesApiRequest)]),
+      () => _1.ApiCommandBuilder<_100.ListCaseTypesApiRequest>())
+  ..addBuilderFactory(
+      FullType(_1.ApiCommand, [FullType(_103.GetCaseEventDetailApiRequest)]),
+      () => _1.ApiCommandBuilder<_103.GetCaseEventDetailApiRequest>())
+  ..addBuilderFactory(
+      FullType(_1.ApiCommand, [FullType(_126.ListConversationsApiRequest)]),
+      () => _1.ApiCommandBuilder<_126.ListConversationsApiRequest>())
+  ..addBuilderFactory(
+      FullType(_1.ApiCommand, [FullType(_134.GetConversationApiRequest)]),
+      () => _1.ApiCommandBuilder<_134.GetConversationApiRequest>())
+  ..addBuilderFactory(
+      FullType(_1.ApiCommand, [FullType(_141.CreateConversationApiRequest)]),
+      () => _1.ApiCommandBuilder<_141.CreateConversationApiRequest>())
+  ..addBuilderFactory(
+      FullType(_1.ApiCommand, [FullType(_144.CreateMessageApiRequest)]),
+      () => _1.ApiCommandBuilder<_144.CreateMessageApiRequest>())
+  ..addBuilderFactory(FullType(_1.ApiResult, [FullType(_2.LoginResponse)]),
+      () => _1.ApiResultBuilder<_2.LoginResponse>())
+  ..addBuilderFactory(
+      FullType(_1.ApiResult, [FullType(_3.GetUiSetupMobileApiResponse)]),
+      () => _1.ApiResultBuilder<_3.GetUiSetupMobileApiResponse>())
+  ..addBuilderFactory(
+      FullType(_1.ApiResult, [FullType(_70.ListCaseEventsApiResponse)]),
+      () => _1.ApiResultBuilder<_70.ListCaseEventsApiResponse>())
+  ..addBuilderFactory(
+      FullType(_1.ApiResult, [FullType(_89.CreateCaseEventApiResponse)]),
+      () => _1.ApiResultBuilder<_89.CreateCaseEventApiResponse>())
+  ..addBuilderFactory(
+      FullType(_1.ApiResult, [FullType(_91.SearchHcrTeamsApiResponse)]),
+      () => _1.ApiResultBuilder<_91.SearchHcrTeamsApiResponse>())
+  ..addBuilderFactory(
+      FullType(_1.ApiResult,
+          [FullType(_93.ListSurgeonPhysiciansForSchedulingApiResponse)]),
+      () => _1.ApiResultBuilder<
+          _93.ListSurgeonPhysiciansForSchedulingApiResponse>())
+  ..addBuilderFactory(
+      FullType(
+          _1.ApiResult, [FullType(_95.ListHospitalsForSchedulingApiResponse)]),
+      () => _1.ApiResultBuilder<_95.ListHospitalsForSchedulingApiResponse>())
+  ..addBuilderFactory(
+      FullType(
+          _1.ApiResult, [FullType(_97.ListProceduresForSchedulingApiResponse)]),
+      () => _1.ApiResultBuilder<_97.ListProceduresForSchedulingApiResponse>())
+  ..addBuilderFactory(
+      FullType(_1.ApiResult, [FullType(_99.ListSubProceduresApiResponse)]),
+      () => _1.ApiResultBuilder<_99.ListSubProceduresApiResponse>())
+  ..addBuilderFactory(
+      FullType(_1.ApiResult, [FullType(_101.ListCaseTypesApiResponse)]),
+      () => _1.ApiResultBuilder<_101.ListCaseTypesApiResponse>())
+  ..addBuilderFactory(
+      FullType(_1.ApiResult, [FullType(_104.GetCaseEventDetailApiResponse)]),
+      () => _1.ApiResultBuilder<_104.GetCaseEventDetailApiResponse>())
+  ..addBuilderFactory(
+      FullType(_1.ApiResult, [FullType(_128.ListConversationsApiResponse)]),
+      () => _1.ApiResultBuilder<_128.ListConversationsApiResponse>())
+  ..addBuilderFactory(
+      FullType(_1.ApiResult, [FullType(_135.GetConversationApiResponse)]),
+      () => _1.ApiResultBuilder<_135.GetConversationApiResponse>())
+  ..addBuilderFactory(
+      FullType(_1.ApiResult, [FullType(_142.CreateConversationApiResponse)]),
+      () => _1.ApiResultBuilder<_142.CreateConversationApiResponse>())
+  ..addBuilderFactory(
+      FullType(_1.ApiResult, [FullType(_145.CreateMessageApiResponse)]),
+      () => _1.ApiResultBuilder<_145.CreateMessageApiResponse>())
   ..add(_2.LoginResponse.serializer)
   ..add(_2.LoginRequest.serializer)
   ..add(_3.GetUiSetupMobileApiResponse.serializer)
@@ -964,7 +540,9 @@ SerializersBuilder $serializers() => (Serializers().toBuilder()
   ..add(_65.Gender.serializer)
   ..add(_66.PaginationParams.serializer)
   ..add(_67.OrderByParams.serializer)
-  ..addBuilderFactory(FullType(_67.OrderByParams, [FullType(_68.ListCaseEventsApiOrderBy)]), () => _67.OrderByParamsBuilder<_68.ListCaseEventsApiOrderBy>())
+  ..addBuilderFactory(
+      FullType(_67.OrderByParams, [FullType(_68.ListCaseEventsApiOrderBy)]),
+      () => _67.OrderByParamsBuilder<_68.ListCaseEventsApiOrderBy>())
   ..add(_68.ListCaseEventsApiOrderBy.serializer)
   ..add(_69.OrderByDirection.serializer)
   ..add(_70.ListCaseEventsApiResponse.serializer)

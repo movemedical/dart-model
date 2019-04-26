@@ -33,7 +33,7 @@ abstract class CaseEventDetailActions extends ScreenActions<
   /// Actions
   ////////////////////////////////////
 
-  GetCaseEventDetailApi get cmdLoad;
+  GetCaseEventDetailApi get load;
 
   ////////////////////////////////////
   /// Initial State
@@ -51,7 +51,7 @@ abstract class CaseEventDetailActions extends ScreenActions<
     super.middleware$(middleware);
 
     middleware.nest(this)
-      ..add(cmdLoad.result$, (api, next, action) {
+      ..add(load.result$, (api, next, action) {
         if (action?.payload is GetCaseEventDetailApiResponse) {
           model.reset$(action.payload as GetCaseEventDetailApiResponse);
         }
@@ -90,11 +90,11 @@ abstract class CaseEventDetailState
 
   @nullable
   CommandState<ApiCommand<GetCaseEventDetailApiRequest>,
-      ApiResult<GetCaseEventDetailApiResponse>> get cmdLoad;
+      ApiResult<GetCaseEventDetailApiResponse>> get load;
 
   bool get specifyArgs => request == null && model == null;
 
-  bool get isLoading => cmdLoad?.isInProgress ?? false;
+  bool get isLoading => load?.isInProgress ?? false;
 
   ////////////////////////////////////
   /// Boilerplate

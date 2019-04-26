@@ -23,7 +23,7 @@ class _$CaseEventListStateSerializer
     final result = <Object>[];
     if (object.list != null) {
       result
-        ..add('listCommand')
+        ..add('list')
         ..add(serializers.serialize(object.list,
             specifiedType: const FullType(CommandState, const [
               const FullType(ApiCommand, const [
@@ -56,8 +56,8 @@ class _$CaseEventListStateSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'listCommand':
-          result.listCommand.replace(serializers.deserialize(value,
+        case 'list':
+          result.list.replace(serializers.deserialize(value,
                   specifiedType: const FullType(CommandState, const [
                     const FullType(ApiCommand, const [
                       const FullType(
@@ -125,7 +125,7 @@ class _$CaseEventListState extends CaseEventListState {
   @override
   String toString() {
     return (newBuiltValueToStringHelper('CaseEventListState')
-          ..add('listCommand', list)
+          ..add('list', list)
           ..add('request', request))
         .toString();
   }
@@ -136,18 +136,18 @@ class CaseEventListStateBuilder
   _$CaseEventListState _$v;
 
   CommandStateBuilder<ApiCommand<list_case_events_api.ListCaseEventsApiRequest>,
-      ApiResult<list_case_events_api.ListCaseEventsApiResponse>> _listCommand;
+      ApiResult<list_case_events_api.ListCaseEventsApiResponse>> _list;
   CommandStateBuilder<ApiCommand<list_case_events_api.ListCaseEventsApiRequest>,
           ApiResult<list_case_events_api.ListCaseEventsApiResponse>>
-      get listCommand => _$this._listCommand ??= new CommandStateBuilder<
+      get list => _$this._list ??= new CommandStateBuilder<
           ApiCommand<list_case_events_api.ListCaseEventsApiRequest>,
           ApiResult<list_case_events_api.ListCaseEventsApiResponse>>();
-  set listCommand(
+  set list(
           CommandStateBuilder<
                   ApiCommand<list_case_events_api.ListCaseEventsApiRequest>,
                   ApiResult<list_case_events_api.ListCaseEventsApiResponse>>
-              listCommand) =>
-      _$this._listCommand = listCommand;
+              list) =>
+      _$this._list = list;
 
   list_case_events_api.ListCaseEventsApiRequestBuilder _request;
   list_case_events_api.ListCaseEventsApiRequestBuilder get request =>
@@ -160,7 +160,7 @@ class CaseEventListStateBuilder
 
   CaseEventListStateBuilder get _$this {
     if (_$v != null) {
-      _listCommand = _$v.list?.toBuilder();
+      _list = _$v.list?.toBuilder();
       _request = _$v.request?.toBuilder();
       _$v = null;
     }
@@ -186,12 +186,12 @@ class CaseEventListStateBuilder
     try {
       _$result = _$v ??
           new _$CaseEventListState._(
-              list: _listCommand?.build(), request: _request?.build());
+              list: _list?.build(), request: _request?.build());
     } catch (_) {
       String _$failedField;
       try {
-        _$failedField = 'listCommand';
-        _listCommand?.build();
+        _$failedField = 'list';
+        _list?.build();
         _$failedField = 'request';
         _request?.build();
       } catch (e) {
@@ -328,7 +328,7 @@ class _$CaseEventListActions extends CaseEventListActions {
                     ApiCommand<list_case_events_api.ListCaseEventsApiRequest>,
                     ApiResult<list_case_events_api.ListCaseEventsApiResponse>>,
                 list_case_events_api.ListCaseEventsApi>(
-            'listCommand',
+            'list',
             (a) => a.list,
             (s) => s?.list,
             (b) => b?.list,

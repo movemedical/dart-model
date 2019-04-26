@@ -36,10 +36,10 @@ class _$CaseEventDetailStateSerializer
         ..add(serializers.serialize(object.model,
             specifiedType: const FullType(GetCaseEventDetailApiResponse)));
     }
-    if (object.cmdLoad != null) {
+    if (object.load != null) {
       result
-        ..add('cmdLoad')
-        ..add(serializers.serialize(object.cmdLoad,
+        ..add('load')
+        ..add(serializers.serialize(object.load,
             specifiedType: const FullType(CommandState, const [
               const FullType(ApiCommand,
                   const [const FullType(GetCaseEventDetailApiRequest)]),
@@ -72,8 +72,8 @@ class _$CaseEventDetailStateSerializer
                   specifiedType: const FullType(GetCaseEventDetailApiResponse))
               as GetCaseEventDetailApiResponse);
           break;
-        case 'cmdLoad':
-          result.cmdLoad.replace(serializers.deserialize(value,
+        case 'load':
+          result.load.replace(serializers.deserialize(value,
                   specifiedType: const FullType(CommandState, const [
                     const FullType(ApiCommand,
                         const [const FullType(GetCaseEventDetailApiRequest)]),
@@ -97,14 +97,13 @@ class _$CaseEventDetailState extends CaseEventDetailState {
   final GetCaseEventDetailApiResponse model;
   @override
   final CommandState<ApiCommand<GetCaseEventDetailApiRequest>,
-      ApiResult<GetCaseEventDetailApiResponse>> cmdLoad;
+      ApiResult<GetCaseEventDetailApiResponse>> load;
 
   factory _$CaseEventDetailState(
           [void updates(CaseEventDetailStateBuilder b)]) =>
       (new CaseEventDetailStateBuilder()..update(updates)).build();
 
-  _$CaseEventDetailState._({this.request, this.model, this.cmdLoad})
-      : super._();
+  _$CaseEventDetailState._({this.request, this.model, this.load}) : super._();
 
   @override
   CaseEventDetailState rebuild(void updates(CaseEventDetailStateBuilder b)) =>
@@ -120,13 +119,13 @@ class _$CaseEventDetailState extends CaseEventDetailState {
     return other is CaseEventDetailState &&
         request == other.request &&
         model == other.model &&
-        cmdLoad == other.cmdLoad;
+        load == other.load;
   }
 
   @override
   int get hashCode {
     return $jf(
-        $jc($jc($jc(0, request.hashCode), model.hashCode), cmdLoad.hashCode));
+        $jc($jc($jc(0, request.hashCode), model.hashCode), load.hashCode));
   }
 
   @override
@@ -134,7 +133,7 @@ class _$CaseEventDetailState extends CaseEventDetailState {
     return (newBuiltValueToStringHelper('CaseEventDetailState')
           ..add('request', request)
           ..add('model', model)
-          ..add('cmdLoad', cmdLoad))
+          ..add('load', load))
         .toString();
   }
 }
@@ -156,17 +155,17 @@ class CaseEventDetailStateBuilder
       _$this._model = model;
 
   CommandStateBuilder<ApiCommand<GetCaseEventDetailApiRequest>,
-      ApiResult<GetCaseEventDetailApiResponse>> _cmdLoad;
+      ApiResult<GetCaseEventDetailApiResponse>> _load;
   CommandStateBuilder<ApiCommand<GetCaseEventDetailApiRequest>,
           ApiResult<GetCaseEventDetailApiResponse>>
-      get cmdLoad => _$this._cmdLoad ??= new CommandStateBuilder<
+      get load => _$this._load ??= new CommandStateBuilder<
           ApiCommand<GetCaseEventDetailApiRequest>,
           ApiResult<GetCaseEventDetailApiResponse>>();
-  set cmdLoad(
+  set load(
           CommandStateBuilder<ApiCommand<GetCaseEventDetailApiRequest>,
                   ApiResult<GetCaseEventDetailApiResponse>>
-              cmdLoad) =>
-      _$this._cmdLoad = cmdLoad;
+              load) =>
+      _$this._load = load;
 
   CaseEventDetailStateBuilder();
 
@@ -174,7 +173,7 @@ class CaseEventDetailStateBuilder
     if (_$v != null) {
       _request = _$v.request?.toBuilder();
       _model = _$v.model?.toBuilder();
-      _cmdLoad = _$v.cmdLoad?.toBuilder();
+      _load = _$v.load?.toBuilder();
       _$v = null;
     }
     return this;
@@ -201,7 +200,7 @@ class CaseEventDetailStateBuilder
           new _$CaseEventDetailState._(
               request: _request?.build(),
               model: _model?.build(),
-              cmdLoad: _cmdLoad?.build());
+              load: _load?.build());
     } catch (_) {
       String _$failedField;
       try {
@@ -209,8 +208,8 @@ class CaseEventDetailStateBuilder
         _request?.build();
         _$failedField = 'model';
         _model?.build();
-        _$failedField = 'cmdLoad';
-        _cmdLoad?.build();
+        _$failedField = 'load';
+        _load?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             'CaseEventDetailState', _$failedField, e.toString());
@@ -331,7 +330,7 @@ class _$CaseEventDetailActions extends CaseEventDetailActions {
   final ActionDispatcher<Nothing> popping$;
   final GetCaseEventDetailApiRequestActions request;
   final GetCaseEventDetailApiResponseActions model;
-  final GetCaseEventDetailApi cmdLoad;
+  final GetCaseEventDetailApi load;
 
   _$CaseEventDetailActions._(this.options$)
       : replace$ = options$.action<CaseEventDetailState>(
@@ -359,17 +358,13 @@ class _$CaseEventDetailActions extends CaseEventDetailActions {
             (s) => s?.model,
             (b) => b?.model,
             (parent, builder) => parent?.model = builder)),
-        cmdLoad = GetCaseEventDetailApi(() => options$.stateful<
+        load = GetCaseEventDetailApi(() => options$.stateful<
                 CommandState<ApiCommand<GetCaseEventDetailApiRequest>,
                     ApiResult<GetCaseEventDetailApiResponse>>,
                 CommandStateBuilder<ApiCommand<GetCaseEventDetailApiRequest>,
                     ApiResult<GetCaseEventDetailApiResponse>>,
-                GetCaseEventDetailApi>(
-            'cmdLoad',
-            (a) => a.cmdLoad,
-            (s) => s?.cmdLoad,
-            (b) => b?.cmdLoad,
-            (parent, builder) => parent?.cmdLoad = builder)),
+                GetCaseEventDetailApi>('load', (a) => a.load, (s) => s?.load,
+            (b) => b?.load, (parent, builder) => parent?.load = builder)),
         super._();
 
   factory _$CaseEventDetailActions(CaseEventDetailActionsOptions options) =>
@@ -383,7 +378,7 @@ class _$CaseEventDetailActions extends CaseEventDetailActions {
   BuiltList<ModuxActions> get nested$ => _nested$ ??= BuiltList<ModuxActions>([
         this.request,
         this.model,
-        this.cmdLoad,
+        this.load,
       ]);
 
   BuiltList<ActionDispatcher> _actions$;
@@ -402,7 +397,7 @@ class _$CaseEventDetailActions extends CaseEventDetailActions {
     super.reducer$(reducer);
     request.reducer$(reducer);
     model.reducer$(reducer);
-    cmdLoad.reducer$(reducer);
+    load.reducer$(reducer);
   }
 
   @override
@@ -410,7 +405,7 @@ class _$CaseEventDetailActions extends CaseEventDetailActions {
     super.middleware$(middleware);
     request.middleware$(middleware);
     model.middleware$(middleware);
-    cmdLoad.middleware$(middleware);
+    load.middleware$(middleware);
   }
 
   @override
