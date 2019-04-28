@@ -31,7 +31,7 @@ Store<AppState, AppStateBuilder, AppActions> createStore(
       createSerializers(), actions, stateBuilder(actions, serializers),
       httpFactory: httpFactory,
       wsFactory: wsFactory,
-      middleware: middleware, serviceFactory: (store, register) {
+      middleware: m, serviceFactory: (store, register) {
     var api = apiService?.call(store) ?? ApiService(store, store.actions.api);
     register(api);
     serviceFactory?.call(store, register);
