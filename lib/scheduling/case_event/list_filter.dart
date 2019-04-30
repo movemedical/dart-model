@@ -1,8 +1,26 @@
 import 'package:movemedical_api/state/action/case_event/list_case_events_api.dart';
+import 'package:movemedical_api/state/action/case_event/list_case_types_api.dart';
+import 'package:movemedical_api/state/action/case_event/list_hospitals_for_scheduling_api.dart';
+import 'package:movemedical_api/state/action/case_event/list_surgeon_physicians_for_scheduling_api.dart';
+import 'package:movemedical_api/state/action/case_event/list_procedures_for_search_api.dart';
+import 'package:movemedical_api/state/action/case_event/list_sub_procedures_api.dart';
+import 'package:movemedical_api/state/action/directory/search_hcr_teams_api.dart';
+import 'package:movemedical_api/model/action/user/get_ui_setup_all_api_biz_unit.dart';
+import 'package:movemedical_api/model/case_type.dart';
+import 'package:movemedical_api/model/remove_or_refactor/hospital.dart';
+import 'package:movemedical_api/model/physician.dart';
+import 'package:movemedical_api/model/action/case_event/list_procedures_for_search_api_procedure.dart';
+import 'package:movemedical_api/model/sub_procedure.dart';
+
+import 'package:movemedical_api/model/hcr_team.dart';
 
 import '../../foundation.dart';
 
 export 'package:movemedical_api/state/action/case_event/list_case_events_api.dart';
+export 'package:movemedical_api/state/action/case_event/list_case_events_api.dart';
+export 'package:movemedical_api/state/action/case_event/list_case_types_api.dart';
+export 'package:movemedical_api/model/action/user/get_ui_setup_all_api_biz_unit.dart';
+export 'package:movemedical_api/model/case_type.dart';
 
 part 'list_filter.g.dart';
 
@@ -39,6 +57,33 @@ abstract class CaseEventListFilterActions extends DialogActions<
 
   ListCaseEventsApiRequestActions get request;
 
+  FieldDispatcher<BuiltList<GetUiSetupAllApiBizUnit>> get bizUnits;
+
+  ListCaseTypesApi get listCaseTypes;
+
+  FieldDispatcher<BuiltList<CaseType>> get caseTypes;
+
+  ListHospitalsForSchedulingApi get listHospitals;
+
+  FieldDispatcher<BuiltList<Hospital>> get hospitals;
+
+  ListSurgeonPhysiciansForSchedulingApi get listPhysicians;
+
+  FieldDispatcher<BuiltList<Physician>> get physicians;
+
+  SearchHcrTeamsApi get searchHcrTeams;
+
+  FieldDispatcher<BuiltList<HcrTeam>> get hcrTeams;
+
+  ListProceduresForSearchApi get listProcedures;
+
+  FieldDispatcher<BuiltList<ListProceduresForSearchApiProcedure>>
+      get procedures;
+
+  ListSubProceduresApi get listSubProcedures;
+
+  FieldDispatcher<BuiltList<SubProcedure>> get subProcedures;
+
   ////////////////////////////////////
   /// Initial State
   ////////////////////////////////////
@@ -72,6 +117,39 @@ abstract class CaseEventListFilterState
     implements
         Built<CaseEventListFilterState, CaseEventListFilterStateBuilder> {
   ListCaseEventsApiRequest get request;
+
+  BuiltList<GetUiSetupAllApiBizUnit> get bizUnits;
+
+  CommandState<ApiCommand<ListCaseTypesApiRequest>,
+      ApiResult<ListCaseTypesApiResponse>> get listCaseTypes;
+
+  BuiltList<CaseType> get caseTypes;
+
+  CommandState<ApiCommand<ListHospitalsForSchedulingApiRequest>,
+      ApiResult<ListHospitalsForSchedulingApiResponse>> get listHospitals;
+
+  BuiltList<Hospital> get hospitals;
+
+  CommandState<ApiCommand<ListSurgeonPhysiciansForSchedulingApiRequest>,
+          ApiResult<ListSurgeonPhysiciansForSchedulingApiResponse>>
+      get listPhysicians;
+
+  BuiltList<Physician> get physicians;
+
+  CommandState<ApiCommand<SearchHcrTeamsApiRequest>,
+      ApiResult<SearchHcrTeamsApiResponse>> get listHcrTeams;
+
+  BuiltList<HcrTeam> get hcrTeams;
+
+  CommandState<ApiCommand<ListProceduresForSearchApiRequest>,
+      ApiResult<ListProceduresForSearchApiResponse>> get listProcedures;
+
+  BuiltList<ListProceduresForSearchApiProcedure> get procedures;
+
+  CommandState<ApiCommand<ListSubProceduresApiRequest>,
+      ApiResult<ListSubProceduresApiResponse>> get listSubProcedures;
+
+  BuiltList<SubProcedure> get subProcedures;
 
   CaseEventListFilterState._();
 

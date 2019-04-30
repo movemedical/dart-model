@@ -11,6 +11,7 @@ export 'package:built_value/serializer.dart';
 export 'package:meta/meta.dart';
 export 'package:modux/modux.dart';
 export 'package:movemedical_api/model/sql/enums/mobile_navigation_element.dart';
+export 'package:movemedical_api/command.dart';
 
 export 'app.dart';
 export 'nav.dart';
