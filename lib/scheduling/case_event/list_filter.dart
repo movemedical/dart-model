@@ -4,12 +4,10 @@ import 'package:movemedical_api/model/case_type.dart';
 import 'package:movemedical_api/model/hcr_team.dart';
 import 'package:movemedical_api/model/physician.dart';
 import 'package:movemedical_api/model/remove_or_refactor/hospital.dart';
-import 'package:movemedical_api/model/sub_procedure.dart';
 import 'package:movemedical_api/state/action/case_event/list_case_events_api.dart';
 import 'package:movemedical_api/state/action/case_event/list_case_types_api.dart';
 import 'package:movemedical_api/state/action/case_event/list_hospitals_for_scheduling_api.dart';
 import 'package:movemedical_api/state/action/case_event/list_procedures_for_search_api.dart';
-import 'package:movemedical_api/state/action/case_event/list_sub_procedures_api.dart';
 import 'package:movemedical_api/state/action/case_event/list_surgeon_physicians_for_scheduling_api.dart';
 import 'package:movemedical_api/state/action/directory/search_hcr_teams_api.dart';
 
@@ -89,6 +87,36 @@ abstract class CaseEventListFilterActions extends DialogActions<
   ////////////////////////////////////
   /// Middleware
   ////////////////////////////////////
+
+  @override
+  void middleware$(AppMiddlewareBuilder builder) {
+    super.middleware$(builder);
+    builder.nest(this)
+      ..add(
+          bizUnits,
+          (api, next, Action<BuiltList<GetUiSetupAllApiBizUnit>> action) =>
+              request.bizUnitIds.value$ =
+                  toListOrNull(action?.payload?.map((t) => t?.id)))
+      ..add(
+          caseTypes,
+          (api, next, Action<BuiltList<CaseType>> action) => request.caseTypeIds.value$ =
+              toListOrNull(action?.payload?.map((t) => t?.id)))
+      ..add(
+          hospitals,
+          (api, next, Action<BuiltList<Hospital>> action) => request.facilityIds
+              .value$ = toListOrNull(action?.payload?.map((t) => t?.id)))
+      ..add(
+          physicians,
+          (api, next, Action<BuiltList<Physician>> action) => request.surgeonIds
+              .value$ = toListOrNull(action?.payload?.map((t) => t?.id)))
+      ..add(procedures, (api, next, Action<BuiltList<ListProceduresForSearchApiProcedure>> action) => request.procedureIds.value$ = toListOrNull(action?.payload?.map((t) => t?.id)))
+      ..add(hcrTeams, (api, next, Action<BuiltList<HcrTeam>> action) => request.hcrIds.value$ = toListOrNull(action?.payload?.map((t) => t?.id)));
+  }
+
+  BuiltList<T> toListOrNull<T>(Iterable<T> iterable) {
+    if (iterable == null) return null;
+    return BuiltList<T>(iterable);
+  }
 
 //  @override
 //  void $onPush(Store<AppState, AppStateBuilder, AppActions> store,
