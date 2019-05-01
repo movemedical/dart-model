@@ -93,18 +93,6 @@ class _$CaseEventListFilterStateSerializer
       serializers.serialize(object.procedures,
           specifiedType: const FullType(BuiltList,
               const [const FullType(ListProceduresForSearchApiProcedure)])),
-      'listSubProcedures',
-      serializers.serialize(object.listSubProcedures,
-          specifiedType: const FullType(CommandState, const [
-            const FullType(ApiCommand,
-                const [const FullType(ListSubProceduresApiRequest)]),
-            const FullType(
-                ApiResult, const [const FullType(ListSubProceduresApiResponse)])
-          ])),
-      'subProcedures',
-      serializers.serialize(object.subProcedures,
-          specifiedType:
-              const FullType(BuiltList, const [const FullType(SubProcedure)])),
     ];
 
     return result;
@@ -223,23 +211,6 @@ class _$CaseEventListFilterStateSerializer
                 const FullType(ListProceduresForSearchApiProcedure)
               ])) as BuiltList);
           break;
-        case 'listSubProcedures':
-          result.listSubProcedures.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(CommandState, const [
-                    const FullType(ApiCommand,
-                        const [const FullType(ListSubProceduresApiRequest)]),
-                    const FullType(ApiResult,
-                        const [const FullType(ListSubProceduresApiResponse)])
-                  ]))
-              as CommandState<ApiCommand<ListSubProceduresApiRequest>,
-                  ApiResult<ListSubProceduresApiResponse>>);
-          break;
-        case 'subProcedures':
-          result.subProcedures.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(
-                      BuiltList, const [const FullType(SubProcedure)]))
-              as BuiltList);
-          break;
       }
     }
 
@@ -277,11 +248,6 @@ class _$CaseEventListFilterState extends CaseEventListFilterState {
       ApiResult<ListProceduresForSearchApiResponse>> listProcedures;
   @override
   final BuiltList<ListProceduresForSearchApiProcedure> procedures;
-  @override
-  final CommandState<ApiCommand<ListSubProceduresApiRequest>,
-      ApiResult<ListSubProceduresApiResponse>> listSubProcedures;
-  @override
-  final BuiltList<SubProcedure> subProcedures;
 
   factory _$CaseEventListFilterState(
           [void updates(CaseEventListFilterStateBuilder b)]) =>
@@ -299,9 +265,7 @@ class _$CaseEventListFilterState extends CaseEventListFilterState {
       this.listHcrTeams,
       this.hcrTeams,
       this.listProcedures,
-      this.procedures,
-      this.listSubProcedures,
-      this.subProcedures})
+      this.procedures})
       : super._() {
     if (request == null) {
       throw new BuiltValueNullFieldError('CaseEventListFilterState', 'request');
@@ -350,14 +314,6 @@ class _$CaseEventListFilterState extends CaseEventListFilterState {
       throw new BuiltValueNullFieldError(
           'CaseEventListFilterState', 'procedures');
     }
-    if (listSubProcedures == null) {
-      throw new BuiltValueNullFieldError(
-          'CaseEventListFilterState', 'listSubProcedures');
-    }
-    if (subProcedures == null) {
-      throw new BuiltValueNullFieldError(
-          'CaseEventListFilterState', 'subProcedures');
-    }
   }
 
   @override
@@ -384,9 +340,7 @@ class _$CaseEventListFilterState extends CaseEventListFilterState {
         listHcrTeams == other.listHcrTeams &&
         hcrTeams == other.hcrTeams &&
         listProcedures == other.listProcedures &&
-        procedures == other.procedures &&
-        listSubProcedures == other.listSubProcedures &&
-        subProcedures == other.subProcedures;
+        procedures == other.procedures;
   }
 
   @override
@@ -401,24 +355,18 @@ class _$CaseEventListFilterState extends CaseEventListFilterState {
                                 $jc(
                                     $jc(
                                         $jc(
-                                            $jc(
-                                                $jc(
-                                                    $jc(
-                                                        $jc(0,
-                                                            request.hashCode),
-                                                        bizUnits.hashCode),
-                                                    listCaseTypes.hashCode),
-                                                caseTypes.hashCode),
-                                            listHospitals.hashCode),
-                                        hospitals.hashCode),
-                                    listPhysicians.hashCode),
-                                physicians.hashCode),
-                            listHcrTeams.hashCode),
-                        hcrTeams.hashCode),
-                    listProcedures.hashCode),
-                procedures.hashCode),
-            listSubProcedures.hashCode),
-        subProcedures.hashCode));
+                                            $jc($jc(0, request.hashCode),
+                                                bizUnits.hashCode),
+                                            listCaseTypes.hashCode),
+                                        caseTypes.hashCode),
+                                    listHospitals.hashCode),
+                                hospitals.hashCode),
+                            listPhysicians.hashCode),
+                        physicians.hashCode),
+                    listHcrTeams.hashCode),
+                hcrTeams.hashCode),
+            listProcedures.hashCode),
+        procedures.hashCode));
   }
 
   @override
@@ -435,9 +383,7 @@ class _$CaseEventListFilterState extends CaseEventListFilterState {
           ..add('listHcrTeams', listHcrTeams)
           ..add('hcrTeams', hcrTeams)
           ..add('listProcedures', listProcedures)
-          ..add('procedures', procedures)
-          ..add('listSubProcedures', listSubProcedures)
-          ..add('subProcedures', subProcedures))
+          ..add('procedures', procedures))
         .toString();
   }
 }
@@ -555,26 +501,6 @@ class CaseEventListFilterStateBuilder
   set procedures(ListBuilder<ListProceduresForSearchApiProcedure> procedures) =>
       _$this._procedures = procedures;
 
-  CommandStateBuilder<ApiCommand<ListSubProceduresApiRequest>,
-      ApiResult<ListSubProceduresApiResponse>> _listSubProcedures;
-  CommandStateBuilder<ApiCommand<ListSubProceduresApiRequest>,
-          ApiResult<ListSubProceduresApiResponse>>
-      get listSubProcedures =>
-          _$this._listSubProcedures ??= new CommandStateBuilder<
-              ApiCommand<ListSubProceduresApiRequest>,
-              ApiResult<ListSubProceduresApiResponse>>();
-  set listSubProcedures(
-          CommandStateBuilder<ApiCommand<ListSubProceduresApiRequest>,
-                  ApiResult<ListSubProceduresApiResponse>>
-              listSubProcedures) =>
-      _$this._listSubProcedures = listSubProcedures;
-
-  ListBuilder<SubProcedure> _subProcedures;
-  ListBuilder<SubProcedure> get subProcedures =>
-      _$this._subProcedures ??= new ListBuilder<SubProcedure>();
-  set subProcedures(ListBuilder<SubProcedure> subProcedures) =>
-      _$this._subProcedures = subProcedures;
-
   CaseEventListFilterStateBuilder();
 
   CaseEventListFilterStateBuilder get _$this {
@@ -591,8 +517,6 @@ class CaseEventListFilterStateBuilder
       _hcrTeams = _$v.hcrTeams?.toBuilder();
       _listProcedures = _$v.listProcedures?.toBuilder();
       _procedures = _$v.procedures?.toBuilder();
-      _listSubProcedures = _$v.listSubProcedures?.toBuilder();
-      _subProcedures = _$v.subProcedures?.toBuilder();
       _$v = null;
     }
     return this;
@@ -628,9 +552,7 @@ class CaseEventListFilterStateBuilder
               listHcrTeams: listHcrTeams.build(),
               hcrTeams: hcrTeams.build(),
               listProcedures: listProcedures.build(),
-              procedures: procedures.build(),
-              listSubProcedures: listSubProcedures.build(),
-              subProcedures: subProcedures.build());
+              procedures: procedures.build());
     } catch (_) {
       String _$failedField;
       try {
@@ -658,10 +580,6 @@ class CaseEventListFilterStateBuilder
         listProcedures.build();
         _$failedField = 'procedures';
         procedures.build();
-        _$failedField = 'listSubProcedures';
-        listSubProcedures.build();
-        _$failedField = 'subProcedures';
-        subProcedures.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             'CaseEventListFilterState', _$failedField, e.toString());
@@ -805,8 +723,6 @@ class _$CaseEventListFilterActions extends CaseEventListFilterActions {
   final ListProceduresForSearchApi listProcedures;
   final FieldDispatcher<BuiltList<ListProceduresForSearchApiProcedure>>
       procedures;
-  final ListSubProceduresApi listSubProcedures;
-  final FieldDispatcher<BuiltList<SubProcedure>> subProcedures;
 
   _$CaseEventListFilterActions._(this.options$)
       : replace$ = options$.action<CaseEventListFilterState>(
@@ -919,22 +835,6 @@ class _$CaseEventListFilterActions extends CaseEventListFilterActions {
                 (a) => a?.procedures,
                 (s) => s?.procedures,
                 (p, b) => p?.procedures = b),
-        listSubProcedures = ListSubProceduresApi(() => options$.stateful<
-                CommandState<ApiCommand<ListSubProceduresApiRequest>,
-                    ApiResult<ListSubProceduresApiResponse>>,
-                CommandStateBuilder<ApiCommand<ListSubProceduresApiRequest>,
-                    ApiResult<ListSubProceduresApiResponse>>,
-                ListSubProceduresApi>(
-            'listSubProcedures',
-            (a) => a.listSubProcedures,
-            (s) => s?.listSubProcedures,
-            (b) => b?.listSubProcedures,
-            (parent, builder) => parent?.listSubProcedures = builder)),
-        subProcedures = options$.field<BuiltList<SubProcedure>>(
-            'subProcedures',
-            (a) => a?.subProcedures,
-            (s) => s?.subProcedures,
-            (p, b) => p?.subProcedures = b),
         super._();
 
   factory _$CaseEventListFilterActions(
@@ -954,7 +854,6 @@ class _$CaseEventListFilterActions extends CaseEventListFilterActions {
         this.listPhysicians,
         this.searchHcrTeams,
         this.listProcedures,
-        this.listSubProcedures,
       ]);
 
   BuiltList<ActionDispatcher> _actions$;
@@ -972,7 +871,6 @@ class _$CaseEventListFilterActions extends CaseEventListFilterActions {
         this.physicians,
         this.hcrTeams,
         this.procedures,
-        this.subProcedures,
       ]);
 
   @override
@@ -990,8 +888,6 @@ class _$CaseEventListFilterActions extends CaseEventListFilterActions {
     hcrTeams.reducer$(reducer);
     listProcedures.reducer$(reducer);
     procedures.reducer$(reducer);
-    listSubProcedures.reducer$(reducer);
-    subProcedures.reducer$(reducer);
   }
 
   @override
@@ -1003,7 +899,6 @@ class _$CaseEventListFilterActions extends CaseEventListFilterActions {
     listPhysicians.middleware$(middleware);
     searchHcrTeams.middleware$(middleware);
     listProcedures.middleware$(middleware);
-    listSubProcedures.middleware$(middleware);
   }
 
   @override

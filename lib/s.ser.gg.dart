@@ -132,28 +132,28 @@ import 'package:movemedical_api/model/action/case_event/list_procedures_for_sear
     as _94;
 import 'package:movemedical_api/model/action/case_event/list_procedures_for_search_api_procedure.dart'
     as _95;
-import 'package:movemedical_api/model/action/case_event/list_sub_procedures_api_request.dart'
-    as _96;
-import 'package:movemedical_api/model/action/case_event/list_sub_procedures_api_response.dart'
-    as _97;
-import 'package:movemedical_api/model/sub_procedure.dart' as _98;
-import 'package:movemedical_model/scheduling/case_event/create.dart' as _99;
+import 'package:movemedical_model/scheduling/case_event/create.dart' as _96;
 import 'package:movemedical_api/model/action/case_event/create_case_event_api_request.dart'
-    as _100;
+    as _97;
 import 'package:movemedical_api/model/sql/enums/length_measurement_type.dart'
-    as _101;
+    as _98;
 import 'package:movemedical_api/model/sql/enums/weight_measurement_type.dart'
-    as _102;
-import 'package:movemedical_api/model/sql/enums/ethnicity.dart' as _103;
+    as _99;
+import 'package:movemedical_api/model/sql/enums/ethnicity.dart' as _100;
 import 'package:movemedical_api/model/action/case_event/create_case_event_api_insurance.dart'
-    as _104;
-import 'package:movemedical_api/model/case_custom_value.dart' as _105;
-import 'package:movemedical_api/model/procedure.dart' as _106;
+    as _101;
+import 'package:movemedical_api/model/case_custom_value.dart' as _102;
+import 'package:movemedical_api/model/procedure.dart' as _103;
+import 'package:movemedical_api/model/sub_procedure.dart' as _104;
 import 'package:movemedical_api/model/action/case_event/create_case_event_api_response.dart'
-    as _107;
+    as _105;
 import 'package:movemedical_api/model/action/case_event/list_procedures_for_scheduling_api_request.dart'
-    as _108;
+    as _106;
 import 'package:movemedical_api/model/action/case_event/list_procedures_for_scheduling_api_response.dart'
+    as _107;
+import 'package:movemedical_api/model/action/case_event/list_sub_procedures_api_request.dart'
+    as _108;
+import 'package:movemedical_api/model/action/case_event/list_sub_procedures_api_response.dart'
     as _109;
 import 'package:movemedical_model/scheduling/case_event/detail.dart' as _110;
 import 'package:movemedical_api/model/action/case_event/get_case_event_detail_api_request.dart'
@@ -360,12 +360,12 @@ SerializersBuilder $serializers() => (Serializers().toBuilder()
   ..addBuilderFactory(
       FullType(BuiltList, [FullType(_95.ListProceduresForSearchApiProcedure)]),
       () => ListBuilder<_95.ListProceduresForSearchApiProcedure>())
-  ..addBuilderFactory(FullType(BuiltList, [FullType(_98.SubProcedure)]),
-      () => ListBuilder<_98.SubProcedure>())
-  ..addBuilderFactory(FullType(BuiltList, [FullType(_105.CaseCustomValue)]),
-      () => ListBuilder<_105.CaseCustomValue>())
-  ..addBuilderFactory(FullType(BuiltList, [FullType(_106.Procedure)]),
-      () => ListBuilder<_106.Procedure>())
+  ..addBuilderFactory(FullType(BuiltList, [FullType(_102.CaseCustomValue)]),
+      () => ListBuilder<_102.CaseCustomValue>())
+  ..addBuilderFactory(FullType(BuiltList, [FullType(_103.Procedure)]),
+      () => ListBuilder<_103.Procedure>())
+  ..addBuilderFactory(FullType(BuiltList, [FullType(_104.SubProcedure)]),
+      () => ListBuilder<_104.SubProcedure>())
   ..addBuilderFactory(FullType(BuiltList, [FullType(_121.OrderHeaderLite)]),
       () => ListBuilder<_121.OrderHeaderLite>())
   ..addBuilderFactory(
@@ -420,15 +420,15 @@ SerializersBuilder $serializers() => (Serializers().toBuilder()
           _1.ApiCommand, [FullType(_91.ListProceduresForSearchApiRequest)]),
       () => _1.ApiCommandBuilder<_91.ListProceduresForSearchApiRequest>())
   ..addBuilderFactory(
-      FullType(_1.ApiCommand, [FullType(_96.ListSubProceduresApiRequest)]),
-      () => _1.ApiCommandBuilder<_96.ListSubProceduresApiRequest>())
-  ..addBuilderFactory(
-      FullType(_1.ApiCommand, [FullType(_100.CreateCaseEventApiRequest)]),
-      () => _1.ApiCommandBuilder<_100.CreateCaseEventApiRequest>())
+      FullType(_1.ApiCommand, [FullType(_97.CreateCaseEventApiRequest)]),
+      () => _1.ApiCommandBuilder<_97.CreateCaseEventApiRequest>())
   ..addBuilderFactory(
       FullType(_1.ApiCommand,
-          [FullType(_108.ListProceduresForSchedulingApiRequest)]),
-      () => _1.ApiCommandBuilder<_108.ListProceduresForSchedulingApiRequest>())
+          [FullType(_106.ListProceduresForSchedulingApiRequest)]),
+      () => _1.ApiCommandBuilder<_106.ListProceduresForSchedulingApiRequest>())
+  ..addBuilderFactory(
+      FullType(_1.ApiCommand, [FullType(_108.ListSubProceduresApiRequest)]),
+      () => _1.ApiCommandBuilder<_108.ListSubProceduresApiRequest>())
   ..addBuilderFactory(
       FullType(_1.ApiCommand, [FullType(_111.GetCaseEventDetailApiRequest)]),
       () => _1.ApiCommandBuilder<_111.GetCaseEventDetailApiRequest>())
@@ -472,15 +472,15 @@ SerializersBuilder $serializers() => (Serializers().toBuilder()
           _1.ApiResult, [FullType(_94.ListProceduresForSearchApiResponse)]),
       () => _1.ApiResultBuilder<_94.ListProceduresForSearchApiResponse>())
   ..addBuilderFactory(
-      FullType(_1.ApiResult, [FullType(_97.ListSubProceduresApiResponse)]),
-      () => _1.ApiResultBuilder<_97.ListSubProceduresApiResponse>())
-  ..addBuilderFactory(
-      FullType(_1.ApiResult, [FullType(_107.CreateCaseEventApiResponse)]),
-      () => _1.ApiResultBuilder<_107.CreateCaseEventApiResponse>())
+      FullType(_1.ApiResult, [FullType(_105.CreateCaseEventApiResponse)]),
+      () => _1.ApiResultBuilder<_105.CreateCaseEventApiResponse>())
   ..addBuilderFactory(
       FullType(_1.ApiResult,
-          [FullType(_109.ListProceduresForSchedulingApiResponse)]),
-      () => _1.ApiResultBuilder<_109.ListProceduresForSchedulingApiResponse>())
+          [FullType(_107.ListProceduresForSchedulingApiResponse)]),
+      () => _1.ApiResultBuilder<_107.ListProceduresForSchedulingApiResponse>())
+  ..addBuilderFactory(
+      FullType(_1.ApiResult, [FullType(_109.ListSubProceduresApiResponse)]),
+      () => _1.ApiResultBuilder<_109.ListSubProceduresApiResponse>())
   ..addBuilderFactory(
       FullType(_1.ApiResult, [FullType(_112.GetCaseEventDetailApiResponse)]),
       () => _1.ApiResultBuilder<_112.GetCaseEventDetailApiResponse>())
@@ -571,31 +571,32 @@ SerializersBuilder $serializers() => (Serializers().toBuilder()
           _1.ApiCommand<_91.ListProceduresForSearchApiRequest>>())
   ..addBuilderFactory(
       FullType(_3.Command, [
-        FullType(_1.ApiCommand, [FullType(_96.ListSubProceduresApiRequest)])
-      ]),
-      () => _3.CommandBuilder<_1.ApiCommand<_96.ListSubProceduresApiRequest>>())
-  ..addBuilderFactory(
-      FullType(_3.Command, [
         FullType(_54.RouteCommand, [FullType(_76.CaseEventListFilterState)])
       ]),
       () => _3.CommandBuilder<_54.RouteCommand<_76.CaseEventListFilterState>>())
   ..addBuilderFactory(
       FullType(_3.Command, [
-        FullType(_1.ApiCommand, [FullType(_100.CreateCaseEventApiRequest)])
+        FullType(_1.ApiCommand, [FullType(_97.CreateCaseEventApiRequest)])
       ]),
-      () => _3.CommandBuilder<_1.ApiCommand<_100.CreateCaseEventApiRequest>>())
+      () => _3.CommandBuilder<_1.ApiCommand<_97.CreateCaseEventApiRequest>>())
   ..addBuilderFactory(
       FullType(_3.Command, [
         FullType(_1.ApiCommand,
-            [FullType(_108.ListProceduresForSchedulingApiRequest)])
+            [FullType(_106.ListProceduresForSchedulingApiRequest)])
       ]),
       () => _3.CommandBuilder<
-          _1.ApiCommand<_108.ListProceduresForSchedulingApiRequest>>())
+          _1.ApiCommand<_106.ListProceduresForSchedulingApiRequest>>())
   ..addBuilderFactory(
       FullType(_3.Command, [
-        FullType(_54.RouteCommand, [FullType(_99.CreateCaseEventState)])
+        FullType(_1.ApiCommand, [FullType(_108.ListSubProceduresApiRequest)])
       ]),
-      () => _3.CommandBuilder<_54.RouteCommand<_99.CreateCaseEventState>>())
+      () =>
+          _3.CommandBuilder<_1.ApiCommand<_108.ListSubProceduresApiRequest>>())
+  ..addBuilderFactory(
+      FullType(_3.Command, [
+        FullType(_54.RouteCommand, [FullType(_96.CreateCaseEventState)])
+      ]),
+      () => _3.CommandBuilder<_54.RouteCommand<_96.CreateCaseEventState>>())
   ..addBuilderFactory(
       FullType(_3.Command, [
         FullType(_1.ApiCommand, [FullType(_111.GetCaseEventDetailApiRequest)])
@@ -643,8 +644,7 @@ SerializersBuilder $serializers() => (Serializers().toBuilder()
       FullType(_3.Command, [
         FullType(_1.ApiCommand, [FullType(_149.CreateConversationApiRequest)])
       ]),
-      () =>
-          _3.CommandBuilder<_1.ApiCommand<_149.CreateConversationApiRequest>>())
+      () => _3.CommandBuilder<_1.ApiCommand<_149.CreateConversationApiRequest>>())
   ..addBuilderFactory(
       FullType(_3.Command, [
         FullType(_54.RouteCommand, [FullType(_148.CreateConversationState)])
@@ -711,30 +711,30 @@ SerializersBuilder $serializers() => (Serializers().toBuilder()
       () => _3.CommandResultBuilder<_1.ApiResult<_94.ListProceduresForSearchApiResponse>>())
   ..addBuilderFactory(
       FullType(_3.CommandResult, [
-        FullType(_1.ApiResult, [FullType(_97.ListSubProceduresApiResponse)])
-      ]),
-      () => _3.CommandResultBuilder<_1.ApiResult<_97.ListSubProceduresApiResponse>>())
-  ..addBuilderFactory(
-      FullType(_3.CommandResult, [
         FullType(_54.RouteResult, [FullType(_65.ListCaseEventsApiRequest)])
       ]),
       () => _3.CommandResultBuilder<_54.RouteResult<_65.ListCaseEventsApiRequest>>())
   ..addBuilderFactory(
       FullType(_3.CommandResult, [
-        FullType(_1.ApiResult, [FullType(_107.CreateCaseEventApiResponse)])
+        FullType(_1.ApiResult, [FullType(_105.CreateCaseEventApiResponse)])
       ]),
-      () => _3.CommandResultBuilder<_1.ApiResult<_107.CreateCaseEventApiResponse>>())
+      () => _3.CommandResultBuilder<_1.ApiResult<_105.CreateCaseEventApiResponse>>())
   ..addBuilderFactory(
       FullType(_3.CommandResult, [
         FullType(_1.ApiResult,
-            [FullType(_109.ListProceduresForSchedulingApiResponse)])
+            [FullType(_107.ListProceduresForSchedulingApiResponse)])
       ]),
-      () => _3.CommandResultBuilder<_1.ApiResult<_109.ListProceduresForSchedulingApiResponse>>())
+      () => _3.CommandResultBuilder<_1.ApiResult<_107.ListProceduresForSchedulingApiResponse>>())
   ..addBuilderFactory(
       FullType(_3.CommandResult, [
-        FullType(_54.RouteResult, [FullType(_107.CreateCaseEventApiResponse)])
+        FullType(_1.ApiResult, [FullType(_109.ListSubProceduresApiResponse)])
       ]),
-      () => _3.CommandResultBuilder<_54.RouteResult<_107.CreateCaseEventApiResponse>>())
+      () => _3.CommandResultBuilder<_1.ApiResult<_109.ListSubProceduresApiResponse>>())
+  ..addBuilderFactory(
+      FullType(_3.CommandResult, [
+        FullType(_54.RouteResult, [FullType(_105.CreateCaseEventApiResponse)])
+      ]),
+      () => _3.CommandResultBuilder<_54.RouteResult<_105.CreateCaseEventApiResponse>>())
   ..addBuilderFactory(
       FullType(_3.CommandResult, [
         FullType(_1.ApiResult, [FullType(_112.GetCaseEventDetailApiResponse)])
@@ -862,36 +862,36 @@ SerializersBuilder $serializers() => (Serializers().toBuilder()
       () => _3.CommandStateBuilder<_1.ApiCommand<_91.ListProceduresForSearchApiRequest>, _1.ApiResult<_94.ListProceduresForSearchApiResponse>>())
   ..addBuilderFactory(
       FullType(_3.CommandState, [
-        FullType(_1.ApiCommand, [FullType(_96.ListSubProceduresApiRequest)]),
-        FullType(_1.ApiResult, [FullType(_97.ListSubProceduresApiResponse)])
-      ]),
-      () => _3.CommandStateBuilder<_1.ApiCommand<_96.ListSubProceduresApiRequest>, _1.ApiResult<_97.ListSubProceduresApiResponse>>())
-  ..addBuilderFactory(
-      FullType(_3.CommandState, [
         FullType(_54.RouteCommand, [FullType(_76.CaseEventListFilterState)]),
         FullType(_54.RouteResult, [FullType(_65.ListCaseEventsApiRequest)])
       ]),
       () => _3.CommandStateBuilder<_54.RouteCommand<_76.CaseEventListFilterState>, _54.RouteResult<_65.ListCaseEventsApiRequest>>())
   ..addBuilderFactory(
       FullType(_3.CommandState, [
-        FullType(_1.ApiCommand, [FullType(_100.CreateCaseEventApiRequest)]),
-        FullType(_1.ApiResult, [FullType(_107.CreateCaseEventApiResponse)])
+        FullType(_1.ApiCommand, [FullType(_97.CreateCaseEventApiRequest)]),
+        FullType(_1.ApiResult, [FullType(_105.CreateCaseEventApiResponse)])
       ]),
-      () => _3.CommandStateBuilder<_1.ApiCommand<_100.CreateCaseEventApiRequest>, _1.ApiResult<_107.CreateCaseEventApiResponse>>())
+      () => _3.CommandStateBuilder<_1.ApiCommand<_97.CreateCaseEventApiRequest>, _1.ApiResult<_105.CreateCaseEventApiResponse>>())
   ..addBuilderFactory(
       FullType(_3.CommandState, [
         FullType(_1.ApiCommand,
-            [FullType(_108.ListProceduresForSchedulingApiRequest)]),
+            [FullType(_106.ListProceduresForSchedulingApiRequest)]),
         FullType(_1.ApiResult,
-            [FullType(_109.ListProceduresForSchedulingApiResponse)])
+            [FullType(_107.ListProceduresForSchedulingApiResponse)])
       ]),
-      () => _3.CommandStateBuilder<_1.ApiCommand<_108.ListProceduresForSchedulingApiRequest>, _1.ApiResult<_109.ListProceduresForSchedulingApiResponse>>())
+      () => _3.CommandStateBuilder<_1.ApiCommand<_106.ListProceduresForSchedulingApiRequest>, _1.ApiResult<_107.ListProceduresForSchedulingApiResponse>>())
   ..addBuilderFactory(
       FullType(_3.CommandState, [
-        FullType(_54.RouteCommand, [FullType(_99.CreateCaseEventState)]),
-        FullType(_54.RouteResult, [FullType(_107.CreateCaseEventApiResponse)])
+        FullType(_1.ApiCommand, [FullType(_108.ListSubProceduresApiRequest)]),
+        FullType(_1.ApiResult, [FullType(_109.ListSubProceduresApiResponse)])
       ]),
-      () => _3.CommandStateBuilder<_54.RouteCommand<_99.CreateCaseEventState>, _54.RouteResult<_107.CreateCaseEventApiResponse>>())
+      () => _3.CommandStateBuilder<_1.ApiCommand<_108.ListSubProceduresApiRequest>, _1.ApiResult<_109.ListSubProceduresApiResponse>>())
+  ..addBuilderFactory(
+      FullType(_3.CommandState, [
+        FullType(_54.RouteCommand, [FullType(_96.CreateCaseEventState)]),
+        FullType(_54.RouteResult, [FullType(_105.CreateCaseEventApiResponse)])
+      ]),
+      () => _3.CommandStateBuilder<_54.RouteCommand<_96.CreateCaseEventState>, _54.RouteResult<_105.CreateCaseEventApiResponse>>())
   ..addBuilderFactory(
       FullType(_3.CommandState, [
         FullType(_1.ApiCommand, [FullType(_111.GetCaseEventDetailApiRequest)]),
@@ -1032,7 +1032,7 @@ SerializersBuilder $serializers() => (Serializers().toBuilder()
   ..addBuilderFactory(FullType(_54.RouteCommand, [FullType(_58.LoginState)]), () => _54.RouteCommandBuilder<_58.LoginState>())
   ..addBuilderFactory(FullType(_54.RouteCommand, [FullType(_64.CaseEventListState)]), () => _54.RouteCommandBuilder<_64.CaseEventListState>())
   ..addBuilderFactory(FullType(_54.RouteCommand, [FullType(_76.CaseEventListFilterState)]), () => _54.RouteCommandBuilder<_76.CaseEventListFilterState>())
-  ..addBuilderFactory(FullType(_54.RouteCommand, [FullType(_99.CreateCaseEventState)]), () => _54.RouteCommandBuilder<_99.CreateCaseEventState>())
+  ..addBuilderFactory(FullType(_54.RouteCommand, [FullType(_96.CreateCaseEventState)]), () => _54.RouteCommandBuilder<_96.CreateCaseEventState>())
   ..addBuilderFactory(FullType(_54.RouteCommand, [FullType(_110.CaseEventDetailState)]), () => _54.RouteCommandBuilder<_110.CaseEventDetailState>())
   ..addBuilderFactory(FullType(_54.RouteCommand, [FullType(_139.ConversationListFilterState)]), () => _54.RouteCommandBuilder<_139.ConversationListFilterState>())
   ..addBuilderFactory(FullType(_54.RouteCommand, [FullType(_140.UpdateConversationState)]), () => _54.RouteCommandBuilder<_140.UpdateConversationState>())
@@ -1042,7 +1042,7 @@ SerializersBuilder $serializers() => (Serializers().toBuilder()
   ..addBuilderFactory(FullType(_54.RouteCommand, [FullType(_151.CreateMessageState)]), () => _54.RouteCommandBuilder<_151.CreateMessageState>())
   ..addBuilderFactory(FullType(_54.RouteResult, [FullType(_55.Nothing)]), () => _54.RouteResultBuilder<_55.Nothing>())
   ..addBuilderFactory(FullType(_54.RouteResult, [FullType(_65.ListCaseEventsApiRequest)]), () => _54.RouteResultBuilder<_65.ListCaseEventsApiRequest>())
-  ..addBuilderFactory(FullType(_54.RouteResult, [FullType(_107.CreateCaseEventApiResponse)]), () => _54.RouteResultBuilder<_107.CreateCaseEventApiResponse>())
+  ..addBuilderFactory(FullType(_54.RouteResult, [FullType(_105.CreateCaseEventApiResponse)]), () => _54.RouteResultBuilder<_105.CreateCaseEventApiResponse>())
   ..addBuilderFactory(FullType(_54.RouteResult, [FullType(_134.ListConversationsApiRequest)]), () => _54.RouteResultBuilder<_134.ListConversationsApiRequest>())
   ..addBuilderFactory(FullType(_54.RouteResult, [FullType(_150.CreateConversationApiResponse)]), () => _54.RouteResultBuilder<_150.CreateConversationApiResponse>())
   ..addBuilderFactory(FullType(_54.RouteResult, [FullType(_153.CreateMessageApiResponse)]), () => _54.RouteResultBuilder<_153.CreateMessageApiResponse>())
@@ -1089,20 +1089,20 @@ SerializersBuilder $serializers() => (Serializers().toBuilder()
   ..add(_93.ListProceduresForSearchApiOrderBy.serializer)
   ..add(_94.ListProceduresForSearchApiResponse.serializer)
   ..add(_95.ListProceduresForSearchApiProcedure.serializer)
-  ..add(_96.ListSubProceduresApiRequest.serializer)
-  ..add(_97.ListSubProceduresApiResponse.serializer)
-  ..add(_98.SubProcedure.serializer)
-  ..add(_99.CreateCaseEventState.serializer)
-  ..add(_100.CreateCaseEventApiRequest.serializer)
-  ..add(_101.LengthMeasurementType.serializer)
-  ..add(_102.WeightMeasurementType.serializer)
-  ..add(_103.Ethnicity.serializer)
-  ..add(_104.CreateCaseEventApiInsurance.serializer)
-  ..add(_105.CaseCustomValue.serializer)
-  ..add(_106.Procedure.serializer)
-  ..add(_107.CreateCaseEventApiResponse.serializer)
-  ..add(_108.ListProceduresForSchedulingApiRequest.serializer)
-  ..add(_109.ListProceduresForSchedulingApiResponse.serializer)
+  ..add(_96.CreateCaseEventState.serializer)
+  ..add(_97.CreateCaseEventApiRequest.serializer)
+  ..add(_98.LengthMeasurementType.serializer)
+  ..add(_99.WeightMeasurementType.serializer)
+  ..add(_100.Ethnicity.serializer)
+  ..add(_101.CreateCaseEventApiInsurance.serializer)
+  ..add(_102.CaseCustomValue.serializer)
+  ..add(_103.Procedure.serializer)
+  ..add(_104.SubProcedure.serializer)
+  ..add(_105.CreateCaseEventApiResponse.serializer)
+  ..add(_106.ListProceduresForSchedulingApiRequest.serializer)
+  ..add(_107.ListProceduresForSchedulingApiResponse.serializer)
+  ..add(_108.ListSubProceduresApiRequest.serializer)
+  ..add(_109.ListSubProceduresApiResponse.serializer)
   ..add(_110.CaseEventDetailState.serializer)
   ..add(_111.GetCaseEventDetailApiRequest.serializer)
   ..add(_112.GetCaseEventDetailApiResponse.serializer)
