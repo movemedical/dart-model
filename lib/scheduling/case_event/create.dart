@@ -112,12 +112,30 @@ abstract class CreateCaseEventActions extends DialogActions<
   void middleware$(AppMiddlewareBuilder middleware) {
     super.middleware$(middleware);
 
-//    middleware.nest(this)
-//      ..add(cmdLoad.$result, (api, next, action) {
-//        if (action?.payload?.payload is GetCreateCaseEventApiResponse) {
-//          model.$reset(action.payload.payload as GetCreateCaseEventApiResponse);
-//        }
-//      });
+    middleware.nest(this)
+      ..add(
+          bizUnit,
+          (api, next, Action<GetUiSetupAllApiBizUnit> action) =>
+              request.bizUnitId.value$ = action?.payload?.id)
+      ..add(
+          caseType,
+          (api, next, Action<CaseType> action) =>
+              request.caseTypeId.value$ = action?.payload?.id)
+      ..add(
+          procedure,
+          (api, next, Action<Procedure> action) =>
+              request.procedureId.value$ = action?.payload?.id)
+      ..add(
+          subProcedure,
+          (api, next, Action<SubProcedure> action) =>
+              request.subProcedureId.value$ = action?.payload?.id)
+      ..add(
+          physician,
+          (api, next, Action<Physician> action) =>
+              request.surgeonPhysicianId.value$ = action?.payload?.id)
+      ..add(hospital,
+          (api, next, Action<Hospital> action) => request.facilityId.value$ = action?.payload?.id)
+      ..add(hcrTeam, (api, next, Action<HcrTeam> action) => request.hcrId.value$ = action?.payload?.id);
   }
 
   ////////////////////////////////////

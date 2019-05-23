@@ -91,6 +91,9 @@ abstract class CaseEventListFilterActions extends DialogActions<
   @override
   void middleware$(AppMiddlewareBuilder builder) {
     super.middleware$(builder);
+    // Bind fields to their request counterpart.
+    // Type signatures for Actions are only their because the IDE is
+    // incorrectly unable to resolve them, so let's help it.
     builder.nest(this)
       ..add(
           bizUnits,
