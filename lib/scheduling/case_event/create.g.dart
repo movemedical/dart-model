@@ -72,6 +72,12 @@ class _$CreateCaseEventStateSerializer
         ..add(serializers.serialize(object.hcrTeam,
             specifiedType: const FullType(HcrTeam)));
     }
+    if (object.coverage != null) {
+      result
+        ..add('coverage')
+        ..add(serializers.serialize(object.coverage,
+            specifiedType: const FullType(HcrTeam)));
+    }
     if (object.create != null) {
       result
         ..add('create')
@@ -202,6 +208,10 @@ class _$CreateCaseEventStateSerializer
           result.hcrTeam.replace(serializers.deserialize(value,
               specifiedType: const FullType(HcrTeam)) as HcrTeam);
           break;
+        case 'coverage':
+          result.coverage.replace(serializers.deserialize(value,
+              specifiedType: const FullType(HcrTeam)) as HcrTeam);
+          break;
         case 'create':
           result.create.replace(serializers.deserialize(value,
                   specifiedType: const FullType(CommandState, const [
@@ -313,6 +323,8 @@ class _$CreateCaseEventState extends CreateCaseEventState {
   @override
   final HcrTeam hcrTeam;
   @override
+  final HcrTeam coverage;
+  @override
   final CommandState<ApiCommand<CreateCaseEventApiRequest>,
       ApiResult<CreateCaseEventApiResponse>> create;
   @override
@@ -348,6 +360,7 @@ class _$CreateCaseEventState extends CreateCaseEventState {
       this.physician,
       this.hospital,
       this.hcrTeam,
+      this.coverage,
       this.create,
       this.searchHcrTeams,
       this.listSurgeonPhysicians,
@@ -377,6 +390,7 @@ class _$CreateCaseEventState extends CreateCaseEventState {
         physician == other.physician &&
         hospital == other.hospital &&
         hcrTeam == other.hcrTeam &&
+        coverage == other.coverage &&
         create == other.create &&
         searchHcrTeams == other.searchHcrTeams &&
         listSurgeonPhysicians == other.listSurgeonPhysicians &&
@@ -403,16 +417,19 @@ class _$CreateCaseEventState extends CreateCaseEventState {
                                                     $jc(
                                                         $jc(
                                                             $jc(
-                                                                0,
-                                                                request
+                                                                $jc(
+                                                                    0,
+                                                                    request
+                                                                        .hashCode),
+                                                                bizUnit
                                                                     .hashCode),
-                                                            bizUnit.hashCode),
-                                                        caseType.hashCode),
-                                                    procedure.hashCode),
-                                                subProcedure.hashCode),
-                                            physician.hashCode),
-                                        hospital.hashCode),
-                                    hcrTeam.hashCode),
+                                                            caseType.hashCode),
+                                                        procedure.hashCode),
+                                                    subProcedure.hashCode),
+                                                physician.hashCode),
+                                            hospital.hashCode),
+                                        hcrTeam.hashCode),
+                                    coverage.hashCode),
                                 create.hashCode),
                             searchHcrTeams.hashCode),
                         listSurgeonPhysicians.hashCode),
@@ -433,6 +450,7 @@ class _$CreateCaseEventState extends CreateCaseEventState {
           ..add('physician', physician)
           ..add('hospital', hospital)
           ..add('hcrTeam', hcrTeam)
+          ..add('coverage', coverage)
           ..add('create', create)
           ..add('searchHcrTeams', searchHcrTeams)
           ..add('listSurgeonPhysicians', listSurgeonPhysicians)
@@ -487,6 +505,10 @@ class CreateCaseEventStateBuilder
   HcrTeamBuilder _hcrTeam;
   HcrTeamBuilder get hcrTeam => _$this._hcrTeam ??= new HcrTeamBuilder();
   set hcrTeam(HcrTeamBuilder hcrTeam) => _$this._hcrTeam = hcrTeam;
+
+  HcrTeamBuilder _coverage;
+  HcrTeamBuilder get coverage => _$this._coverage ??= new HcrTeamBuilder();
+  set coverage(HcrTeamBuilder coverage) => _$this._coverage = coverage;
 
   CommandStateBuilder<ApiCommand<CreateCaseEventApiRequest>,
       ApiResult<CreateCaseEventApiResponse>> _create;
@@ -595,6 +617,7 @@ class CreateCaseEventStateBuilder
       _physician = _$v.physician?.toBuilder();
       _hospital = _$v.hospital?.toBuilder();
       _hcrTeam = _$v.hcrTeam?.toBuilder();
+      _coverage = _$v.coverage?.toBuilder();
       _create = _$v.create?.toBuilder();
       _searchHcrTeams = _$v.searchHcrTeams?.toBuilder();
       _listSurgeonPhysicians = _$v.listSurgeonPhysicians?.toBuilder();
@@ -634,6 +657,7 @@ class CreateCaseEventStateBuilder
               physician: _physician?.build(),
               hospital: _hospital?.build(),
               hcrTeam: _hcrTeam?.build(),
+              coverage: _coverage?.build(),
               create: _create?.build(),
               searchHcrTeams: _searchHcrTeams?.build(),
               listSurgeonPhysicians: _listSurgeonPhysicians?.build(),
@@ -660,6 +684,8 @@ class CreateCaseEventStateBuilder
         _hospital?.build();
         _$failedField = 'hcrTeam';
         _hcrTeam?.build();
+        _$failedField = 'coverage';
+        _coverage?.build();
         _$failedField = 'create';
         _create?.build();
         _$failedField = 'searchHcrTeams';
@@ -809,6 +835,7 @@ class _$CreateCaseEventActions extends CreateCaseEventActions {
   final FieldDispatcher<Physician> physician;
   final FieldDispatcher<Hospital> hospital;
   final FieldDispatcher<HcrTeam> hcrTeam;
+  final FieldDispatcher<HcrTeam> coverage;
   final CreateCaseEventApi create;
   final ListCaseTypesApi listCaseTypes;
   final ListSurgeonPhysiciansForSchedulingApi listSurgeonPhysicians;
@@ -852,6 +879,8 @@ class _$CreateCaseEventActions extends CreateCaseEventActions {
             (s) => s?.hospital, (p, b) => p?.hospital = b),
         hcrTeam = options$.field<HcrTeam>('hcrTeam', (a) => a?.hcrTeam,
             (s) => s?.hcrTeam, (p, b) => p?.hcrTeam = b),
+        coverage = options$.field<HcrTeam>('coverage', (a) => a?.coverage,
+            (s) => s?.coverage, (p, b) => p?.coverage = b),
         create = CreateCaseEventApi(() => options$.stateful<
                 CommandState<ApiCommand<CreateCaseEventApiRequest>,
                     ApiResult<CreateCaseEventApiResponse>>,
@@ -973,6 +1002,7 @@ class _$CreateCaseEventActions extends CreateCaseEventActions {
         this.physician,
         this.hospital,
         this.hcrTeam,
+        this.coverage,
       ]);
 
   @override
@@ -986,6 +1016,7 @@ class _$CreateCaseEventActions extends CreateCaseEventActions {
     physician.reducer$(reducer);
     hospital.reducer$(reducer);
     hcrTeam.reducer$(reducer);
+    coverage.reducer$(reducer);
     create.reducer$(reducer);
     listCaseTypes.reducer$(reducer);
     listSurgeonPhysicians.reducer$(reducer);

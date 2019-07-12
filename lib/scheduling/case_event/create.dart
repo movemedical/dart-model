@@ -79,6 +79,8 @@ abstract class CreateCaseEventActions extends DialogActions<
 
   FieldDispatcher<HcrTeam> get hcrTeam;
 
+  FieldDispatcher<HcrTeam> get coverage;
+
   ////////////////////////////////////
   /// Actions
   ////////////////////////////////////
@@ -121,21 +123,28 @@ abstract class CreateCaseEventActions extends DialogActions<
           caseType,
           (api, next, Action<CaseType> action) =>
               request.caseTypeId.value$ = action?.payload?.id)
-      ..add(
-          procedure,
-          (api, next, Action<Procedure> action) =>
-              request.procedureId.value$ = action?.payload?.id)
+      ..add(procedure, (api, next, Action<Procedure> action) {
+        request.procedureId.value$ = action?.payload?.id;
+      })
       ..add(
           subProcedure,
           (api, next, Action<SubProcedure> action) =>
               request.subProcedureId.value$ = action?.payload?.id)
+      ..add(physician, (api, next, Action<Physician> action) {
+        request.surgeonPhysicianId.value$ = action?.payload?.id;
+      })
       ..add(
-          physician,
-          (api, next, Action<Physician> action) =>
-              request.surgeonPhysicianId.value$ = action?.payload?.id)
-      ..add(hospital,
-          (api, next, Action<Hospital> action) => request.facilityId.value$ = action?.payload?.id)
-      ..add(hcrTeam, (api, next, Action<HcrTeam> action) => request.hcrId.value$ = action?.payload?.id);
+          hospital,
+          (api, next, Action<Hospital> action) =>
+              request.facilityId.value$ = action?.payload?.id)
+      ..add(
+          hcrTeam,
+          (api, next, Action<HcrTeam> action) =>
+              request.hcrId.value$ = action?.payload?.id)
+      ..add(
+          coverage,
+          (api, next, Action<HcrTeam> action) =>
+              request.coverageId.value$ = action?.payload?.id);
   }
 
   ////////////////////////////////////
@@ -177,6 +186,9 @@ abstract class CreateCaseEventState
 
   @nullable
   HcrTeam get hcrTeam;
+
+  @nullable
+  HcrTeam get coverage;
 
   @nullable
   CommandState<ApiCommand<CreateCaseEventApiRequest>,
